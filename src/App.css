@@ -89,12 +89,20 @@
 }
 
 .landing-panel-wrapper{
+  background-image: url('../src/components/assets/msss.png');
+  background-size: cover;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: white;
+  align-items: center; 
   position: relative;
 }
 
@@ -414,12 +422,18 @@
 }
 
 .landing-contact-wrapper{
+  background-image: url('../src/components/assets/fondi.png');
+  background-size: cover;
+  align-items: center; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100%;
-  background: #ccc;
+  height: 50vh;
+  width: 100%; 
   position: relative;
 }
 
