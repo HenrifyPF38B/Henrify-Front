@@ -10,23 +10,23 @@ const LandingPanel = ({refPanel, panelUp}) => {
   const members = [
     {
       name: "Barbara",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Barbara, from Argentina. 28 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
-      linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
+      linkLn:"https://linkedin.com/in/bárbara-lucía-senra",
       linkUrl:"https://github.com/HenrifyPF38B/Henrify-Front"
     },
     {
       name: "Diego",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Diego, from Colombia. 38 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
-      linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
+      linkLn:"https://www.linkedin.com/in/diegohurtado-sales-saas",
       linkUrl:"https://github.com/HenrifyPF38B/Henrify-Front"
     },
     {
       name: "Fauter",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Fauter, from Argentina. 22 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
@@ -34,7 +34,7 @@ const LandingPanel = ({refPanel, panelUp}) => {
     },
     {
       name: "Gabriela",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Gabriela, from Venezuela. 22 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
@@ -42,7 +42,7 @@ const LandingPanel = ({refPanel, panelUp}) => {
     },
     {
       name: "Ignacio",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Ignacio, from Argentina. 22 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
@@ -50,7 +50,7 @@ const LandingPanel = ({refPanel, panelUp}) => {
     },
     {
       name: "Jaider",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Jaider, from Argentina. 22 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
@@ -58,7 +58,7 @@ const LandingPanel = ({refPanel, panelUp}) => {
     },
     {
       name: "Rocio",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Rocio, from Argentina. 22 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
@@ -66,7 +66,7 @@ const LandingPanel = ({refPanel, panelUp}) => {
     },
     {
       name: "Sofia",
-      description:"Barbara, from Argentina. 22 Years Old, Full Stack Developer",
+      description:"Sofia, from Argentina. 22 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg:"https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn:"https://github.com/HenrifyPF38B/Henrify-Front",
