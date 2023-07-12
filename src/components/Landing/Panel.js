@@ -1,4 +1,4 @@
-import React, { CSSProperties, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import MemberTemplate from "../../templates/membersT";
 import { Link } from "react-router-dom";
 import sty from "./Panel.module.css";
@@ -35,7 +35,7 @@ const LandingPanel = ({ refPanel, panelUp }) => {
     {
       name: "Gabriela",
       description:
-        "Gabriela, from Venezuela. 22 Years Old, Full Stack Developer",
+        "Gabriela, from Venezuela. 18 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn: "https://github.com/HenrifyPF38B/Henrify-Front",
@@ -44,18 +44,18 @@ const LandingPanel = ({ refPanel, panelUp }) => {
     {
       name: "Ignacio",
       description:
-        "Ignacio, from Argentina. 22 Years Old, Full Stack Developer",
+        "Ignacio, from Argentina. 23 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
-      linkLn: "https://github.com/HenrifyPF38B/Henrify-Front",
+      linkLn: "https://www.linkedin.com/in/marcelo-cruz-ignacio-gramajo-feijoo-03932b257/",
       linkUrl: "https://github.com/HenrifyPF38B/Henrify-Front",
     },
     {
       name: "Jaider",
-      description: "Jaider, from Argentina. 22 Years Old, Full Stack Developer",
+      description: "Jaider, from Colombia. 20 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
-      linkLn: "https://github.com/HenrifyPF38B/Henrify-Front",
+      linkLn: "https://www.linkedin.com/in/jaider-nieto-588567238",
       linkUrl: "https://github.com/HenrifyPF38B/Henrify-Front",
     },
     {
@@ -68,10 +68,10 @@ const LandingPanel = ({ refPanel, panelUp }) => {
     },
     {
       name: "Sofia",
-      description: "Sofia, from Argentina. 22 Years Old, Full Stack Developer",
+      description: "Sofia, from Colombia. 20 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
-      linkLn: "https://github.com/HenrifyPF38B/Henrify-Front",
+      linkLn: "http://linkedin.com/in/marian-sofia-gutierrez-76b891267",
       linkUrl: "https://github.com/HenrifyPF38B/Henrify-Front",
     },
   ];

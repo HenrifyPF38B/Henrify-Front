@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { PlaylistProvider } from './contexts/playlistContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render( 
       <BrowserRouter>
-      <App />
+        <PlaylistProvider>
+          <App />
+        </PlaylistProvider>
       </BrowserRouter> 
   )
   

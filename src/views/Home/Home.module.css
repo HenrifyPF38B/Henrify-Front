@@ -1,0 +1,53 @@
+.container {
+  background: black;
+  width: 100%;
+  height: auto;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+}
+
+.container2 {
+  margin: auto;
+  margin-top: 35px;
+  background: rgba(121, 3, 115, 0.623);
+  border: 4px solid rgba(252, 252, 247, 0.479);
+  border-radius: 15px;
+  width: 90%;
+  height: 100%;
+  color: black;
+  padding: 2rem 0rem;
+  overflow-x: scroll;
+}
+
+.h2 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 15px;
+  margin-top: -25px;
+  margin-bottom: 10px;
+}
+.temas {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  color: white;
+}
+.container3 {
+  margin-top: 50px;
+  height: 500px;
+  border: 1px solid wheat;
+
+}
+
+
+.cardsWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 20px;
+}

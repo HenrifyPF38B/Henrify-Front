@@ -1,0 +1,71 @@
+.playlistModalArticle{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.playlistModalDiv{
+    position: relative;
+    width: 500px;
+    height: 700px;
+    overflow-y: auto;
+    background-color: #2f2e2e;
+    padding: 1rem;
+}
+
+.playlistModalBtn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background-color: palevioletred;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlistModalDetails{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.5rem 0.5rem;
+}
+
+.playlistModalDetails img{
+    width: 60px;
+    height: auto;
+}
+
+.playlistModalDetails span:first-child{
+    font-size: 14px;
+    color: palevioletred;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.playlistModalDetails span:last-child{
+    font-size: 16px;
+    color: whitsmoke;
+    letter-spacing: 0.5px;
+}
+
+.playlistModalCard{
+    position: relative;
+}
+
+.favorites{
+    position: absolute;
+    top:10px;
+    right:10px;
+    color: white;
+}
