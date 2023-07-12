@@ -13,8 +13,9 @@ const PlaylistModal = ({setModalOpen}) => {
                 <div className={styles.playlistModalBtn} onClick={()=> setModalOpen(false)}>
                     <i className="fa-solid fa-xmark"></i>
                 </div>
+                <h2 className={styles.playlistTitle}>Let's Party</h2>
                 {
-                    quantity.map(el => {
+                    quantity.map((el, index) => {
                         return(
                             <div className={styles.playlistModalCard}>
                                 <div className={styles.favorites}>
@@ -25,7 +26,7 @@ const PlaylistModal = ({setModalOpen}) => {
                                             <i className="fa-regular fa-heart" onClick={()=> setInFav(true)}></i>
                                     }
                                 </div>
-                                <div className={styles.playlistModalDetails}>
+                                <div className={styles.playlistModalDetails} style={{borderBottom: quantity.length !== index + 1 ? "1px solid rgba(0, 0, 0, 0.1)" : "none"}}>
                                     <img src={artista} alt="abc" />
                                     <div className='d-flex flex-column ms-4 gap-2'>
                                         <span>Drake</span>

@@ -8,6 +8,7 @@
     top: 0;
     left: 0;
     z-index: 999;
+    
 }
 
 .playlistModalDiv{
@@ -15,8 +16,11 @@
     width: 500px;
     height: 700px;
     overflow-y: auto;
-    background-color: #2f2e2e;
+    background-color: #f5f5f7;
     padding: 1rem;
+    border-width: 6px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #FB4EA3, #82378b) 1;
 }
 
 .playlistModalBtn{
@@ -37,13 +41,14 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding: 0.5rem 0.5rem;
+    padding: 2.3rem 0.5rem;
 }
 
 .playlistModalDetails img{
     width: 60px;
     height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 1rem gray;
 }
 
 .playlistModalDetails span:first-child{
@@ -67,5 +72,10 @@
     position: absolute;
     top:10px;
     right:10px;
-    color: white;
+    color: #222;
+}
+
+.playlistTitle{
+    padding-top: 2rem;
+    text-align: center;
 }

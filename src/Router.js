@@ -10,12 +10,12 @@ const Router = () => {
 
   return (
     <div>
-      {location.pathname !== '/' && <NavBar />}
       <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/album" element={<Album />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="album" element={<Album />} />
+        </Route>
         <Route index element={<LandingPage />} />
       </Routes>
     </div>
