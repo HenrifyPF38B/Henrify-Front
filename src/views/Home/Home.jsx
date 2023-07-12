@@ -3,6 +3,8 @@ import styles from "./Home.module.css";
 import TopRatedCard  from "../../components/Cards/topRatedCard"
 import { PlaylistContext } from "../../contexts/playlistContext";
 import PlaylistModal from "../../modals/playlistModal";
+import drake from "../../components/assets/quiente.jpg";
+
 
 const Home = () => { 
 
@@ -63,10 +65,10 @@ const Home = () => {
         }
         <div className={styles.container2}>
           <div className='d-flex align-items-center justify-content-between'>
-            <h2>Las mas escuchadas</h2>
-            <span style={{color:"palevioletred", fontSize:"14px"}}>Ver todas</span>
+            <h2>Popular Playlists</h2>
+            <span style={{color:"palevioletred", fontSize:"14px"}}>See all</span>
           </div>
-          <div ref={refSlider} className={styles.container3}>
+          <div ref={refSlider} className={styles.containerSlider}>
           {
               testCards.map((el, index) =>{
                 return(
@@ -80,12 +82,97 @@ const Home = () => {
             }
           </div>
         </div>
-        {/* <aside>
-          <h2 className={styles.temas}>Todos los temas</h2>
-          <div>
-            <h3>Un espacio para escuchar lo que pide tu día</h3>
+        <div className={styles.container2} style={{marginTop:"7rem"}}>
+          <div className='d-flex align-items-center justify-content-between'>
+            <h2>Popular Songs</h2>
+            <span style={{color:"palevioletred", fontSize:"14px"}}>See all</span>
           </div>
-        </aside> */}
+          <div ref={refSlider} className={styles.containerSlider}>
+          {
+              testCards.map((el, index) =>{
+                return(
+                  <TopRatedCard
+                    key={index}
+                    owner={"Soul Life"}
+                    playlist={"Let's Party"}
+                  />
+                )
+              })
+            }
+          </div>
+        </div>
+        <div className={styles.bestSellerWrapper}>
+          <div className={styles.bestSellerImg}>
+            {/* <img className='me-5' src="/images/star.svg" alt="abc" /> */}
+            <span>Best Seller Songs</span>
+            {/* <img className='ms-5' src="/images/surprise.svg" alt="abc" /> */}
+          </div>
+          <div className={styles.prizes}>
+
+              <div className={styles.prizesCard}>
+                <div className={styles.prizeImg}>
+                  <img src="/images/prize1.svg" alt="abc" />
+                </div>
+                <div className={styles.cardImg}>
+                  <img src="/images/drakecover.jpeg" alt="abc" />
+                </div>
+                <div className={styles.prizeArtist}>
+                  <img src={drake} alt="abc"/>
+                </div>
+                <div className={styles.span}>
+                  <span>Drake</span>
+                  <span>Knife Talk</span>
+                </div>
+              </div>
+              <div className={styles.prizesCard}>
+                <div className={styles.prizeImg}>
+                  <img src="/images/prize2.svg" alt="abc" />
+                </div>
+                <div className={styles.cardImg}>
+                  <img src="/images/drakecover.jpeg" alt="abc" />
+                </div>
+                <div className={styles.prizeArtist}>
+                  <img src={drake} alt="abc"/>
+                </div>
+                <div className={styles.span}>
+                  <span>Drake</span>
+                  <span>Knife Talk</span>
+                </div>
+              </div>
+              <div className={styles.prizesCard}>
+                <div className={styles.prizeImg}>
+                  <img src="/images/prize3.svg" alt="abc" />
+                </div>
+                <div className={styles.cardImg}>
+                  <img src="/images/drakecover.jpeg" alt="abc" />
+                </div>
+                <div className={styles.prizeArtist}>
+                  <img src={drake} alt="abc"/>
+                </div>
+                <div className={styles.span}>
+                  <span>Drake</span>
+                  <span>Knife Talk</span>
+                </div>
+              </div>
+              <div className={styles.prizesCard}>
+                <div className={styles.prizeImg}>
+                  <img src="/images/prize4.svg" alt="abc" />
+                </div>
+                <div className={styles.cardImg}>
+                  <img src="/images/drakecover.jpeg" alt="abc" />
+                </div>
+                <div className={styles.prizeArtist}>
+                  <img src={drake} alt="abc"/>
+                </div>
+                <div className={styles.span}>
+                  <span>Drake</span>
+                  <span>Knife Talk</span>
+                </div>
+              </div>
+              
+              
+          </div>
+        </div>
       </div>
     </div>
   );
