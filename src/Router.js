@@ -1,20 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from './components/Layout';
-import LandingPage from './pages/LandingPage';
+import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Layout from "./components/Layout";
+import LandingPage from "./pages/LandingPage";
+import { Home, About, Album } from "./views";
+import NavBar from "./components/NavBar/NavBar";
 
 const Router = () => {
-  return ( 
-    <BrowserRouter>
+  const location = useLocation();
+
+  return (
+    <div>
+      {location.pathname !== '/' && <NavBar />}
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          
-        </Route>
-        
-        <Route index element={<LandingPage/>}/>
+        <Route path="/" element={<Layout />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/album" element={<Album />} />
+        <Route index element={<LandingPage />} />
       </Routes>
-    </BrowserRouter>
-   );
-}
- 
+    </div>
+  );
+};
+
 export default Router;
