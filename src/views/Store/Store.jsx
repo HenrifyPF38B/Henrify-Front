@@ -10,9 +10,12 @@ const Store = () => {
 
   return ( 
     <div className={styles.wrapper}>
+    
       <aside className={styles.sideBar}>
         <DropdownMenu />
-      </aside>
+      </aside>    
+       <div className={styles.panel}>
+        <h2 className={styles.banner}>What do you want to hear today?</h2>
       <div className={styles.cards}>
         {
           quantity.map((el, index) => {
@@ -27,6 +30,7 @@ const Store = () => {
         }
       </div>
     </div>
+    </div> 
    );
 }
  

@@ -297,7 +297,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -305,7 +305,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -313,7 +313,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -321,7 +321,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -329,7 +329,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -337,7 +337,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -345,7 +345,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -353,7 +353,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                 Tema:
               </a>
             </li>
             <li className={style.list__inside}>
@@ -361,7 +361,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Tema:
               </a>
             </li>
           </ul>
@@ -386,7 +386,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Concentración
+                Concentration
               </a>
             </li>
             <li className={style.list__inside}>
@@ -394,7 +394,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                More Soul
               </a>
             </li>
             <li className={style.list__inside}>
@@ -402,7 +402,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Hard Work
               </a>
             </li>
             <li className={style.list__inside}>
@@ -410,7 +410,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Party night
               </a>
             </li>
             <li className={style.list__inside}>
@@ -418,7 +418,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Mates y music
               </a>
             </li>
             <li className={style.list__inside}>
@@ -426,7 +426,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Feelings chill
               </a>
             </li>
             <li className={style.list__inside}>
@@ -434,7 +434,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Training
               </a>
             </li>
             <li className={style.list__inside}>
@@ -442,7 +442,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                Vacations
               </a>
             </li>
             <li className={style.list__inside}>
@@ -450,7 +450,7 @@ const DropdownMenu = () => {
                 href="#"
                 className={`${style.nav__link} ${style.nav__linkinside}`}
               >
-                Estoy dentro
+                In the morning
               </a>
             </li>
           </ul>

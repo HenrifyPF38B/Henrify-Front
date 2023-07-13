@@ -1,13 +1,11 @@
 .nav {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: start;
   justify-content: start;
-  width: 300px;
-  height: fit-content;
-  padding: 2rem 0rem;
-  /* margin-bottom: 3rem; */
-  background: linear-gradient(#FB4EA3, #82378b);
+  width: 300px;  
+  padding: 2rem 0;
+  margin-bottom: 3rem;
 }
 
 .nav_link {
@@ -15,8 +13,8 @@
   letter-spacing: 2px;
   font-size: 17px;
   /* white-space: nowrap; */
-  font-weight: 600;
-  color: #414142; 
+  font-weight: 400;
+  color: #ffffffc4; 
   line-height: 1; 
   width: 100%;
   padding: 0.2rem 0rem; 
@@ -28,22 +26,23 @@
   letter-spacing: 2px;
   border-radius: 6px;
   font-weight: 200;
-  font-size: 17px;
-  line-height: 2 !important;
-  color: rgba(255, 161, 83, 0.836);
+  font-size: 16px;
+  line-height: 1.8 !important;
+  color: rgba(255, 246, 238, 0.836);
   text-decoration: none;
 }
 
 .nav__linkinside:hover {
   background: rgba(15, 14, 14, 0.274);
-  padding: 2px 15px 2px 15px;
+  padding: 2px 4px 2px 4px;
   color:#ff79d7;
   font-weight: 500;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.575);
 }
 
 .tit {
-  color: #0c080c83;
+  display: flex;
+  color: #ffffff83;
   letter-spacing: 2px;  
   margin: 0 0 30px 0;
 }
@@ -52,7 +51,7 @@
 .list__show {
   width: 80%;
   margin-left: auto;
-  border-left: 2px solid #e29624;
+  border-left: 2px solid #fffbf4;
   list-style: none;
   transition: height 0.4s ease-in-out;
   height: 0; 
@@ -63,7 +62,8 @@
 .list_item {
   list-style: none;
   width: 100%;
-  text-align: center;
+  align-items: center;
+  margin-top: 15px;
 }
 .list__img {
   margin: 0 0 0 10px;

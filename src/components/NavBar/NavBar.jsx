@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import style from './NavBar.module.css';
-import icono from '../assets/nav.jpg';
+import icono from '../assets/navbar.png';
 
 const NavBar = () => {
   return (

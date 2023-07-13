@@ -1,17 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+
 .sideBar {
-  height: 100vh;
-  /* background: linear-gradient(#FB4EA3, #82378b); */
- }
-
- .wrapper{
-  background-color: #1F1F1F;
+padding: 10px;
+width: 300px;
+background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+}
+.banner {
+  color: #fc1f99;
   display: flex;
-  padding-bottom: 6.5rem;
-  justify-content: start;
-  align-items: start;
-  height: 100%;
- }
+  justify-content: center;
+  font-weight: 500;
+  margin-top: 20px;
+  letter-spacing: 1.5px;
 
+  animation: touch 3s steps(16), neon 1.5s ease-in-out infinite alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes touch {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  } 
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 5px rgb(223, 54, 24),
+      0 0 25px rgb(223, 54, 24),
+      0 0 50px rgb(223, 54, 24),
+      0 0 80px rgb(223, 54, 24);
+  }
+  50% {
+    text-shadow: 0 0 10px rgb(223, 54, 24),
+      0 0 40px rgb(223, 54, 24),
+      0 0 80px rgb(223, 54, 24),
+      0 0 120px rgb(223, 54, 24);
+  }
+  100% {
+    text-shadow: 0 0 5px rgb(223, 54, 24),
+      0 0 25px rgb(223, 54, 24),
+      0 0 50px rgb(223, 54, 24),
+      0 0 80px rgb(223, 54, 24);
+  }
+}
+
+.wrapper{
+  background-color: #1F1F1F;
+  display: flex;  
+  height: 100%;
+}
+.panel {
+  flex: 1; 
+}
  .cards {
   width: 100%;
   display: flex;

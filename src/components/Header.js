@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import auriculares from "../components/assets/auric.jpg"
 import { useNavigate } from 'react-router-dom';
+import nav from '../components/assets/navbar.png';
 
 const Header = () => {
 
@@ -9,7 +10,7 @@ const Header = () => {
   return ( 
       <header className='header'>
           <div className='d-flex align-items-center justify-content-center text-white'>
-            <img src="/images/logo.svg" alt="abc" className='me-4' />
+            <img src={nav} alt="abc" className='me-4' />
             <div className='header-links d-flex ms-5 align-items-center justify-content-center text-white'>
               <p className='me-5' onClick={()=> navigate("home")}>Home</p>
               <p className='me-5' onClick={()=> navigate("about")}>About</p>

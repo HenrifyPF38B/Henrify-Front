@@ -79,7 +79,7 @@ html{
 
 .header{
   background-image: linear-gradient(to right, #222, #313030);
-  padding: 3rem;
+  padding: 2rem;
   width: 100%;
   gap: 50px;
   display: flex;
@@ -88,8 +88,10 @@ html{
 }
 
 .header img{
-  width: 70px;
+  margin-top: -40px;
+  width: 180px;
   height: auto;
+
 }
 
 .header p{
