@@ -5,52 +5,57 @@
   justify-content: start;
   width: 300px;
   height: 100vh;
+  background: linear-gradient(#FB4EA3, #82378b);
 }
 
-.tit {
-  display: flex;
-  justify-content: center;
-  letter-spacing: 2px;
-  margin: 100px 0 40px 0;
-  color: rgba(255, 242, 222, 0.308);
-}
 .nav_link {
+  align-items: center;
   letter-spacing: 2px;
-  font-size: 19px;
+  font-size: 17px;
+  /* white-space: nowrap; */
   font-weight: 600;
-  color: #878b97;
-  display: block;
+  color: #414142; 
+  line-height: 1; 
+  width: 100%;
+  padding: 0.2rem 0rem; 
   text-decoration: none;
-  padding: 15px 0;
+  padding: 5px;
 }
 
 .nav__linkinside {
   letter-spacing: 2px;
   border-radius: 6px;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 17px;
-  padding: 2px 10px 2px 10px;
-  color: rgb(224, 37, 193);
+  line-height: 2 !important;
+  color: rgba(255, 161, 83, 0.836);
   text-decoration: none;
 }
 
 .nav__linkinside:hover {
-  background: rgba(102, 51, 153, 0.534);
+  background: rgba(15, 14, 14, 0.274);
+  padding: 2px 15px 2px 15px;
+  color:#ff79d7;
+  font-weight: 500;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.575);
 }
 
+.tit {
+  color: #0c080c83;
+  letter-spacing: 2px;  
+  margin: 0 0 30px 0;
+}
 .list {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+ margin-top: 100px !important;
 }
 
 .list__show {
   width: 80%;
   margin-left: auto;
-  border-left: 2px solid #303440;
+  border-left: 2px solid #e29624;
   list-style: none;
   transition: height 0.4s ease-in-out;
-  height: 0; /* Establece la altura inicial en 0 */
+  height: 0; 
   overflow: hidden;
 }
 
@@ -58,15 +63,22 @@
   list-style: none;
   width: 100%;
   text-align: center;
-  overflow: hidden;
+}
+.list__img {
+  margin: 0 0 0 10px;
+  width: 20px;
 }
 
 .list_button {
   display: flex;
   align-items: center;
   gap: 1em;
-  width: 70%;
-  margin: 0 auto;
+  width: 85%;
+  margin: 10px auto; 
+  border: 2px solid rgba(226, 226, 224, 0.575);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.199);
+  box-shadow: 5px 4px 5px black;
 }
 
 .list_button .list_img:hover {
@@ -85,6 +97,7 @@
 }
 
 .list__arrow {
+  width: 30px;
   margin-left: auto;
   transition: transform 0.3s;
 }

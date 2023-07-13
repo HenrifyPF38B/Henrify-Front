@@ -13,12 +13,15 @@ const Header = () => {
             <div className='header-links d-flex ms-5 align-items-center justify-content-center text-white'>
               <p className='me-5' onClick={()=> navigate("home")}>Home</p>
               <p className='me-5' onClick={()=> navigate("about")}>About</p>
-              <p onClick={()=> navigate("album")}>Albums</p>
+              <p className='me-5' onClick={()=> navigate("album")}>Albums</p>
+              <p onClick={()=> navigate("store")}>Store</p>
             </div>
           </div>
           <div className='info-icons d-flex align-items-center gap-30'>
-            <i className="fa-solid fa-heart fa-2xl" style={{color: "whitesmoke"}}></i>
-            <i className="fa-solid fa-user fa-2xl" style={{color: "whitesmoke"}}></i>
+            <i className="fa-solid fa-heart fa-2xl" style={{color: "whitesmoke"}} onClick={()=> navigate("/favorites")}></i>
+            <div className='user' onClick={()=> navigate("/login")}>
+              <i className="fa-solid fa-user fa-2xl" style={{color: "whitesmoke"}}></i>
+            </div>
             <i className="fa-solid fa-cart-shopping fa-2xl" style={{color: "whitesmoke"}}></i>
           </div>
       </header>

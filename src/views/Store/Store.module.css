@@ -1,0 +1,23 @@
+.sideBar {
+  height: 100vh;
+  /* background: linear-gradient(#FB4EA3, #82378b); */
+ }
+
+ .wrapper{
+  background-color: #1F1F1F;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  height: 100%;
+ }
+
+ .cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  padding:3rem;
+  justify-content: center;
+  /* margin: 40px 0 0 20px; */
+ } 

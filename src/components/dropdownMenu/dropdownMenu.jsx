@@ -74,7 +74,7 @@ const DropdownMenu = () => {
           >
             <img src={not} className={style.list__img} alt="icon" />
             <a href="#" className={style.nav_link}>
-              Géneros
+              Genders
             </a>
             <img src={arrow} className={style.list__arrow} alt="arrow icon" />
           </div>
@@ -171,7 +171,7 @@ const DropdownMenu = () => {
           >
             <img src={not} className={style.list__img} alt="icon" />
             <a href="#" className={style.nav_link}>
-              Estados de ánimo
+              Feelings
             </a>
             <img src={arrow} className={style.list__arrow} alt="arrow icon" />
           </div>
@@ -221,7 +221,7 @@ const DropdownMenu = () => {
           >
             <img src={not} className={style.list__img} alt="icon" />
             <a href="#" className={style.nav_link}>
-              Décadas
+              Decade
             </a>
             <img src={arrow} className={style.list__arrow} alt="arrow icon" />
           </div>
@@ -286,7 +286,7 @@ const DropdownMenu = () => {
           >
             <img src={not} className={style.list__img} alt="icon" />
             <a href="#" className={style.nav_link}>
-              Temas
+              Themes
             </a>
             <img src={arrow} className={style.list__arrow} alt="arrow icon" />
           </div>
@@ -375,7 +375,7 @@ const DropdownMenu = () => {
           >
             <img src={not} className={style.list__img} alt="icon" />
             <a href="#" className={style.nav_link}>
-              Selección especial
+             Our selection
             </a>
             <img src={arrow} className={style.list__arrow} alt="arrow icon" />
           </div>

@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react'
 import styles from './topRatedCard.module.css'; 
 import { PlaylistContext } from '../../contexts/playlistContext';
 
-const TopRatedCard = ({owner, playlist}) => {
+const TopRatedCard = ({owner, playlist, type}) => {
 
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
@@ -16,7 +16,7 @@ const TopRatedCard = ({owner, playlist}) => {
             </div>
 
             <div className={styles.topratedimgdiv}>
-                <img src="/images/avatarDummy.jpeg" alt="abc" width={100} height={100} />
+                <img src={type === "album" ? "/images/disco.avif" : type === "song" ? "/images/ari.jpeg" : "/images/playlistcover.jpeg"} alt="abc" width={100} height={100} />
             </div>
             <span className={styles.topratedspan1}>{owner}</span>
             <span className={styles.topratedspan2}>{playlist}</span>

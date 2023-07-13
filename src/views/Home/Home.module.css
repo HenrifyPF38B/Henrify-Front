@@ -1,17 +1,27 @@
-.homeContainer {  
+/* .homeContainer {  
   display: flex;   
+  align-items: center;
+
 }
 .sideBar {
- height: auto;
+width: 20%;
  background-color: #222;
-}
+} */
 
-.container {
+/* .container {
   margin-left: 20px;
   background: white;
   width: 80%;
   height: auto;
   padding: 2rem 4rem;
+} */
+
+
+.container {
+  background: #1F1F1F;
+  width: 100%;
+  height: auto;
+  padding: 3rem 0rem;
 }
 
 
@@ -25,6 +35,21 @@
 .container2 h2{
   font-size: 18px;
   font-weight: 600;
+  color: whitesmoke;
+  padding-left: 5rem;
+}
+
+
+.seeAll{
+  padding-right: 3rem;
+  font-size: 16px;
+  color: #FB4EA3;
+  cursor: pointer;  
+  transition: scale 0.3s ease;
+}
+
+.seeAll:hover{
+  scale: 1.05;
 }
 
 .h2 {
@@ -44,11 +69,12 @@
 .containerSlider {
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow-x: auto;
   padding: 3rem 1rem;
+  margin-bottom: 3rem;
   gap: 30px;
   position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
@@ -149,6 +175,9 @@
   flex-direction: column;
   position: relative;
   text-align: center;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.42);
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .prizeArtist{
@@ -168,8 +197,8 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border-bottom-left-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .span span:first-child{
@@ -210,4 +239,91 @@
   height: auto;
   border-top-left-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
+}
+
+.landingPanelTitle{
+  padding: 2.5rem;
+  border-radius: 10px;
+  background: linear-gradient(#FB4EA3, #82378b);
+}
+
+.landingPanelTitle h2{
+  position: relative;
+  font-size: 3em;
+  letter-spacing: 10px;
+  color: rgb(185, 71, 109);
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  -webkit-box-reflect: below 0.5px linear-gradient(transparent, #0004);
+  line-height: 0.84em;
+  outline: none;
+  animation: neonPink 5s linear infinite;
+}
+
+@keyframes neonPink{
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%
+  {
+    color: rgb(171, 60, 97);
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%{
+    color: #fff;
+    text-shadow: 0 0 10px #e87098,
+                0 0 20px #e87098,
+                0 0 40px #e87098,
+                0 0 80px #e87098,
+                0 0 160px #e87098;
+  }
+}
+
+
+/* FIRST POP */
+
+.firstPop{
+  background: #8A2387;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  animation: gradient 5s ease infinite;
+}
+
+
+.firstPopLeft{
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  width: 50%;
+  padding-left: 4rem;
+  padding-bottom: 2rem;
+}
+
+.firstPopLeft p{
+  padding-top: 4rem;
+  font-size: 40px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.firstPopLeft button{
+  width: fit-content;
+  font-weight: bold;
+  border: none;
+  color: whitesmoke;
+  margin-left: 2rem;
+  box-shadow: 0 0 1rem rgb(181, 60, 60);
+  transform: translateY(-30px);
+  /* background-color: #f5f5f7; */
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  background: #FF416C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
