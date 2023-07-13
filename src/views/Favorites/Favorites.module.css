@@ -1,0 +1,63 @@
+.wrapper{
+  height: 500px;
+  background: #1F1F1F;
+  width: 100%;
+}
+
+
+.left{
+  width: fit-content;
+  height: 100vh;
+  background-color: rgb(34, 34, 34);
+  box-shadow: 0px 10px 3px 0px black;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: whitesmoke;
+  padding: 1.5rem;
+}
+
+.left span{
+  width: 100%;
+  letter-spacing: 3px;
+}
+
+.right{
+  width: 80%;
+}
+
+.favSection{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.favSectionActive{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem;
+  color: palevioletred;
+}
+
+.favSectionActive .favIcon{
+  transform: rotate(-90deg);
+}
+
+.favSection:hover .favIcon{
+  transform: rotate(-90deg);
+}
+
+#active{
+  background-color: grey !important;
+}
+
+.favIcon{
+  transition: 0.9s;
+}
+
+
+

@@ -4,9 +4,14 @@ import Layout from "./components/Layout";
 import LandingPage from "./pages/LandingPage";
 import { Home, About, Album } from "./views";
 import NavBar from "./components/NavBar/NavBar";
+import Login from "./views/Login/Login";
+import ResetP from "./views/ResetP/ResetP";
+import ForgotP from "./views/ForgotP/ForgotP";
+import SeeAll from "./components/Cards/seeAll";
+import Favorites from "./views/Favorites/Favorites";
+import Store from "./views/Store/Store";
 
 const Router = () => {
-  const location = useLocation();
 
   return (
     <div>
@@ -15,6 +20,12 @@ const Router = () => {
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="album" element={<Album />} />
+          <Route path="store" element={<Store />} />
+          <Route path="login" element={<Login />} />
+          <Route path="reset-password" element={<ResetP />} />
+          <Route path="forgot-password" element={<ForgotP />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path="seeAll/:name" element={<SeeAll />} />
         </Route>
         <Route index element={<LandingPage />} />
       </Routes>

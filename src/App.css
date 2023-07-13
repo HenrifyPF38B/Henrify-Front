@@ -95,6 +95,7 @@ html{
 
 .header-links p{
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .header-links p:hover{
@@ -143,6 +144,14 @@ html{
 
 /* LANDING CONTACT WRAPPER */
 /* START */
+
+
+/* USER ICON */
+
+.user{
+  position: relative;
+}
+
 
 /* PANEL */
 
