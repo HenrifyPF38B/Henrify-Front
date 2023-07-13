@@ -68,7 +68,10 @@ html{
 .w-100{
   width: 100% !important;
 }
-
+.dropdownMenu_list__5WHO5 {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 /* HEADER */
 
 .header{

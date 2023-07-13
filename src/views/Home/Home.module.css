@@ -1,10 +1,21 @@
-.container {
-  background: white;
-  width: 100%;
-  height: auto;
-  padding: 3rem 3rem;
+.homeContainer {  
+  display: flex;   
+}
+.sideBar {
+ height: auto;
+ background-color: #222;
 }
 
+.container {
+  margin-left: 20px;
+  background: white;
+  width: 80%;
+  height: auto;
+  padding: 2rem 4rem;
+}
+
+
+/* HASTA ACA  */
 .name {
   display: flex;
   justify-content: center;
@@ -33,6 +44,7 @@
 .containerSlider {
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow-x: auto;
   padding: 3rem 1rem;
   gap: 30px;
