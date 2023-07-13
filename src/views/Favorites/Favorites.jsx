@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styles from "./Favorites.module.css"
+import TopRatedCard from '../../components/Cards/topRatedCard';
 
 const Favorites = () => {
 
+  const dummy = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4];
   const [section, setSection] = useState("All");
 
   const handleSection = (e) =>{
@@ -33,8 +35,22 @@ const Favorites = () => {
           </div>
         </div>
       </div>
-      <div className={styles.right}>
-
+      <div className='d-flex align-items-center flex-column justify-content-center'>
+        <div className={styles.favTitle}></div>
+        <div className={styles.right}>
+          {
+            dummy.map((el, index) =>{
+              return(
+                <TopRatedCard
+                  key={index}
+                  type="album"
+                  owner={"Jack Harlow"}
+                  playlist={"What's Poppin"}
+                />
+              )
+            })
+          }
+        </div>
       </div>
     </div>
    );

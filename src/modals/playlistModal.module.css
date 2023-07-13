@@ -16,11 +16,32 @@
     width: 500px;
     height: 700px;
     overflow-y: auto;
-    background-color: #f5f5f7;
-    padding: 1rem;
-    border-width: 6px;
+    background-color: #1F1F1F;
+    border-radius: 1rem;
+    padding: 2rem;
+    /* border-width: 6px;
     border-style: solid;
-    border-image: linear-gradient(to right, #FB4EA3, #82378b) 1;
+    border-image: linear-gradient(to right, rgb(49, 49, 49), #1F1F1F) 1; */
+}
+
+.playlistModalDiv::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+.playlistModalDiv::-webkit-scrollbar-track {
+background: rgb(243, 172, 196);
+}
+
+/* Handle */
+.playlistModalDiv::-webkit-scrollbar-thumb {
+background: palevioletred
+
+}
+
+/* Handle on hover */
+.playlistModalDiv::-webkit-scrollbar-thumb:hover {
+background: #555;
 }
 
 .playlistModalBtn{
@@ -41,26 +62,25 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 2.3rem 0.5rem;
+    padding: 1rem 0.5rem;
 }
 
 .playlistModalDetails img{
     width: 60px;
     height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 1rem gray;
+    /* border-radius: 50%; */
 }
 
 .playlistModalDetails span:first-child{
-    font-size: 14px;
-    color: palevioletred;
+    font-size: 13px;
+    color: whitesmoke;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .playlistModalDetails span:last-child{
-    font-size: 16px;
-    color: whitsmoke;
+    font-size: 14px;
+    color: #777777;
     letter-spacing: 0.5px;
 }
 
@@ -72,10 +92,56 @@
     position: absolute;
     top:10px;
     right:10px;
-    color: #222;
+    color: whitesmoke;
 }
 
 .playlistTitle{
-    padding-top: 2rem;
+    padding-bottom: 2rem;
     text-align: center;
+    color: #f5f5f7;
+    letter-spacing: 2px;
+}
+
+
+.back{
+    background-color: #f5f5f7;
+    color: #1F1F1F;
+    width: fit-content;
+    border-radius: 50px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.back:hover{
+    scale: 1.1;
+}
+
+.playDiv{
+    position: relative;
+}
+
+.play{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 35px;
+    height: 35px;
+    background-color: #777777a1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    cursor: pointer;
+}
+
+.playDiv:hover .play{
+    opacity: 1;
+    visibility: visible;
 }

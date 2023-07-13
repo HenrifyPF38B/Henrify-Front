@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import styles from "./playlistModal.module.css";
-import artista from "../components/assets/quiente.jpg"
 
 const PlaylistModal = ({setModalOpen}) => {
 
@@ -10,8 +9,11 @@ const PlaylistModal = ({setModalOpen}) => {
     return ( 
         <article className={styles.playlistModalArticle}>
             <div className={styles.playlistModalDiv}>
-                <div className={styles.playlistModalBtn} onClick={()=> setModalOpen(false)}>
+                {/* <div className={styles.playlistModalBtn} onClick={()=> setModalOpen(false)}>
                     <i className="fa-solid fa-xmark"></i>
+                </div> */}
+                <div className={styles.back} onClick={()=> setModalOpen(false)}>
+                    <i className="fa-solid fa-caret-left fa-xl"></i>
                 </div>
                 <h2 className={styles.playlistTitle}>Let's Party</h2>
                 {
@@ -27,7 +29,12 @@ const PlaylistModal = ({setModalOpen}) => {
                                     }
                                 </div>
                                 <div className={styles.playlistModalDetails} style={{borderBottom: quantity.length !== index + 1 ? "1px solid rgba(0, 0, 0, 0.1)" : "none"}}>
-                                    <img src={artista} alt="abc" />
+                                    <div className={styles.playDiv}>
+                                        <img src="/images/ovo.jpeg" alt="abc" />
+                                        <div className={styles.play}>
+                                            <i className="fa-solid fa-play fa-xl"></i>
+                                        </div>
+                                    </div>
                                     <div className='d-flex flex-column ms-4 gap-2'>
                                         <span>Drake</span>
                                         <span>Jimmy Cooks</span>

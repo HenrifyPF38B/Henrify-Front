@@ -1,15 +1,18 @@
+
 .wrapper{
-  height: 500px;
+  height: 100%;
   background: #1F1F1F;
   width: 100%;
+  display: flex;
+  align-items: start;
 }
 
 
 .left{
   width: fit-content;
-  height: 100vh;
+  height: 100%;
   background-color: rgb(34, 34, 34);
-  box-shadow: 0px 10px 3px 0px black;
+  /* box-shadow: 0px 10px 3px 0px black; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -23,7 +26,13 @@
 }
 
 .right{
-  width: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4rem 1rem;
+  gap: 40px;
 }
 
 .favSection{
@@ -61,3 +70,25 @@
 
 
 
+.favTitle{
+  width: 100%;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

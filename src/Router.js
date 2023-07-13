@@ -10,6 +10,7 @@ import ForgotP from "./views/ForgotP/ForgotP";
 import SeeAll from "./components/Cards/seeAll";
 import Favorites from "./views/Favorites/Favorites";
 import Store from "./views/Store/Store";
+import Playlist from "./views/Playlist/Playlist";
 
 const Router = () => {
 
@@ -26,6 +27,7 @@ const Router = () => {
           <Route path="forgot-password" element={<ForgotP />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="seeAll/:name" element={<SeeAll />} />
+          <Route path="playlist" element={<Playlist />} />
         </Route>
         <Route index element={<LandingPage />} />
       </Routes>
