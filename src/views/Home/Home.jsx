@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import styles from "./Home.module.css";
-import TopRatedCard from "../../components/Cards/topRatedCard";
 import { PlaylistContext } from "../../contexts/playlistContext";
 import PlaylistModal from "../../modals/playlistModal";
 import drake from "../../components/assets/quiente.jpg";
 import { useNavigate } from 'react-router-dom';
 import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
+import PlaylistCard from "../../components/Cards/playlistCard";
+import AlbumCard from "../../components/Cards/albumCard";
+import SongCard from "../../components/Cards/songCard";
 
 
 const Home = () => {
@@ -81,9 +83,9 @@ const Home = () => {
             {
                 testCards.map((el, index) =>{
                   return(
-                    <TopRatedCard
+                    <PlaylistCard
                       key={index}
-                      owner={"Soul Life"}
+                      creator={"Soul Life"}
                       playlist={"Let's Party"}
                     />
                   )
@@ -112,11 +114,10 @@ const Home = () => {
             {
                 testCards.map((el, index) =>{
                   return(
-                    <TopRatedCard
-                      type="song"
+                    <SongCard
                       key={index}
-                      owner={"Soul Life"}
-                      playlist={"Let's Party"}
+                      artist={"Ariana Grande"}
+                      song={"Thank u, next"}
                     />
                   )
                 })
@@ -203,17 +204,16 @@ const Home = () => {
           <div className={styles.container2} style={{marginTop:"7rem"}}>
             <div className='d-flex align-items-center justify-content-between'>
               <h2>Popular Albums</h2>
-              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/songs")}>See all</span>
+              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/albums")}>See all</span>
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
             {
                 testCards.map((el, index) =>{
                   return(
-                    <TopRatedCard
-                      type="album"
+                    <AlbumCard
                       key={index}
-                      owner={"Soul Life"}
-                      playlist={"Let's Party"}
+                      artist={"Drake"}
+                      album={"OVO Odessy"}
                     />
                   )
                 })

@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from "./seeAll.module.css"
-import TopRatedCard from './topRatedCard';
 import { useNavigate, useParams } from 'react-router-dom';
+import PlaylistCard from './playlistCard';
+import AlbumCard from './albumCard';
+import SongCard from './songCard';
 
 const SeeAll = () => {
 
@@ -16,19 +18,57 @@ const SeeAll = () => {
         <i className="fa-solid fa-circle-chevron-left fa-2xl"></i>
       </div>
       <h2>Popular {name[0].toUpperCase() + name.slice(1)}</h2>
-      <div className={styles.cards}>
-        {
-          dummy.map((el, index) =>{
-            return(
-              <TopRatedCard
-                key={index}
-                owner="Soul Life"
-                playlist={"Rap Caviar"}
-              />
-            )
-          })
-        }
-      </div>
+      {
+        name === "playlists" && (
+          <div className={styles.cards}>
+            {
+                dummy.map((el, index) =>{
+                  return(
+                    <PlaylistCard
+                      key={index}
+                      creator="Soul Life"
+                      playlist={"Rap Caviar"}
+                    />
+                  )
+                })
+              }
+          </div>
+        )
+      }
+      {
+        name === "songs" && (
+          <div className={styles.cards}>
+            {
+                dummy.map((el, index) =>{
+                  return(
+                    <SongCard
+                      key={index}
+                      artist="Ariana Grande"
+                      song={"Thank u, next"}
+                    />
+                  )
+                })
+              }
+          </div>
+        )
+      }
+      {
+        name === "albums" && (
+          <div className={styles.cards}>
+            {
+                dummy.map((el, index) =>{
+                  return(
+                    <AlbumCard
+                      key={index}
+                      artist="Soul Life"
+                      playlist={"Rap Caviar"}
+                    />
+                  )
+                })
+              }
+          </div>
+        )
+      }
     </div>
    );
 }

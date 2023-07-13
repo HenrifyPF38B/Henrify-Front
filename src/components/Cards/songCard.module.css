@@ -20,7 +20,7 @@
 }
 
 .topratedcardwrapper:hover .seePlaylist{
-    right: 10px;
+    right: 20px;
 }
 
 .topratedspan1{
@@ -58,7 +58,7 @@
 
 .seePlaylist{
     position: absolute;
-    bottom: 25px;
+    bottom:25px;
     right: -50px;
     transition: all 0.3s ease;
     display: flex;

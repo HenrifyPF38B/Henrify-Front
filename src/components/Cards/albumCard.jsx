@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react'
-import styles from './topRatedCard.module.css'; 
+import styles from './albumCard.module.css'; 
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useNavigate } from 'react-router-dom';
 
-const TopRatedCard = ({owner, playlist, type}) => {
+const AlbumCard = ({artist, album}) => {
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
@@ -19,20 +19,20 @@ const TopRatedCard = ({owner, playlist, type}) => {
 
             <div className={styles.topratedimgdiv}>
                 <img 
-                  src={type === "album" ? "/images/disco.avif" : type === "song" ? "/images/ari.jpeg" : "/images/playlistcover.jpeg"} 
+                  src={"/images/disco.avif"} 
                   alt="abc" 
                   width={100} 
                   height={100} 
-                  onClick={()=> navigate("/playlist")}
+                  onClick={()=> navigate("/album")}
                 />
                 <div className={styles.listen}>
                     <i class="fa-solid fa-play fa-2xl"></i>
                 </div>
             </div>
-            <span className={styles.topratedspan1}>{owner}</span>
-            <span className={styles.topratedspan2}>{playlist}</span>
+            <span className={styles.topratedspan1}>{artist}</span>
+            <span className={styles.topratedspan2}>{album}</span>
         </div>
      );
 }
 
-export default TopRatedCard; 
+export default AlbumCard; 

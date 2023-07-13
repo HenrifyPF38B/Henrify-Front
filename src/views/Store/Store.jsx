@@ -1,7 +1,7 @@
 import React from 'react'
 import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
 import styles from "./Store.module.css"
-import TopRatedCard from '../../components/Cards/topRatedCard';
+import SongCard from '../../components/Cards/songCard';
 
 const Store = () => {
 
@@ -17,11 +17,10 @@ const Store = () => {
         {
           quantity.map((el, index) => {
             return(
-              <TopRatedCard
-                type="Song"
+              <SongCard
                 key={index}
-                owner="Barbie"
-                playlist="7 Rings"
+                artist="Ariana Grande"
+                song="7 Rings"
               />
             )
           })

@@ -1,5 +1,5 @@
 .wrapper{
-  height: 100%;
+height: 100%;
 }
 
 
@@ -28,12 +28,12 @@
   z-index: 100;
   width:100%; height:100%;
   display:inline-block;
-  background: -moz-linear-gradient(top, black 0%,  #ffdab95f 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffdab95f), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, black 0%, #ffdab95f 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, black 0%, #ffdab95f 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, black 0%, #ffdab95f 100%); /* IE10+ */
-  background: linear-gradient(to bottom, black 0%, #ffdab95f 100%); /* W3C */
+  background: -moz-linear-gradient(top, #0e0e0e 0%,  #ad283e7f 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ad283e7f), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #0e0e0e 0%, #ad283e7f 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #0e0e0e 0%, #ad283e7f 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #0e0e0e 0%, #ad283e7f 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #0e0e0e 0%, #ad283e7f 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
@@ -112,13 +112,14 @@
 .down{
   padding: 2rem 3rem;
   width: 100%;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: center; */
   background-color: #1f1f1f;
   background-image:
     linear-gradient(
-      rgba(255, 218, 185, 0.269), #1f1f1f, rgba(255, 218, 185, 0.269)
+      #ad283e7f, #1f1f1f, #ad283e7f
     );
 }
 
@@ -177,4 +178,25 @@
 .tableTitle img{
   width: 40px;
   height: auto;
+}
+
+.bottom{
+  z-index: 101;
+  display: flex;
+  align-items: center;
+
+}
+
+.bottom img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.bottom span{
+  font-size: 14px;
+}
+
+.bottom span:last-child{
+  color: #a3a2a2;
 }

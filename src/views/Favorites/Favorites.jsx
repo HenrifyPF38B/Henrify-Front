@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from "./Favorites.module.css"
-import TopRatedCard from '../../components/Cards/topRatedCard';
+import TopRatedCard from '../../components/Cards/songCard';
 
 const Favorites = () => {
 

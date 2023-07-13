@@ -11,6 +11,7 @@ import SeeAll from "./components/Cards/seeAll";
 import Favorites from "./views/Favorites/Favorites";
 import Store from "./views/Store/Store";
 import Playlist from "./views/Playlist/Playlist";
+import SingleAlbum from "./views/SingleAlbum/Album";
 
 const Router = () => {
 
@@ -20,7 +21,7 @@ const Router = () => {
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="album" element={<Album />} />
+          <Route path="albums" element={<Album />} />
           <Route path="store" element={<Store />} />
           <Route path="login" element={<Login />} />
           <Route path="reset-password" element={<ResetP />} />
@@ -28,6 +29,7 @@ const Router = () => {
           <Route path="favorites" element={<Favorites />} />
           <Route path="seeAll/:name" element={<SeeAll />} />
           <Route path="playlist" element={<Playlist />} />
+          <Route path="album" element={<SingleAlbum />} />
         </Route>
         <Route index element={<LandingPage />} />
       </Routes>
