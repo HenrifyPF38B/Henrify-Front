@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from "./Favorites.module.css"
-import TopRatedCard from '../../components/Cards/songCard';
+import SongCard from '../../components/Cards/songCard';
 
 const Favorites = () => {
 
@@ -41,11 +41,10 @@ const Favorites = () => {
           {
             dummy.map((el, index) =>{
               return(
-                <TopRatedCard
+                <SongCard
                   key={index}
-                  type="album"
-                  owner={"Jack Harlow"}
-                  playlist={"What's Poppin"}
+                  artist={"Ariana Grande"}
+                  song={"Thank u, next"}
                 />
               )
             })
