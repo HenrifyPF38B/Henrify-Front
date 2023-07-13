@@ -1,0 +1,90 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 300px;
+  height: 100vh;
+}
+
+.tit {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 2px;
+  margin: 100px 0 40px 0;
+  color: rgba(255, 242, 222, 0.308);
+}
+.nav_link {
+  letter-spacing: 2px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #878b97;
+  display: block;
+  text-decoration: none;
+  padding: 15px 0;
+}
+
+.nav__linkinside {
+  letter-spacing: 2px;
+  border-radius: 6px;
+  font-weight: 100;
+  font-size: 17px;
+  padding: 2px 10px 2px 10px;
+  color: rgb(224, 37, 193);
+  text-decoration: none;
+}
+
+.nav__linkinside:hover {
+  background: rgba(102, 51, 153, 0.534);
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.list__show {
+  width: 80%;
+  margin-left: auto;
+  border-left: 2px solid #303440;
+  list-style: none;
+  transition: height 0.4s ease-in-out;
+  height: 0; /* Establece la altura inicial en 0 */
+  overflow: hidden;
+}
+
+.list_item {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.list_button {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.list_button .list_img:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.list_button .list_img {
+  transition: transform 0.3s;
+}
+
+.list_buttonClick .list__arrow:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.list__arrow {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
