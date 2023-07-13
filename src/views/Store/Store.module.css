@@ -6,6 +6,7 @@
  .wrapper{
   background-color: #1F1F1F;
   display: flex;
+  padding-bottom: 6.5rem;
   justify-content: start;
   align-items: start;
   height: 100%;

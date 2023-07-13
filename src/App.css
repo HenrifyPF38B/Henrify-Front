@@ -119,7 +119,7 @@ html{
 .footer{
   background-image: linear-gradient(to right, #222, #313030);
   padding: 1.5rem;
-  height: 370px;
+  height: fit-content;
   margin-bottom: -10px;
   display: flex;
   justify-content: space-between;
