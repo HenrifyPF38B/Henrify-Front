@@ -57,7 +57,6 @@ const DropdownMenu = () => {
   };
 
   return (
-
     <div className={style.nav}>
       <ul className={style.list}>
         <li className={style.list_item}>

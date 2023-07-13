@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: start;
   justify-content: start;
-  width: 300px;  
+  width: 300px;
   padding: 2rem 0;
   margin-bottom: 3rem;
 }
@@ -14,14 +14,17 @@
   font-size: 17px;
   /* white-space: nowrap; */
   font-weight: 400;
-  color: #ffffffc4; 
-  line-height: 1; 
+  color: #ffffffc4;
+  line-height: 1;
   width: 100%;
-  padding: 0.2rem 0rem; 
+  padding: 0.2rem 0rem;
   text-decoration: none;
   padding: 5px;
 }
 
+.list_button:hover {
+  transform: scale(1.1);
+}
 .nav__linkinside {
   letter-spacing: 2px;
   border-radius: 6px;
@@ -35,7 +38,7 @@
 .nav__linkinside:hover {
   background: rgba(15, 14, 14, 0.274);
   padding: 2px 4px 2px 4px;
-  color:#ff79d7;
+  color: #ff79d7;
   font-weight: 500;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.575);
 }
@@ -43,10 +46,9 @@
 .tit {
   display: flex;
   color: #ffffff83;
-  letter-spacing: 2px;  
-  margin: 0 0 30px 0;
+  letter-spacing: 2px;
+  margin: 0 0 100px 0;
 }
-
 
 .list__show {
   width: 80%;
@@ -54,16 +56,16 @@
   border-left: 2px solid #fffbf4;
   list-style: none;
   transition: height 0.4s ease-in-out;
-  height: 0; 
+  height: 0;
   overflow: hidden;
   /* Con overflow se tapan algunos filtros */
 }
 
 .list_item {
   list-style: none;
-  width: 100%;
+  width: 120%;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 .list__img {
   margin: 0 0 0 10px;
@@ -73,11 +75,13 @@
 .list_button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1em;
   width: 85%;
-  margin: 10px auto; 
-  border: 2px solid rgba(226, 226, 224, 0.575);
+  margin: 0 0 8px 0;
+  border: 2px solid rgba(226, 226, 224, 0.24);
   border-radius: 10px;
+  height: 60px;
   background: rgba(255, 255, 255, 0.199);
   box-shadow: 5px 4px 5px black;
 }

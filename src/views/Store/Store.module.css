@@ -2,17 +2,17 @@
 
 .sideBar {
 padding: 10px;
-width: 300px;
+width: 320px;
 background: linear-gradient(to right, #8a2387, #e94057, #f27121);
 }
 .banner {
   color: #fc1f99;
   display: flex;
   justify-content: center;
-  font-weight: 500;
-  margin-top: 20px;
-  letter-spacing: 1.5px;
-
+  font-weight: 200;
+  margin: 20px 0 0 0;
+  font-size: 40px;
+  letter-spacing: 2px;
   animation: touch 3s steps(16), neon 1.5s ease-in-out infinite alternate;
   animation-iteration-count: infinite;
 }
