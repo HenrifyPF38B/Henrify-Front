@@ -47,19 +47,22 @@
   width: 200px;
   background: linear-gradient(
     to bottom right,
-    rgba(33, 36, 248, 0.781),
-    rgba(150, 10, 115, 0.521)
+    rgba(247, 133, 39, 0.596),
+    rgba(173, 14, 112, 0.486)
   );
-
-  border: 2px solid rgba(255, 255, 255, 0.432);
-  margin-top: 4px;
+  border: 2px solid rgba(126, 1, 119, 0.432);
+  margin-top: 10px;
   padding: 15px;
   z-index: attr(zIndex);
   transition: 0.5s;
 }
 
 .landingPanelMembers ul li:hover{
-  background: #f8e3ea6e;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 108, 9, 0.815),
+    rgba(235, 13, 150, 0.788)
+  );
   transform: translateX(-20px);
 }
 
@@ -78,11 +81,11 @@
   height: 100%;
   background: linear-gradient(
     to bottom right,
-    rgba(64, 67, 226, 0.781),
-    rgba(245, 100, 209, 0.671)
+    rgba(255, 119, 8, 0.801),
+    rgba(173, 14, 112, 0.486)
   );
-  box-shadow: -3px 3px 3px rgba(252, 0, 176, 0.575);
-  border: 2px solid rgba(255, 255, 255, 0.432);
+  box-shadow: -3px 3px 3px rgba(90, 87, 90, 0.575);
+  border: 2px solid rgba(240, 55, 230, 0.432);
   transform-origin: right;
   transform: skewY(45deg);
   transition: 0.5s;
@@ -97,8 +100,8 @@
   height: 40px;
   background: linear-gradient(
     to bottom right,
-    rgba(33, 36, 248, 0.781),
-    rgba(240, 112, 208, 0.521)
+    rgba(61, 5, 58, 0.596),
+    rgba(228, 105, 23, 0.774)
   );
   
   transform-origin: bottom;
@@ -171,12 +174,50 @@
 
 .sliderCards .slideCard{
   position: relative;
-  background-color: #82378b;
-  box-shadow: 3px 15px 25px rgba(0, 0, 0, 0.479);
+  background-color: #6007684b;
+  border: 3px solid rgba(255, 211, 244, 0.575);
+  /* box-shadow: 3px 15px 25px rgba(0, 0, 0, 0.479); */
+  box-shadow: 0 0 .1rem #fff,
+            0 0 .1rem #fff,
+            0 0 1rem #bc13fe,
+            0 0 0.4rem #bc13fe,
+            0 0 1.4rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe; 
   border-radius: 15px;
+  animation: pulsate 1.5s infinite alternate;
   padding: 30px 35px;
 }
 
+@keyframes pulsate {
+    
+  100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #bc13fe,
+      0 0 80px #bc13fe,
+      0 0 90px #bc13fe,
+      0 0 100px #bc13fe,
+      0 0 150px #bc13fe;
+  
+  }
+  
+  0% {
+
+    text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px #bc13fe,
+    0 0 45px #bc13fe,
+    0 0 55px #bc13fe,
+    0 0 70px #bc13fe,
+    0 0 80px #bc13fe;
+
+}
+}
 
 .sliderCards .slideImage{
   display: flex;
@@ -354,7 +395,8 @@
 
 /* DESDE ACA */
 .landingPanelTitle{  
-  padding: 2.5rem;
+  padding: 2rem 1.2rem;
+  /* asi estaba antessssss, jajaja */
   border-radius: 10px;
   margin-top: -380px;
   background: linear-gradient(to right, rgba(131, 25, 82, 0.534), #2c0218c7);

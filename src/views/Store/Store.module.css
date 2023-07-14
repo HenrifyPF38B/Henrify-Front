@@ -3,7 +3,8 @@
 .sideBar {
 padding: 10px;
 width: 320px;
-background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+background-image: linear-gradient(to right, #480048c7, #1f1f1f);
+
 }
 .banner {
   color: #fc1f99;

@@ -8,7 +8,7 @@ import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
 import PlaylistCard from "../../components/Cards/playlistCard";
 import AlbumCard from "../../components/Cards/albumCard";
 import SongCard from "../../components/Cards/songCard";
-
+import anuncio from '../../components/assets/anuncio.png';
 
 const Home = () => {
 
@@ -63,6 +63,8 @@ const Home = () => {
     }
   };
 
+
+
   return (
     <div>        
       <div className={styles.welcome}>
@@ -96,11 +98,11 @@ const Home = () => {
           {/* FIRTS POP UP */}
           <div className={styles.firstPop}>
               <div className={styles.firstPopLeft}>
-                  <p>Did you know you can create your own Playlist? Click the button and see yours!</p>
+                  <p>dadea</p>
                   <button className='fa-bounce'>My Playlists</button>
               </div>
-              <div style={{marginLeft:"100px"}}>
-                <img src="/images/pop1.png" alt="abc" width={400} />
+              <div style={{marginLeft:"200px"}}>
+                <img src={anuncio} alt="abc" width={450} />
               </div>
           </div>
 
