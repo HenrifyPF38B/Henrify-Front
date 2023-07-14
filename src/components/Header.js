@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import auriculares from "../components/assets/auric.jpg"
 import { useNavigate } from 'react-router-dom';
-import nav from '../components/assets/navbar.png';
+import nav from '../components/assets/logo.png';
 
 const Header = () => {
 

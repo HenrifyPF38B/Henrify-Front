@@ -59,7 +59,6 @@ const LandingPage = () => {
       panelIsVisible ? setPanelUp(true) : setPanelUp(false);
 
   }, [refPanel, panelIsVisible]);
-
   return ( 
     <div>
       <LandingPanel panelUp={panelUp} refPanel={refPanel}/>

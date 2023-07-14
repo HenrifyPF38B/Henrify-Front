@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import sty from "./Panel.module.css";
 
-
 const LandingPanel = ({ refPanel, panelUp }) => {
   return (
     <div ref={refPanel} className="landing-panel-wrapper" id="landing-panel">
