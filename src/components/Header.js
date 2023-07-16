@@ -1,11 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import auriculares from "../components/assets/auric.jpg"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import nav from '../components/assets/logo.png';
+import { PlaylistContext } from '../contexts/playlistContext';
 
 const Header = () => {
 
   const navigate = useNavigate();
+
+  const data = useContext(PlaylistContext);
+  const { login, setLogin, setCartModal } = data;
+
+
+  const handleLogout = (e) =>{
+    e.preventDefault();
+    setLogin(false);
+    navigate("/login");
+    window.location.reload();
+  };
 
   return ( 
       <header className='header'>
@@ -14,16 +26,29 @@ const Header = () => {
             <div className='header-links d-flex ms-5 align-items-center justify-content-center text-white'>
               <p className='me-5' onClick={()=> navigate("home")}>Home</p>
               <p className='me-5' onClick={()=> navigate("about")}>About</p>
-              <p className='me-5' onClick={()=> navigate("album")}>Albums</p>
+              <p className='me-5' onClick={()=> navigate("membership")}>Membership</p>
               <p onClick={()=> navigate("store")}>Store</p>
             </div>
           </div>
           <div className='info-icons d-flex align-items-center gap-30'>
             <i className="fa-solid fa-heart fa-2xl" style={{color: "whitesmoke"}} onClick={()=> navigate("/favorites")}></i>
-            <div className='user' onClick={()=> navigate("/login")}>
-              <i className="fa-solid fa-user fa-2xl" style={{color: "whitesmoke"}}></i>
-            </div>
-            <i className="fa-solid fa-cart-shopping fa-2xl" style={{color: "whitesmoke"}}></i>
+            {
+              login ? (
+                <div className='dropdown'>
+                  <i className="fa-solid fa-user fa-2xl" style={{color:"whitesmoke"}} id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+                  <div class="dropdown-menu mt-4" aria-labelledby="dropdownMenuButton">
+                    <Link className="dropdown-item" to="/account">My Account</Link>
+                    <Link className="dropdown-item" to="/myPlaylist">My Playlists</Link>
+                    <Link className="dropdown-item" onClick={handleLogout}>Logout</Link>
+                  </div>
+                </div>
+              ):(
+                <div>
+                  <i className="fa-solid fa-user fa-2xl" style={{color:"whitesmoke"}} onClick={()=> navigate("/login")}/>
+                </div>
+              )
+            }
+            <i className="fa-solid fa-cart-shopping fa-2xl" style={{color: "whitesmoke"}} onClick={()=> setCartModal(true)}></i>
           </div>
       </header>
    );

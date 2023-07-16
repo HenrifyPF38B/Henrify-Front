@@ -20,6 +20,26 @@ height: 100%;
   position:relative;
 }
 
+.goBack{
+  position: absolute;
+  z-index: 101;
+  top: 15px;
+  left: 15px;
+  color: rgba(245, 245, 245, 0.783);
+  background-color: #4f141d69;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.goBack:hover{
+  transform: scale(1.07);
+}
+
 
 .top:after {
   content:'';
@@ -140,7 +160,7 @@ height: 100%;
 }
 
 .table thead tr th:last-child{
-  text-align: center;
+  text-align: right;
 }
 
 .table tbody td{
@@ -199,4 +219,13 @@ height: 100%;
 
 .bottom span:last-child{
   color: #a3a2a2;
+}
+
+tbody tr{
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover,
+tbody tr.active{
+  background-color: rgba(255, 218, 185, 0.079);
 }

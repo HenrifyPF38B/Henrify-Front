@@ -14,7 +14,7 @@
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  height: 1300px;
+  height: 1200px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -67,10 +67,10 @@
 }
 
 
-.landingPanelMembers ul li.active{
+/* .landingPanelMembers ul li.active{
   transform: translateX(-50px);
-}
-
+} */
+/* EN APP CSS */
 
 .landingPanelMembers ul li::before{
   content: "";
@@ -110,7 +110,7 @@
   
 }
 
-.landingPanelMembers ul li a{
+.landingPanelMembers ul li span{
   text-decoration: none;
   color: #afaaf5f1;
   display: block;
@@ -121,7 +121,7 @@
   transition: 0.5s;
 }
 
-.landingPanelMembers ul li:hover a{
+.landingPanelMembers ul li:hover span{
   color: #fff;
 }
 
@@ -161,16 +161,6 @@
   transform-style: preserve-3d;
 }
 
-.sliderCards label{
-  position: absolute;
-  width: 350px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  cursor: pointer;
-  transition: transform  0.55s ease;
-  border-radius: 10px;
-}
 
 .sliderCards .slideCard{
   position: relative;
@@ -184,46 +174,18 @@
             0 0 1.4rem #bc13fe,
             inset 0 0 1.3rem #bc13fe; 
   border-radius: 15px;
-  animation: pulsate 1.5s infinite alternate;
   padding: 30px 35px;
 }
 
-@keyframes pulsate {
-    
-  100% {
 
-      text-shadow:
-      0 0 4px #fff,
-      0 0 11px #fff,
-      0 0 19px #fff,
-      0 0 40px #bc13fe,
-      0 0 80px #bc13fe,
-      0 0 90px #bc13fe,
-      0 0 100px #bc13fe,
-      0 0 150px #bc13fe;
-  
-  }
-  
-  0% {
-
-    text-shadow:
-    0 0 2px #fff,
-    0 0 4px #fff,
-    0 0 6px #fff,
-    0 0 10px #bc13fe,
-    0 0 45px #bc13fe,
-    0 0 55px #bc13fe,
-    0 0 70px #bc13fe,
-    0 0 80px #bc13fe;
-
-}
-}
 
 .sliderCards .slideImage{
   display: flex;
   /* justify-content: space-between; */
   justify-content: center;
   background-color: white;
+  width: fit-content;
+  height: fit-content;
   transition: .7s;
   box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
   border-radius: 10px;
@@ -235,10 +197,9 @@
 
 .sliderCards .slideImage img{
   border-radius: 5px;
-  margin-top: 23px;
-  width: 86%;
+  /* margin-top: 23px; */
+  width: 275px;
   height: auto;
-  object-fit: contain;
   transition: all .7s;
 }
 
@@ -398,7 +359,7 @@
   padding: 2rem 1.2rem;
   /* asi estaba antessssss, jajaja */
   border-radius: 10px;
-  margin-top: -380px;
+  margin-top: -300px;
   background: linear-gradient(to right, rgba(131, 25, 82, 0.534), #2c0218c7);
 }
 .landingPanelTitle h2{ 

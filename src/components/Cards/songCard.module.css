@@ -58,12 +58,12 @@
 
 .seePlaylist{
     position: absolute;
-    bottom:25px;
+    bottom: 15px;
     right: -50px;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     color: white;
 }
 
@@ -83,6 +83,7 @@
     visibility: hidden;
     cursor: pointer;
 }
+
 
 
 
