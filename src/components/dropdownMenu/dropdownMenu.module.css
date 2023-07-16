@@ -82,9 +82,9 @@
   border: 2px solid rgba(226, 226, 224, 0.24);
   border-radius: 10px;
   height: 60px;
-  background: #C04848;
-background: -webkit-linear-gradient(to right, #480048, #C04848);
-background: linear-gradient(to right, #480048, #C04848);
+  background: #c04848;
+  background: -webkit-linear-gradient(to right, #480048, #c04848);
+  background: linear-gradient(to right, #480048, #c04848);
   box-shadow: 5px 4px 5px black;
 }
 

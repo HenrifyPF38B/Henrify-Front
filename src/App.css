@@ -405,9 +405,28 @@ html{
   left: 0;
   right: 0;
   margin: auto;
-  cursor: pointer;
+  cursor: pointer; 
   transition: all  0.55s ease;
   border-radius: 10px;
+}
+.dropdown-menu {
+  background-color: #000000e0;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+}
+.dropdown-item {
+  color: rgb(255, 255, 255);
+  letter-spacing: 1.5px;
+  align-items: center;
+  display: flex; 
+  font-weight: 100;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.dropdown-item:hover {
+ color: rgb(255, 17, 195);
+ background: none;
+ font-weight: 400;
 }
 
 .card-label .active{
@@ -416,3 +435,11 @@ html{
 }
 
 
+/* ahi vengo */
+
+.myplaylist-menu{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 101;
+}

@@ -99,11 +99,13 @@ const Home = () => {
           <div className={styles.firstPop}>
               <div className={styles.firstPopLeft}>
                   <p>dadea</p>
-                  <button className='fa-bounce'>My Playlists</button>
+                  <button className='fa-bounce' onClick={()=> navigate("/myPlaylist")}>Playlists</button>
               </div>
+             
               <div style={{marginLeft:"200px"}}>
                 <img src={anuncio} alt="abc" width={450} />
               </div>
+
           </div>
 
           {/* POPULAR SONGS */}

@@ -77,10 +77,9 @@ width: 20%;
   flex-wrap: wrap;
 }
 
-
 .welcome{
   margin-top: 0;
-  background: linear-gradient(#FB4EA3, #82378b);
+  background-image: linear-gradient(to right, #eb0046, #1f1f1f); 
   padding: 1rem;
   text-align: center;
   color: whitesmoke;
@@ -88,9 +87,6 @@ width: 20%;
   height: 90px;
   letter-spacing: 6px;
 }
-
-
-
 
 .containerSlider::-webkit-scrollbar {
   width: 10px;
@@ -228,8 +224,6 @@ width: 20%;
   box-shadow: 0 0 0.5rem lightgray
   ;
 }
-
-
 .prizeImg img{
   width: 60px;
   height: auto;
