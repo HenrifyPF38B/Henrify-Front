@@ -4,6 +4,7 @@ import React from 'react'
 const LandingContact = ({contactUp, refContact}) => {
   return ( 
     <div ref={refContact} className='landing-contact-wrapper' id='landing-contact'>
+      
       <div className={`go-up-contact fa-bounce ${contactUp ? "" : "hide"}`} onClick={()=> document.getElementById("landing-panel").scrollIntoView()}>
         <i className="fa-solid fa-arrow-up"></i>
       </div>

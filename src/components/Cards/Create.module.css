@@ -1,0 +1,236 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-image: url('../assets/abstract.png');
+  background-size: cover;
+  height: 100%;
+  margin-top: 20px;
+}
+.container {
+  height: 100%;
+  background: linear-gradient(to right, #eb0046, #1f1f1f);
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(245, 245, 245, 0.74);
+  font-weight: 200;
+  letter-spacing: 2px;
+  padding: 35px 0;
+  animation: touch 3s steps(20);
+  animation-iteration-count: infinite;
+}
+
+@keyframes touch {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+.input {
+  width: 200px;
+}
+
+.hiddenInput {
+  opacity: 0;
+}
+.textCamera {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 80px;
+  color: rgba(255, 255, 255, 0.568);
+  letter-spacing: 2px;
+  font-weight: 200;
+  transition: all 0.6s ease;
+}
+
+.camarita:hover .textCamera {
+  opacity: 1;
+  visibility: visible;
+}
+
+.camarita {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  background: rgba(43, 43, 43, 0.719);
+  border: 2px dashed rgba(243, 243, 243, 0.603);
+  width: 200px;
+  height: 160px;
+  /* margin: 0 0 0 25px; */
+  border-radius: 15px;
+}
+
+.imgCamera {
+  width: 50px;
+}
+
+.containerCam {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 30px 0;
+  width: 100%;
+  /* new */
+}
+
+.boxName {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  background: #c2bdbd57;
+  border: 3px solid rgba(255, 253, 255, 0.589); 
+  border-radius: 10px;
+  height: 50px;
+  transition: all 0.6s ease;
+  width: 250px;
+  margin-top: 20px;  
+}
+.input2 {
+  background: #c2bdbd57;
+  border: 3px solid rgba(255, 253, 255, 0.589); 
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 250px;
+  height: 130px;
+  transition: all 0.6s ease;
+}
+.input::placeholder {
+  color: #fac4d4f5;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+}
+.input2::placeholder {
+  color: #fac4d4f5;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+}
+.input:hover {
+  background: #3f3f3f79;
+  box-shadow: 3px 3px 10px black;
+}
+.input2:hover {
+  background: #3f3f3f79;
+  box-shadow: 3px 3px 10px black;
+}
+.backContainer {
+  padding: 0 0 0 10px;
+  cursor: pointer;
+  margin-top: -50px;
+}
+.backImg {
+  position: absolute;
+  width: 40px;
+  transition: all 0.6s ease;
+}
+.backImg:hover {
+  scale: 1.3;
+}
+.add {
+  color: #ffe8efc9;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ff0a84, #b64900);
+  margin-top: 20px;
+  border: none;
+  width: 200px;
+  height: 40px;
+  transition: all 0.6s ease;
+}
+
+.add:hover {
+  scale: 1.1;
+  box-shadow: 3px 3px 10px black;
+}
+
+.title2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffc0f1;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 0 0 10px rgb(255, 17, 215) , 0 0 20px rgb(255, 17, 215) , 0 0 30px rgb(255, 17, 215) , 0 0 40px #ff7519 , 0 0 70px #ff7519 , 0 0 80px #ff7519 , 0 0 100px #ff7519 ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.container2 {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.songContainer {
+  cursor: pointer;
+  background: linear-gradient(to right, #ff0a84, #b64900);
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 5px 15px 5px 0;
+  transition: all 0.6s ease;
+}
+.songContainer:hover {
+  scale: 1.1;
+  box-shadow: 3px 3px 10px black;
+}
+
+.image {
+  border-radius: 8px;
+  width: 80px;
+  border: none;
+}
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+.imageAdd {
+  width: 30px;
+  margin: 0 10px 0 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease; 
+}
+
+.songContainer:hover .imageAdd {
+  opacity: 1;
+  visibility: visible;
+ }
+
+.imageAdd:hover {
+  scale: 1.1;
+}
+
+.seeAll {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0 500px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #ff175cdc;
+}
+
+.seeAll:hover {
+  color: wheat;
+}

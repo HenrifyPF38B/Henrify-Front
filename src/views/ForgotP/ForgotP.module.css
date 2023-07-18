@@ -1,28 +1,63 @@
 .wrapper{
-  height: 700px;
+  height: calc(100vh + 10px);
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.videoWrapper{
+  position: absolute;
 
+  width: 100%;
+  height: 100%;
+
+  /* Will not allow the video to overflow the 
+  container */
+  overflow: hidden;
+
+  /* Centering the container's content vertically 
+  and horizontally */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.back{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  transition: all 0.5s ease;
+  z-index: 101;
+}
 
 .formDiv{
   width: 400px;
-  box-shadow: 0 0 0.5rem lightgray;
   padding: 3rem;
+  z-index: 101;
+  background-color:rgba(255, 127, 80, 0.603);
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem coral,
+  0 0 0.4rem coral,
+  0 0 1.4rem coral,
+  inset 0 0 1.3rem coral; 
+  height: fit-content;
 }
+ 
 
 .form h3{
   margin-bottom: 1rem;
   letter-spacing: 1px;
-  color: #4e4e4e;
+  color: whitesmoke;
   width: 100%;
   white-space: nowrap;
 }
 
 .form p{
-  color: #777777;
+  color: #ebebeb;
   padding-bottom: 2rem;
 }
 
@@ -33,10 +68,15 @@
   padding: 0.8rem 1rem;
   font-size: 14px;
   width: 100%;
+  letter-spacing: 1px;
 }
-
+.form input:focus{
+  outline: none;
+  border: 1px solid coral;
+}
 .form input::placeholder{
   font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .submit{
@@ -48,6 +88,7 @@
   margin-top: 2rem;
   padding: 0.6rem 2rem;
   border-radius: 0.2rem;
-  background-color: rgb(208, 77, 121);
+  background-color: coral;
   color: white;
+  letter-spacing: 3px;
 }

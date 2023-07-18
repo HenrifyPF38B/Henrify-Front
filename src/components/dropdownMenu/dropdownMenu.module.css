@@ -4,7 +4,7 @@
   align-items: start;
   justify-content: start;
   width: 300px;
-  padding: 2rem 0;
+  padding: 3rem 0;
   margin-bottom: 3rem;
 }
 
@@ -22,8 +22,13 @@
   padding: 5px;
 }
 
+
+.list_button{
+  transition: transform 0.3s ease;
+}
+
 .list_button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .nav__linkinside {
   letter-spacing: 2px;
