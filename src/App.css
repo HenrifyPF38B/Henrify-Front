@@ -1,74 +1,73 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&effect=fire-animation|emboss|3d-float");
 
-
-html{
-  font-family: 'Raleway', sans-serif;
+html {
+  font-family: "Raleway", sans-serif;
 }
 
 /* CUSTOM CLASSES */
 
 /* GAP */
-.gap-10{
+.gap-10 {
   gap: 10px;
 }
-.gap-15{
+.gap-15 {
   gap: 15px;
 }
-.gap-20{
+.gap-20 {
   gap: 20px;
 }
-.gap-25{
+.gap-25 {
   gap: 25px;
 }
-.gap-30{
+.gap-30 {
   gap: 30px;
 }
 
 /* WIDTH */
 
-.w-25{
+.w-25 {
   width: 25% !important;
 }
-.w-30{
+.w-30 {
   width: 30% !important;
 }
-.w-35{
+.w-35 {
   width: 35% !important;
 }
-.w-40{
+.w-40 {
   width: 40% !important;
 }
-.w-45{
+.w-45 {
   width: 45% !important;
 }
-.w-50{
+.w-50 {
   width: 50% !important;
 }
-.w-55{
+.w-55 {
   width: 55% !important;
 }
-.w-60{
+.w-60 {
   width: 60% !important;
 }
-.w-65{
+.w-65 {
   width: 65% !important;
 }
-.w-70{
+.w-70 {
   width: 70% !important;
 }
-.w-75{
+.w-75 {
   width: 75% !important;
 }
-.w-80{
+.w-80 {
   width: 80% !important;
 }
-.w-85{
+.w-85 {
   width: 85% !important;
 }
-.w-90{
+.w-90 {
   width: 90% !important;
 }
-.w-100{
+.w-100 {
   width: 100% !important;
 }
 .dropdownMenu_list__5WHO5 {
@@ -77,56 +76,51 @@ html{
 }
 /* HEADER */
 
-.header{
-  background: #C04848;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #480048, #C04848);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #480048, #C04848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.header {
+  background-image: linear-gradient(#c04848, #480048);
+  padding: 1.5rem;
   padding: 2rem;
   width: 100%;
-  gap: 50px;
+  gap: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header img{
+.header img {
   margin-top: -40px;
   width: 180px;
   height: auto;
-
 }
 
-.header p{
+.header p {
   font-size: 18px;
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.header-links p{
+.header-links p {
   transition: color 0.3s ease;
   cursor: pointer;
 }
 
-.header-links p:hover{
-  color: #FB4EA3;
+.header-links p:hover {
+  color: #fb4ea3;
 }
 
-.info-icons i{
+.info-icons i {
   transition: all 0.4s ease;
 }
 
-.info-icons i:hover{
+.info-icons i:hover {
   transform: scale(1.1);
 }
 
-
 /* FOOTER */
 
-.footer{
-  background: #C04848;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #480048, #C04848);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #480048, #C04848);
+.footer {
+  background-image: linear-gradient(#c04848, #480048);
   padding: 1.5rem;
   height: fit-content;
   margin-bottom: -10px;
@@ -138,35 +132,30 @@ html{
   overflow: hidden;
 }
 
-
-.footer span{
+.footer span {
   margin-top: 0.5rem;
   font-weight: 300;
   font-size: 14px;
 }
 
-.footer p{
+.footer p {
   font-weight: bold;
   font-size: 25px;
-  background: -webkit-linear-gradient(rgb(255, 106, 6), #ff0597);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
+  color: #f5f5f7;
 }
 
 /* LANDING CONTACT WRAPPER */
 /* START */
 
-
 /* USER ICON */
 
-.user{
+.user {
   position: relative;
 }
 
 /* PANEL */
 
-.go-up-panel{
+.go-up-panel {
   bottom: 10px;
   position: absolute;
   background-color: #f5f5f7;
@@ -180,15 +169,13 @@ html{
   z-index: 101;
 }
 
-.go-up-panel.hide{
+.go-up-panel.hide {
   display: none;
 }
 
-
-
 /* CONTACT SECTION */
 
-.go-up-contact{
+.go-up-contact {
   top: 10px;
   position: absolute;
   background-color: white;
@@ -201,14 +188,14 @@ html{
   cursor: pointer;
 }
 
-.go-up-contact.hide{
+.go-up-contact.hide {
   display: none;
 }
-.landing-panel-wrapper{
-  background-image: url('../src/components/assets/msss.png');
+.landing-panel-wrapper {
+  background-image: url("../src/components/assets/msss.png");
 
   background-size: cover;
-  align-items: center; 
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -217,29 +204,54 @@ html{
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100%; 
+  width: 100%;
   position: relative;
 }
 
-.landing-panel-wrapper::after{
-  content:'';
-  position:absolute;
-  left:0; top:0;
+.landing-panel-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
   z-index: 0;
-  width:100%; height:100%;
-  display:inline-block;
-  background: -moz-linear-gradient(top, transparent 0%,  #000000c7, 0, 0, 0.229) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000c7), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, transparent 0%, #000000c7 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, transparent 0%, #000000c7 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, transparent 0%, #000000c7 100%); /* IE10+ */
-  background: linear-gradient(to bottom, transparent 0%, #000000c7 100%); /* W3C */
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: -moz-linear-gradient(top, transparent 0%, #000000c7, 0, 0, 0.229)
+    100%; /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #000000c7),
+    color-stop(100%, rgba(0, 47, 75, 0.5))
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    transparent 0%,
+    #000000c7 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    transparent 0%,
+    #000000c7 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    top,
+    transparent 0%,
+    #000000c7 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000000c7 100%
+  ); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
-.landing-contact-wrapper{
-  background-image: url('../src/components/assets/auric.jpg');
+.landing-contact-wrapper {
+  background-image: url("../src/components/assets/auric.jpg");
   background-size: cover;
-  align-items: center; 
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -248,23 +260,22 @@ html{
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100%; 
+  width: 100%;
   position: relative;
 }
 
-
-.landing-contact-social-icons-ul{
+.landing-contact-social-icons-ul {
   display: flex;
   position: relative;
   align-items: center;
 }
 
-.landing-contact-social-icons-ul li{
+.landing-contact-social-icons-ul li {
   list-style: none;
   margin: 0 5px;
 }
 
-.landing-contact-social-icons-ul li .fa-brands{
+.landing-contact-social-icons-ul li .fa-brands {
   font-size: 40px;
   color: #262626;
   line-height: 80px;
@@ -272,8 +283,7 @@ html{
   padding-right: 14px;
 }
 
-
-.landing-contact-social-icons-ul li span{
+.landing-contact-social-icons-ul li span {
   position: absolute;
   top: 30px;
   color: #000000;
@@ -282,10 +292,9 @@ html{
   padding: 0;
   letter-spacing: 4px;
   transition: 0.5s;
-} 
+}
 
-
-.landing-contact-social-icons-ul li a{
+.landing-contact-social-icons-ul li a {
   text-decoration: none;
   display: block;
   width: 210px;
@@ -298,8 +307,7 @@ html{
   box-shadow: -20px 20px 10px rgba(221, 195, 195, 0.733);
 }
 
-
-.landing-contact-social-icons-ul li a::before{
+.landing-contact-social-icons-ul li a::before {
   content: "";
   position: absolute;
   top: 10px;
@@ -311,7 +319,7 @@ html{
   transform: rotate(0deg) skewY(-45deg);
 }
 
-.landing-contact-social-icons-ul li a::after{
+.landing-contact-social-icons-ul li a::after {
   content: "";
   position: absolute;
   bottom: -20px;
@@ -323,81 +331,70 @@ html{
   transform: rotate(0deg) skewX(-45deg);
 }
 
-
-.landing-contact-social-icons-ul li  a:hover{
+.landing-contact-social-icons-ul li a:hover {
   transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
   box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
 }
 
-
-.landing-contact-social-icons-ul li:hover .fa-brands{
+.landing-contact-social-icons-ul li:hover .fa-brands {
   color: #fff;
 }
 
-.landing-contact-social-icons-ul li:hover span{
+.landing-contact-social-icons-ul li:hover span {
   color: #fff;
 }
-
 
 /* GIITHUB LI */
 
-.landing-contact-social-icons-ul li:hover:nth-child(1) a{
+.landing-contact-social-icons-ul li:hover:nth-child(1) a {
   background: #222;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(1) a::before{
+.landing-contact-social-icons-ul li:hover:nth-child(1) a::before {
   background: #1a1919;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(1) a::after{
+.landing-contact-social-icons-ul li:hover:nth-child(1) a::after {
   background: #343434;
 }
 
-
-
 /* TWITTER LI */
-.landing-contact-social-icons-ul li:hover:nth-child(2) a{
+.landing-contact-social-icons-ul li:hover:nth-child(2) a {
   background: #00aced;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(2) a::before{
+.landing-contact-social-icons-ul li:hover:nth-child(2) a::before {
   background: #097aa5;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(2) a::after{
+.landing-contact-social-icons-ul li:hover:nth-child(2) a::after {
   background: #53b9e0;
 }
 
-
-
 /* INSTAGRAM LI */
-.landing-contact-social-icons-ul li:hover:nth-child(3) a{
+.landing-contact-social-icons-ul li:hover:nth-child(3) a {
   background: #e4405f;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(3) a::before{
+.landing-contact-social-icons-ul li:hover:nth-child(3) a::before {
   background: #d81c3f;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(3) a::after{
+.landing-contact-social-icons-ul li:hover:nth-child(3) a::after {
   background: #e46880;
 }
 
-
 /* FACEBOOK LI */
-.landing-contact-social-icons-ul li:hover:nth-child(4) a{
+.landing-contact-social-icons-ul li:hover:nth-child(4) a {
   background: #3b5998;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(4) a::before{
+.landing-contact-social-icons-ul li:hover:nth-child(4) a::before {
   background: #2e497e;
 }
-.landing-contact-social-icons-ul li:hover:nth-child(4) a::after{
+.landing-contact-social-icons-ul li:hover:nth-child(4) a::after {
   background: #4d75c3;
 }
-
-
 
 /* END */
 /* LANDING CONTACT WRAPPER */
 
-
 /* CARD ABOUT SECTION EFFECT */
 
-.card-label{
+.card-label {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -405,41 +402,96 @@ html{
   left: 0;
   right: 0;
   margin: auto;
-  cursor: pointer; 
-  transition: all  0.55s ease;
+  cursor: pointer;
+  transition: all 0.6s ease-in;
   border-radius: 10px;
 }
-.dropdown-menu {
-  background-color: #000000e0;
-  border: 2px solid rgb(255, 255, 255);
+.dropdown-menu {  
+  background-color: #fcead363;
+  border: 2px solid rgba(255, 242, 242, 0.911);
   border-radius: 10px;
+}
+.dropdown-menu:hover {
+  background-color: #ffb649a2;
 }
 .dropdown-item {
   color: rgb(255, 255, 255);
   letter-spacing: 1.5px;
   align-items: center;
-  display: flex; 
+  display: flex;
   font-weight: 100;
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 15px;
+  line-height: 1.1;
 }
 .dropdown-item:hover {
- color: rgb(255, 17, 195);
- background: none;
- font-weight: 400;
+  color: rgb(252, 242, 249);
 }
 
-.card-label .active{
+.card-label.active {
   opacity: 1;
   visibility: visible;
 }
 
+.dropdown-item:hover {
+  background-color: inherit;
+}
+.dropdown-item:active {
+  background-color: transparent;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-item label {
+  font-size: 14px;
+}
+
+.dropdown-item input {
+  width: 10px;
+  height: auto;
+}
 
 /* ahi vengo */
 
-.myplaylist-menu{
+.myplaylist-menu {
   position: absolute;
+  font-size: 40px;
   top: 20px;
-  left: 20px;
+  left: 220px;
   z-index: 101;
+}
+
+/* CHANGE PASSWORD  */
+
+.passwordsMatch {
+  background-color: rgb(34, 155, 34) !important;
+  border: 1px solid rgb(34, 155, 34) !important;
+}
+
+.imagePreview {
+  display: flex;
+  position: relative;
+  width: fit-content;
+}
+
+.imagePreview img:first-child {
+  width: 150px;
+  border-radius: 15px;  
+}
+.closePreview{
+  position: absolute;
+  left: 18%;
+  top: 18%;
+  width: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.7s ease;
+}
+
+.imagePreview:hover .closePreview{
+  opacity: 1;
+  visibility: visible;
 }

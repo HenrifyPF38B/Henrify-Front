@@ -9,6 +9,7 @@ import PlaylistCard from "../../components/Cards/playlistCard";
 import AlbumCard from "../../components/Cards/albumCard";
 import SongCard from "../../components/Cards/songCard";
 import anuncio from '../../components/assets/anuncio.png';
+import video from "../../components/assets/pop.mp4"
 
 const Home = () => {
 
@@ -96,16 +97,22 @@ const Home = () => {
             </div>
           </div>
           {/* FIRTS POP UP */}
-          <div className={styles.firstPop}>
-              <div className={styles.firstPopLeft}>
-                  <p>dadea</p>
-                  <button className='fa-bounce' onClick={()=> navigate("/myPlaylist")}>Playlists</button>
+          <div className={styles.videoWrapper}>
+            <video playsInline autoPlay muted loop>
+                <source src={video} type="video/mp4"/>
+                Your browser does not support the video tag.
+            </video>
+            <div className={styles.welcomePop}>
+              <div className={styles.leftPop}>
+                <div>
+                  <p>Did you know you can create your own personalized Playlist?</p>
+                  <p>Just click the button below!</p>
+                </div>
+                <div className="fa-bounce" onClick={()=> navigate("/myPlaylist")}>
+                  <button>Let's go!</button>
+                </div>
               </div>
-             
-              <div style={{marginLeft:"200px"}}>
-                <img src={anuncio} alt="abc" width={450} />
-              </div>
-
+            </div>
           </div>
 
           {/* POPULAR SONGS */}
@@ -203,7 +210,7 @@ const Home = () => {
                 
             </div>
           </div>
-
+        
           {/* POPULAR ALBUMS */}
           <div className={styles.container2} style={{marginTop:"7rem"}}>
             <div className='d-flex align-items-center justify-content-between'>

@@ -7,13 +7,30 @@ const SongCard = ({artist, song}) => {
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
-    const { modalOpen, setModalOpen } = data;
+    const { modalOpen, setModalOpen, setPlayerOpen } = data;
     const [playShow, setPlayShow] = useState(true);
 
     return ( 
         <div className={styles.topratedcardwrapper} >
-            <div className={styles.seePlaylist} onClick={()=> setModalOpen(true)}>
-            <i className="fa-solid fa-ellipsis-vertical"></i>
+            <div className={styles.seePlaylist}>
+                <i className="fa-solid fa-heart fa-sm"></i>
+                <div className='dropdown songCard'>
+                    <i className="fa-solid fa-list-ul fa-sm" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                    <div class="dropdown-menu mb-2" aria-labelledby="dropdownMenuButton" onClick={(e)=> e.stopPropagation()}>
+                        <div className="dropdown-item">
+                            <input type="checkbox" id='1'/>
+                            <label htmlFor="1">Gym Playlist</label>
+                        </div>
+                        <div className="dropdown-item">
+                            <input type="checkbox" id='2'/>
+                            <label htmlFor="2">Party Playlist</label>
+                        </div>
+                        <div className="dropdown-item">
+                            <input type="checkbox" id='2'/>
+                            <label htmlFor="2">Study Playlist</label>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div className={styles.topratedimgdiv}>
@@ -24,8 +41,8 @@ const SongCard = ({artist, song}) => {
                   height={100} 
                   onClick={()=> navigate("/song")}
                 />
-                <div className={styles.listen}>
-                    <i class="fa-solid fa-play fa-2xl"></i>
+                <div className={styles.listen} onClick={()=> setPlayerOpen(true)}>
+                    <i className="fa-solid fa-play fa-2xl"></i>
                 </div>
             </div>
             <span className={styles.topratedspan1}>{artist}</span>

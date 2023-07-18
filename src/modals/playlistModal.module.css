@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 1000;
     
 }
 
@@ -63,6 +63,11 @@ background: #555;
     display: flex;
     align-items: center;
     padding: 1rem 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.playlistModalDetails:hover{
+    background-color: rgba(211, 211, 211, 0.046);
 }
 
 .playlistModalDetails img{

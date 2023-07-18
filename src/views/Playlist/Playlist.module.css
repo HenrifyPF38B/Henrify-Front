@@ -21,6 +21,7 @@
 }
 
 
+
 .top:after {
   content:'';
   position:absolute;
@@ -35,6 +36,25 @@
   background: -ms-linear-gradient(top, black 0%, #ffdab95f 100%); /* IE10+ */
   background: linear-gradient(to bottom, black 0%, #ffdab95f 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+.goBack{
+  position: absolute;
+  z-index: 101;
+  top: 15px;
+  left: 15px;
+  color: rgba(245, 245, 245, 0.641);
+  background-color: rgba(255, 218, 185, 0.272);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.goBack:hover{
+  transform: scale(1.07);
 }
 
 
@@ -139,7 +159,7 @@
 }
 
 .table thead tr th:last-child{
-  text-align: center;
+  text-align: right;
 }
 
 .table tbody td{
@@ -177,4 +197,13 @@
 .tableTitle img{
   width: 40px;
   height: auto;
+}
+
+
+tbody tr{
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover{
+  background-color: rgba(255, 218, 185, 0.079);
 }

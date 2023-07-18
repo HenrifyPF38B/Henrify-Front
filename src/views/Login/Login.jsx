@@ -1,20 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from "./Login.module.css";
 import { useNavigate } from 'react-router-dom';
+import { PlaylistContext } from '../../contexts/playlistContext';
 
 const Login = () => {
 
   const navigate = useNavigate();
+  const data = useContext(PlaylistContext);
+  const { setLogin } = data;
+
+  const handleLogin = (e) =>{
+    setLogin(true);
+    navigate("/home")
+  };
 
   return ( 
     <div className={styles.loginWrapper}>
       <div className={styles.formDiv}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleLogin}>
           <div>
-            <input type="text" placeholder='Type your email' />
+            <input type="email" placeholder='Type your email' required/>
           </div>
           <div className={styles.password}>
-            <input type="password" placeholder='Password' />
+            <input type="password" placeholder='Password' required/>
           </div>
           <div className={styles.forgotP} onClick={()=> navigate("/forgot-password")}>
             <p>Forgot Password?</p>

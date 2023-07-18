@@ -2,6 +2,7 @@ import React from 'react'
 import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
 import styles from "./Store.module.css"
 import SongCard from '../../components/Cards/songCard';
+import AlbumCard from '../../components/Cards/albumCard';
 
 const Store = () => {
 
@@ -20,10 +21,10 @@ const Store = () => {
         {
           quantity.map((el, index) => {
             return(
-              <SongCard
+              <AlbumCard
                 key={index}
                 artist="Ariana Grande"
-                song="7 Rings"
+                album="Sweetener"
               />
             )
           })

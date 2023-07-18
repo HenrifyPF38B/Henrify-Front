@@ -7,7 +7,7 @@ const AlbumCard = ({artist, album}) => {
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
-    const { modalOpen, setModalOpen } = data;
+    const { setModalOpen, setBuyOpen } = data;
     const [playShow, setPlayShow] = useState(true);
 
     return ( 
@@ -23,10 +23,14 @@ const AlbumCard = ({artist, album}) => {
                   alt="abc" 
                   width={100} 
                   height={100} 
-                  onClick={()=> navigate("/album")}
                 />
-                <div className={styles.listen}>
+                <div className={styles.listen} onClick={()=> navigate("/album")}>
                     <i class="fa-solid fa-play fa-2xl"></i>
+                </div>
+                <div className={styles.addContainer} onClick={()=> setBuyOpen(true)}>
+                    <div className={styles.addToCart}>
+                        <i className="fa-solid fa-cart-plus"></i>
+                    </div>
                 </div>
             </div>
             <span className={styles.topratedspan1}>{artist}</span>

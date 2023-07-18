@@ -5,6 +5,12 @@ import styles from './About.module.css';
 
 const About = ({ refPanel, panelUp }) => {
   const refNacho = useRef();
+  const refBarbi = useRef();
+  const refGabi = useRef();
+  const refDiego = useRef();
+  const refRocio = useRef();
+  const refSofia = useRef();
+  const refJaider = useRef();
 
   const members = [
     {
@@ -22,14 +28,6 @@ const About = ({ refPanel, panelUp }) => {
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn: "https://www.linkedin.com/in/diegohurtado-sales-saas",
-      linkUrl: "https://github.com/HenrifyPF38B/Henrify-Front",
-    },
-    {
-      name: "Fauter",
-      description: "Fauter, from Argentina. 22 Years Old, Full Stack Developer",
-      linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
-      linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
-      linkLn: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkUrl: "https://github.com/HenrifyPF38B/Henrify-Front",
     },
     {
@@ -60,7 +58,7 @@ const About = ({ refPanel, panelUp }) => {
     },
     {
       name: "Rocio",
-      description: "Rocio, from Argentina. 22 Years Old, Full Stack Developer",
+      description: "Rocio, from Peru. 39 Years Old, Full Stack Developer",
       linkGit: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkIg: "https://github.com/HenrifyPF38B/Henrify-Front",
       linkLn: "https://github.com/HenrifyPF38B/Henrify-Front",
@@ -80,91 +78,134 @@ const About = ({ refPanel, panelUp }) => {
   const [blockByAudio, setBlockByAudio] = useState(false);
 
   const handleActive = (e) => {
-    if (isActive === e.target.name && !blockByAudio) {
-      setIsActive("");
-    }
-    if (!blockByAudio && isActive !== e.target.name) {
+    
+    if (!blockByAudio) {
       setBlockByAudio(true);
-      setIsActive(e.target.name);
-      refNacho.current.play();
-      refNacho.current.addEventListener("ended", (e) => {
-        setBlockByAudio(false);
-      });
+      setIsActive(e.target.dataset.name);
+      
+
+      if(e.target.dataset.name === "Ignacio"){
+        refNacho.current.play();
+        refNacho.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
+
+      if(e.target.dataset.name === "Barbara"){
+        refBarbi.current.play();
+        refBarbi.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
+
+      if(e.target.dataset.name === "Gabriela"){
+        refGabi.current.play();
+        refGabi.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
+
+      if(e.target.dataset.name === "Diego"){
+        refDiego.current.play();
+        refDiego.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
+
+      if(e.target.dataset.name === "Rocio"){
+        refRocio.current.play();
+        refRocio.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
+
+      if(e.target.dataset.name === "Sofia"){
+        refSofia.current.play();
+        refSofia.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
+
+      if(e.target.dataset.name === "Jaider"){
+        refJaider.current.play();
+        refJaider.current.addEventListener("ended", (e) => {
+          setBlockByAudio(false);
+        });
+      }
     }
   };
 
   return (
     <div ref={refPanel} className={styles.landingPanelWrapper} id="landing-panel">
-      <audio ref={refNacho} src="/audio/nacho.wav"></audio>
+      <audio ref={refNacho} src={`/audio/Ignacio.wav`}></audio>
+      <audio ref={refBarbi} src={`/audio/Barbi.wav`}></audio>
+      <audio ref={refGabi} src={`/audio/Gabi.wav`}></audio>
+      <audio ref={refDiego} src={`/audio/Diego.wav`}></audio>
+      <audio ref={refRocio} src={`/audio/Rocio.wav`}></audio>
+      <audio ref={refSofia} src={`/audio/Sofia.wav`}></audio>
+      <audio ref={refJaider} src={`/audio/Jaider.wav`}></audio>
+
       <div className={styles.landingPanelTitle}>
         <h2>Who are we?</h2>
       </div>
       <div className={styles.landingContainer}>
         <div className={styles.landingPanelMembers}>
-          <ul>
+          <ul className="panel-ul">
             <li
               style={{ zIndex: 8 }}
               className={isActive === "Barbara" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Barbara">
+              <span onClick={handleActive} data-name="Barbara">
                 Barbara
-              </a>
+              </span>
             </li>
             <li
               style={{ zIndex: 7 }}
               className={isActive === "Diego" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Diego">
+              <span onClick={handleActive} data-name="Diego">
                 Diego
-              </a>
-            </li>
-            <li
-              style={{ zIndex: 6 }}
-              className={isActive === "Fauter" ? "active" : ""}
-            >
-              <a href="#" onClick={handleActive} name="Fauter">
-                Fauter
-              </a>
+              </span>
             </li>
             <li
               style={{ zIndex: 5 }}
               className={isActive === "Gabriela" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Gabriela">
+              <span onClick={handleActive} data-name="Gabriela">
                 Gabriela
-              </a>
+              </span>
             </li>
             <li
               style={{ zIndex: 4 }}
               className={isActive === "Ignacio" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Ignacio">
+              <span onClick={handleActive} data-name="Ignacio">
                 Ignacio
-              </a>
+              </span>
             </li>
             <li
               style={{ zIndex: 3 }}
               className={isActive === "Jaider" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Jaider">
+              <span onClick={handleActive} data-name="Jaider">
                 Jaider
-              </a>
+              </span>
             </li>
             <li
               style={{ zIndex: 2 }}
               className={isActive === "Rocio" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Rocio">
+              <span onClick={handleActive} data-name="Rocio">
                 Rocio
-              </a>
+              </span>
             </li>
             <li
               style={{ zIndex: 1 }}
               className={isActive === "Sofia" ? "active" : ""}
             >
-              <a href="#" onClick={handleActive} name="Sofia">
+              <span onClick={handleActive} data-name="Sofia">
                 Sofia
-              </a>
+              </span>
             </li>
           </ul>
         </div>
