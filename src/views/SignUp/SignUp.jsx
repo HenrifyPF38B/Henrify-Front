@@ -83,7 +83,7 @@ const SignUp = () => {
                       <div className={styles.step1}>
                         <i className="fa-solid fa-1 fa-xs"></i>
                       </div>
-                      Choose an avatar & username
+                      Choose an avatar
                     </span>
                   </div>
                   <div className={styles.smallPicsContainer}>
@@ -138,9 +138,9 @@ const SignUp = () => {
                     <div className='d-flex align-items-start w-100'>
                       <span className={styles.step1Div}>
                         <div className={styles.step1}>
-                          <i className="fa-solid fa-1 fa-xs"></i>
+                          <i className="fa-solid fa-2 fa-xs"></i>
                         </div>
-                        Choose an avatar & username
+                        Choose an username
                       </span>
                     </div>
                     {/* username */}

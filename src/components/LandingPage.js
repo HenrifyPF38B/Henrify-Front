@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import LandingContact from '../components/Landing/Contact';
-import LandingPanel from '../components/Landing/Panel';
+import LandingContact from './Landing/Contact';
+import LandingPanel from './Landing/Panel';
 
 
 const LandingPage = () => {

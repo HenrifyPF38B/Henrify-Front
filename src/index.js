@@ -6,12 +6,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { PlaylistProvider } from './contexts/playlistContext';
 import { Provider } from "react-redux";
 import { reduxStore }  from "./reduxStore"
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
      <Provider store={reduxStore}>
       <BrowserRouter>
         <PlaylistProvider>
-          <App />
+          <PayPalScriptProvider options={{
+            "client-id": "Ad7WNItmuBn4ealmFHbGctFRd3eOmiqHpTuhpNjw44ryXmACwZypE9gIo4fBPmtvaO0ff6iIUIoE00sM"
+          }}>
+            <App />
+          </PayPalScriptProvider>
         </PlaylistProvider>
       </BrowserRouter> 
      </Provider>

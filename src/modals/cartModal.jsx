@@ -1,12 +1,18 @@
 import React, { useContext } from 'react'
 import styles from "./cartModal.module.css"
 import { PlaylistContext } from '../contexts/playlistContext'
+import { useNavigate } from 'react-router-dom';
 
 const CartModal = () => {
-
+  const navigate = useNavigate();
   const dummy = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const data = useContext(PlaylistContext);
   const { cartModal, setCartModal } = data;
+
+  const handleCheckout = () =>{
+    setCartModal(false);
+    navigate("/checkout");
+  };
 
   return ( 
     <div className={styles.mainWrapper}>
@@ -52,7 +58,7 @@ const CartModal = () => {
               <span>Subtotal</span>
               <span>$1.550</span>
             </div>
-            <div>
+            <div onClick={handleCheckout}>
               <span>Checkout</span>
             </div>
           </div>
