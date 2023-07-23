@@ -1,33 +1,42 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
 import styles from "./Store.module.css"
 import SongCard from '../../components/Cards/songCard';
 import AlbumCard from '../../components/Cards/albumCard';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
-
+import { useDispatch, useSelector } from "react-redux";
+import { filterSongs, getSongs } from '../../redux/Actions/SongsActions';
 
 
 const Store = () => {
 
   const quantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const [searchValue, setSearchValue] = useState("");
+  const dispatch = useDispatch();
+  const state = useSelector(state => state);
+  const { songs, filteredSongs } = state;
 
-  const optionsSearch = [
-    {id: 1, label: 'Ariana Grande - 7 Rings'},
-    {id: 2, label: 'Drake - Jumbotron Shit Poppin'},
-    {id: 3, label: "Jack Harlow - What's Poppin"},
-    {id: 4, label: "Aqua - Barbie Girl"},
-    {id: 1, label: 'Travis Scott - Goosebumps'},
-    {id: 2, label: 'Drake - Jimmy Cooks'},
-    {id: 3, label: "Drake - God's Plan"},
-    {id: 4, label: "Drake - Greece"},
-    {id: 1, label: 'DaBaby - Suge'},
-    {id: 2, label: 'Lenny Tavarez - La Neta'},
-    {id: 3, label: "The Avengers - Pa Mi Remix"},
-    {id: 4, label: "The Avengers - Toda Remix"},
-  ];
+  const [optionsSearch, setOptionsSearch] = useState([]);
 
+  useEffect(() => {
+    dispatch(getSongs());
+  }, []);
+
+  useEffect(() => {
+    let options = [];
+    songs.map((el, index) => {
+      options.push({
+        id: index,
+        label: el.artists + " - " + el.name,
+        name: el.name,
+        artists: el.artists,
+        audio: el.audio,
+        image: el.image
+      });
+    });
+    setOptionsSearch(options);
+  }, [songs]);
 
   return ( 
     <div className={styles.wrapper}>
@@ -42,22 +51,37 @@ const Store = () => {
         <div className={styles.searchBar}>
           <Typeahead
             placeholder='What do you want to listen today?'
-            onChange={(selected) => setSearchValue(selected[0].id)}
+            onChange={(selected) => dispatch(filterSongs(selected))}
             options={optionsSearch}
           />
         </div>
       </div>
       <div className={styles.cards}>
         {
-          quantity.map((el, index) => {
-            return(
-              <AlbumCard
-                key={index}
-                artist="Ariana Grande"
-                album="Sweetener"
-              />
-            )
-          })
+          filteredSongs && filteredSongs.length ?
+            filteredSongs.map((el, index) => {
+              return(
+                <SongCard
+                  key={index}
+                  artist={el.artists}
+                  song={el.name}
+                  img={el.image}
+                  audio={el.audio}
+                />
+              )
+            })
+          :
+            songs.map((el, index) => {
+              return(
+                <SongCard
+                  key={index}
+                  artist={el.artists}
+                  song={el.name}
+                  img={el.image}
+                  audio={el.audio}
+                />
+              )
+            })
         }
       </div>
     </div>

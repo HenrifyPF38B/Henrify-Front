@@ -95,8 +95,8 @@ const Home = () => {
           {/* POPULAR PLAYLISTS */}
           <div className={styles.container2}>
             <div className='d-flex align-items-center justify-content-between'>
-              <h2>Popular Playlists</h2>
-              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/playlists")}>See all</span>
+              <h2 style={{letterSpacing: "1.5px"}}>Popular Playlists</h2>
+              {/* <span className={styles.seeAll} onClick={()=> navigate("/seeAll/playlists")}>See all</span> */}
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
             {
@@ -134,8 +134,8 @@ const Home = () => {
           {/* POPULAR SONGS */}
           <div className={styles.container2} style={{marginTop:"7rem"}}>
             <div className='d-flex align-items-center justify-content-between'>
-              <h2>Popular Songs</h2>
-              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/songs")}>See all</span>
+              <h2 style={{letterSpacing: "1.5px"}}>Popular Songs</h2>
+              {/* <span className={styles.seeAll} onClick={()=> navigate("/seeAll/songs")}>See all</span> */}
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
             <SongCard
@@ -249,7 +249,7 @@ const Home = () => {
           {/* POPULAR ALBUMS */}
           <div className={styles.container2} style={{marginTop:"7rem"}}>
             <div className='d-flex align-items-center justify-content-between'>
-              <h2>Popular Albums</h2>
+              <h2 style={{letterSpacing: "1.5px"}}>Albums</h2>
               <span className={styles.seeAll} onClick={()=> navigate("/seeAll/albums")}>See all</span>
             </div>
             <div ref={refSlider} className={styles.containerSlider}>

@@ -6,6 +6,7 @@ const PlayModal = () => {
 
   const data = useContext(PlaylistContext);
   const { playerOpen, setPlayerOpen } = data;
+  const { audio, img, song, artist } = playerOpen;
   const refAudio = useRef();
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -88,7 +89,7 @@ const PlayModal = () => {
     <article className={styles.article}>
       <audio 
         ref={refAudio} 
-        src={playerOpen} 
+        src={audio} 
         preload='metadata'
         onDurationChange={(e)=> {setDuration(formatTime(e.currentTarget.duration)) ; setTotalTime(e.currentTarget.duration)}}
         onPlay={()=> setIsPlaying(true)}
@@ -100,14 +101,14 @@ const PlayModal = () => {
 
         <div className={styles.left}>
           <div className='position-relative'>
-            <img src="/images/lil.jpeg" alt="abc" />
+            <img src={img} alt="abc" />
             <div className={styles.close} onClick={()=> setPlayerOpen(false)}>
               <i className="fa-solid fa-xmark fa-lg"></i>
             </div>
           </div>
           <div className='d-flex flex-column align-items-start mx-3' style={{gap:"3px"}}>
-            <span style={{color:"whitesmoke", fontSize:"14px"}}>What's Poppin</span>
-            <span style={{color:"#777777", fontSize:"12px"}}>Jack Harlow</span>
+            <span style={{color:"whitesmoke", fontSize:"14px"}}>{song}</span>
+            <span style={{color:"#777777", fontSize:"12px"}}>{artist}</span>
           </div>
           <div className='d-flex align-items-center'>
             <i className="fa-regular fa-heart me-2 fa-lg" style={{color:"whitesmoke"}}></i>

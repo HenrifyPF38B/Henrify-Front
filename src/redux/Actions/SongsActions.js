@@ -4,6 +4,7 @@ import {
   POST_SONGS,
   PUT_SONGS,
   DELETE_SONGS,
+  FILTER_SONGS
 } from "../Action-types";
 import { base_url } from "../baseURL";
 
@@ -16,6 +17,15 @@ export const getSongs = () => {
   };
 };
 
+
+export const filterSongs = (data) => {
+  return async function (dispatch) {
+    
+    dispatch({ type: FILTER_SONGS, payload: data });
+  };
+};
+
+
 export const getSongsById = (id) => {
   return async function (dispatch) {
     const res = await fetch(`${base_url}/songs/${id}`);
@@ -23,6 +33,11 @@ export const getSongsById = (id) => {
     dispatch({ type: GET_SONGS_ID, payload: data });
   };
 };
+
+
+
+
+
 
 export const postSongs = (song) => {
   return async function (dispatch) {

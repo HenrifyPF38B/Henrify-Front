@@ -41,12 +41,12 @@ const SongCard = ({artist, song, id, img, audio}) => {
                   height={100} 
                   onClick={()=> navigate("/song")}
                 />
-                <div className={styles.listen} onClick={()=> setPlayerOpen(audio)}>
+                <div className={styles.listen} onClick={()=> setPlayerOpen({audio, img, song, artist})}>
                     <i className="fa-solid fa-play fa-2xl"></i>
                 </div>
             </div>
-            <span className={styles.topratedspan1}>{song}</span>
-            <span className={styles.topratedspan2}>{artist}</span>
+            <span className={styles.topratedspan1}>{song?.length > 19 ? song.slice(0, 18) + "…" : song}</span>
+            <span className={styles.topratedspan2}>{artist?.length > 19 ? artist.slice(0, 18) + "…" : artist}</span>
         </div>
      );
 }

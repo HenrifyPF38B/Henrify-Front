@@ -11,6 +11,7 @@ export const GET_SONGS_ID = "GET_SONGS_ID";
 export const POST_SONGS = "POST_SONGS";
 export const PUT_SONGS = "PUT_SONGS";
 export const DELETE_SONGS = "DELETE_SONGS";
+export const FILTER_SONGS = "FILTER_SONGS";
 
 // CRUD REVIEWS
 export const GET_REVIEWS = "GET_REVIEWS";

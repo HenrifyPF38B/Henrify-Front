@@ -33,6 +33,7 @@ import {
   GET_GENRES_ID,
   POST_GENRES,
   DELETE_GENRES,
+  FILTER_SONGS,
 } from "./Action-types";
 
 const initialState = {
@@ -40,6 +41,7 @@ const initialState = {
   users: [],
   usersId: {},
   songs: [],
+  filteredSongs: [],
   songsId: {},
   reviews: [],
   reviewsId: {},
@@ -90,6 +92,12 @@ const Reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         songs: payload,
+      }
+
+    case FILTER_SONGS:
+      return {
+        ...state,
+        filteredSongs: payload,
       }
 
     case GET_SONGS_ID:
