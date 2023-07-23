@@ -1,10 +1,19 @@
 .wrapper{
-  background-color: #1f1f1f;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1f1f1f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100%;
+  margin-bottom: -5px;
   width: 100%;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow-x: auto;
 }
+
+
+
 
 .panel{
   padding: 5rem 1.5rem;
@@ -31,32 +40,79 @@
 }
 
 .linkActive{
-  background: -webkit-linear-gradient(#cb356b, #bd3f32);
+  background: radial-gradient(#d18f99, #E3A6AF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .profile{
   width: 80vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 3rem;
   position: relative;
 }
 
-.viewDetails{
-  
+
+
+.profileAnimation{
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+}
+
+.profileContainer{
+  width: fit-content;
+  background: linear-gradient(#1f1f1f70, #1f1f1f70);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+}
+
+.profileContainer:hover {
+  transform: scale(1.04) rotate(1deg);
+}
+
+.circle2 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(#d18f99, #E3A6AF);
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.circle2:nth-child(1) {
+  top: -25px;
+  left: -25px;
+}
+
+.circle2:nth-child(2) {
+  bottom: -25px;
+  right: -25px;
+  animation-name: move-down1;
 }
 
 .welcome{
-  position: absolute;
+  /* position: absolute;
   top: 30px;
-  left: 70px;
+  left: 70px; */
+  margin-top: 0rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+  display: flex;
+  align-items:center;
+  width: 100%;
+  margin-left: 4rem;
   font-family: 'Pacifico', cursive;
   color: whitesmoke;
-  overflow: hidden;
 }
 
 .welcome h2{
@@ -129,6 +185,7 @@
   position: absolute;
   bottom: 20px;
   cursor: pointer;
+  left: 20px;
 }
 
 .delete span{
@@ -229,4 +286,213 @@
   font-size: 14px;
   padding: 1.5rem;
   gap: 10px;
+}
+
+.banner{
+  background-color: #E3A6AF;
+  padding: 3rem 2.5rem;
+  width: 100%;
+}
+
+.bannerTop{
+  display: flex;
+  justify-content: start;
+}
+
+.bannerTop div:first-child{
+  padding-top: 2rem;
+  width: 60%;
+}
+
+.bannerTop h2{
+  font-weight: 600;
+  font-size: 50px;
+}
+
+.bannerTop p{
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.bannerTop button{
+  margin-top: 1.5rem;
+  border: none;
+  background-color: #1f1f1f;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 50px;
+}
+
+.bannerTop button:hover{
+  opacity: 0.9;
+}
+
+.bannerTop div:last-child{
+  width: 40%;
+}
+
+.bannerImg img{
+  width: 300px;
+  height: auto;
+}
+
+.bannerBottom{
+  margin-top: 1.5rem;
+  width: 60%;
+  font-size: 12px;
+}
+
+.bannerBottom a{
+  color: #1f1f1f;
+}
+
+
+
+
+/* DETAILS */
+
+.details{
+  width: 80vw;
+  position: relative;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.detailsTitle{
+  position: absolute;
+  color: whitesmoke;
+  top: 40px;
+  letter-spacing: 2px;
+  font-family: 'Pacifico';
+  font-size: 40px;
+}
+
+
+.formDiv {
+  width: 400px;
+  height: fit-content;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.formDiv:hover {
+  transform: scale(1.04) rotate(1deg);
+}
+
+.details form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: inherit;
+  height: inherit;
+  padding: 2rem;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+.details form input{
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.details input::-webkit-inner-spin-button,
+.details input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+.details form input:focus{
+  border: none;
+  outline: none;
+}
+
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(#d18f99, #E3A6AF);
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+  top: -25px;
+  left: -25px;
+}
+
+.circle:nth-child(2) {
+  bottom: -25px;
+  right: -25px;
+  animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes move-down1 {
+  to {
+    transform: translateY(10px);
+  }
+}
+
+
+
+.confirmEdit{
+  color: #E3A6AF;
+  transition: transform 0.3s ease;
+}
+
+.confirmEdit:hover{
+  transform: scale(1.05)
+}
+
+.cancelEdit{
+  color: lightgray;
+  transition: transform 0.3s ease;
+}
+
+.cancelEdit:hover{
+  transform: scale(1.05)
+}
+
+
+.edit{
+  transition: transform 0.4s ease;
+  width: fit-content;
+}
+
+.edit:hover{
+  transform: scale(1.05)
+}
+
+
+.backEdit{
+  position: absolute;
+  bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.backEdit:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }

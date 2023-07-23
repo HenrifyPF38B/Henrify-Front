@@ -60,9 +60,9 @@ const DropdownMenu = () => {
     <div className={style.nav}>
       <ul className={style.list}>
         <li className={style.list_item}>
-          <h4 className={style.tit}>
+          {/* <h4 className={style.tit}>
             Advanced Search
-          </h4>
+          </h4> */}
         </li>
 
         <li className={style.list_item}>

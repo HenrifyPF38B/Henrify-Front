@@ -11,6 +11,7 @@ const MembershipOffer = () => {
           Your browser does not support the video tag.
       </video>
       <div className={styles.welcome}>
+        <span></span>
         <h2>Be a Member</h2>
         <p>Unlock exclusive features and benefits with our premium memberships!</p>
         <ul>

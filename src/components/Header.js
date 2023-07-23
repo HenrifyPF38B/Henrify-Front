@@ -37,8 +37,14 @@ const Header = () => {
                 <div className='dropdown'>
                   <i className="fa-solid fa-user fa-2xl" style={{color:"whitesmoke"}} id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
                   <div class="dropdown-menu mt-4" aria-labelledby="dropdownMenuButton">
-                    <Link className="dropdown-item" to="/account">My Account</Link>
-                    <Link className="dropdown-item" to="/myPlaylist">My Playlists</Link>
+                    <Link className="dropdown-item" to="/account">
+                      <i className='bx bx-sm bxs-user-circle'></i>
+                      My Account
+                    </Link>
+                    <Link className="dropdown-item" to="/myPlaylist">
+                      <i className='bx bx-sm bxs-playlist'></i>
+                      My Playlists
+                    </Link>
                     <Link className="dropdown-item" onClick={handleLogout}>Logout</Link>
                   </div>
                 </div>

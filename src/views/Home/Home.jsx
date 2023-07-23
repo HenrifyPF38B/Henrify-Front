@@ -13,6 +13,7 @@ import video from "../../components/assets/pop.mp4"
 
 const Home = () => {
 
+
   const testCards = [1, 2, 3, 4];
   const navigate = useNavigate();
   const data = useContext(PlaylistContext);
@@ -64,10 +65,11 @@ const Home = () => {
     }
   };
 
-
+  
 
   return (
-    <div>        
+    <div>
+             
       <div className={styles.welcome}>
         <span className="wrap">{text}</span>
       </div>

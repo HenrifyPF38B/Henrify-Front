@@ -1,0 +1,323 @@
+.wrapper{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 7rem;
+  background-color: #1f1f1f;
+}
+
+.left{
+  width: 70%;
+  background-color: #1f1f1f;
+  height: 100%;
+  overflow: auto;
+}
+
+
+
+.title{
+  margin-top: 1rem;
+  font-size: 55px;
+  text-align: center;
+  font-weight: 300;
+  color: whitesmoke;
+  letter-spacing: 4px;
+  font-family: "Raleway";
+}
+
+.subtitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.subtitle span{
+  font-size: 14px;
+  color: whitesmoke;
+  letter-spacing: 1.5px;
+}
+
+
+.steps{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  gap: 20px;
+}
+
+.steps span{
+  font-size: 13px;
+}
+
+.formContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.formContainer form{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.infoTitle{
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoTitle p{
+  width: 50%;
+  letter-spacing: 2.5px;
+}
+
+.label{
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.label label{
+  color: whitesmoke;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.label span{
+  font-size: 11px;
+  color: lightgray;
+  font-weight: 200;
+}
+
+.formContainer form input[type="text"]{
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.3rem;
+  background-color: #f5f5f7;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.formContainer form input[type="text"]:focus{
+  outline: none;  
+}
+
+
+.infoNextButton{
+  margin-top: 2rem;
+  width: 60%;
+  display: flex;
+  justify-content: end;
+}
+
+.infoNextButton button{
+  border: none;
+  background-color: #A3C503;
+  color: whitesmoke;
+  letter-spacing: 2px;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+}
+
+
+/* SHIPPMENT */
+
+.shipping{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.shipping h2{
+  margin-top: 4rem;
+  color: whitesmoke;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  margin-bottom: 3.5rem;
+}
+
+.shipMethodContainer{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shipMethod{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.ups{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.ups img{
+  width: 200px;
+  height: auto;
+}
+
+.shipOptions{
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+
+.shipOptions span{
+  color: #f5f5f7;
+  letter-spacing: 1px;
+}
+
+.shipOp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.shipOp span{
+  letter-spacing: 2px;
+}
+
+.shipOp i{
+  font-size: 60px;
+}
+
+.shippingNextButton{
+  margin-top: 2rem;
+  width: 60%;
+  display: flex;
+  justify-content: end;
+}
+
+.shippingNextButton button{
+  border: none;
+  background-color: #A3C503;
+  color: whitesmoke;
+  letter-spacing: 2px;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+}
+
+
+/* PAYMENT */
+
+.paymentContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.payment{
+  margin-top: 3rem;
+  width: 60%;
+}
+
+.payment h2{
+  color: whitesmoke;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+  
+}
+
+
+.billing{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #f5f5f71f;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  width: fit-content;
+}
+
+.billing label{
+  color: whitesmoke;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+
+.paymentSub{
+  color: lightgrey;
+  font-size: 14px;
+}
+
+
+.notice{
+  margin-top: 6rem;
+  background-color: #f5f5f71f;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  color: #A3C503;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.notice:hover{
+  transform: translateY(-8px);
+}
+
+.icon{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.paypal{
+  margin-top: 3rem;
+}
+
+
+
+
+/* RIGHT */
+
+
+.right{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: #A3C503;
+}
+
+
+
+
+

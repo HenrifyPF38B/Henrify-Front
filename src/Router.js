@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
-import LandingPage from "./pages/LandingPage";
 import { Home, About, Album } from "./views";
 import NavBar from "./components/NavBar/NavBar";
 import Login from "./views/Login/Login";
@@ -16,7 +15,11 @@ import MembershipOffer from "./views/Membership/Membership";
 import Buy from "./views/Buy/Buy";
 import Account from "./views/Account/Account";
 import MyPlaylist from "./components/Cards/myPlaylist";
+import SignUp from "./views/SignUp/SignUp";
 import Create from "./components/Cards/Create";
+import LandingPage from "./components/LandingPage";
+import Checkout from "./views/Checkout/Checkout";
+
 
 const Router = () => {
 
@@ -28,9 +31,6 @@ const Router = () => {
           <Route path="about" element={<About />} />
           <Route path="membership" element={<MembershipOffer />} />
           <Route path="store" element={<Store />} />
-          <Route path="login" element={<Login />} />
-          <Route path="reset-password" element={<ResetP />} />
-          <Route path="forgot-password" element={<ForgotP />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="seeAll/:name" element={<SeeAll />} />
           <Route path="playlist" element={<Playlist />} />
@@ -40,7 +40,12 @@ const Router = () => {
           <Route path="buy" element={<Buy />} />
         </Route>
         <Route index element={<LandingPage />} />
+        <Route path="login" element={<Login />} />
+        <Route path="sign-up" element={<SignUp />} />
+        <Route path="reset-password" element={<ResetP />} />
         <Route path="account" element={<Account/>}/>
+        <Route path="forgot-password" element={<ForgotP />} />
+        <Route path="checkout" element={<Checkout />} />
       </Routes>
     </div>
   );
