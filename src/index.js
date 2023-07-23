@@ -5,12 +5,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { PlaylistProvider } from './contexts/playlistContext';
 import { Provider } from "react-redux";
-import { reduxStore }  from "./reduxStore"
+import Store from "./redux/Store"
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-     <Provider store={reduxStore}>
+     <Provider store={Store}>
       <BrowserRouter>
         <PlaylistProvider>
           <PayPalScriptProvider options={{

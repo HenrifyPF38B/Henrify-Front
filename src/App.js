@@ -5,6 +5,7 @@ import PlayModal from './modals/playModal';
 import { PlaylistContext } from './contexts/playlistContext';
 import BuyModal from './modals/buyModal';
 import CartModal from './modals/cartModal';
+import { initMercadoPago } from '@mercadopago/sdk-react'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
   useEffect(() => {
     setBuyOpen(false);
+    initMercadoPago('TEST-55b4f9ca-af32-4ae5-b5e9-baffcc5ed180');
   }, []);
 
   return (

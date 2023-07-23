@@ -3,7 +3,7 @@ import styles from './albumCard.module.css';
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useNavigate } from 'react-router-dom';
 
-const AlbumCard = ({artist, album}) => {
+const AlbumCard = ({artist, album, image}) => {
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
@@ -19,7 +19,7 @@ const AlbumCard = ({artist, album}) => {
 
             <div className={styles.topratedimgdiv}>
                 <img 
-                  src={"/images/disco.avif"} 
+                  src={image} 
                   alt="abc" 
                   width={100} 
                   height={100} 

@@ -9,11 +9,27 @@
   background-color: #1f1f1f;
 }
 
+
 .left{
   width: 70%;
   background-color: #1f1f1f;
   height: 100%;
   overflow: auto;
+}
+
+
+.goBack{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.goBack i:hover{
+  opacity: 0.9;
+}
+
+.goBack i{
+  color: #A3C503;
 }
 
 
@@ -210,16 +226,20 @@
   letter-spacing: 2px;
 }
 
+.shipOpSmallSpan{
+  font-size: 12px;
+}
+
 .shipOp i{
   font-size: 60px;
 }
-
+/* 
 .shippingNextButton{
   margin-top: 2rem;
   width: 60%;
   display: flex;
   justify-content: end;
-}
+} */
 
 .shippingNextButton button{
   border: none;
@@ -302,6 +322,58 @@
   margin-top: 3rem;
 }
 
+.newBillingForm{
+  margin-top: 2rem;
+}
+
+.newBillingForm form{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.newBillingForm input{
+  padding: 0.5rem 0.5rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.newBillingForm input:focus{
+  outline: none;
+}
+
+.newBillingFormLabel{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 0.3rem;
+}
+
+.newBillingFormLabel label{
+  color: lightgray;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.newBillingForm span{
+  color: lightgray;
+  font-weight: 200;
+  font-size: 11.5px;
+}
+
+
+/* PREV BUTTON */
+.prevButton button{
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  background-color: #f5f5f74a;
+  color: #A3C503;
+  letter-spacing: 1.5px;
+}
 
 
 
@@ -317,7 +389,211 @@
   background-color: #A3C503;
 }
 
+.details{
+  height: 30vh;
+  padding: 1rem;
+}
+
+.sumContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;  
+  gap: 10px
+}
+
+.sumDiv{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sumDiv span:first-child{
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.sumDiv span:last-child{
+  font-size: 13.5px;
+  color: #1f1f1fbd;
+  font-weight: 600;
+}
+
+.subTotal{
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #99b80d;
+}
+
+.subTotal span:first-child{
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.subTotal span:last-child{
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #1f1f1fbd;
+  font-weight: 500;
+}
 
 
 
 
+.products{
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: #A3C503;
+}
+
+.products::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.products::-webkit-scrollbar-track {
+  background: #A3C503;
+}
+
+/* Handle */
+.products::-webkit-scrollbar-thumb {
+  background: #99b80d;
+}
+
+/* Handle on hover */
+.products::-webkit-scrollbar-thumb:hover {
+  background: #99b80d;
+}
+
+.productCard{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  width: 100%;
+  border-bottom: 2px solid #99b80d;
+}
+
+.productCardLeft{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.productCardImg{
+  position: relative;
+  width: 20%;
+  height: auto;
+}
+
+.productCardImg img{
+  width: 100%;
+  height: auto;
+  border-radius: 0.2rem;
+}
+
+.productCardImg .quantityIcon{
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  background-color: #99b80d;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  border:3px solid #A3C503;
+}
+
+
+
+.productCardRight{
+  width: 30%;
+}
+
+.productCardDetails{
+  display: flex;
+  flex-direction: column;
+}
+
+.productCardDetails span:first-child{
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+
+.productCardDetails span:last-child{
+  font-size: 12px;
+  color: #1f1f1fbd;
+}
+
+
+.productCardRight span{
+  color: #1f1f1fbd;
+  font-size: 12px;
+}
+
+
+/* DUMMY ACCOUNTS */
+
+.dummyAccounts{
+  
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: #f5f5f71f;
+  color: lightgray;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  border-radius: 0.3rem;
+  transition: scale 0.3s ease;
+}
+
+.dummyAccounts:hover{
+  scale: 1.02;
+}
+
+.mpDummyA{
+  font-size: 11px;
+  font-weight: 600;
+  color: #A3C503;
+}
+
+.accountCont{
+  margin-top: 1rem;
+}
+
+/* MP GET PREFERENCE ID BUTTON */
+
+.mp{
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  background-color: #007EB5;
+  padding: 0rem 2rem;
+  border-radius: 50px;
+  transition: filter 0.3s ease;
+}
+
+.mp button{
+  background-color: #007EB5;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.mp:hover{
+  filter: brightness(120%);
+}

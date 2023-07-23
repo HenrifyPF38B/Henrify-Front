@@ -3,7 +3,7 @@ import styles from './songCard.module.css';
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useNavigate } from 'react-router-dom';
 
-const SongCard = ({artist, song}) => {
+const SongCard = ({artist, song, id, img, audio}) => {
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
@@ -35,18 +35,18 @@ const SongCard = ({artist, song}) => {
 
             <div className={styles.topratedimgdiv}>
                 <img 
-                  src={"/images/ari.jpeg"} 
+                  src={img} 
                   alt="abc" 
                   width={100} 
                   height={100} 
                   onClick={()=> navigate("/song")}
                 />
-                <div className={styles.listen} onClick={()=> setPlayerOpen(true)}>
+                <div className={styles.listen} onClick={()=> setPlayerOpen(audio)}>
                     <i className="fa-solid fa-play fa-2xl"></i>
                 </div>
             </div>
-            <span className={styles.topratedspan1}>{artist}</span>
-            <span className={styles.topratedspan2}>{song}</span>
+            <span className={styles.topratedspan1}>{song}</span>
+            <span className={styles.topratedspan2}>{artist}</span>
         </div>
      );
 }
