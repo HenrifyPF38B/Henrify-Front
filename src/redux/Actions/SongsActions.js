@@ -12,13 +12,13 @@ export const getSongs = () => {
   return async function (dispatch) {
     const res = await fetch(base_url + "/songs");
     const data = await res.json();
-    return dispatch({ type: GET_SONGS, payload: data });
+    dispatch({ type: GET_SONGS, payload: data });
   };
 };
 
 export const getSongsById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`${base_url}/${id}`);
+    const res = await fetch(`${base_url}/songs/${id}`);
     const data = await res.json();
     dispatch({ type: GET_SONGS_ID, payload: data });
   };
@@ -27,7 +27,7 @@ export const getSongsById = (id) => {
 export const postSongs = (song) => {
   return async function (dispatch) {
     const res = await fetch(
-      base_url
+      base_url + "/songs"
       // {
       //     method: 'POST',
       //     headers:{
@@ -44,7 +44,7 @@ export const postSongs = (song) => {
 export const putSongs = (song, id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/${id}`
+      `${base_url}/songs/${id}`
       // {
       //     method: 'PUT',
       //     headers: {
@@ -61,7 +61,7 @@ export const putSongs = (song, id) => {
 export const deleteSongs = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/${id}`
+      `${base_url}/songs/${id}`
       // {
       //     method: 'DELETE'
       // }
