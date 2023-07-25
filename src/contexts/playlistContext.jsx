@@ -8,7 +8,7 @@ export const PlaylistProvider = ({children}) =>{
     const [playerOpen, setPlayerOpen] = useState(false);
     const [buyOpen, setBuyOpen] = useState(false);
     const [cartModal, setCartModal] = useState(false);
-
+    const [playerHidden, setPlayerHidden] = useState(false);
 
     const [login, setLogin] = useState(null);
     useEffect(() => {
@@ -37,7 +37,9 @@ export const PlaylistProvider = ({children}) =>{
         buyOpen,
         setBuyOpen,
         cartModal,
-        setCartModal
+        setCartModal,
+        playerHidden,
+        setPlayerHidden
     } 
 
     return <PlaylistContext.Provider value={data}>{children}</PlaylistContext.Provider>

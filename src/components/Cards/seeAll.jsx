@@ -4,11 +4,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import PlaylistCard from './playlistCard';
 import AlbumCard from './albumCard';
 import SongCard from './songCard';
+import { useSelector } from 'react-redux';
 
 const SeeAll = () => {
 
   const dummy = [1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7,]
   const navigate = useNavigate();
+  const state = useSelector(state => state);
+  const { albums, playlists } = state;
 
   const { name } = useParams();
 
@@ -22,12 +25,14 @@ const SeeAll = () => {
         name === "playlists" && (
           <div className={styles.cards}>
             {
-                dummy.map((el, index) =>{
+                playlists.length && playlists.map((el, index) =>{
                   return(
                     <PlaylistCard
                       key={index}
-                      creator="Soul Life"
-                      playlist={"Rap Caviar"}
+                      creator={el.owner}
+                      playlist={el.name}
+                      image={el.image}
+                      id={el.id}
                     />
                   )
                 })
@@ -56,12 +61,13 @@ const SeeAll = () => {
         name === "albums" && (
           <div className={styles.cards}>
             {
-                dummy.map((el, index) =>{
+                albums.length && albums.map((el, index) =>{
                   return(
                     <AlbumCard
                       key={index}
-                      artist="Soul Life"
-                      playlist={"Rap Caviar"}
+                      artist={el.artists}
+                      album={el.name}
+                      image={el.image}
                     />
                   )
                 })

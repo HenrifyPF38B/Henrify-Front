@@ -414,15 +414,17 @@ body{
   border-radius: 10px;
 }
 
-.dropdown-menu { 
+.dropdown.playlist .dropdown-menu { 
   background-color: #fcead363;
+  transition: background-color 0.3s ease;
   border:none;
   border-radius: 10px;
+  transform: translate3d(-100px, 25px, 0px) !important;
 }
-.dropdown-menu:hover {
+.dropdown.playlist .dropdown-menu:hover {
   background-color: #1d1d1dc2;
 }
-.dropdown-item {
+.dropdown.playlist .dropdown-item {
   color: rgb(255, 255, 255);
   letter-spacing: 1.5px;
   align-items: center;
@@ -431,7 +433,7 @@ body{
   font-size: 15px;
   line-height: 1.1;
 }
-.dropdown-item:hover {
+.dropdown.playlist .dropdown-item:hover {
   color: rgb(252, 242, 249);
 }
 
@@ -440,24 +442,24 @@ body{
   visibility: visible;
 }
 
-.dropdown-item:hover {
+.dropdown.playlist .dropdown-item:hover {
   background-color: inherit;
 }
-.dropdown-item:active {
+.dropdown.playlist .dropdown-item:active {
   background-color: transparent;
 }
 
-.dropdown-item {
+.dropdown.playlist .dropdown-item {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.dropdown-item label {
+.dropdown.playlist .dropdown-item label {
   font-size: 14px;
 }
 
-.dropdown-item input {
+.dropdown.playlist .dropdown-item input {
   width: 10px;
   height: auto;
 }
@@ -683,4 +685,51 @@ body{
   margin-top: 1rem !important;
   margin-left: 7rem;
   z-index: 101 !important;
+}
+
+
+
+/* PLAYER HIDE CLASSES */
+
+.playerArticle{
+  position: fixed;
+  bottom: 0px;
+  z-index: 999;
+  height: fit-content;
+  width: 100%;
+  background-color: #070707;
+  transition: all 0.3s ease;
+}
+
+.playerArticle.hide{
+  bottom: -170px;
+}
+
+.whenPlayerHide{
+  position: absolute;
+  color: white;
+  z-index: 999;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  top: -110px;
+  background: #c94b4b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.whenPlayerHide:hover{
+  scale: 1.1;
+}
+
+.whenPlayerHide.active{
+  opacity: 1;
+  visibility: visible;
 }

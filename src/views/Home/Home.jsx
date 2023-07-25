@@ -21,7 +21,7 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector(state => state);
-  const { songs, albums } = state;
+  const { songs, albums, playlists } = state;
 
   const data = useContext(PlaylistContext);
   const { modalOpen, setModalOpen } = data;
@@ -76,8 +76,8 @@ const Home = () => {
 
 
   useEffect(() => {
-    dispatch(getSongs());
-    dispatch(getAlbums());
+    // dispatch(getSongs());
+  
   }, []);
   
 
@@ -96,16 +96,20 @@ const Home = () => {
           <div className={styles.container2}>
             <div className='d-flex align-items-center justify-content-between'>
               <h2 style={{letterSpacing: "1.5px"}}>Popular Playlists</h2>
-              {/* <span className={styles.seeAll} onClick={()=> navigate("/seeAll/playlists")}>See all</span> */}
+              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/playlists")}>See all</span>
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
             {
-                testCards.map((el, index) =>{
+                playlists.length && playlists.map((el, index) =>{
+                  
+                  if(index === 0 || index === 7 || index === 8 || index === 4)
                   return(
                     <PlaylistCard
                       key={index}
-                      creator={"Soul Life"}
-                      playlist={"Let's Party"}
+                      creator={el.owner}
+                      playlist={el.name}
+                      image={el.image}
+                      id={el.id}
                     />
                   )
                 })
@@ -138,7 +142,7 @@ const Home = () => {
               {/* <span className={styles.seeAll} onClick={()=> navigate("/seeAll/songs")}>See all</span> */}
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
-            <SongCard
+            {/* <SongCard
               artist={songs[30]?.artists}
               song={songs[30]?.name}
               id={songs[30]?.id}
@@ -165,7 +169,7 @@ const Home = () => {
               id={songs[90]?.id}
               img={songs[90]?.image}
               audio={songs[90]?.audio}
-            />
+            /> */}
             </div>
           </div>
 
@@ -249,10 +253,15 @@ const Home = () => {
           {/* POPULAR ALBUMS */}
           <div className={styles.container2} style={{marginTop:"7rem"}}>
             <div className='d-flex align-items-center justify-content-between'>
-              <h2 style={{letterSpacing: "1.5px"}}>Albums</h2>
+              <h2 style={{letterSpacing: "1.5px"}}>Popular Albums</h2>
               <span className={styles.seeAll} onClick={()=> navigate("/seeAll/albums")}>See all</span>
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
+            <AlbumCard
+              artist={albums[0]?.artists}
+              album={albums[0]?.name}
+              image={albums[0]?.image}
+            />
             <AlbumCard
               artist={albums[1]?.artists}
               album={albums[1]?.name}
@@ -267,11 +276,6 @@ const Home = () => {
               artist={albums[3]?.artists}
               album={albums[3]?.name}
               image={albums[3]?.image}
-            />
-            <AlbumCard
-              artist={albums[4]?.artists}
-              album={albums[4]?.name}
-              image={albums[4]?.image}
             />
             </div>
           </div>

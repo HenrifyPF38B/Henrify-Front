@@ -33,7 +33,7 @@ const Router = () => {
           <Route path="store" element={<Store />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="seeAll/:name" element={<SeeAll />} />
-          <Route path="playlist" element={<Playlist />} />
+          <Route path="playlist/:id" element={<Playlist />} />
           <Route path="myPlaylist" element={<MyPlaylist />} />
           <Route path="create" element={<Create />} />
           <Route path="album" element={<SingleAlbum />} />

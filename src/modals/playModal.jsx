@@ -4,15 +4,18 @@ import { PlaylistContext } from '../contexts/playlistContext';
 
 const PlayModal = () => {
 
-  const data = useContext(PlaylistContext);
-  const { playerOpen, setPlayerOpen } = data;
-  const { audio, img, song, artist } = playerOpen;
+  const dataContext = useContext(PlaylistContext);
+  const { playerOpen, setPlayerOpen, playerHidden, setPlayerHidden } = dataContext;
+  const { originalData, data, originalIndex, index, audio, img, song, artist } = playerOpen;
   const refAudio = useRef();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [loopActive, setLoopActive] = useState(false);
+  const [shuffleActive, setShuffleActive] = useState(false);
   const [volume, setVolume] = useState(0.8);
   const [muted, setMuted] = useState(false);
+  const [memberSongDetails, setMemberSongDetails] = useState({originalIndex, audio, img, song, artist});
+  const [songDetails, setSongDetails] = useState({index, audio, img, song, artist});
   
   // Tiempo total formateado
   const [duration, setDuration] = useState(0);
@@ -67,6 +70,17 @@ const PlayModal = () => {
     }
   }, [volume]);
 
+  // Esto lo necesitamoss para poder cambiar de cancion al clickear en una TR de Playlist.jsx
+  useEffect(() => {
+    setSongDetails({
+      index, audio, img, song, artist
+    });
+    setTimeout(()=>{
+      refAudio.current.play();
+    },200)
+  }, [index, audio, img, song, artist]);
+
+
   const timeUpdate = (event) => {
     setProgressTime(event.target.currentTime);
     const minutes = Math.floor(event.target.currentTime / 60);
@@ -85,67 +99,227 @@ const PlayModal = () => {
     return `${minutes}:${secondsReadable}`
   }
 
-  return ( 
-    <article className={styles.article}>
-      <audio 
-        ref={refAudio} 
-        src={audio} 
-        preload='metadata'
-        onDurationChange={(e)=> {setDuration(formatTime(e.currentTarget.duration)) ; setTotalTime(e.currentTarget.duration)}}
-        onPlay={()=> setIsPlaying(true)}
-        onPause={()=> setIsPlaying(false)}
-        loop={loopActive}
-        onTimeUpdate={timeUpdate}
-      />
-      <div className={styles.div}>
+  const handleOnEnded = () =>{
+    // Como hay canciones que no tienen previewTrack, desde Playlist.jsx,
+    // Filtro las canciones que si tienen preview, y me paso el array filtrado, mediante playerOpen.
+    
+    if(data[songDetails.index + 1]){
+      // Significa que existe una cancion despues de la actual
+      
+      // Si no esta el loop activado y el modo aleatorio tambien:
+      if(!loopActive && !shuffleActive){
+        setSongDetails({
+          index: songDetails.index + 1,
+          audio: data[songDetails.index + 1].trackPreview,
+          img: data[songDetails.index + 1].image.url,
+          song: data[songDetails.index + 1].trackName,
+          artist: data[songDetails.index + 1].artists.map((artist, index) => {
+            if(index === data[songDetails.index + 1].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+  
+        setTimeout(()=> {
+          refAudio.current.play();
+        }, 200)
+      };
 
-        <div className={styles.left}>
-          <div className='position-relative'>
-            <img src={img} alt="abc" />
-            <div className={styles.close} onClick={()=> setPlayerOpen(false)}>
-              <i className="fa-solid fa-xmark fa-lg"></i>
-            </div>
-          </div>
-          <div className='d-flex flex-column align-items-start mx-3' style={{gap:"3px"}}>
-            <span style={{color:"whitesmoke", fontSize:"14px"}}>{song}</span>
-            <span style={{color:"#777777", fontSize:"12px"}}>{artist}</span>
-          </div>
-          <div className='d-flex align-items-center'>
-            <i className="fa-regular fa-heart me-2 fa-lg" style={{color:"whitesmoke"}}></i>
-            <i className="fa-solid fa-minimize" style={{color:"whitesmoke"}}></i>
-          </div>
+      // Si el loop esta desactivado y el aleatorio activado
+      if(!loopActive && shuffleActive){
+        let randomNumber = Math.floor(Math.random() * data.length);
+
+        setSongDetails({
+          index: data[randomNumber].index,
+          audio: data[randomNumber].trackPreview,
+          img: data[randomNumber].image.url,
+          song: data[randomNumber].trackName,
+          artist: data[randomNumber].artists.map((artist, index) => {
+            if(index === data[randomNumber].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+  
+        setTimeout(()=> {
+          refAudio.current.play();
+        }, 200)
+      };
+      
+      // Por defecto, si el loop esta activado ignora cualquier codigo y reinicia la cancion
+
+
+    }else{
+      // Significa que no existe una cancion despues de la actual
+      
+      // ------------- SI NO ES MEMBER --------------
+      setSongDetails({
+        index: data[0].index,
+        audio: data[0].trackPreview,
+        img: data[0].image.url,
+        song: data[0].trackName,
+        artist: data[0].artists.map((artist, index) => {
+          if(index === data[0].artists.length - 1){
+            return artist.name
+          }else{
+            return artist.name + " • "
+          }
+        })
+      });
+
+      setTimeout(()=> {
+        refAudio.current.play();
+      }, 200)
+      
+     
+    }
+  };
+
+  const handleOnEndedMember = () =>{
+
+    if(originalData[memberSongDetails].originalIndex + 1){
+      // SI HAY UNA CANCION DESPUES DE LA ACTUAL REPRODUCE LA SIGUIENTE
+       
+      // Si no esta el loop activado y el modo aleatorio tambien:
+      if(!loopActive && !shuffleActive){
+        setMemberSongDetails({
+          index: memberSongDetails.index + 1,
+          audio: originalData[songDetails.index + 1].trackFull,
+          img: originalData[songDetails.index + 1].image.url,
+          song: originalData[songDetails.index + 1].trackName,
+          artist: originalData[songDetails.index + 1].artists.map((artist, index) => {
+            if(index === originalData[songDetails.index + 1].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+  
+        setTimeout(()=> {
+          refAudio.current.play();
+        }, 200)
+      };
+
+      // Si el loop esta desactivado y el aleatorio activado
+      if(!loopActive && shuffleActive){
+        let randomNumber = Math.floor(Math.random() * originalData.length);
+
+        setMemberSongDetails({
+          index: originalData[randomNumber].index,
+          audio: originalData[randomNumber].trackFull,
+          img: originalData[randomNumber].image.url,
+          song: originalData[randomNumber].trackName,
+          artist: originalData[randomNumber].artists.map((artist, index) => {
+            if(index === originalData[randomNumber].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+  
+        setTimeout(()=> {
+          refAudio.current.play();
+        }, 200)
+      };
+
+      // Por defecto, si el loop esta activado ignora cualquier codigo y reinicia la cancion
+
+
+    }else{
+      // SI NO HAY UNA CANCION DESPUES, VUELVE AL PRINCIPIO
+      setSongDetails({
+        index: originalData[0].index,
+        audio: originalData[0].trackPreview,
+        img: originalData[0].image.url,
+        song: originalData[0].trackName,
+        artist: originalData[0].artists.map((artist, index) => {
+          if(index === originalData[0].artists.length - 1){
+            return artist.name
+          }else{
+            return artist.name + " • "
+          }
+        })
+      });
+
+      setTimeout(()=> {
+        refAudio.current.play();
+      }, 200)
+    }
+  };
+
+  return ( 
+      <article className={`playerArticle ${playerHidden ? "hide"  : ""}`}>
+        {/* Renderizar una etiqueta audio para members, y otra para no members. */}
+        <audio 
+          ref={refAudio} 
+          src={songDetails.audio} 
+          onEnded={handleOnEnded}
+          preload='metadata'
+          onDurationChange={(e)=> {setDuration(formatTime(e.currentTarget.duration)) ; setTotalTime(e.currentTarget.duration)}}
+          onPlay={()=> setIsPlaying(true)}
+          onPause={()=> setIsPlaying(false)}
+          loop={loopActive}
+          onTimeUpdate={timeUpdate}
+        />
+        <div className={styles.div}>
+        <div className={`whenPlayerHide ${playerHidden && "active"}`} onClick={()=> setPlayerHidden(false)}>
+          <i className="fa-solid fa-headphones fa-2xl"></i>
         </div>
-        <div className={styles.middle}>
-          <div className={styles.middleTop}>
-            <i className="fa-solid fa-shuffle fa-lg"></i>
-            <i className="fa-solid fa-backward-step fa-lg"></i>
-            <div className={styles.play}>
-              <i className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play ms-1"}`} onClick={tooglePlayPause}></i>
-            </div>
-            <i className="fa-solid fa-forward-step fa-lg"></i>
-            <i className="fa-solid fa-rotate-right fa-lg" style={{color: loopActive ? "white" : "#777777"}} onClick={()=> setLoopActive(!loopActive)}></i>
-          </div>
-          <div className={styles.middleBottom}>
-              <span>{currentTime}</span>
-              <div>
-                <input type="range" defaultValue={0} min={0} max={totalTime} value={progressTime} />
+        <div className='w-30'>
+          <div className={styles.left}>
+            <div className='position-relative'>
+              <img src={songDetails.img} alt="abc" />
+              <div className={styles.close} onClick={()=> setPlayerOpen(false)}>
+                <i className="fa-solid fa-xmark fa-lg"></i>
               </div>
-              <span>{duration}</span>
+            </div>
+            <div className='d-flex flex-column align-items-start mx-3 flex-grow-1' style={{gap:"3px"}}>
+              <span style={{color:"whitesmoke", fontSize:"14px"}}>{songDetails.song?.length > 29 ? songDetails.song.slice(0, 28) + "…" : songDetails.song}</span>
+              <span style={{color:"#777777", fontSize:"12px"}}>{songDetails.artist.toString().replaceAll(",", "").length > 37 ? songDetails.artist.toString().replaceAll(",", "").slice(0, 36) + "…" : songDetails.artist}</span>
+            </div>
+            <div className='d-flex align-items-center'>
+              <i className="fa-regular fa-heart me-2 fa-lg" style={{color:"whitesmoke"}}></i>
+              <i className="fa-solid fa-minimize" style={{color:"whitesmoke"}} onClick={()=> setPlayerHidden(true)}></i>
+            </div>
           </div>
         </div>
-        <div className={styles.right}>
-          <div>
-            <i className="fa-solid fa-ellipsis-vertical fa-lg"></i>
+          <div className={styles.middle}>
+            <div className={styles.middleTop}>
+              <i className="fa-solid fa-shuffle fa-lg" style={{color: shuffleActive ? "white" : "#777777"}} onClick={()=> setShuffleActive(!shuffleActive)}></i>
+              <i className="fa-solid fa-backward-step fa-lg"></i>
+              <div className={styles.play}>
+                <i className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play ms-1"}`} onClick={tooglePlayPause}></i>
+              </div>
+              <i className="fa-solid fa-forward-step fa-lg"></i>
+              <i className="fa-solid fa-rotate-right fa-lg" style={{color: loopActive ? "white" : "#777777"}} onClick={()=> setLoopActive(!loopActive)}></i>
+            </div>
+            <div className={styles.middleBottom}>
+                <span>{currentTime}</span>
+                <div className='d-flex justify-content-center flex-grow-1' >
+                  <input style={{width:"90%"}} type="range" defaultValue={0} min={0} max={totalTime} value={progressTime} onChange={(e)=> refAudio.current.currentTime = e.target.value} />
+                </div>
+                <span>{duration}</span>
+            </div>
           </div>
-          <div>
-            <i className={`fa-solid fa-lg ${muted ? "fa-volume-xmark" : "fa-volume-high"}`} onClick={toogleMute}></i>
-          </div>
-          <div>
-            <input type="range" defaultValue={80} min={0} max={100} onChange={handleVolume} />
+          <div className={styles.right}>
+            <div>
+              <i className="fa-solid fa-ellipsis-vertical fa-lg"></i>
+            </div>
+            <div>
+              <i className={`fa-solid fa-lg ${muted ? "fa-volume-xmark" : "fa-volume-high"}`} onClick={toogleMute}></i>
+            </div>
+            <div>
+              <input type="range" defaultValue={80} min={0} max={100} onChange={handleVolume} />
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
    );
 }
  

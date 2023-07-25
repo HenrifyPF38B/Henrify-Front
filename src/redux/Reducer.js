@@ -157,7 +157,7 @@ const Reducer = (state = initialState, { type, payload }) => {
     case GET_PLAYLISTS:
       return {
         ...state,
-        users: payload,
+        playlists: payload,
       };
 
     case GET_PLAYLISTS_ID:

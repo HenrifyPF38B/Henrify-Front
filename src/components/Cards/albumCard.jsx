@@ -33,7 +33,7 @@ const AlbumCard = ({artist, album, image}) => {
                     </div>
                 </div>
             </div>
-            <span className={styles.topratedspan1}>{artist}</span>
+            <span className={styles.topratedspan1}>{artist && artist[0].name}</span>
             <span className={styles.topratedspan2}>{album}</span>
         </div>
      );
