@@ -10,7 +10,7 @@ import { base_url } from "../baseURL";
 // CRUD PLAYLISTS --------------------------------------------
 export const getPlaylists = () => {
   return async function (dispatch) {
-    const res = await fetch(base_url + "/playlists");
+    const res = await fetch(`${base_url}/playlists`);
     const data = await res.json();
     dispatch({ type: GET_PLAYLISTS, payload: data });
   };
@@ -18,7 +18,7 @@ export const getPlaylists = () => {
 
 export const getPlaylistsById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/playlists/${id}`);
+    const res = await fetch(`${base_url}/playlists/${id}`);
     const data = await res.json();
     dispatch({ type: GET_PLAYLISTS_ID, payload: data });
   };
@@ -27,7 +27,7 @@ export const getPlaylistsById = (id) => {
 export const postPlaylists = (playlist) => {
   return async function (dispatch) {
     const res = await fetch(
-      "http://localhost:3001/api/playlists/"
+      `${base_url}/playlists`
       // {
       //     method: 'POST',
       //     headers:{
@@ -44,7 +44,7 @@ export const postPlaylists = (playlist) => {
 export const putPlaylists = (playlist, id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/playlists/${id}`
+      `${base_url}/playlists/${id}`
       // {
       //     method: 'PUT',
       //     headers: {
@@ -61,7 +61,7 @@ export const putPlaylists = (playlist, id) => {
 export const deletePlaylists = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/playlists/${id}`
+      `${base_url}/playlists/${id}`
       // {
       //     method: 'DELETE'
       // }

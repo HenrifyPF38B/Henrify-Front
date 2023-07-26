@@ -4,11 +4,12 @@ import {
   POST_GENRES,
   DELETE_GENRES,
 } from "../Action-types";
+import { base_url } from "../baseURL";
 
 // CRUD GENRES --------------------------------------------
 export const getGenres = () => {
   return async function (dispatch) {
-    const res = await fetch("http://localhost:3001/api/genres/");
+    const res = await fetch(`${base_url}/genres`);
     const data = await res.json();
     dispatch({ type: GET_GENRES, payload: data });
   };
@@ -16,7 +17,7 @@ export const getGenres = () => {
 
 export const getGenresById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/genres/${id}`);
+    const res = await fetch(`${base_url}/genres/${id}`);
     const data = await res.json();
     dispatch({ type: GET_GENRES_ID, payload: data });
   };
@@ -25,7 +26,7 @@ export const getGenresById = (id) => {
 export const postGenres = (genre) => {
   return async function (dispatch) {
     const res = await fetch(
-      "http://localhost:3001/api/genres/"
+      `${base_url}/genres`
       // {
       //     method: 'POST',
       //     headers:{
@@ -42,7 +43,7 @@ export const postGenres = (genre) => {
 export const deleteGenres = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/genres/${id}`
+      `${base_url}/genres/${id}`
       // {
       //     method: 'DELETE'
       // }

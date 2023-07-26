@@ -5,11 +5,12 @@ import {
   PUT_REVIEWS,
   DELETE_REVIEWS,
 } from "../Action-types";
+import { base_url } from "../baseURL";
 
 // CRUD REVIEWS ----------------------------------------------
 export const getReviews = () => {
   return async function (dispatch) {
-    const res = await fetch("http://localhost:3001/api/reviews/");
+    const res = await fetch(`${base_url}/reviews`);
     const data = await res.json();
     dispatch({ type: GET_REVIEWS, payload: data });
   };
@@ -17,7 +18,7 @@ export const getReviews = () => {
 
 export const getReviewsById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/reviews/${id}`);
+    const res = await fetch(`${base_url}/reviews/${id}`);
     const data = await res.json();
     dispatch({ type: GET_REVIEWS_ID, payload: data });
   };
@@ -26,7 +27,7 @@ export const getReviewsById = (id) => {
 export const postReviews = (review) => {
   return async function (dispatch) {
     const res = await fetch(
-      "http://localhost:3001/api/reviews/"
+      `${base_url}/reviews`
       // {
       //     method: 'POST',
       //     headers:{
@@ -43,7 +44,7 @@ export const postReviews = (review) => {
 export const putReviews = (review, id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/reviews/${id}`
+      `${base_url}/reviews/${id}`
       // {
       //     method: 'PUT',
       //     headers: {
@@ -60,7 +61,7 @@ export const putReviews = (review, id) => {
 export const deleteReviews = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/reviews/${id}`
+      `${base_url}/reviews/${id}`
       // {
       //     method: 'DELETE'
       // }

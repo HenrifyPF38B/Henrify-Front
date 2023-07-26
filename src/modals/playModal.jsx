@@ -16,6 +16,7 @@ const PlayModal = () => {
   const [muted, setMuted] = useState(false);
   const [memberSongDetails, setMemberSongDetails] = useState({originalIndex, audio, img, song, artist});
   const [songDetails, setSongDetails] = useState({index, audio, img, song, artist});
+  // Lo pongo en songDetails, para poder cambiar el audio cuando termine de reproducirse una cancion
   
   // Tiempo total formateado
   const [duration, setDuration] = useState(0);
@@ -55,8 +56,9 @@ const PlayModal = () => {
   };
 
   useEffect(() => {
+    console.log(playerOpen);
     if(refAudio){
-      refAudio.current.volume = 0.8;
+      refAudio.current.volume = 0.2;
       setIsPlaying(true);
       refAudio.current.play();
     }
@@ -91,6 +93,7 @@ const PlayModal = () => {
   const str_pad_left = (string,pad,length) => {
       return (new Array(length+1).join(pad)+string).slice(-length);
   }
+  
   const formatTime = (time) => {
     let minutes = Math.floor( time / 60 )
     let timeForSeconds = time - ( minutes * 60 ) // seconds without counted minutes 
@@ -99,15 +102,38 @@ const PlayModal = () => {
     return `${minutes}:${secondsReadable}`
   }
 
+  // ENDED FOR NON MEMBERS
   const handleOnEnded = () =>{
     // Como hay canciones que no tienen previewTrack, desde Playlist.jsx,
     // Filtro las canciones que si tienen preview, y me paso el array filtrado, mediante playerOpen.
     
-    if(data[songDetails.index + 1]){
-      // Significa que existe una cancion despues de la actual
-      
-      // Si no esta el loop activado y el modo aleatorio tambien:
-      if(!loopActive && !shuffleActive){
+    // Si el loop esta desactivado y el aleatorio activado
+    if(!loopActive && shuffleActive){
+      let randomNumber = Math.floor(Math.random() * data.length);
+
+      setSongDetails({
+        index: data[randomNumber].index,
+        audio: data[randomNumber].trackPreview,
+        img: data[randomNumber].image.url,
+        song: data[randomNumber].trackName,
+        artist: data[randomNumber].artists.map((artist, index) => {
+          if(index === data[randomNumber].artists.length - 1){
+            return artist.name
+          }else{
+            return artist.name + " • "
+          }
+        })
+      });
+
+      setTimeout(()=> {
+        refAudio.current.play();
+      }, 200)
+    };
+
+    // Si no esta el loop activado y el modo aleatorio tampoco:
+    if(!loopActive && !shuffleActive){
+      if(data[songDetails.index + 1]){
+        // Significa que existe una cancion despues de la actual
         setSongDetails({
           index: songDetails.index + 1,
           audio: data[songDetails.index + 1].trackPreview,
@@ -121,23 +147,20 @@ const PlayModal = () => {
             }
           })
         });
-  
+
         setTimeout(()=> {
           refAudio.current.play();
         }, 200)
-      };
-
-      // Si el loop esta desactivado y el aleatorio activado
-      if(!loopActive && shuffleActive){
-        let randomNumber = Math.floor(Math.random() * data.length);
-
+      
+      }else{
+        // Significa que no existe una cancion despues de la actual
         setSongDetails({
-          index: data[randomNumber].index,
-          audio: data[randomNumber].trackPreview,
-          img: data[randomNumber].image.url,
-          song: data[randomNumber].trackName,
-          artist: data[randomNumber].artists.map((artist, index) => {
-            if(index === data[randomNumber].artists.length - 1){
+          index: 0,
+          audio: data[0].trackPreview,
+          img: data[0].image.url,
+          song: data[0].trackName,
+          artist: data[0].artists.map((artist, index) => {
+            if(index === data[0].artists.length - 1){
               return artist.name
             }else{
               return artist.name + " • "
@@ -148,37 +171,13 @@ const PlayModal = () => {
         setTimeout(()=> {
           refAudio.current.play();
         }, 200)
+        
       };
-      
-      // Por defecto, si el loop esta activado ignora cualquier codigo y reinicia la cancion
-
-
-    }else{
-      // Significa que no existe una cancion despues de la actual
-      
-      // ------------- SI NO ES MEMBER --------------
-      setSongDetails({
-        index: data[0].index,
-        audio: data[0].trackPreview,
-        img: data[0].image.url,
-        song: data[0].trackName,
-        artist: data[0].artists.map((artist, index) => {
-          if(index === data[0].artists.length - 1){
-            return artist.name
-          }else{
-            return artist.name + " • "
-          }
-        })
-      });
-
-      setTimeout(()=> {
-        refAudio.current.play();
-      }, 200)
-      
-     
-    }
+    };
+    
   };
 
+  // ENDED FOR MEMBERS
   const handleOnEndedMember = () =>{
 
     if(originalData[memberSongDetails].originalIndex + 1){
@@ -253,18 +252,174 @@ const PlayModal = () => {
     }
   };
 
+  // NEXT & PREV FOR NON MEMBERS
+  const handleNextSong = () =>{
+    // Si esta en modo aleatorio al clickear el boton:
+    if(!loopActive && shuffleActive){
+      let Y = Math.floor(Math.random() * data.length);
+      
+      setSongDetails({
+        index: Y,
+        audio: data[Y].trackPreview,
+        img: data[Y].image.url,
+        song: data[Y].trackName,
+        artist: data[Y].artists.map((artist, index) => {
+          if(index === data[Y].artists.length - 1){
+            return artist.name
+          }else{
+            return artist.name + " • "
+          }
+        })
+      });
+
+      setTimeout(()=>{
+        refAudio.current.play();
+      }, 200);
+    };
+
+    // Si ni el loop ni el aleatorio estan activos:
+    if(!loopActive && !shuffleActive){
+      if(data[songDetails.index + 1]){
+        // Si hay una cancion despues de la actual:
+        let Y = songDetails.index + 1;
+        setSongDetails({
+          index: Y,
+          audio: data[Y].trackPreview,
+          img: data[Y].image.url,
+          song: data[Y].trackName,
+          artist: data[Y].artists.map((artist, index) => {
+            if(index === data[Y].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+
+        setTimeout(()=>{
+          refAudio.current.play();
+        }, 200);
+    
+      }else{
+        // Si no hay una cancion despues de la actual:
+        console.log(data[0]);
+        setSongDetails({
+          index: 0,
+          audio: data[0].trackPreview,
+          img: data[0].image.url,
+          song: data[0].trackName,
+          artist: data[0].artists.map((artist, index) => {
+            if(index === data[0].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+  
+        setTimeout(()=>{
+          refAudio.current.play();
+        }, 200);
+      };
+      
+    };
+  
+  };
+
+  const handlePrevSong = () =>{
+
+    if(!loopActive && shuffleActive){
+      let Y = Math.floor(Math.random() * data.length);
+      
+      setSongDetails({
+        index: Y,
+        audio: data[Y].trackPreview,
+        img: data[Y].image.url,
+        song: data[Y].trackName,
+        artist: data[Y].artists.map((artist, index) => {
+          if(index === data[Y].artists.length - 1){
+            return artist.name
+          }else{
+            return artist.name + " • "
+          }
+        })
+      });
+
+      setTimeout(()=>{
+        refAudio.current.play();
+      }, 200);
+    };
+
+    if(!loopActive && !shuffleActive){
+      if(data[songDetails.index - 1]){
+        // Si hay una cancion en la posicion anterior a la actual:
+        let Y = songDetails.index - 1;
+        setSongDetails({
+          index: Y,
+          audio: data[Y].trackPreview,
+          img: data[Y].image.url,
+          song: data[Y].trackName,
+          artist: data[Y].artists.map((artist, index) => {
+            if(index === data[Y].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+
+        setTimeout(()=>{
+          refAudio.current.play();
+        }, 200);
+      }else{
+        // Si no hay una cancion antes, reproduce la ultima del array "data":
+        let Y = data[data.length-1].location;
+        setSongDetails({
+          index: Y,
+          audio: data[Y].trackPreview,
+          img: data[Y].image.url,
+          song: data[Y].trackName,
+          artist: data[Y].artists.map((artist, index) => {
+            if(index === data[Y].artists.length - 1){
+              return artist.name
+            }else{
+              return artist.name + " • "
+            }
+          })
+        });
+        console.log(songDetails);
+
+        setTimeout(()=>{
+          refAudio.current.play();
+        }, 200);
+      }
+    }
+  };
+
   return ( 
       <article className={`playerArticle ${playerHidden ? "hide"  : ""}`}>
         {/* Renderizar una etiqueta audio para members, y otra para no members. */}
         <audio 
           ref={refAudio} 
           src={songDetails.audio} 
+          // Esto viene desde playlist.jsx, es el audio
+
           onEnded={handleOnEnded}
           preload='metadata'
           onDurationChange={(e)=> {setDuration(formatTime(e.currentTarget.duration)) ; setTotalTime(e.currentTarget.duration)}}
+          // Con esto obtenes cuanto dura la cancion, la duracion.
+
           onPlay={()=> setIsPlaying(true)}
+          // Cuando la cancion esta en play hace eso ˆ
+
+
           onPause={()=> setIsPlaying(false)}
+          // En pausa hace eso ˆ
+
+
           loop={loopActive}
+          // Esto es paara activar el loop mediante el boton de loop que tiene el player
+
           onTimeUpdate={timeUpdate}
         />
         <div className={styles.div}>
@@ -281,7 +436,7 @@ const PlayModal = () => {
             </div>
             <div className='d-flex flex-column align-items-start mx-3 flex-grow-1' style={{gap:"3px"}}>
               <span style={{color:"whitesmoke", fontSize:"14px"}}>{songDetails.song?.length > 29 ? songDetails.song.slice(0, 28) + "…" : songDetails.song}</span>
-              <span style={{color:"#777777", fontSize:"12px"}}>{songDetails.artist.toString().replaceAll(",", "").length > 37 ? songDetails.artist.toString().replaceAll(",", "").slice(0, 36) + "…" : songDetails.artist}</span>
+              <span style={{color:"#777777", fontSize:"12px"}}>{songDetails.artist?.toString().replaceAll(",", "").length > 37 ? songDetails.artist.toString().replaceAll(",", "").slice(0, 36) + "…" : songDetails.artist}</span>
             </div>
             <div className='d-flex align-items-center'>
               <i className="fa-regular fa-heart me-2 fa-lg" style={{color:"whitesmoke"}}></i>
@@ -292,11 +447,11 @@ const PlayModal = () => {
           <div className={styles.middle}>
             <div className={styles.middleTop}>
               <i className="fa-solid fa-shuffle fa-lg" style={{color: shuffleActive ? "white" : "#777777"}} onClick={()=> setShuffleActive(!shuffleActive)}></i>
-              <i className="fa-solid fa-backward-step fa-lg"></i>
+              <i className="fa-solid fa-backward-step fa-lg" onClick={handlePrevSong}></i>
               <div className={styles.play}>
                 <i className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play ms-1"}`} onClick={tooglePlayPause}></i>
               </div>
-              <i className="fa-solid fa-forward-step fa-lg"></i>
+              <i className="fa-solid fa-forward-step fa-lg" onClick={handleNextSong}></i>
               <i className="fa-solid fa-rotate-right fa-lg" style={{color: loopActive ? "white" : "#777777"}} onClick={()=> setLoopActive(!loopActive)}></i>
             </div>
             <div className={styles.middleBottom}>

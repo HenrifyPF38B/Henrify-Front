@@ -11,7 +11,7 @@ import { base_url } from "../baseURL";
 // CRUD SONGS ------------------------------------------------
 export const getSongs = () => {
   return async function (dispatch) {
-    const res = await fetch(base_url + "/songs");
+    const res = await fetch(`${base_url}/songs`);
     const data = await res.json();
     dispatch({ type: GET_SONGS, payload: data });
   };
@@ -42,7 +42,7 @@ export const getSongsById = (id) => {
 export const postSongs = (song) => {
   return async function (dispatch) {
     const res = await fetch(
-      base_url + "/songs"
+    `${base_url}/songs`
       // {
       //     method: 'POST',
       //     headers:{

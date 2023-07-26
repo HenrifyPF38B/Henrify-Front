@@ -36,7 +36,7 @@ const Router = () => {
           <Route path="playlist/:id" element={<Playlist />} />
           <Route path="myPlaylist" element={<MyPlaylist />} />
           <Route path="create" element={<Create />} />
-          <Route path="album" element={<SingleAlbum />} />
+          <Route path="album/:id" element={<SingleAlbum />} />
           <Route path="buy" element={<Buy />} />
         </Route>
         <Route index element={<LandingPage />} />

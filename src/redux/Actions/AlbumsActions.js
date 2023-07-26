@@ -10,7 +10,7 @@ import { base_url } from "../baseURL";
 // CRUD ALBUMS
 export const getAlbums = () => {
   return async function (dispatch) {
-    const res = await fetch(base_url + "/albums");
+    const res = await fetch(`${base_url}/albums`);
     const data = await res.json();
     return dispatch({ type: GET_ALBUMS, payload: data });
   };
@@ -18,7 +18,7 @@ export const getAlbums = () => {
 
 export const getAlbumsById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/albums/${id}`);
+    const res = await fetch(`${base_url}/albums/${id}`);
     const data = await res.json();
     dispatch({ type: GET_ALBUMS_ID, payload: data });
   };
@@ -27,7 +27,7 @@ export const getAlbumsById = (id) => {
 export const postAlbums = (album) => {
   return async function (dispatch) {
     const res = await fetch(
-      "http://localhost:3001/api/albums/"
+      `${base_url}/albums`
       // {
       //     method: 'POST',
       //     headers:{
@@ -44,7 +44,7 @@ export const postAlbums = (album) => {
 export const putAlbums = (album, id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/albums/${id}`
+      `${base_url}/albums/${id}`
       // {
       //     method: 'PUT',
       //     headers: {
@@ -61,7 +61,7 @@ export const putAlbums = (album, id) => {
 export const deleteAlbums = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/albums/${id}`
+      `${base_url}/albums/${id}`
       // {
       //     method: 'DELETE'
       // }

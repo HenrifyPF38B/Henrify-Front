@@ -5,11 +5,12 @@ import {
   PUT_USERS,
   DELETE_USERS,
 } from "../Action-types";
+import { base_url } from "../baseURL";
 
 // CRUD USERS -----------------------------------------------------------
 export const getUsers = () => {
   return async function (dispatch) {
-    const res = await fetch("http://localhost:3001/api/users/");
+    const res = await fetch(`${base_url}/users`);
     const data = await res.json();
     dispatch({ type: GET_USERS, payload: data });
   };
@@ -17,7 +18,7 @@ export const getUsers = () => {
 
 export const getUsersById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/users/${id}`);
+    const res = await fetch(`${base_url}/users/${id}`);
     const data = await res.json();
     dispatch({ type: GET_USERS_ID, payload: data });
   };
@@ -26,7 +27,7 @@ export const getUsersById = (id) => {
 export const postUsers = (user) => {
   return async function (dispatch) {
     const res = await fetch(
-      "http://localhost:3001/api/users/"
+      `${base_url}/users`
       // {
       //     method: 'POST',
       //     headers:{
@@ -43,7 +44,7 @@ export const postUsers = (user) => {
 export const putUsers = (user, id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/users/${id}`
+      `${base_url}/users/${id}`
       // {
       //     method: 'PUT',
       //     headers: {
@@ -60,7 +61,7 @@ export const putUsers = (user, id) => {
 export const deleteUsers = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/users/${id}`
+      `${base_url}/users/${id}`
       // {
       //     method: 'DELETE'
       // }

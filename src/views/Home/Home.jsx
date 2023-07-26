@@ -261,21 +261,25 @@ const Home = () => {
               artist={albums[0]?.artists}
               album={albums[0]?.name}
               image={albums[0]?.image}
+              id={albums[0].id}
             />
             <AlbumCard
               artist={albums[1]?.artists}
               album={albums[1]?.name}
               image={albums[1]?.image}
+              id={albums[1].id}
             />
             <AlbumCard
               artist={albums[2]?.artists}
               album={albums[2]?.name}
               image={albums[2]?.image}
+              id={albums[2].id}
             />
             <AlbumCard
               artist={albums[3]?.artists}
               album={albums[3]?.name}
               image={albums[3]?.image}
+              id={albums[3].id}
             />
             </div>
           </div>

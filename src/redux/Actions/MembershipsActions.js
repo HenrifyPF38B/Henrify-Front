@@ -5,11 +5,12 @@ import {
   PUT_MEMBERSHIPS,
   DELETE_MEMBERSHIPS,
 } from "../Action-types";
+import { base_url } from "../baseURL";
 
 // CRUD MEMBERSHIPS --------------------------------------------
 export const getMemberships = () => {
   return async function (dispatch) {
-    const res = await fetch("http://localhost:3001/api/memberships/");
+    const res = await fetch(`${base_url}/memberships`);
     const data = await res.json();
     dispatch({ type: GET_MEMBERSHIPS, payload: data });
   };
@@ -17,7 +18,7 @@ export const getMemberships = () => {
 
 export const getMembershipsById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/memberships/${id}`);
+    const res = await fetch(`${base_url}/memberships/${id}`);
     const data = await res.json();
     dispatch({ type: GET_MEMBERSHIPS_ID, payload: data });
   };
@@ -26,7 +27,7 @@ export const getMembershipsById = (id) => {
 export const postMemberships = (membership) => {
   return async function (dispatch) {
     const res = await fetch(
-      "http://localhost:3001/api/memberships/"
+      `${base_url}/memberships`
       // {
       //     method: 'POST',
       //     headers:{
@@ -43,7 +44,7 @@ export const postMemberships = (membership) => {
 export const putMemberships = (membership, id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/memberships/${id}`
+      `${base_url}/memberships/${id}`
       // {
       //     method: 'PUT',
       //     headers: {
@@ -60,7 +61,7 @@ export const putMemberships = (membership, id) => {
 export const deleteMemberships = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3001/api/memberships/${id}`
+      `${base_url}/memberships/${id}`
       // {
       //     method: 'DELETE'
       // }
