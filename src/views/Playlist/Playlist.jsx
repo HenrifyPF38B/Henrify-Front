@@ -1,13 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from "./Playlist.module.css"
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlaylists } from '../../redux/Actions/PlaylistsActions';
 import { TailSpin } from "react-loader-spinner";
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css"; 
 
 const Playlist = () => {
 
+  const refToast = useRef();
   const dispatch = useDispatch();
   const data = useContext(PlaylistContext);
   const { setPlayerOpen } = data;
@@ -31,13 +36,17 @@ const Playlist = () => {
     });
     let randomNumber = Math.floor(Math.random() * songsWithPreview.length);
   
-    setPlayerOpen({data: songsWithPreview, index: randomNumber, audio: songsWithPreview[randomNumber].trackPreview, img: songsWithPreview[randomNumber].image.url, song: songsWithPreview[randomNumber].trackName, artist: songsWithPreview[randomNumber].artists.map((artist, index) => {
-      if(index === songsWithPreview[randomNumber].artists.length - 1){
-        return artist.name
-      }else{
-        return artist.name + " • "
-      }
-    })});
+    if(songsWithPreview.length > 0){
+      setPlayerOpen({data: songsWithPreview, index: randomNumber, audio: songsWithPreview[randomNumber].trackPreview, img: songsWithPreview[randomNumber].image.url, song: songsWithPreview[randomNumber].trackName, artist: songsWithPreview[randomNumber].artists.map((artist, index) => {
+        if(index === songsWithPreview[randomNumber].artists.length - 1){
+          return artist.name
+        }else{
+          return artist.name + " • "
+        }
+      })});
+    }else{
+      refToast.current.show({sticky: true, severity: 'info', summary: "We're sorry!", detail: "This album is only available for Members!"});
+    }
 
     // IF MEMBER
     /*
@@ -50,6 +59,22 @@ const Playlist = () => {
     })});
     */
   };
+
+  const handleOpenPlayer = (el, index, findTrack) =>{
+    if(el.trackPreview){
+      setPlayerOpen({originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: el.image.url, song: el.trackName, artist: el.artists.map((artist, index) => {
+        if(index === el.artists.length - 1){
+          return artist.name
+        }else{
+          return artist.name + " • "
+        }
+      }) })
+    }else{
+      // Si no tiene preview la cancion, sale la alerta
+      refToast.current.show({sticky: true, severity: 'info', summary: "We're sorry!", detail: "This song's preview is not available!"});
+
+    }
+  }
 
   useEffect(() => {
     dispatch(getPlaylists())
@@ -102,6 +127,7 @@ const Playlist = () => {
             </div>
           ):(
             <div className={styles.wrapper}>
+              <Toast ref={refToast} position='top-left' style={{}}></Toast>
               <div className={styles.top}>
                 <div className={styles.goBack} onClick={()=> navigate(-1)}>
                   <i className="fa-solid fa-arrow-left fa-xl"></i>
@@ -145,13 +171,7 @@ const Playlist = () => {
                           return(
                             <tr key={index}>
                               <td style={{color:"#777777"}}>{index + 1}</td>
-                              <td className={styles.tableTitle} onClick={()=> setPlayerOpen({originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: el.image.url, song: el.trackName, artist: el.artists.map((artist, index) => {
-                                if(index === el.artists.length - 1){
-                                  return artist.name
-                                }else{
-                                  return artist.name + " • "
-                                }
-                              }) })}>
+                              <td className={styles.tableTitle} onClick={(e)=> handleOpenPlayer(el, index, findTrack)}>
                                 <div>
                                   <img src={el.image.url} alt="abc" />
                                 </div>

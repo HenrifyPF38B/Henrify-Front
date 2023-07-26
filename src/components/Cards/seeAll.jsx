@@ -68,6 +68,7 @@ const SeeAll = () => {
                       artist={el.artists}
                       album={el.name}
                       image={el.image}
+                      id={el.id}
                     />
                   )
                 })

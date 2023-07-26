@@ -1,15 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from "./Album.module.css"
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAlbums } from '../../redux/Actions/AlbumsActions';
 import { getSpotifyToken } from '../../spotifyHandler/spotify';
-
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css";    
 
 const SingleAlbum = () => {
 
-  const dummy = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const refToast = useRef();
 
   const dispatch = useDispatch();
   const data = useContext(PlaylistContext);
@@ -33,18 +36,22 @@ const SingleAlbum = () => {
     let songsWithPreview = [];
     playlistData[0].tracks.map(el => {
       if(el.trackPreview){
-        songsWithPreview.push(el);
+        songsWithPreview.push({...el, image: {url: playlistData[0].image}});
       }
     });
     let randomNumber = Math.floor(Math.random() * songsWithPreview.length);
-  
-    setPlayerOpen({data: songsWithPreview, index: randomNumber, audio: songsWithPreview[randomNumber].trackPreview, img: songsWithPreview[randomNumber].image.url, song: songsWithPreview[randomNumber].trackName, artist: songsWithPreview[randomNumber].artists.map((artist, index) => {
-      if(index === songsWithPreview[randomNumber].artists.length - 1){
-        return artist.name
-      }else{
-        return artist.name + " • "
-      }
-    })});
+    console.log(songsWithPreview[randomNumber]);
+    if(songsWithPreview.length > 0){
+      setPlayerOpen({data: songsWithPreview, index: randomNumber, audio: songsWithPreview[randomNumber].trackPreview, img: songsWithPreview[randomNumber].image.url, song: songsWithPreview[randomNumber].trackName, artist: songsWithPreview[randomNumber].artists.map((artist, index) => {
+        if(index === songsWithPreview[randomNumber].artists.length - 1){
+          return artist.name
+        }else{
+          return artist.name + " • "
+        }
+      })});
+    }else{
+      refToast.current.show({sticky: true, severity: 'info', summary: "We're sorry!", detail: "This album is only available for Members!"});
+    }
 
     // IF MEMBER
     /*
@@ -57,6 +64,22 @@ const SingleAlbum = () => {
     })});
     */
   };
+
+  const handleOpenPlayer = (el, index, findTrack) =>{
+    if(el.trackPreview){
+      setPlayerOpen({originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: playlistData[0]?.image, song: el.trackName, artist: el.artists.map((artist, index) => {
+        if(index === el.artists.length - 1){
+          return artist.name
+        }else{
+          return artist.name + " • "
+        }
+      }) })
+    }else{
+      // Si no tiene preview la cancion, sale la alerta
+      refToast.current.show({sticky: true, severity: 'info', summary: "We're sorry!", detail: "This song's preview is not available!"});
+
+    }
+  }
 
   const millisecondsToMinutesSeconds = (milliseconds) =>{
     // Convert milliseconds to seconds
@@ -153,6 +176,7 @@ const SingleAlbum = () => {
 
   return ( 
     <div className={styles.wrapper}>
+      <Toast ref={refToast} position='top-left' style={{}}></Toast>
       <div className={styles.top}>
         <div className={styles.goBack} onClick={()=> navigate(-1)}>
           <i className="fa-solid fa-arrow-left fa-xl"></i>
@@ -178,8 +202,8 @@ const SingleAlbum = () => {
       <div className={styles.down}>
         <div className='d-flex align-items-start justify-content-start pb-4'>
           <div className={styles.icons}>
-            <div className={styles.play} onClick={()=> setPlayerOpen(true)}>
-              <i className="fa-solid fa-play fa-2xl"></i>
+            <div className={styles.play} onClick={handlePlayRandom}>
+              <i className="fa-solid fa-shuffle fa-2xl"></i>
             </div>
             <div className={styles.fav}>
               <i className="fa-solid fa-heart" style={{color:"whitesmoke"}}></i>
@@ -203,13 +227,7 @@ const SingleAlbum = () => {
                   return(
                     <tr key={index}>
                       <td style={{color:"#777777"}}>{index + 1}</td>
-                      <td className={styles.tableTitle} onClick={()=> setPlayerOpen({originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: playlistData[0]?.image, song: el.trackName, artist: el.artists.map((artist, index) => {
-                          if(index === el.artists.length - 1){
-                            return artist.name
-                          }else{
-                            return artist.name + " • "
-                          }
-                        }) })}>
+                      <td className={styles.tableTitle} onClick={(e)=> handleOpenPlayer(el, index, findTrack)}>
                         <div>
                           <img src={playlistData[0].image} alt="abc" />
                         </div>
