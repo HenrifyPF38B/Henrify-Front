@@ -102,7 +102,7 @@ const SingleAlbum = () => {
     
     if(albums.length){
       setPageLoading(false);
-      let findPlaylist = albums.filter(el => el.id === id);
+      let findPlaylist = albums.filter(el => el.id.toString() === id);
       
       setPlaylistData(findPlaylist);
       
@@ -146,7 +146,7 @@ const SingleAlbum = () => {
         
 
         // Con este fetch obtenemos la fecha del release_date de los albums.
-        fetch(`https://api.spotify.com/v1/albums/${playlistData[0].id}`, {
+        fetch(`https://api.spotify.com/v1/albums/${playlistData[0].albumId}`, {
           method:"GET",
           headers: artParams
         })

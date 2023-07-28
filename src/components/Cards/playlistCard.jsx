@@ -12,8 +12,8 @@ const PlaylistCard = ({creator, playlist, image, id}) => {
 
     return ( 
         <div className={styles.topratedcardwrapper} >
-            <div className={styles.seePlaylist} onClick={()=> setModalOpen(true)}>
-                <i className="fa-solid fa-eye fa-xs"></i>
+            <div className={styles.seePlaylist}>
+                <i className="fa-solid fa-eye fa-xs" onClick={()=> setModalOpen({id, type: "playlist"})}></i>
                 <i className="fa-regular fa-heart fa-xs"></i>
             </div>
 

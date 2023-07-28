@@ -77,7 +77,7 @@ const Playlist = () => {
   }
 
   useEffect(() => {
-    dispatch(getPlaylists())
+    // dispatch(getPlaylists())
     window.scrollTo(0, 0);
   }, []);
 
@@ -85,13 +85,13 @@ const Playlist = () => {
     
     if(playlists.length){
       setPageLoading(false);
-      let findPlaylist = playlists.filter(el => el.id === id);
-      
+      let findPlaylist = playlists.filter(el => el.id.toString() === id);
+      console.log(findPlaylist);
       setPlaylistData(findPlaylist);
       // Esto de abajo es porque hay algunas canciones sin preview, entonces filtro 
       // para pasarle al player solo las canciones con preview, para que skipee las que no tienen
       let songsWithPreview = [];
-      findPlaylist[0].tracks.map(el => {
+      findPlaylist[0]?.tracks.map(el => {
         if(el.trackPreview){
           songsWithPreview.push(el);
         }
@@ -127,13 +127,13 @@ const Playlist = () => {
             </div>
           ):(
             <div className={styles.wrapper}>
-              <Toast ref={refToast} position='top-left' style={{}}></Toast>
+              <Toast ref={refToast} position='top-left'></Toast>
               <div className={styles.top}>
                 <div className={styles.goBack} onClick={()=> navigate(-1)}>
                   <i className="fa-solid fa-arrow-left fa-xl"></i>
                 </div>
                 <div className={styles.img}>
-                  <img src={playlistData[0]?.image} alt="abc" />
+                  <img src={playlistData[0]?.image || playlistData[0]?.images} alt="abc" />
                 </div>
                 <div className={styles.details}>
                   <span>Playlist</span>

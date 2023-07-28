@@ -1,9 +1,10 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useRef, useState } from "react"
 
 export const PlaylistContext = createContext({});
 
 export const PlaylistProvider = ({children}) =>{
     
+    const refPreviewNotAvailableAppJS = useRef();
     const [modalOpen, setModalOpen] = useState(false);
     const [playerOpen, setPlayerOpen] = useState(false);
     const [buyOpen, setBuyOpen] = useState(false);
@@ -11,19 +12,22 @@ export const PlaylistProvider = ({children}) =>{
     const [playerHidden, setPlayerHidden] = useState(false);
 
     const [login, setLogin] = useState(null);
+
     useEffect(() => {
-        const getUserFromLocalStorage = localStorage.getItem("soul");
+        const getUserFromLocalStorage = JSON.parse(localStorage.getItem("userSoulLife"));
         if(getUserFromLocalStorage){
           setLogin(getUserFromLocalStorage);
         }else{
-          setLogin(null);
+          setLogin(false);
         }
     }, []);
+
+
     useEffect(() => {
         if(login){
-            localStorage.setItem("soul", true)
+            localStorage.setItem("userSoulLife", JSON.stringify(login))
         }else{
-            localStorage.removeItem("soul");
+            localStorage.removeItem("userSoulLife");
         }
     }, [login]);
 
@@ -39,7 +43,8 @@ export const PlaylistProvider = ({children}) =>{
         cartModal,
         setCartModal,
         playerHidden,
-        setPlayerHidden
+        setPlayerHidden,
+        refPreviewNotAvailableAppJS
     } 
 
     return <PlaylistContext.Provider value={data}>{children}</PlaylistContext.Provider>

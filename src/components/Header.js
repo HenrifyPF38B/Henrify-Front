@@ -11,12 +11,18 @@ const Header = () => {
   const data = useContext(PlaylistContext);
   const { login, setLogin, setCartModal } = data;
 
+  const handleFavs = () =>{
+    if(login){
+      navigate("/favorites");
+    }else{
+      // Notification 
+    }
+  }
 
   const handleLogout = (e) =>{
     e.preventDefault();
     setLogin(false);
     navigate("/login");
-    window.location.reload();
   };
 
   return ( 
@@ -31,7 +37,7 @@ const Header = () => {
             </div>
           </div>
           <div className='info-icons d-flex align-items-center gap-30'>
-            <i className="fa-solid fa-heart fa-2xl" style={{color: "whitesmoke"}} onClick={()=> navigate("/favorites")}></i>
+            <i className="fa-solid fa-heart fa-2xl" style={{color: "whitesmoke"}} onClick={handleFavs}></i>
             {
               login ? (
                 <div className='dropdown'>

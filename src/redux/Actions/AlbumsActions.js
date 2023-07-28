@@ -10,7 +10,7 @@ import { base_url } from "../baseURL";
 // CRUD ALBUMS
 export const getAlbums = () => {
   return async function (dispatch) {
-    const res = await fetch(`${base_url}/albums`);
+    const res = await fetch(`http://localhost:3001/api/albums`);
     const data = await res.json();
     return dispatch({ type: GET_ALBUMS, payload: data });
   };

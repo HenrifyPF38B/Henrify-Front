@@ -6,7 +6,7 @@ const PlayModal = () => {
 
   const dataContext = useContext(PlaylistContext);
   const { playerOpen, setPlayerOpen, playerHidden, setPlayerHidden } = dataContext;
-  const { originalData, data, originalIndex, index, audio, img, song, artist } = playerOpen;
+  const { originalData, data, originalIndex, index, audio, img, song, artist, type } = playerOpen;
   const refAudio = useRef();
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -58,7 +58,7 @@ const PlayModal = () => {
   useEffect(() => {
     console.log(playerOpen);
     if(refAudio){
-      refAudio.current.volume = 0.2;
+      refAudio.current.volume = 0.8;
       setIsPlaying(true);
       refAudio.current.play();
     }
@@ -108,7 +108,7 @@ const PlayModal = () => {
     // Filtro las canciones que si tienen preview, y me paso el array filtrado, mediante playerOpen.
     
     // Si el loop esta desactivado y el aleatorio activado
-    if(!loopActive && shuffleActive){
+    if(!loopActive && shuffleActive && !type){
       let randomNumber = Math.floor(Math.random() * data.length);
 
       setSongDetails({
@@ -131,7 +131,7 @@ const PlayModal = () => {
     };
 
     // Si no esta el loop activado y el modo aleatorio tampoco:
-    if(!loopActive && !shuffleActive){
+    if(!loopActive && !shuffleActive && !type){
       if(data[songDetails.index + 1]){
         // Significa que existe una cancion despues de la actual
         setSongDetails({
@@ -255,7 +255,7 @@ const PlayModal = () => {
   // NEXT & PREV FOR NON MEMBERS
   const handleNextSong = () =>{
     // Si esta en modo aleatorio al clickear el boton:
-    if(!loopActive && shuffleActive){
+    if(!loopActive && shuffleActive && !type){
       let Y = Math.floor(Math.random() * data.length);
       
       setSongDetails({
@@ -278,7 +278,7 @@ const PlayModal = () => {
     };
 
     // Si ni el loop ni el aleatorio estan activos:
-    if(!loopActive && !shuffleActive){
+    if(!loopActive && !shuffleActive && !type){
       if(data[songDetails.index + 1]){
         // Si hay una cancion despues de la actual:
         let Y = songDetails.index + 1;
@@ -328,7 +328,7 @@ const PlayModal = () => {
 
   const handlePrevSong = () =>{
 
-    if(!loopActive && shuffleActive){
+    if(!loopActive && shuffleActive && !type){
       let Y = Math.floor(Math.random() * data.length);
       
       setSongDetails({
@@ -350,7 +350,7 @@ const PlayModal = () => {
       }, 200);
     };
 
-    if(!loopActive && !shuffleActive){
+    if(!loopActive && !shuffleActive && !type){
       if(data[songDetails.index - 1]){
         // Si hay una cancion en la posicion anterior a la actual:
         let Y = songDetails.index - 1;

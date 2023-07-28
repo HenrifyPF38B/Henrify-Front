@@ -1,28 +1,60 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import video from "../../components/assets/login.mp4"
 import styles from "./SignUp.module.css";
 import { useNavigate } from 'react-router-dom';
+import confetti from "canvas-confetti";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser } from '../../redux/Actions/UsersActions';
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css"; 
+import { resetMessageState } from '../../redux/Actions/StateActions';
+
 
 const SignUp = () => {
 
+  const refToast = useRef();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const state = useSelector(state => state);
+  const { message } = state;
 
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
   const [third, setThird] = useState(false);
   const [imageSelected, setImageSelected] = useState("/images/signup1.svg");
   const [username, setUsername] = useState(null);
+  const [form1, setForm1] = useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+  });
+
+  const [form2, setForm2] = useState({
+    password1:"",
+    password2:""
+  });
+
 
   const handleNext = () =>{
     if(first){
-      setFirst(false);
-      setSecond(true);
-      setThird(false);
+      if(imageSelected && username){
+        setFirst(false);
+        setSecond(true);
+        setThird(false);
+      }else{
+        refToast.current.show({sticky: true, severity: "warn", summary: "Wait!", detail: "Please complete all fields"});
+      }
     };
     if(second){
-      setFirst(false);
-      setSecond(false);
-      setThird(true);
+      if(form1.firstName && form1.lastName && form1.email){
+        setFirst(false);
+        setSecond(false);
+        setThird(true);
+      }else{
+        refToast.current.show({sticky: true, severity: "warn", summary: "Wait!", detail: "Please complete all fields"});
+      }
     };
 
   };
@@ -43,8 +75,67 @@ const SignUp = () => {
     }
   };
 
+
+  const handleForm1 = (e) =>{
+    setForm1({
+      ...form1,
+      [e.target.name]: e.target.value
+    })
+  };
+
+  const handleForm2 = (e) =>{
+    setForm2({
+      ...form2,
+      [e.target.name]: e.target.value
+    })
+  };
+
+  const handleSubmit = () =>{
+    if(!form2.password1.length || !form2.password2.length){
+      return refToast.current.show({sticky: true, severity: "warn", summary: "Wait!", detail: "Please complete all fields"});
+    };
+    
+    if(form2.password1 !== form2.password2){
+      // No match
+      return refToast.current.show({sticky: true, severity: "warn", summary: "Ups!", detail: "Passwords must match"});
+    };
+
+
+    let newUser = {
+      ...form1, password: form2.password1, avatar: imageSelected, userName: username
+    };
+    console.log(newUser);
+    
+    dispatch(createUser(newUser));
+  
+  };
+
+  // Controlamos message para emitir las alertas segun el caso
+  useEffect(() => {
+    if(message){
+      if(message.email){
+        confetti();
+        setTimeout(()=>{
+          navigate("/login");
+          dispatch(resetMessageState());
+        },2000)
+      }else if(message === "Email Error"){
+        refToast.current.show({sticky: true, severity: 'error', summary: "Ups!", detail: "That email is already in use!"});
+        setTimeout(()=>{
+          dispatch(resetMessageState());
+        },1000);
+      }else if(message === "UserName Error"){
+        refToast.current.show({sticky: true, severity: 'error', summary: "Ups!", detail: "That username is already in use!"});
+        setTimeout(()=>{
+          dispatch(resetMessageState());
+        },1000);
+      }
+    }
+  }, [message]);
+
   return ( 
     <div className={styles.wrapper}>
+      <Toast ref={refToast} position='top-left'></Toast>
       <div className={styles.videoWapper}>
         <video autoPlay muted loop playsInline>
             <source src={video} type='video/mp4'/>
@@ -60,7 +151,7 @@ const SignUp = () => {
         {
           third &&
           <div className={styles.finish}>
-            <button>Done!</button>
+            <button onClick={handleSubmit}>Done!</button>
           </div>
         }
   
@@ -177,21 +268,18 @@ const SignUp = () => {
               <h2>Information</h2>
               <form onSubmit={(e)=> e.preventDefault()}>
               <div class={styles.inputDiv}>
-                <input type="text" placeholder="First Name"/>
+                <input type="text" placeholder="First Name" name='firstName' onChange={handleForm1} value={form1.firstName}/>
                 <span>First name:</span>
               </div>
               <div class={styles.inputDiv}>
-                <input type="text" placeholder="Last Name"/>
+                <input type="text" placeholder="Last Name" name='lastName' onChange={handleForm1} value={form1.lastName}/>
                 <span>Last name:</span>
               </div>
               <div class={styles.inputDiv}>
-                <input type="email" placeholder="Email"/>
+                <input type="email" placeholder="Email" name='email' onChange={handleForm1} value={form1.email}/>
                 <span>Email:</span>
               </div>
-              <div class={styles.inputDiv}>
-                <input type="number" placeholder="Phone Number"/>
-                <span>Phone:</span>
-              </div>
+              
               </form>
               
             </div>
@@ -204,11 +292,11 @@ const SignUp = () => {
               <h2>Password</h2>
               <form action="">
                 <div class={styles.inputDiv}>
-                  <input type="text" placeholder="Password"/>
+                  <input type="text" placeholder="Password" name='password1' onChange={handleForm2} value={form2.password1}/>
                   <span>Password:</span>
                 </div>
                 <div class={styles.inputDiv}>
-                  <input type="text" placeholder="Confirm Password"/>
+                  <input type="text" placeholder="Confirm Password" name='password2' onChange={handleForm2} value={form2.password2}/>
                   <span>Confirm Password:</span>
                 </div>
                 <div className={styles.alert}>

@@ -89,9 +89,7 @@ const Home = () => {
       </div>
 
         <div className={styles.container}>
-          {
-          modalOpen && <PlaylistModal setModalOpen={setModalOpen}/>
-          }
+         
           {/* POPULAR PLAYLISTS */}
           <div className={styles.container2}>
             <div className='d-flex align-items-center justify-content-between'>
@@ -139,37 +137,67 @@ const Home = () => {
           <div className={styles.container2} style={{marginTop:"7rem"}}>
             <div className='d-flex align-items-center justify-content-between'>
               <h2 style={{letterSpacing: "1.5px"}}>Popular Songs</h2>
-              {/* <span className={styles.seeAll} onClick={()=> navigate("/seeAll/songs")}>See all</span> */}
+              <span className={styles.seeAll} onClick={()=> navigate("/store")}>See all</span>
             </div>
             <div ref={refSlider} className={styles.containerSlider}>
-            {/* <SongCard
-              artist={songs[30]?.artists}
-              song={songs[30]?.name}
-              id={songs[30]?.id}
-              img={songs[30]?.image}
-              audio={songs[30]?.audio}
+            <SongCard
+              artist={songs[0]?.artists.map((artist, index) => {
+                if(index === songs[0]?.artists.length - 1){
+                  return artist.name
+                }else{
+                  return artist.name + " • "
+                }
+              })}
+              song={songs[0]?.name}
+              id={songs[0]?.id}
+              img={songs[0]?.image}
+              audio={songs[0]?.audioPreview}
+              audioFull={songs[0]?.audioFull}
             />
             <SongCard
-              artist={songs[60]?.artists}
+              artist={songs[60]?.artists.map((artist, index) => {
+                if(index === songs[60]?.artists.length - 1){
+                  return artist.name
+                }else{
+                  return artist.name + " • "
+                }
+              })}
               song={songs[60]?.name}
               id={songs[60]?.id}
               img={songs[60]?.image}
-              audio={songs[60]?.audio}
+              audio={songs[60]?.audioPreview}
+              audioFull={songs[60]?.audioFull}
             />
             <SongCard
-              artist={songs[80]?.artists}
-              song={songs[80]?.name}
-              id={songs[80]?.id}
-              img={songs[80]?.image}
-              audio={songs[80]?.audio}
+              artist={songs[150]?.artists.map((artist, index) => {
+                if(index === songs[150]?.artists.length - 1){
+                  return artist.name
+                }else{
+                  return artist.name + " • "
+                }
+              })}
+              song={songs[150]?.name}
+              id={songs[150]?.id}
+              img={songs[150]?.image}
+              audio={songs[150]?.audioPreview}
+              audioFull={songs[150]?.audioFull}
             />
             <SongCard
-              artist={songs[90]?.artists}
-              song={songs[90]?.name}
-              id={songs[90]?.id}
-              img={songs[90]?.image}
-              audio={songs[90]?.audio}
-            /> */}
+              artist={songs[15]?.artists.map((artist, index) => {
+                if(index === songs[15]?.artists.length - 1){
+                  return artist.name
+                }else{
+                  return artist.name + " • "
+                }
+              })}
+              song={songs[15]?.name}
+              id={songs[15]?.id}
+              img={songs[15]?.image}
+              audio={songs[15]?.audioPreview}
+              audioFull={songs[15]?.audioFull}
+            />
+            
+            
             </div>
           </div>
 
@@ -179,9 +207,10 @@ const Home = () => {
               <div className={styles.landingPanelTitle}>
                 <h2>Best Sellers Songs</h2>
               </div>
+
               {/* <img className='ms-5' src="/images/surprise.svg" alt="abc" /> */}
             </div>
-            <div className={styles.prizes}>
+            {/* <div className={styles.prizes}>
 
                 <div className={styles.prizesCard}>
                   <div className={styles.prizeImg}>
@@ -194,14 +223,14 @@ const Home = () => {
                     <img src={drake} alt="abc"/>
                   </div>
                   <div className={styles.span}>
-                    <span>{songs[72]?.artists}</span>
-                    <span>{songs[72]?.name}</span>
+                    <span>{songs[72]?.artists[0].name}</span>
+                    <span>{songs[72]?.trackName}</span>
                   </div>
                 </div>
-                {/* SEC */}
+                
                 <div className={styles.prizesCard}>
                   <div className={styles.prizeImg}>
-                    <img src="/images/prize1.svg" alt="abc" />
+                    <img src="/images/prize2.svg" alt="abc" />
                   </div>
                   <div className={styles.cardImg}>
                     <img src={songs[82]?.image} alt="abc" />
@@ -210,14 +239,14 @@ const Home = () => {
                     <img src={drake} alt="abc"/>
                   </div>
                   <div className={styles.span}>
-                    <span>{songs[82]?.artists}</span>
-                    <span>{songs[82]?.name}</span>
+                    <span>{songs[82]?.artists[0].name}</span>
+                    <span>{songs[82]?.trackName}</span>
                   </div>
                 </div>
-                {/* THIRD */}
+                
                 <div className={styles.prizesCard}>
                   <div className={styles.prizeImg}>
-                    <img src="/images/prize1.svg" alt="abc" />
+                    <img src="/images/prize3.svg" alt="abc" />
                   </div>
                   <div className={styles.cardImg}>
                     <img src={songs[92]?.image} alt="abc" />
@@ -226,14 +255,14 @@ const Home = () => {
                     <img src={drake} alt="abc"/>
                   </div>
                   <div className={styles.span}>
-                    <span>{songs[92]?.artists}</span>
-                    <span>{songs[92]?.name}</span>
+                    <span>{songs[92]?.artists[0].name}</span>
+                    <span>{songs[92]?.trackName}</span>
                   </div>
                 </div>
-                {/* FOURTH */}
+                
                 <div className={styles.prizesCard}>
                   <div className={styles.prizeImg}>
-                    <img src="/images/prize1.svg" alt="abc" />
+                    <img src="/images/prize4.svg" alt="abc" />
                   </div>
                   <div className={styles.cardImg}>
                     <img src={songs[42]?.image} alt="abc" />
@@ -242,12 +271,13 @@ const Home = () => {
                     <img src={drake} alt="abc"/>
                   </div>
                   <div className={styles.span}>
-                    <span>{songs[42]?.artists}</span>
-                    <span>{songs[42]?.name}</span>
+                    <span>{songs[42]?.artists[0].name}</span>
+                    <span>{songs[42]?.trackName}</span>
                   </div>
                 </div>
               
-            </div>
+            </div> */}
+            
           </div>
         
           {/* POPULAR ALBUMS */}
@@ -261,25 +291,29 @@ const Home = () => {
               artist={albums[0]?.artists}
               album={albums[0]?.name}
               image={albums[0]?.image}
-              id={albums[0].id}
+              id={albums[0]?.id}
+              albumId={albums[0]?.albumId}
             />
             <AlbumCard
               artist={albums[1]?.artists}
               album={albums[1]?.name}
               image={albums[1]?.image}
-              id={albums[1].id}
+              id={albums[1]?.id}
+              albumId={albums[1]?.albumId}
             />
             <AlbumCard
               artist={albums[2]?.artists}
               album={albums[2]?.name}
               image={albums[2]?.image}
-              id={albums[2].id}
+              id={albums[2]?.id}
+              albumId={albums[2]?.albumId}
             />
             <AlbumCard
               artist={albums[3]?.artists}
               album={albums[3]?.name}
               image={albums[3]?.image}
-              id={albums[3].id}
+              id={albums[3]?.id}
+              albumId={albums[3]?.albumId}
             />
             </div>
           </div>
@@ -289,3 +323,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

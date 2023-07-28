@@ -4,6 +4,8 @@ import {
   POST_USERS,
   PUT_USERS,
   DELETE_USERS,
+  CREATE_USER,
+  LOGIN_USER,
 } from "../Action-types";
 import { base_url } from "../baseURL";
 
@@ -17,27 +19,54 @@ export const getUsers = () => {
 };
 
 export const getUsersById = (id) => {
+  console.log(id);
   return async function (dispatch) {
     const res = await fetch(`${base_url}/users/${id}`);
     const data = await res.json();
+    console.log(data);
     dispatch({ type: GET_USERS_ID, payload: data });
   };
 };
 
-export const postUsers = (user) => {
+export const createUser = (user) => {
+  
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/users`
-      // {
-      //     method: 'POST',
-      //     headers:{
-      //         "Content-type":"application/json; charset=UTF-8"
-      //     },
-      //     body: JSON.stringify(user)
-      // }
+      `${base_url}/users/register`,
+      {
+          method: 'POST',
+          headers:{
+              "Content-type":"application/json; charset=UTF-8"
+          },
+          body: JSON.stringify(user)
+      }
     );
     const data = await res.json();
-    dispatch({ type: POST_USERS, payload: data });
+    console.log(data);
+
+    dispatch({ type: CREATE_USER, payload: data });
+    
+  };
+};
+
+export const loginUser = (user) => {
+  
+  return async function (dispatch) {
+    const res = await fetch(
+      `${base_url}/users/login`,
+      {
+          method: 'POST',
+          headers:{
+              "Content-type":"application/json; charset=UTF-8"
+          },
+          body: JSON.stringify(user)
+      }
+    );
+    const data = await res.json();
+    
+
+    dispatch({ type: LOGIN_USER, payload: data });
+    
   };
 };
 

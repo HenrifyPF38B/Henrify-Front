@@ -13,6 +13,7 @@
 
 .playlistModalDiv{
     position: relative;
+    box-shadow: 0 0 0.5rem black;
     width: 500px;
     height: 700px;
     overflow-y: auto;
@@ -24,9 +25,62 @@
     border-image: linear-gradient(to right, rgb(49, 49, 49), #1F1F1F) 1; */
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+
 .playlistModalDiv::-webkit-scrollbar {
-    width: 10px;
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.playlistModalDiv{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.albumCover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 998;
+    position: relative;
+}
+
+.albumCover:after {
+    content:'';
+    position:absolute;
+    left:0; 
+    top:0;
+    z-index: 100;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    width:100%; 
+    height:100%;
+    display:inline-block;
+    background: -moz-linear-gradient(top, #ffdab95f 50%,  #1F1F1F 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffdab95f), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffdab95f 50%, #1F1F1F 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffdab95f 50%, #1F1F1F 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffdab95f 50%, #1F1F1F 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffdab95f 50%, #1F1F1F 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
   }
+
+.albumCover img{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+}
+
+.tracks{
+    position: absolute;
+    background-color: transparent;
+    z-index: 999;
+    margin-top: -60px;
+    width: 100%;
+}
+
   
 /* Track */
 .playlistModalDiv::-webkit-scrollbar-track {
@@ -104,7 +158,10 @@ background: #555;
     padding-bottom: 2rem;
     text-align: center;
     color: #f5f5f7;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-family: "Raleway";
+    font-size: 25px;
+    width: 70%;
 }
 
 
@@ -135,7 +192,7 @@ background: #555;
     left: 20%;
     width: 35px;
     height: 35px;
-    background-color: #777777a1;
+    background-color: #1f1f1f94;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,9 +201,31 @@ background: #555;
     visibility: hidden;
     transition: all 0.6s ease;
     cursor: pointer;
+    color: whitesmoke;
 }
+
 
 .playDiv:hover .play{
     opacity: 1;
     visibility: visible;
+}
+
+.onlyForMembers{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #C04848;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #480048, #C04848);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #480048, #C04848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    top: 0px;
+    width: 100%;
+    color: whitesmoke;
+    height: 60px;
+    z-index: 9999;
+    left: 0px;
+}
+
+.onlyForMembers span{
+    letter-spacing: 2px;
 }

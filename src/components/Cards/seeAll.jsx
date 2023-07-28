@@ -31,8 +31,8 @@ const SeeAll = () => {
                       key={index}
                       creator={el.owner}
                       playlist={el.name}
-                      image={el.image}
-                      id={el.id}
+                      image={el.image ? el.image : el.images}
+                      id={el.id ? el.id : el.name}
                     />
                   )
                 })

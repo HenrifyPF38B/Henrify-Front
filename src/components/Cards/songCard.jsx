@@ -1,17 +1,29 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useRef} from 'react'
 import styles from './songCard.module.css'; 
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useNavigate } from 'react-router-dom';
 
-const SongCard = ({artist, song, id, img, audio}) => {
+
+
+const SongCard = ({artist, song, id, img, audio, audioFull}) => {
+    
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
-    const { modalOpen, setModalOpen, setPlayerOpen } = data;
+    const { modalOpen, setModalOpen, setPlayerOpen, refPreviewNotAvailableAppJS } = data;
     const [playShow, setPlayShow] = useState(true);
+
+    const handlePlay = () =>{
+        if(!audio){
+            refPreviewNotAvailableAppJS.current.show({lifeTime: 5000, severity: 'info', summary: "We're sorry!", detail: "This song's preview is not available!"});
+        }else{
+            setPlayerOpen({audio, img, song, artist, type: "song"})
+        }
+    };
 
     return ( 
         <div className={styles.topratedcardwrapper} >
+
             <div className={styles.seePlaylist}>
                 <i className="fa-solid fa-heart fa-sm"></i>
                 <div className='dropdown songCard'>
@@ -34,14 +46,13 @@ const SongCard = ({artist, song, id, img, audio}) => {
             </div>
 
             <div className={styles.topratedimgdiv}>
+
                 <img 
                   src={img} 
                   alt="abc" 
-                  width={100} 
-                  height={100} 
                   onClick={()=> navigate("/song")}
                 />
-                <div className={styles.listen} onClick={()=> setPlayerOpen({audio, img, song, artist})}>
+                <div className={styles.listen} onClick={handlePlay}>
                     <i className="fa-solid fa-play fa-2xl"></i>
                 </div>
             </div>

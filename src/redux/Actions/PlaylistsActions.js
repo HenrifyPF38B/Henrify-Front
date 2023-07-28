@@ -9,10 +9,13 @@ import { base_url } from "../baseURL";
 
 // CRUD PLAYLISTS --------------------------------------------
 export const getPlaylists = () => {
+  
   return async function (dispatch) {
-    const res = await fetch(`${base_url}/playlists`);
+    
+    const res = await fetch(`http://localhost:3001/api/playlists`);
     const data = await res.json();
-    dispatch({ type: GET_PLAYLISTS, payload: data });
+    
+    return dispatch({ type: GET_PLAYLISTS, payload: data });
   };
 };
 

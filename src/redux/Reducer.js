@@ -34,6 +34,9 @@ import {
   POST_GENRES,
   DELETE_GENRES,
   FILTER_SONGS,
+  RESET_MESSAGES,
+  CREATE_USER,
+  LOGIN_USER,
 } from "./Action-types";
 
 const initialState = {
@@ -74,6 +77,18 @@ const Reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         message: payload,
+      };
+
+    case CREATE_USER:
+      return {
+        ...state,
+        message: payload,
+      };
+
+    case LOGIN_USER:
+      return {
+        ...state,
+        message: payload
       };
 
     case PUT_USERS:
@@ -268,8 +283,16 @@ const Reducer = (state = initialState, { type, payload }) => {
         message: payload,
       };
 
+    // STATES
+    case RESET_MESSAGES:
+    return {
+      ...state,
+      message: "",
+    };
+
     default:
       return { ...state };
+      
   }
 };
 

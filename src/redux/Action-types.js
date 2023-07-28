@@ -4,6 +4,8 @@ export const GET_USERS_ID = "GET_USERS_ID";
 export const POST_USERS = "POST_USERS";
 export const PUT_USERS = "PUT_USERS";
 export const DELETE_USERS = "DELETE_USERS";
+export const CREATE_USER = "CREATE_USER";
+export const LOGIN_USER = "LOGIN_USER";
 
 // CRUD SONGS
 export const GET_SONGS = "GET_SONGS";
@@ -46,3 +48,8 @@ export const GET_GENRES = "GET_GENRES";
 export const GET_GENRES_ID = "GET_GENRES_ID";
 export const POST_GENRES = "POST_GENRES";
 export const DELETE_GENRES = "DELETE_GENRES";
+
+
+// STATES REDUX
+
+export const RESET_MESSAGES = "RESET_MESSAGES";
