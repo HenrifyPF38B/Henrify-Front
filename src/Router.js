@@ -19,6 +19,7 @@ import SignUp from "./views/SignUp/SignUp";
 import Create from "./components/Cards/Create";
 import LandingPage from "./components/LandingPage";
 import Checkout from "./views/Checkout/Checkout";
+import BeMember from "./views/Membership/beMember";
 
 
 const Router = () => {
@@ -30,6 +31,7 @@ const Router = () => {
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="membership" element={<MembershipOffer />} />
+          <Route path="beMember" element={<BeMember />} />
           <Route path="store" element={<Store />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="seeAll/:name" element={<SeeAll />} />

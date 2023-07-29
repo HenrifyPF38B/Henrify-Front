@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from "./Membership.module.css"
 import video from "../../components/assets/member.mp4";
+import { useNavigate } from 'react-router-dom';
 
 const MembershipOffer = () => {
-  
+  const navigate = useNavigate();
+
   return (
     <div className={styles.videoWrapper}>
       <video playsInline autoPlay muted loop>
@@ -24,7 +26,7 @@ const MembershipOffer = () => {
           <li>Access to exclusive live concerts and events</li>
         </ul>
         <div>
-          <button>Get Started</button>
+          <button onClick={() => navigate("/beMember")}>Get Started</button>
         </div>
       </div>
     </div>
