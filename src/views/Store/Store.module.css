@@ -127,3 +127,10 @@ background-image: linear-gradient(to right, #480048c7, #1f1f1f);
                 0 0 160px rgb(223, 54, 24);
   outline: none;
 }
+
+
+.pag {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

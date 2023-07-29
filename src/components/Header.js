@@ -32,8 +32,9 @@ const Header = () => {
             <div className='header-links d-flex ms-5 align-items-center justify-content-center text-white'>
               <p className='me-5' onClick={()=> navigate("home")}>Home</p>
               <p className='me-5' onClick={()=> navigate("about")}>About</p>
-              <p className='me-5' onClick={()=> navigate("membership")}>Membership</p>
-              <p onClick={()=> navigate("store")}>Store</p>
+              <p className='me-5' onClick={()=> navigate("membership")}>Membership</p>              
+              <p className='me-5' onClick={()=> navigate("store")}>Store</p>
+              <p onClick={()=> navigate("myPlaylist")}>Gallery</p>
             </div>
           </div>
           <div className='info-icons d-flex align-items-center gap-30'>

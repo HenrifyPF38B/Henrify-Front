@@ -408,3 +408,49 @@ width: 20%;
   letter-spacing: 3px;
   font-size: 18px;
 }
+
+
+/* SEARCH BAR */
+
+
+.searchBar{
+  margin: auto;
+  width: 30%; 
+  cursor: pointer; 
+ }
+ .searchBar:hover{
+  background: rgba(0, 0, 0, 0.74);
+  border-radius: 7px;
+  
+ }
+
+ .searchBar input{
+  background: #66666662;
+  font-size: 14px;
+  padding: 0.7rem 1rem;
+ }
+
+ .searchBar a{
+  font-size: 14px;
+  color: #828080;
+  letter-spacing: 1.3px;
+ }
+
+ .searchBar a:hover{
+  color: rgb(46, 46, 46);
+  background: #555;
+ }
+
+ .searchBar input{
+  border: none !important;
+ }
+
+.searchBar input:focus{
+  box-shadow: none !important;
+}
+
+.searchBar input::placeholder{
+  color: #7c7c7cb9;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}

@@ -3,29 +3,29 @@ import styles from "./Home.module.css";
 import { PlaylistContext } from "../../contexts/playlistContext";
 import PlaylistModal from "../../modals/playlistModal";
 import drake from "../../components/assets/quiente.jpg";
-import { useNavigate } from 'react-router-dom';
-import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
+import { useNavigate } from "react-router-dom";
+import DropdownMenu from "../../components/dropdownMenu/dropdownMenu";
 import PlaylistCard from "../../components/Cards/playlistCard";
 import AlbumCard from "../../components/Cards/albumCard";
 import SongCard from "../../components/Cards/songCard";
-import anuncio from '../../components/assets/anuncio.png';
-import video from "../../components/assets/pop.mp4"
+import anuncio from "../../components/assets/anuncio.png";
+import video from "../../components/assets/pop.mp4";
+import { Typeahead } from 'react-bootstrap-typeahead'; 
 import { useDispatch, useSelector } from "react-redux";
-import { getSongs } from "../../redux/Actions/SongsActions";
+import { filterSongs, getSongs } from "../../redux/Actions/SongsActions";
 import { getAlbums } from "../../redux/Actions/AlbumsActions";
 
 const Home = () => {
-
-
   const testCards = [1, 2, 3, 4];
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const state = useSelector(state => state);
-  const { songs, albums, playlists } = state;
+  const state = useSelector((state) => state);
+  const { songs, albums, playlists, filteredSongs } = state;
+
+  const [optionsSearch, setOptionsSearch] = useState([]);
 
   const data = useContext(PlaylistContext);
   const { modalOpen, setModalOpen } = data;
-
 
   const refSlider = useRef();
 
@@ -73,35 +73,56 @@ const Home = () => {
     }
   };
 
-
-
   useEffect(() => {
     // dispatch(getSongs());
-  
   }, []);
-  
+
+  useEffect(() => {
+    let options = [];
+    songs.map((el, index) => {
+      options.push({
+        id: el.id,
+        label: el.artists[0].name + " • " + el.name,
+        name: el.name,
+        audioPreview: el.audioPreview,
+        audioFull: el.audioFull,
+        image: el.image,
+        artists: el.artists
+      });
+    });
+    setOptionsSearch(options);
+  }, [songs]);
 
   return (
     <div>
-             
       <div className={styles.welcome}>
         <span className="wrap">{text}</span>
       </div>
-
-        <div className={styles.container}>
-         
-          {/* POPULAR PLAYLISTS */}
-          <div className={styles.container2}>
-            <div className='d-flex align-items-center justify-content-between'>
-              <h2 style={{letterSpacing: "1.5px"}}>Popular Playlists</h2>
-              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/playlists")}>See all</span>
-            </div>
-            <div ref={refSlider} className={styles.containerSlider}>
-            {
-                playlists.length && playlists.map((el, index) =>{
-                  
-                  if(index === 0 || index === 7 || index === 8 || index === 4)
-                  return(
+    
+      <div className={styles.container}>
+      <div className={styles.searchBar}>
+      <Typeahead
+        placeholder="What do you want to listen today?"
+        onChange={(selected) => dispatch(filterSongs(selected))}
+        options={optionsSearch}
+      />
+      </div>
+        {/* POPULAR PLAYLISTS */}
+        <div className={styles.container2}>
+          <div className="d-flex align-items-center justify-content-between">
+            <h2 style={{ letterSpacing: "1.5px" }}>Popular Playlists</h2>
+            <span
+              className={styles.seeAll}
+              onClick={() => navigate("/seeAll/playlists")}
+            >
+              See all
+            </span>
+          </div>
+          <div ref={refSlider} className={styles.containerSlider}>
+            {playlists.length &&
+              playlists.map((el, index) => {
+                if (index === 0 || index === 7 || index === 8 || index === 4)
+                  return (
                     <PlaylistCard
                       key={index}
                       creator={el.owner}
@@ -109,43 +130,49 @@ const Home = () => {
                       image={el.image}
                       id={el.id}
                     />
-                  )
-                })
-              }
-            </div>
+                  );
+              })}
           </div>
-          {/* FIRTS POP UP */}
-          <div className={styles.videoWrapper}>
-            <video playsInline autoPlay muted loop>
-                <source src={video} type="video/mp4"/>
-                Your browser does not support the video tag.
-            </video>
-            <div className={styles.welcomePop}>
-              <div className={styles.leftPop}>
-                <div>
-                  <p>Did you know you can create your own personalized Playlist?</p>
-                  <p>Just click the button below!</p>
-                </div>
-                <div className="fa-bounce" onClick={()=> navigate("/myPlaylist")}>
-                  <button>Let's go!</button>
-                </div>
+        </div>
+        {/* FIRTS POP UP */}
+        <div className={styles.videoWrapper}>
+          <video playsInline autoPlay muted loop>
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className={styles.welcomePop}>
+            <div className={styles.leftPop}>
+              <div>
+                <p>
+                  Did you know you can create your own personalized Playlist?
+                </p>
+                <p>Just click the button below!</p>
+              </div>
+              <div
+                className="fa-bounce"
+                onClick={() => navigate("/myPlaylist")}
+              >
+                <button>Let's go!</button>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* POPULAR SONGS */}
-          <div className={styles.container2} style={{marginTop:"7rem"}}>
-            <div className='d-flex align-items-center justify-content-between'>
-              <h2 style={{letterSpacing: "1.5px"}}>Popular Songs</h2>
-              <span className={styles.seeAll} onClick={()=> navigate("/store")}>See all</span>
-            </div>
-            <div ref={refSlider} className={styles.containerSlider}>
+        {/* POPULAR SONGS */}
+        <div className={styles.container2} style={{ marginTop: "7rem" }}>
+          <div className="d-flex align-items-center justify-content-between">
+            <h2 style={{ letterSpacing: "1.5px" }}>Popular Songs</h2>
+            <span className={styles.seeAll} onClick={() => navigate("/store")}>
+              See all
+            </span>
+          </div>
+          <div ref={refSlider} className={styles.containerSlider}>
             <SongCard
               artist={songs[0]?.artists.map((artist, index) => {
-                if(index === songs[0]?.artists.length - 1){
-                  return artist.name
-                }else{
-                  return artist.name + " • "
+                if (index === songs[0]?.artists.length - 1) {
+                  return artist.name;
+                } else {
+                  return artist.name + " • ";
                 }
               })}
               song={songs[0]?.name}
@@ -156,10 +183,10 @@ const Home = () => {
             />
             <SongCard
               artist={songs[60]?.artists.map((artist, index) => {
-                if(index === songs[60]?.artists.length - 1){
-                  return artist.name
-                }else{
-                  return artist.name + " • "
+                if (index === songs[60]?.artists.length - 1) {
+                  return artist.name;
+                } else {
+                  return artist.name + " • ";
                 }
               })}
               song={songs[60]?.name}
@@ -170,10 +197,10 @@ const Home = () => {
             />
             <SongCard
               artist={songs[150]?.artists.map((artist, index) => {
-                if(index === songs[150]?.artists.length - 1){
-                  return artist.name
-                }else{
-                  return artist.name + " • "
+                if (index === songs[150]?.artists.length - 1) {
+                  return artist.name;
+                } else {
+                  return artist.name + " • ";
                 }
               })}
               song={songs[150]?.name}
@@ -184,10 +211,10 @@ const Home = () => {
             />
             <SongCard
               artist={songs[15]?.artists.map((artist, index) => {
-                if(index === songs[15]?.artists.length - 1){
-                  return artist.name
-                }else{
-                  return artist.name + " • "
+                if (index === songs[15]?.artists.length - 1) {
+                  return artist.name;
+                } else {
+                  return artist.name + " • ";
                 }
               })}
               song={songs[15]?.name}
@@ -196,21 +223,19 @@ const Home = () => {
               audio={songs[15]?.audioPreview}
               audioFull={songs[15]?.audioFull}
             />
-            
-            
-            </div>
           </div>
+        </div>
 
-          <div className={styles.bestSellerWrapper}>
-            <div className={styles.bestSellerImg}>
-              {/* <img className='me-5' src="/images/star.svg" alt="abc" /> */}
-              <div className={styles.landingPanelTitle}>
-                <h2>Best Sellers Songs</h2>
-              </div>
-
-              {/* <img className='ms-5' src="/images/surprise.svg" alt="abc" /> */}
+        <div className={styles.bestSellerWrapper}>
+          <div className={styles.bestSellerImg}>
+            {/* <img className='me-5' src="/images/star.svg" alt="abc" /> */}
+            <div className={styles.landingPanelTitle}>
+              <h2>Best Sellers Songs</h2>
             </div>
-            {/* <div className={styles.prizes}>
+
+            {/* <img className='ms-5' src="/images/surprise.svg" alt="abc" /> */}
+          </div>
+          {/* <div className={styles.prizes}>
 
                 <div className={styles.prizesCard}>
                   <div className={styles.prizeImg}>
@@ -277,16 +302,20 @@ const Home = () => {
                 </div>
               
             </div> */}
-            
+        </div>
+
+        {/* POPULAR ALBUMS */}
+        <div className={styles.container2} style={{ marginTop: "7rem" }}>
+          <div className="d-flex align-items-center justify-content-between">
+            <h2 style={{ letterSpacing: "1.5px" }}>Popular Albums</h2>
+            <span
+              className={styles.seeAll}
+              onClick={() => navigate("/seeAll/albums")}
+            >
+              See all
+            </span>
           </div>
-        
-          {/* POPULAR ALBUMS */}
-          <div className={styles.container2} style={{marginTop:"7rem"}}>
-            <div className='d-flex align-items-center justify-content-between'>
-              <h2 style={{letterSpacing: "1.5px"}}>Popular Albums</h2>
-              <span className={styles.seeAll} onClick={()=> navigate("/seeAll/albums")}>See all</span>
-            </div>
-            <div ref={refSlider} className={styles.containerSlider}>
+          <div ref={refSlider} className={styles.containerSlider}>
             <AlbumCard
               artist={albums[0]?.artists}
               album={albums[0]?.name}
@@ -315,13 +344,11 @@ const Home = () => {
               id={albums[3]?.id}
               albumId={albums[3]?.albumId}
             />
-            </div>
           </div>
         </div>
+      </div>
     </div>
   );
 };
 
 export default Home;
-
-
