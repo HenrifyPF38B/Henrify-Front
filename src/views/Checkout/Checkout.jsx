@@ -574,6 +574,7 @@ const Checkout = () => {
                         onApprove={(data, actions) => {
                           // Once the payment is approved
                           // Redirect to Home for example
+
                           
                         }}
 

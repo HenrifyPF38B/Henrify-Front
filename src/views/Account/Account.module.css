@@ -1,7 +1,4 @@
 .wrapper{
-  background: #000000;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1f1f1f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100%;
   margin-bottom: -5px;
   width: 100%;
@@ -12,13 +9,21 @@
   overflow-x: auto;
 }
 
-
+.subContainer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../public/images/profileBackground.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
 
 .panel{
   padding: 5rem 1.5rem;
   width: 20vw;
-  background-color: rgb(26, 26, 26);
+  background-color: rgba(26, 26, 26, 0.24);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -40,9 +45,7 @@
 }
 
 .linkActive{
-  background: radial-gradient(#d18f99, #E3A6AF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #d73951;
 }
 
 .profile{
@@ -66,7 +69,7 @@
 
 .profileContainer{
   width: fit-content;
-  background: linear-gradient(#1f1f1f70, #1f1f1f70);
+  background-color: rgba(26, 26, 26, 0.24);
   backdrop-filter: blur(10px);
   padding: 2rem;
   display: flex;
@@ -128,7 +131,7 @@
 .image img{
   width: 300px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 10%;
   box-shadow: 0 0 1rem black;
 }
 

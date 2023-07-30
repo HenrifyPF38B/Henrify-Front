@@ -1,16 +1,19 @@
 import { createContext, useEffect, useRef, useState } from "react"
+import { getUsersById } from "../redux/Actions/UsersActions";
+import { useDispatch } from "react-redux";
+import { resetUserStates } from "../redux/Actions/StateActions";
 
 export const PlaylistContext = createContext({});
 
 export const PlaylistProvider = ({children}) =>{
-    
+    const dispatch = useDispatch();
     const refPreviewNotAvailableAppJS = useRef();
     const [modalOpen, setModalOpen] = useState(false);
     const [playerOpen, setPlayerOpen] = useState(false);
     const [buyOpen, setBuyOpen] = useState(false);
     const [cartModal, setCartModal] = useState(false);
     const [playerHidden, setPlayerHidden] = useState(false);
-
+    const [loginOpen, setLoginOpen] = useState(false);
     const [login, setLogin] = useState(null);
 
     useEffect(() => {
@@ -26,8 +29,10 @@ export const PlaylistProvider = ({children}) =>{
     useEffect(() => {
         if(login){
             localStorage.setItem("userSoulLife", JSON.stringify(login))
+            dispatch(getUsersById(login.id));
         }else{
             localStorage.removeItem("userSoulLife");
+            dispatch(resetUserStates());
         }
     }, [login]);
 
@@ -44,7 +49,9 @@ export const PlaylistProvider = ({children}) =>{
         setCartModal,
         playerHidden,
         setPlayerHidden,
-        refPreviewNotAvailableAppJS
+        refPreviewNotAvailableAppJS,
+        loginOpen,
+        setLoginOpen
     } 
 
     return <PlaylistContext.Provider value={data}>{children}</PlaylistContext.Provider>

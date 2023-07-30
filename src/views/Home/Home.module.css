@@ -409,23 +409,12 @@ width: 20%;
   font-size: 18px;
 }
 
-
-/* SEARCH BAR */
-
-
 .searchBar{
-  margin: auto;
-  width: 30%; 
-  cursor: pointer; 
- }
- .searchBar:hover{
-  background: rgba(0, 0, 0, 0.74);
-  border-radius: 7px;
-  
+  margin-top: 1rem;
+  width: 30%;
  }
 
  .searchBar input{
-  background: #66666662;
   font-size: 14px;
   padding: 0.7rem 1rem;
  }
@@ -436,9 +425,9 @@ width: 20%;
   letter-spacing: 1.3px;
  }
 
+
  .searchBar a:hover{
-  color: rgb(46, 46, 46);
-  background: #555;
+  color: whitesmoke;
  }
 
  .searchBar input{
@@ -450,7 +439,7 @@ width: 20%;
 }
 
 .searchBar input::placeholder{
-  color: #7c7c7cb9;
+  color: #777777;
   font-size: 13px;
   letter-spacing: 0.2px;
 }

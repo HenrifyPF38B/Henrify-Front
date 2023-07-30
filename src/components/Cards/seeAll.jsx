@@ -33,6 +33,8 @@ const SeeAll = () => {
                       playlist={el.name}
                       image={el.image ? el.image : el.images}
                       id={el.id ? el.id : el.name}
+                      playlistId={el.playlistId}
+                      price={el.price}
                     />
                   )
                 })
@@ -40,23 +42,7 @@ const SeeAll = () => {
           </div>
         )
       }
-      {
-        name === "songs" && (
-          <div className={styles.cards}>
-            {
-                dummy.map((el, index) =>{
-                  return(
-                    <SongCard
-                      key={index}
-                      artist="Ariana Grande"
-                      song={"Thank u, next"}
-                    />
-                  )
-                })
-              }
-          </div>
-        )
-      }
+      
       {
         name === "albums" && (
           <div className={styles.cards}>
@@ -69,6 +55,8 @@ const SeeAll = () => {
                       album={el.name}
                       image={el.image}
                       id={el.id}
+                      albumId={el.albumId}
+                      price={el.price}
                     />
                   )
                 })

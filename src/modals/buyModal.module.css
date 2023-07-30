@@ -12,7 +12,10 @@
 }
 
 .div{
-  background-color: black;
+  background: #D66D75;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   padding: 2.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -45,6 +48,12 @@
   width: 400px;
   height: auto;
   border-radius: 0.2rem;
+  box-shadow: 0 0 4rem #d9313f;
+  transition: transform 0.8s ease;
+}
+
+.img img:hover{
+  transform: scale(1.03);
 }
 
 .details{

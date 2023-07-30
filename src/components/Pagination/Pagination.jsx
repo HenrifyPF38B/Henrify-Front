@@ -3,6 +3,7 @@ import style from "./Pagination.module.css";
 import back from "../assets/prev.svg";
 import next from "../assets/netx.svg";
 
+
 const Pagination = ({ currentPage, lastPage, prevPage, nextPage }) => {
   return (
     <div className={style.pagination}>

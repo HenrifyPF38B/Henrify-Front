@@ -755,7 +755,7 @@ body{
 /* MEMBERSHIP - BE MEMBER */
 .card {
   width: 240px;
-  height: 290px;
+  height: 300px;
   background: linear-gradient(to right, #240b36, #c31432);
   transform: rotate(20deg) skew(-10deg, -5deg);
   transition: .6s linear;
@@ -784,6 +784,7 @@ body{
   font-weight: 600;
   letter-spacing: 1.5px;
   width: 190px;
+  margin-bottom: 20px;
   font-size: 13px;
   border-radius: 30px;
   border: none;
@@ -814,41 +815,52 @@ body{
   padding: 15px;
  }
 .typeh2{
-  background: -webkit-linear-gradient(#ff2667, #da22ff);
+  background: -webkit-linear-gradient(#ff0582, #ff9f22);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 25px;
+  font-weight: 700;
   letter-spacing: 2px;
 }
 .databox {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .date {
   color: white;
- 
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 .price {
-  color: white;
-}
+  background: -webkit-linear-gradient(#ff0582, #ff9f22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 35px;
+  font-weight:900;
+  letter-spacing: 1.5px;
+ }
 /* ********************* */
 .tittle {
   font-size: 50px;
-  background: -webkit-linear-gradient(#ff2252, #42023a);
+  background: -webkit-linear-gradient(#ff2252, #b6660b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700px;
   letter-spacing: 1.5px;
 }
+
 .info {
-  font-size: 28px;
+  font-size: 23px;
   letter-spacing: 1.3px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.363);
   margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .dat {
-  font-size: 23px;
+  font-size: 20px;
+  margin-top: -30px;
+  margin-bottom: 60px;
   color: rgba(255, 255, 255, 0.322);
 }
 .content {
@@ -897,28 +909,28 @@ body{
 
 .pyramid-loader .wrapper .side1 {
   transform: rotateZ(-30deg) rotateY(90deg);
-  background: conic-gradient( #2BDEAC, #F028FD, #D8CCE6, #2F2585);
+  background: conic-gradient( #ec9c24, #ff2252, #d437f3, #f79423);
 }
 
 .pyramid-loader .wrapper .side2 {
   transform: rotateZ(30deg) rotateY(90deg);
-  background: conic-gradient( #2F2585, #D8CCE6, #F028FD, #2BDEAC);
+  background: conic-gradient( #f79423, #d437f3, #ff2252, #f79423);
 }
 
 .pyramid-loader .wrapper .side3 {
   transform: rotateX(30deg);
-  background: conic-gradient( #2F2585, #D8CCE6, #F028FD, #2BDEAC);
+  background: conic-gradient( #f79423, #d437f3, #ff2252, #f79423);
 }
 
 .pyramid-loader .wrapper .side4 {
   transform: rotateX(-30deg);
-  background: conic-gradient( #2BDEAC, #F028FD, #D8CCE6, #2F2585);
+  background: conic-gradient( #ec9c24, #ff2252, #d437f3, #f79423);
 }
 
 .pyramid-loader .wrapper .shadow {
   width: 60px;
   height: 60px;
-  background: #8B5AD5;
+  background: #f572ce;
   position: absolute;
   top: 0;
   left: 0;
@@ -928,3 +940,84 @@ body{
   transform: rotateX(90deg) translateZ(-40px);
   filter: blur(12px);
 }
+.ourMember { 
+  width: 100vh; 
+  margin-bottom: 80px;
+  background: rgba(0, 0, 0, 0.726);
+  padding: 40px;
+  border-radius: 10px;
+}
+.aboutUs { 
+  color: wheat;
+  font-size: 18px;
+  font-family:monospace;
+  letter-spacing: 1.3px;
+}
+
+.aboutName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 35px;
+  background: -webkit-linear-gradient(#ff2252, #ffc60c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900px;
+  letter-spacing: 1.5px;
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  background: linear-gradient(#ff2252c4, #ffc60c77);  
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.testimonial-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  letter-spacing: 1.2px;
+  color: white;
+}
+
+.client-name {
+  color: rgb(78, 1, 78);
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.client-role {
+  font-size: 12px;
+  color: #f1a5a5;
+}
+
+.ourMember {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+  background: rgba(0, 0, 0, 0.726);
+  padding: 40px;
+  border-radius: 10px;
+}
+

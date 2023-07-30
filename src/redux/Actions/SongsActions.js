@@ -19,39 +19,8 @@ export const getSongs = () => {
     const res = await fetch(`${base_url}/songs`);
     const data = await res.json();
     
-
-
-    let noRepeatData = [];
-    (async()=>{
-      let x = await data.map(el => {
-        const findSong = noRepeatData.find(song => song.name === el.name);
-        if(!findSong){
-          noRepeatData.push(el);
-        }
-      });
-    })();
-
-    getSpotifyToken()
-    .then(token => {
-      let obj = {
-        "Authorization": `Bearer ${token}`,
-        "Content-type":"application/json"
-      };
-      
-      noRepeatData.map(el => {
-        fetch(`https://api.spotify.com/v1/tracks/${el.songId}`, {
-          method:"GET",
-          headers: obj
-        })
-        .then(res => res.ok ? res.json() : Promise.reject(res))
-        .then(json => {
-          el.image = json.album.images[0].url
-        })
-      });
-
-      dispatch({ type: GET_SONGS, payload: noRepeatData });
-
-    })
+    dispatch({type: GET_SONGS, payload: data})
+        
   };
 };
 

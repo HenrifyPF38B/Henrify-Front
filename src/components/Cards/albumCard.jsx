@@ -1,20 +1,47 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import styles from './albumCard.module.css'; 
 import { PlaylistContext } from '../../contexts/playlistContext';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFav, favsUser, removeFromFav } from '../../redux/Actions/UsersActions';
 
-const AlbumCard = ({artist, album, image, id, albumId}) => {
+const AlbumCard = ({price, artist, album, image, id, albumId}) => {
+    
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
+    const { usersId, userFavs } = state;
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
     const { setModalOpen, setBuyOpen } = data;
     const [playShow, setPlayShow] = useState(true);
+    const [inFavs, setInFavs] = useState(false);
+
+    const handleAddFav = (e) =>{
+        // setInFavs(!inFavs);
+        dispatch(favsUser(usersId?.id, albumId));
+        if(e.target.dataset.id === "add"){
+            dispatch(addToFav(albumId));
+        }else{
+            dispatch(removeFromFav(albumId))
+        }
+    };
 
     return ( 
         <div className={styles.topratedcardwrapper} >
             <div className={styles.seePlaylist}>
                 <i className="fa-solid fa-eye fa-xs" onClick={()=> setModalOpen({id, type: "album"})}></i>
-                <i className="fa-regular fa-heart fa-xs"></i>
+                {
+                    usersId.id && (userFavs?.includes(albumId) ? (
+                        <i className="fa-solid fa-heart fa-sm" data-id="remove" style={{color: "#E1402E"}} onClick={handleAddFav}></i>
+                    ):(
+                        <i className="fa-regular fa-heart fa-sm" data-id="add" onClick={handleAddFav}></i>
+                    ))
+                }
+                {
+                    !usersId.length && !usersId?.id && 
+                        <i className="fa-regular fa-heart fa-sm"></i>
+                }
             </div>
 
             <div className={styles.topratedimgdiv}>
@@ -27,7 +54,7 @@ const AlbumCard = ({artist, album, image, id, albumId}) => {
                 <div className={styles.listen} onClick={()=> navigate("/album/" + id)}>
                     <i class="fa-solid fa-play fa-2xl"></i>
                 </div>
-                <div className={styles.addContainer} onClick={()=> setBuyOpen(true)}>
+                <div className={styles.addContainer} onClick={()=> setBuyOpen({type:"Album", title: album, subTitle: artist[0]?.name, price, image, id: albumId})}>
                     <div className={styles.addToCart}>
                         <i className="fa-solid fa-cart-plus"></i>
                     </div>
