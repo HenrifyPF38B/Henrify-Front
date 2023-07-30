@@ -118,6 +118,22 @@ const CartModal = () => {
                 </div>
               </div>
           }
+          {
+            !usersId.id &&
+              <div className={styles.emptyDiv}> 
+                <span className={styles.emptyDiv0}>Your Cart is Empty</span>
+                <div className={styles.emptyDiv1}>
+                  <span>We're sorry, looks like there's nothing here...</span>
+                </div>
+                <div className={styles.emptyDiv2}>
+                  <span>It appears that your shopping cart is empty. To start shopping please click the button below!</span>
+                </div>
+                <div className={styles.emptyDiv3} onClick={()=> setCartModal(false)}>
+                  <span>Close & Keep Shopping</span>
+                  <i className="fa-solid fa-angle-right"></i>
+                </div>
+              </div>
+          }
           </div>
           {
             userCart.length > 0 && totalGetter.length > 0 &&

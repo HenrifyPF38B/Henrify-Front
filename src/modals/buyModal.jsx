@@ -17,7 +17,7 @@ const BuyModal = () => {
   const { usersId, userCart } = state;
   const data = useContext(PlaylistContext);
 
-  const { buyOpen, setBuyOpen } = data;
+  const { buyOpen, setBuyOpen, setLoginOpen } = data;
   const [quantity, setQuantity] = useState(1);
 
 
@@ -45,6 +45,8 @@ const BuyModal = () => {
       }
     }else{
       // Alerta que no esta logeado
+      setBuyOpen(false);
+      setLoginOpen(true);
     }
   };
 

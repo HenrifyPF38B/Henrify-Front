@@ -13,7 +13,7 @@ export const PlaylistProvider = ({children}) =>{
     const [buyOpen, setBuyOpen] = useState(false);
     const [cartModal, setCartModal] = useState(false);
     const [playerHidden, setPlayerHidden] = useState(false);
-
+    const [loginOpen, setLoginOpen] = useState(false);
     const [login, setLogin] = useState(null);
 
     useEffect(() => {
@@ -49,7 +49,9 @@ export const PlaylistProvider = ({children}) =>{
         setCartModal,
         playerHidden,
         setPlayerHidden,
-        refPreviewNotAvailableAppJS
+        refPreviewNotAvailableAppJS,
+        loginOpen,
+        setLoginOpen
     } 
 
     return <PlaylistContext.Provider value={data}>{children}</PlaylistContext.Provider>

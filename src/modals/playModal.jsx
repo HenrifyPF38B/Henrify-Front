@@ -3,9 +3,15 @@ import styles from "./playModal.module.css"
 import { PlaylistContext } from '../contexts/playlistContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFav, favsUser, removeFromFav } from '../redux/Actions/UsersActions';
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css"; 
+
 
 const PlayModal = () => {
 
+  const refToast = useRef();
   const state = useSelector(state => state);
   const { userFavs, usersId } = state;
   const dispatch = useDispatch();
@@ -20,7 +26,7 @@ const PlayModal = () => {
   const [volume, setVolume] = useState(0.8);
   const [muted, setMuted] = useState(false);
   const [memberSongDetails, setMemberSongDetails] = useState({originalIndex, audio, img, song, artist});
-  const [songDetails, setSongDetails] = useState({index, audio, img, song, artist});
+  const [songDetails, setSongDetails] = useState({index, audio, img, song, artist, id});
   // Lo pongo en songDetails, para poder cambiar el audio cuando termine de reproducirse una cancion
   
   // Tiempo total formateado
@@ -80,12 +86,12 @@ const PlayModal = () => {
   // Esto lo necesitamoss para poder cambiar de cancion al clickear en una TR de Playlist.jsx
   useEffect(() => {
     setSongDetails({
-      index, audio, img, song, artist
+      index, audio, img, song, artist, id
     });
     setTimeout(()=>{
       refAudio.current.play();
     },200)
-  }, [index, audio, img, song, artist]);
+  }, [index, audio, img, song, artist, id]);
 
 
   const timeUpdate = (event) => {
@@ -118,6 +124,7 @@ const PlayModal = () => {
 
       setSongDetails({
         index: data[randomNumber].index,
+        id: data[randomNumber].id,
         audio: data[randomNumber].trackPreview,
         img: data[randomNumber].image.url,
         song: data[randomNumber].trackName,
@@ -141,6 +148,7 @@ const PlayModal = () => {
         // Significa que existe una cancion despues de la actual
         setSongDetails({
           index: songDetails.index + 1,
+          id: data[songDetails.index + 1].id,
           audio: data[songDetails.index + 1].trackPreview,
           img: data[songDetails.index + 1].image.url,
           song: data[songDetails.index + 1].trackName,
@@ -268,6 +276,7 @@ const PlayModal = () => {
         audio: data[Y].trackPreview,
         img: data[Y].image.url,
         song: data[Y].trackName,
+        id: data[Y].id,
         artist: data[Y].artists.map((artist, index) => {
           if(index === data[Y].artists.length - 1){
             return artist.name
@@ -291,6 +300,7 @@ const PlayModal = () => {
           index: Y,
           audio: data[Y].trackPreview,
           img: data[Y].image.url,
+          id: data[Y].id,
           song: data[Y].trackName,
           artist: data[Y].artists.map((artist, index) => {
             if(index === data[Y].artists.length - 1){
@@ -312,6 +322,7 @@ const PlayModal = () => {
           index: 0,
           audio: data[0].trackPreview,
           img: data[0].image.url,
+          id: data[0].id,
           song: data[0].trackName,
           artist: data[0].artists.map((artist, index) => {
             if(index === data[0].artists.length - 1){
@@ -328,6 +339,10 @@ const PlayModal = () => {
       };
       
     };
+
+    if(type){
+      refToast.current.show({sticky: true, severity: 'info', summary: "Hi there!", detail: "This functionality is available only for Playlists"});
+    }
   
   };
 
@@ -340,6 +355,7 @@ const PlayModal = () => {
         index: Y,
         audio: data[Y].trackPreview,
         img: data[Y].image.url,
+        id: data[Y].id,
         song: data[Y].trackName,
         artist: data[Y].artists.map((artist, index) => {
           if(index === data[Y].artists.length - 1){
@@ -364,6 +380,7 @@ const PlayModal = () => {
           audio: data[Y].trackPreview,
           img: data[Y].image.url,
           song: data[Y].trackName,
+          id: data[Y].id,
           artist: data[Y].artists.map((artist, index) => {
             if(index === data[Y].artists.length - 1){
               return artist.name
@@ -384,6 +401,7 @@ const PlayModal = () => {
           audio: data[Y].trackPreview,
           img: data[Y].image.url,
           song: data[Y].trackName,
+          id: data[Y].id,
           artist: data[Y].artists.map((artist, index) => {
             if(index === data[Y].artists.length - 1){
               return artist.name
@@ -399,20 +417,28 @@ const PlayModal = () => {
         }, 200);
       }
     }
+
+
+    if(type){
+      refToast.current.show({sticky: true, severity: 'info', summary: "Hi there!", detail: "This functionality is available only for Playlists"});
+    }
   };
 
   const handleAddFav = (e) =>{
     // setInFavs(!inFavs);
-    dispatch(favsUser(usersId?.id, id));
+    dispatch(favsUser(usersId?.id, songDetails.id));
     if(e.target.dataset.id === "add"){
-        dispatch(addToFav(id));
+        dispatch(addToFav(songDetails.id));
     }else{
-        dispatch(removeFromFav(id))
+        dispatch(removeFromFav(songDetails.id))
     }
 };
 
   return ( 
       <article className={`playerArticle ${playerHidden ? "hide"  : ""}`}>
+        <Toast ref={refToast} position='top-left'></Toast>
+
+        
         {/* Renderizar una etiqueta audio para members, y otra para no members. */}
         <audio 
           ref={refAudio} 
@@ -455,7 +481,7 @@ const PlayModal = () => {
             </div>
             <div className='d-flex align-items-center'>
               {
-                  userFavs.includes(id) ? (
+                  userFavs.includes(songDetails.id) ? (
                       <i className="fa-solid fa-heart me-2" data-id="remove" style={{color: "#E1402E"}} onClick={handleAddFav}></i>
                   ):(
                       <i className="fa-regular fa-heart me-2" data-id="add" style={{color: "whitesmoke"}} onClick={handleAddFav}></i>

@@ -57,7 +57,10 @@ const Store = () => {
         audioPreview: el.audioPreview,
         audioFull: el.audioFull,
         image: el.image,
-        artists: el.artists
+        artists: el.artists,
+        songId: el.songId,
+        popularity: el.popularity,
+        explicit: el.explicit
       });
     });
     setOptionsSearch(options);
@@ -104,7 +107,7 @@ const Store = () => {
                     }
                   })}
                   song={filteredSongs[0].name}
-                  songId={filterSongs[0].songId}
+                  songId={filteredSongs[0].songId}
                   id={filteredSongs[0].id}
                   img={filteredSongs[0].image && filteredSongs[0].image}
                   audio={filteredSongs[0].audio}

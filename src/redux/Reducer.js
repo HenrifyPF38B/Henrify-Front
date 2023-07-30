@@ -80,7 +80,7 @@ const Reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         userCart: payload.data.cart ? payload.data.cart : [],
-        userFavs: payload.data.favorites,
+        userFavs: payload.data.favorites ? payload.data.favorites : [],
         usersId: payload.data,
       };
 
