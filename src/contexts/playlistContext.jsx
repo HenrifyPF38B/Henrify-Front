@@ -1,9 +1,12 @@
 import { createContext, useEffect, useRef, useState } from "react"
+import { getUsersById } from "../redux/Actions/UsersActions";
+import { useDispatch } from "react-redux";
+import { resetUserStates } from "../redux/Actions/StateActions";
 
 export const PlaylistContext = createContext({});
 
 export const PlaylistProvider = ({children}) =>{
-    
+    const dispatch = useDispatch();
     const refPreviewNotAvailableAppJS = useRef();
     const [modalOpen, setModalOpen] = useState(false);
     const [playerOpen, setPlayerOpen] = useState(false);
@@ -26,8 +29,10 @@ export const PlaylistProvider = ({children}) =>{
     useEffect(() => {
         if(login){
             localStorage.setItem("userSoulLife", JSON.stringify(login))
+            dispatch(getUsersById(login.id));
         }else{
             localStorage.removeItem("userSoulLife");
+            dispatch(resetUserStates());
         }
     }, [login]);
 

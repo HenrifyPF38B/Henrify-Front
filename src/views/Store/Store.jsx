@@ -7,6 +7,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
 import { useDispatch, useSelector } from "react-redux";
 import { filterSongs, getSongs } from '../../redux/Actions/SongsActions';
+import Pagination from "../../components/Pagination/Pagination";
 
 
 const Store = () => {
@@ -18,11 +19,35 @@ const Store = () => {
 
   const [optionsSearch, setOptionsSearch] = useState([]);
   
+  // PAGINADO
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const songsPerPage = 9;
+
+  const nextPage = (event) => {
+    event.preventDefault();
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const prevPage = (event) => {
+    event.preventDefault();
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const lastPage = Math.ceil(songs.length / songsPerPage);
+  const indexOfLastSong = currentPage * songsPerPage;
+  const indexOfFirstSong = indexOfLastSong - songsPerPage;
+  const currentSongs = songs.slice(indexOfFirstSong, indexOfLastSong);
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    // dispatch(getSongs());
   }, []);
 
   useEffect(() => {
+
+    console.log(songs);
     let options = [];
     songs.map((el, index) => {
       options.push({
@@ -57,10 +82,19 @@ const Store = () => {
           />
         </div>
       </div>
+      <div className={styles.pag}>
+          {!filteredSongs.length && (
+             <Pagination
+            currentPage={currentPage}
+            lastPage={lastPage}
+            prevPage={prevPage}
+            nextPage={nextPage}
+          />
+          )}         
+      </div>
       <div className={styles.cards}>
         {
           filteredSongs?.length ? (
-  
                 <SongCard
                   artist={filteredSongs[0].artists.map((artist, index) => {
                     if(index === filteredSongs[0].artists.length - 1){
@@ -70,6 +104,7 @@ const Store = () => {
                     }
                   })}
                   song={filteredSongs[0].name}
+                  songId={filterSongs[0].songId}
                   id={filteredSongs[0].id}
                   img={filteredSongs[0].image && filteredSongs[0].image}
                   audio={filteredSongs[0].audio}
@@ -77,7 +112,7 @@ const Store = () => {
                 />
               
           ):(
-            songs?.map((el, index) => {
+            currentSongs?.map((el, index) => {
                 return(
                   <SongCard
                     key={index}
@@ -90,9 +125,11 @@ const Store = () => {
                     })}
                     song={el.name}
                     id={el.id}
-                    img={el.image && el.image}
+                    img={el.image}
                     audio={el.audioPreview}
                     audioFull={el.audioFull}
+                    songId={el.songId}
+                    explicit={el.explicit}
                   />
                 )
               })

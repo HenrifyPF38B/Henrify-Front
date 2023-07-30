@@ -39,7 +39,7 @@ function App() {
     if(userExist){
       let parsedUser = JSON.parse(userExist);
       console.log(parsedUser.id);
-      // dispatch(getUsersById(parsedUser.id));
+      dispatch(getUsersById(parsedUser.id));
     }
   }, []);
 

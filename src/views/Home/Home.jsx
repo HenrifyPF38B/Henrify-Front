@@ -13,6 +13,7 @@ import video from "../../components/assets/pop.mp4"
 import { useDispatch, useSelector } from "react-redux";
 import { getSongs } from "../../redux/Actions/SongsActions";
 import { getAlbums } from "../../redux/Actions/AlbumsActions";
+import { Typeahead } from "react-bootstrap-typeahead";
 
 const Home = () => {
 
@@ -40,6 +41,8 @@ const Home = () => {
     "Listen your favorite songs!",
   ];
   const [popOpen, setPopOpen] = useState(false);
+  const [optionsSearch, setOptionsSearch] = useState([]);
+
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -73,12 +76,24 @@ const Home = () => {
     }
   };
 
-
-
   useEffect(() => {
-    // dispatch(getSongs());
-  
-  }, []);
+
+    console.log(songs);
+    let options = [];
+    songs.map((el, index) => {
+      options.push({
+        id: el.id,
+        label: el.artists[0].name + " • " + el.name,
+        name: el.name,
+        audioPreview: el.audioPreview,
+        audioFull: el.audioFull,
+        image: el.image,
+        artists: el.artists
+      });
+    });
+    setOptionsSearch(options);
+  }, [songs]);
+
   
 
   return (
@@ -89,7 +104,16 @@ const Home = () => {
       </div>
 
         <div className={styles.container}>
-         
+          <div className="d-flex justify-content-start ps-5 ms-4 mb-5 pb-3">
+            {/* <div className={styles.searchBar}>
+              <Typeahead
+
+                placeholder='What do you want to listen today?'
+                onChange={(selected) => console.log(selected)}
+                options={optionsSearch}
+              />
+            </div> */}
+          </div>
           {/* POPULAR PLAYLISTS */}
           <div className={styles.container2}>
             <div className='d-flex align-items-center justify-content-between'>
@@ -99,15 +123,18 @@ const Home = () => {
             <div ref={refSlider} className={styles.containerSlider}>
             {
                 playlists.length && playlists.map((el, index) =>{
-                  
+              
                   if(index === 0 || index === 7 || index === 8 || index === 4)
                   return(
                     <PlaylistCard
+                      
                       key={index}
                       creator={el.owner}
                       playlist={el.name}
                       image={el.image}
                       id={el.id}
+                      playlistId={el.playlistId}
+                      price={el.price}
                     />
                   )
                 })
@@ -153,6 +180,8 @@ const Home = () => {
               img={songs[0]?.image}
               audio={songs[0]?.audioPreview}
               audioFull={songs[0]?.audioFull}
+              songId={songs[0]?.songId}
+              explicit={songs[0]?.explicit}
             />
             <SongCard
               artist={songs[60]?.artists.map((artist, index) => {
@@ -167,6 +196,8 @@ const Home = () => {
               img={songs[60]?.image}
               audio={songs[60]?.audioPreview}
               audioFull={songs[60]?.audioFull}
+              songId={songs[60]?.songId}
+              explicit={songs[60]?.explicit}
             />
             <SongCard
               artist={songs[150]?.artists.map((artist, index) => {
@@ -181,6 +212,8 @@ const Home = () => {
               img={songs[150]?.image}
               audio={songs[150]?.audioPreview}
               audioFull={songs[150]?.audioFull}
+              songId={songs[150]?.songId}
+              explicit={songs[150]?.explicit}
             />
             <SongCard
               artist={songs[15]?.artists.map((artist, index) => {
@@ -195,6 +228,8 @@ const Home = () => {
               img={songs[15]?.image}
               audio={songs[15]?.audioPreview}
               audioFull={songs[15]?.audioFull}
+              songId={songs[15]?.songId}
+              explicit={songs[15]?.explicit}
             />
             
             
@@ -210,7 +245,7 @@ const Home = () => {
 
               {/* <img className='ms-5' src="/images/surprise.svg" alt="abc" /> */}
             </div>
-            {/* <div className={styles.prizes}>
+            <div className={styles.prizes}>
 
                 <div className={styles.prizesCard}>
                   <div className={styles.prizeImg}>
@@ -219,12 +254,10 @@ const Home = () => {
                   <div className={styles.cardImg}>
                     <img src={songs[72]?.image} alt="abc" />
                   </div>
-                  <div className={styles.prizeArtist}>
-                    <img src={drake} alt="abc"/>
-                  </div>
+                  
                   <div className={styles.span}>
                     <span>{songs[72]?.artists[0].name}</span>
-                    <span>{songs[72]?.trackName}</span>
+                    <span>{songs[72]?.name.length > 27 ? songs[72]?.name.slice(0, 26) + "…" : songs[72]?.name}</span>
                   </div>
                 </div>
                 
@@ -233,14 +266,12 @@ const Home = () => {
                     <img src="/images/prize2.svg" alt="abc" />
                   </div>
                   <div className={styles.cardImg}>
-                    <img src={songs[82]?.image} alt="abc" />
+                    <img src={songs[370]?.image} alt="abc" />
                   </div>
-                  <div className={styles.prizeArtist}>
-                    <img src={drake} alt="abc"/>
-                  </div>
+                  
                   <div className={styles.span}>
-                    <span>{songs[82]?.artists[0].name}</span>
-                    <span>{songs[82]?.trackName}</span>
+                    <span>{songs[370]?.artists[0].name}</span>
+                    <span>{songs[370]?.name.length > 27 ? songs[370]?.name.slice(0, 26) + "…" : songs[370]?.name}</span>
                   </div>
                 </div>
                 
@@ -249,14 +280,12 @@ const Home = () => {
                     <img src="/images/prize3.svg" alt="abc" />
                   </div>
                   <div className={styles.cardImg}>
-                    <img src={songs[92]?.image} alt="abc" />
+                    <img src={songs[400]?.image} alt="abc" />
                   </div>
-                  <div className={styles.prizeArtist}>
-                    <img src={drake} alt="abc"/>
-                  </div>
+                  
                   <div className={styles.span}>
-                    <span>{songs[92]?.artists[0].name}</span>
-                    <span>{songs[92]?.trackName}</span>
+                    <span>{songs[400]?.artists[0].name}</span>
+                    <span>{songs[400]?.name.length > 27 ? songs[400]?.name.slice(0, 26) + "…" : songs[400]?.name}</span>
                   </div>
                 </div>
                 
@@ -265,18 +294,16 @@ const Home = () => {
                     <img src="/images/prize4.svg" alt="abc" />
                   </div>
                   <div className={styles.cardImg}>
-                    <img src={songs[42]?.image} alt="abc" />
+                    <img src={songs[336]?.image} alt="abc" />
                   </div>
-                  <div className={styles.prizeArtist}>
-                    <img src={drake} alt="abc"/>
-                  </div>
+                  
                   <div className={styles.span}>
-                    <span>{songs[42]?.artists[0].name}</span>
-                    <span>{songs[42]?.trackName}</span>
+                    <span>{songs[336]?.artists[0].name}</span>
+                    <span>{songs[336]?.name.length > 27 ? songs[336]?.name.slice(0, 26) + "…" : songs[336]?.name}</span>
                   </div>
                 </div>
               
-            </div> */}
+            </div>
             
           </div>
         
@@ -293,6 +320,7 @@ const Home = () => {
               image={albums[0]?.image}
               id={albums[0]?.id}
               albumId={albums[0]?.albumId}
+              price={albums[0]?.price}
             />
             <AlbumCard
               artist={albums[1]?.artists}
@@ -300,6 +328,7 @@ const Home = () => {
               image={albums[1]?.image}
               id={albums[1]?.id}
               albumId={albums[1]?.albumId}
+              price={albums[1]?.price}
             />
             <AlbumCard
               artist={albums[2]?.artists}
@@ -307,6 +336,7 @@ const Home = () => {
               image={albums[2]?.image}
               id={albums[2]?.id}
               albumId={albums[2]?.albumId}
+              price={albums[2]?.price}
             />
             <AlbumCard
               artist={albums[3]?.artists}
@@ -314,6 +344,7 @@ const Home = () => {
               image={albums[3]?.image}
               id={albums[3]?.id}
               albumId={albums[3]?.albumId}
+              price={albums[3]?.price}
             />
             </div>
           </div>

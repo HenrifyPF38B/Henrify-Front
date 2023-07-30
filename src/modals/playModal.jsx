@@ -1,12 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from "./playModal.module.css"
 import { PlaylistContext } from '../contexts/playlistContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFav, favsUser, removeFromFav } from '../redux/Actions/UsersActions';
 
 const PlayModal = () => {
 
+  const state = useSelector(state => state);
+  const { userFavs, usersId } = state;
+  const dispatch = useDispatch();
   const dataContext = useContext(PlaylistContext);
   const { playerOpen, setPlayerOpen, playerHidden, setPlayerHidden } = dataContext;
-  const { originalData, data, originalIndex, index, audio, img, song, artist, type } = playerOpen;
+  const { originalData, data, originalIndex, index, audio, img, song, artist, type, id } = playerOpen;
   const refAudio = useRef();
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -396,6 +401,16 @@ const PlayModal = () => {
     }
   };
 
+  const handleAddFav = (e) =>{
+    // setInFavs(!inFavs);
+    dispatch(favsUser(usersId?.id, id));
+    if(e.target.dataset.id === "add"){
+        dispatch(addToFav(id));
+    }else{
+        dispatch(removeFromFav(id))
+    }
+};
+
   return ( 
       <article className={`playerArticle ${playerHidden ? "hide"  : ""}`}>
         {/* Renderizar una etiqueta audio para members, y otra para no members. */}
@@ -439,8 +454,14 @@ const PlayModal = () => {
               <span style={{color:"#777777", fontSize:"12px"}}>{songDetails.artist?.toString().replaceAll(",", "").length > 37 ? songDetails.artist.toString().replaceAll(",", "").slice(0, 36) + "…" : songDetails.artist}</span>
             </div>
             <div className='d-flex align-items-center'>
-              <i className="fa-regular fa-heart me-2 fa-lg" style={{color:"whitesmoke"}}></i>
-              <i className="fa-solid fa-minimize" style={{color:"whitesmoke"}} onClick={()=> setPlayerHidden(true)}></i>
+              {
+                  userFavs.includes(id) ? (
+                      <i className="fa-solid fa-heart me-2" data-id="remove" style={{color: "#E1402E"}} onClick={handleAddFav}></i>
+                  ):(
+                      <i className="fa-regular fa-heart me-2" data-id="add" style={{color: "whitesmoke"}} onClick={handleAddFav}></i>
+                  )
+              }
+              <i className="fa-solid fa-minimize fa-sm" style={{color:"whitesmoke"}} onClick={()=> setPlayerHidden(true)}></i>
             </div>
           </div>
         </div>

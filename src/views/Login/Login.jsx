@@ -56,7 +56,7 @@ const Login = () => {
       setTimeout(()=>{
         dispatch(resetMessageState());
       },1000);
-    }else if(message.email){
+    }else if(message?.email){
       setLogin(message);
       dispatch(resetMessageState());
       navigate("/home");

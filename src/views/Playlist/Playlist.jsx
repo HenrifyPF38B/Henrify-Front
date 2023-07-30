@@ -62,7 +62,8 @@ const Playlist = () => {
 
   const handleOpenPlayer = (el, index, findTrack) =>{
     if(el.trackPreview){
-      setPlayerOpen({originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: el.image.url, song: el.trackName, artist: el.artists.map((artist, index) => {
+      console.log(el);
+      setPlayerOpen({id: el.id, originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: el.image.url, song: el.trackName, artist: el.artists.map((artist, index) => {
         if(index === el.artists.length - 1){
           return artist.name
         }else{

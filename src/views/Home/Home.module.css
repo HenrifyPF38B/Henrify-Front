@@ -408,3 +408,38 @@ width: 20%;
   letter-spacing: 3px;
   font-size: 18px;
 }
+
+.searchBar{
+  margin-top: 1rem;
+  width: 30%;
+ }
+
+ .searchBar input{
+  font-size: 14px;
+  padding: 0.7rem 1rem;
+ }
+
+ .searchBar a{
+  font-size: 14px;
+  color: #828080;
+  letter-spacing: 1.3px;
+ }
+
+
+ .searchBar a:hover{
+  color: whitesmoke;
+ }
+
+ .searchBar input{
+  border: none !important;
+ }
+
+.searchBar input:focus{
+  box-shadow: none !important;
+}
+
+.searchBar input::placeholder{
+  color: #777777;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}

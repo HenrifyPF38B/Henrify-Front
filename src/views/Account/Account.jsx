@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styles from "./Account.module.css"
 import { Link, useNavigate } from "react-router-dom";
 import DelModal from '../../modals/delModal';
+import { useSelector } from 'react-redux';
 
 const Account = () => {
 
   const navigate = useNavigate();
+  const state = useSelector(state => state);
+  const { usersId } = state;
 
   // Controla seccion de Profile
   const [profile, setProfile] = useState(true);
@@ -59,12 +62,12 @@ const Account = () => {
   // Desactivo este UEF para que no se ponga Profile cada vez que hagan un cambio en Orders. 
   // Cuando terminen Orders activen de nuevo el UEF, y pongan el UseState de Profile en true, y los demas en false (Orders, Password)
   // Este UseEffect es para que siempre se vea Profile inicialmente
-  // useEffect(() => {
-  //   setProfile(true);
-  //   setOrders(false);
-  //   setChangeP(false);
-  //   setViewDetails(false);
-  // }, []);
+  useEffect(() => {
+    setProfile(true);
+    setOrders(false);
+    setChangeP(false);
+    setViewDetails(false);
+  }, []);
 
 
 
@@ -116,7 +119,7 @@ const Account = () => {
           </div>
         </div>
       }
-      <div className='d-flex align-items-center w-100 h-100'>
+      <div className={styles.subContainer}>
         
         <div className={styles.panel}>
           <div className={styles.back} onClick={()=> navigate("/home")}>
@@ -145,10 +148,10 @@ const Account = () => {
                 <div className={styles.circle2}></div>
                 <div className={styles.profileContainer}>
                   <div className={styles.image}>
-                    <img src="/images/nachoPic.jpeg" alt="abc" />
+                    <img src={usersId?.avatar} alt="abc" />
                   </div>
                   <div className={styles.name}>
-                    <span>Ignacio Gramajo Feijoo</span>
+                    <span>{usersId?.firstName + " " + usersId?.lastName}</span>
                   </div>
                   <div className={styles.buttons}>
                     <button>Upgrade</button>
