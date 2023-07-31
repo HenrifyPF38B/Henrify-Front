@@ -14,10 +14,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSongs } from "../../redux/Actions/SongsActions";
 import { getAlbums } from "../../redux/Actions/AlbumsActions";
 import { Typeahead } from "react-bootstrap-typeahead";
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css"; 
+
 
 const Home = () => {
 
-
+  const refToast = useRef();
   const testCards = [1, 2, 3, 4];
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,7 +30,7 @@ const Home = () => {
   const { songs, albums, playlists } = state;
 
   const data = useContext(PlaylistContext);
-  const { modalOpen, setModalOpen } = data;
+  const { modalOpen, setModalOpen, setPlayerOpen } = data;
 
 
   const refSlider = useRef();
@@ -36,7 +41,7 @@ const Home = () => {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const period = 2000;
   const toRotate = [
-    "Welcome to Soul Life!",
+    "Welcome to Soul Music!",
     "Life is better with music!",
     "Listen your favorite songs!",
   ];
@@ -78,42 +83,57 @@ const Home = () => {
 
   useEffect(() => {
 
-    console.log(songs);
     let options = [];
     songs.map((el, index) => {
       options.push({
         id: el.id,
+        songId: el.songId,
         label: el.artists[0].name + " • " + el.name,
         name: el.name,
         audioPreview: el.audioPreview,
         audioFull: el.audioFull,
         image: el.image,
-        artists: el.artists
+        artist: el.artists.map((artist, index) => {
+          if(index === el.artists.length - 1){
+            return artist.name
+          }else{
+            return artist.name + " • "
+          }
+        })
       });
     });
     setOptionsSearch(options);
   }, [songs]);
 
   
+  const handleSelected = (selected) =>{
+    if(selected.length){
+      if(selected[0].audioPreview){
+        setPlayerOpen({audio: selected[0].audioPreview, img: selected[0].image, song: selected[0].name, artist: selected[0].artist, type: "song", id: selected[0].songId});
+      }else{
+        refToast.current.show({sticky: true, severity: 'info', summary: "We're sorry!", detail: "This song's preview is not available!"});
+      }
+    }
+  };
 
   return (
-    <div>
-             
+    <div className="home">
+      <Toast ref={refToast} position='top-left'></Toast>
       <div className={styles.welcome}>
         <span className="wrap">{text}</span>
       </div>
+      <div className={styles.search}>
+        <div className={styles.searchBar}>
+          <Typeahead
+            id="pagination-example"
+            placeholder='What do you want to listen today?'
+            onChange={(selected) => handleSelected(selected)}
+            options={optionsSearch}
+          />
+        </div>
+      </div>
 
         <div className={styles.container}>
-          <div className="d-flex justify-content-start ps-5 ms-4 mb-5 pb-3">
-            {/* <div className={styles.searchBar}>
-              <Typeahead
-
-                placeholder='What do you want to listen today?'
-                onChange={(selected) => console.log(selected)}
-                options={optionsSearch}
-              />
-            </div> */}
-          </div>
           {/* POPULAR PLAYLISTS */}
           <div className={styles.container2}>
             <div className='d-flex align-items-center justify-content-between'>
@@ -135,6 +155,7 @@ const Home = () => {
                       id={el.id}
                       playlistId={el.playlistId}
                       price={el.price}
+                      el={el}
                     />
                   )
                 })
@@ -321,6 +342,7 @@ const Home = () => {
               id={albums[0]?.id}
               albumId={albums[0]?.albumId}
               price={albums[0]?.price}
+              el={albums[3] && albums[0]}
             />
             <AlbumCard
               artist={albums[1]?.artists}
@@ -329,6 +351,7 @@ const Home = () => {
               id={albums[1]?.id}
               albumId={albums[1]?.albumId}
               price={albums[1]?.price}
+              el={albums[3] && albums[1]}
             />
             <AlbumCard
               artist={albums[2]?.artists}
@@ -337,6 +360,7 @@ const Home = () => {
               id={albums[2]?.id}
               albumId={albums[2]?.albumId}
               price={albums[2]?.price}
+              el={albums[3] && albums[2]}
             />
             <AlbumCard
               artist={albums[3]?.artists}
@@ -345,6 +369,7 @@ const Home = () => {
               id={albums[3]?.id}
               albumId={albums[3]?.albumId}
               price={albums[3]?.price}
+              el={albums[3] && albums[3]}
             />
             </div>
           </div>

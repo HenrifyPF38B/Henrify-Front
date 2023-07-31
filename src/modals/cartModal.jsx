@@ -10,57 +10,33 @@ const CartModal = () => {
   const navigate = useNavigate();
   // const dummy = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const state = useSelector(state => state);
-  const { userCart, playlists, albums, usersId } = state;
+  const { userCart, usersId } = state;
   const data = useContext(PlaylistContext);
   const { cartModal, setCartModal } = data;
-  const [totalGetter, setTotalGetter] = useState([]);
   const [totalPrice, setTotalPrice] = useState(null);
+  // const [totalGetter, setTotalGetter] = useState([]);
 
   const handleCheckout = () =>{
     setCartModal(false);
     navigate("/checkout");
   };
-
-  const handleRemoveFromCart = (id) =>{
-    dispatch(cartUser(usersId?.id, id));
-    let filter = totalGetter.filter(el => el.type === "album" ? el.albumId !== id : el.playlistId !== id );
-    setTotalGetter(filter);
-    dispatch(removeFromCart(id));
+  const handleRemoveFromCart = (el) =>{
+    dispatch(cartUser(usersId?.id, el));
+    dispatch(removeFromCart(el.name));
   };
 
-  useEffect(() => {
-    if(usersId.id){
-      userCart.map(el => {
-        return playlists.map(playlist => {
-          if(playlist.playlistId === el){
-           let filter = totalGetter.filter(item => item.name === playlist.name);
-           if(!filter.length) return setTotalGetter([...totalGetter, playlist])
-            
-          }
-        })
-      });
-      userCart.map(el => {
-        return albums.map(album => {
-          if(album.albumId === el){
-            let filter = totalGetter.filter(item => item.name === album.name);
-            if(!filter.length) return setTotalGetter([...totalGetter, album])
-          }
-        })
-      });
-    }
-  }, [usersId, albums, playlists, userCart]);
 
   useEffect(() => {
-    if(totalGetter.length){
+    if(userCart.length){
       let total = 0;
-        totalGetter.map(el => {
+        userCart.map(el => {
           total += el.price;
           return setTotalPrice(total);
         })
     }else{
       
     }
-  }, [totalGetter, userCart]);
+  }, [userCart]);
 
   return ( 
     <div className={styles.mainWrapper}>
@@ -72,13 +48,13 @@ const CartModal = () => {
           <div className={styles.container}>
 
           {
-            totalGetter.length ? totalGetter.map((el, index) => {
+            (userCart.length && usersId.id) ? userCart.map((el, index) => {
               return(
                 <div key={index} className={styles.wrapper}>
                   <div className={styles.subWrapper}>
                       <div className={styles.image}>
                         <div className={styles.quantityIcon}>
-                            <span>3</span>
+                            <span>{el.quantity}</span>
                         </div>
                         <img src={el.image} alt="abc" />
                       </div>
@@ -87,7 +63,7 @@ const CartModal = () => {
                         <span>{el.owner}</span>
                       </div>
                       <div className='d-flex align-items-center'>
-                        <div className={styles.quantity} onClick={(e)=> handleRemoveFromCart(el.type === "album" ? el.albumId : el.playlistId)}>
+                        <div className={styles.quantity} onClick={(e)=> handleRemoveFromCart(el)}>
                           <i className="fa-solid fa-circle-minus fa-sm" style={{color:"whitesmoke"}}></i>
                         </div>
                         <div className={styles.eachPrice}>
@@ -103,7 +79,7 @@ const CartModal = () => {
           }
           
           {
-            ((userCart.length === 0|| totalGetter.length === 0) && usersId && usersId.userName)&&
+            userCart.length === 0 && usersId && usersId.userName &&
               <div className={styles.emptyDiv}> 
                 <span className={styles.emptyDiv0}>Your Cart is Empty</span>
                 <div className={styles.emptyDiv1}>
@@ -136,7 +112,7 @@ const CartModal = () => {
           }
           </div>
           {
-            userCart.length > 0 && totalGetter.length > 0 &&
+            usersId.id && userCart.length > 0 &&
               <div className={styles.checkout}>
                 <div>
                   <span>Subtotal</span>

@@ -12,13 +12,14 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const data = useContext(PlaylistContext);
-  const { login, setLogin, setCartModal } = data;
+  const { login, setLogin, setCartModal, setLoginOpen } = data;
 
   const handleFavs = () =>{
     if(login){
       navigate("/favorites");
     }else{
       // Notification 
+      setLoginOpen(true);
     }
   }
 
@@ -27,6 +28,7 @@ const Header = () => {
     setLogin(false);
     dispatch(resetUserStates());
     navigate("/login");
+    // window.location.reload();
   };
 
   return ( 
@@ -36,8 +38,8 @@ const Header = () => {
             <div className='header-links d-flex ms-5 align-items-center justify-content-center text-white'>
               <p className='me-5' onClick={()=> navigate("home")}>Home</p>
               <p className='me-5' onClick={()=> navigate("about")}>About</p>
-              <p className='me-5' onClick={()=> navigate("membership")}>Membership</p>              
-              <p onClick={()=> navigate("store")}>Store</p>         
+              <p className='me-5' onClick={()=> navigate("membership")}>Membership</p>
+              <p onClick={()=> navigate("store")}>Songs</p>
             </div>
           </div>
           <div className='info-icons d-flex align-items-center gap-30'>

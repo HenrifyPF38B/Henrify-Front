@@ -12,6 +12,7 @@ export const REMOVE_CART = "REMOVE-CART";
 export const ADD_CART = "ADD_CART";
 export const FAVS_USER = "FAVS_USER";
 export const CART_USER = "CART_USER";
+export const CREATE_ORDER = "CREATE_ORDER";
 
 // CRUD SONGS
 export const GET_SONGS = "GET_SONGS";

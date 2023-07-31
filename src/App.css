@@ -522,6 +522,7 @@ body{
 
 .rbt-menu::-webkit-scrollbar {
   width: 10px;
+  display: none;
 }
 
 /* Track */
@@ -555,6 +556,7 @@ body{
   letter-spacing: 1px;
   margin-bottom: 0.8rem;
 }
+
 
 .header .dropdown-item:last-child{
   color: rgb(192, 62, 62) !important;
@@ -751,6 +753,10 @@ body{
 /* .p-toast .p-toast-message.p-toast-message-info{
   
 } */
+
+
+
+
 
 /* MEMBERSHIP - BE MEMBER */
 .card {

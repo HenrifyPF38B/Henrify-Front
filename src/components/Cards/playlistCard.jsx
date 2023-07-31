@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFav, favsUser, removeFromFav } from '../../redux/Actions/UsersActions';
 
-const PlaylistCard = ({price, creator, playlist, image, id, playlistId}) => {
+const PlaylistCard = ({price, creator, playlist, image, id, playlistId, el}) => {
     
     const dispatch = useDispatch();
     const state = useSelector(state => state);
@@ -13,7 +13,7 @@ const PlaylistCard = ({price, creator, playlist, image, id, playlistId}) => {
     const navigate = useNavigate();
     const [eyeActive, setEyeActive] = useState(false);
     const data = useContext(PlaylistContext);
-    const { setModalOpen, setBuyOpen } = data;
+    const { setModalOpen, setBuyOpen, setLoginOpen } = data;
     const [playShow, setPlayShow] = useState(true);
     const [inFavs, setInFavs] = useState(false);
 
@@ -41,7 +41,7 @@ const PlaylistCard = ({price, creator, playlist, image, id, playlistId}) => {
                 }
                 {
                     !usersId.length && !usersId?.id && 
-                        <i className="fa-regular fa-heart fa-sm"></i>
+                        <i className="fa-regular fa-heart fa-sm" onClick={()=> setLoginOpen(true)}></i>
                 }
             </div>
 
@@ -55,7 +55,7 @@ const PlaylistCard = ({price, creator, playlist, image, id, playlistId}) => {
                 <div className={styles.listen} onClick={()=> navigate(`/playlist/${id}`)}>
                     <i class="fa-solid fa-play fa-2xl"></i>
                 </div>
-                <div className={styles.addContainer} onClick={()=> setBuyOpen({type: "Playlist",id: playlistId, title: playlist, subTitle: creator, price, image})}>
+                <div className={styles.addContainer} onClick={()=> setBuyOpen(el)}>
                     <div className={styles.addToCart}>
                         <i className="fa-solid fa-cart-plus"></i>
                     </div>

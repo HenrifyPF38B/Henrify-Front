@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from "./buyModal.module.css"
 import { PlaylistContext } from '../contexts/playlistContext';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +14,7 @@ const BuyModal = () => {
   const refToast = useRef();
   const dispatch = useDispatch();
   const state = useSelector(state => state);
-  const { usersId, userCart } = state;
+  const { usersId, userCart, playlists, albums } = state;
   const data = useContext(PlaylistContext);
 
   const { buyOpen, setBuyOpen, setLoginOpen } = data;
@@ -31,17 +31,22 @@ const BuyModal = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(buyOpen);
+  }, []);
 
   const handleAddToCart = () =>{
     if(usersId.id && buyOpen){
-      let filter = userCart.filter(el => el === buyOpen.id);
+      let filter = userCart.filter(el => el.name === buyOpen.name);
 
       if(filter.length > 0){
         refToast.current.show({sticky: true, severity: 'error', summary: `Hey ${usersId?.userName}!`, detail: `This ${buyOpen.type} is already in your cart!`});
       }else{
-        dispatch(cartUser(usersId?.id, buyOpen.id));
-        dispatch(addToCart(buyOpen.id));
+        
+        dispatch(cartUser(usersId?.id, {...buyOpen, quantity}));
+        dispatch(addToCart({...buyOpen, quantity}));
         refToast.current.show({sticky: true, severity: 'success', summary: "Done!", detail: `This ${buyOpen.type} has been added to your cart`});
+        
       }
     }else{
       // Alerta que no esta logeado
@@ -64,8 +69,8 @@ const BuyModal = () => {
           </div>
           <div className='d-flex align-items-start mt-5 justify-content-between'>
             <div className={styles.details}>
-              <span>{buyOpen?.title}</span>
-              <span>{buyOpen?.subTitle}</span>
+              <span>{buyOpen?.artist ? buyOpen?.artist : buyOpen?.owner}</span>
+              <span>{buyOpen?.name}</span>
             </div>
             <div className={styles.price}>
               <span>${buyOpen?.price * quantity}</span>

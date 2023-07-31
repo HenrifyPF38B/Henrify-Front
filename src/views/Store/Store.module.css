@@ -89,6 +89,7 @@ background-image: linear-gradient(to right, #480048c7, #1f1f1f);
 
  .searchBar a:hover{
   color: whitesmoke;
+  background-color: #1f1f1f !important;
  }
 
  .searchBar input{

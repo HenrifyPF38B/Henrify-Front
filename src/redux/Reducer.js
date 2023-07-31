@@ -44,11 +44,13 @@ import {
   REMOVE_CART,
   ADD_CART,
   CART_USER,
+  CREATE_ORDER,
 } from "./Action-types";
 
 const initialState = {
   message: "",
   users: [],
+  userOrders:[],
   userCart: [],
   userFavs:[],
   usersId: [],
@@ -130,7 +132,7 @@ const Reducer = (state = initialState, { type, payload }) => {
     case REMOVE_CART:
       return {
         ...state,
-        userCart: state.userCart.filter(el => el !== payload),
+        userCart: state.userCart.filter(el => el.name !== payload),
         message: "Added to favs",
       };
 
@@ -138,7 +140,7 @@ const Reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         userCart: [...state.userCart, payload],
-        message: "Removed from favs",
+        message: payload,
       };
 
     case FAVS_USER:
@@ -151,6 +153,13 @@ const Reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         message: payload,
+      };
+
+    case CREATE_ORDER:
+      return {
+        ...state,
+        userOrders: [...state.userOrders, payload],
+        message: "Order created",
       };
 
     // SONGS ----------------------------------------------------------------------------------
@@ -344,6 +353,7 @@ const Reducer = (state = initialState, { type, payload }) => {
     case RESET_USERSID_USERFAVS:
     return {
       ...state,
+      userCart: [],
       usersId: [],
       userFavs: [],
       message: "",
