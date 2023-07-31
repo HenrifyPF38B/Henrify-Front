@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFav, favsUser, removeFromFav } from '../../redux/Actions/UsersActions';
 
-const AlbumCard = ({price, artist, album, image, id, albumId}) => {
+const AlbumCard = ({price, artist, album, image, id, albumId, el}) => {
     
     const dispatch = useDispatch();
     const state = useSelector(state => state);
@@ -54,7 +54,7 @@ const AlbumCard = ({price, artist, album, image, id, albumId}) => {
                 <div className={styles.listen} onClick={()=> navigate("/album/" + id)}>
                     <i class="fa-solid fa-play fa-2xl"></i>
                 </div>
-                <div className={styles.addContainer} onClick={()=> setBuyOpen({type:"Album", title: album, subTitle: artist[0]?.name, price, image, id: albumId})}>
+                <div className={styles.addContainer} onClick={()=> setBuyOpen(el)}>
                     <div className={styles.addToCart}>
                         <i className="fa-solid fa-cart-plus"></i>
                     </div>

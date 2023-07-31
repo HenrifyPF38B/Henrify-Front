@@ -73,7 +73,7 @@ const Store = () => {
         <DropdownMenu />
       </aside>    
        <div className={styles.panel}>
-        <h2 className={styles.title}>Our Store</h2>
+        <h2 className={styles.title}>Our Songs</h2>
         {/* <h2 className={styles.banner}>What do you want to hear today?</h2> */}
       <div className='d-flex align-items-center justify-content-center'>
         <div className={styles.searchBar}>

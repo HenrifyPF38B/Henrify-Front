@@ -35,6 +35,7 @@ const SeeAll = () => {
                       id={el.id ? el.id : el.name}
                       playlistId={el.playlistId}
                       price={el.price}
+                      el={el}
                     />
                   )
                 })
@@ -57,6 +58,7 @@ const SeeAll = () => {
                       id={el.id}
                       albumId={el.albumId}
                       price={el.price}
+                      el={el}
                     />
                   )
                 })

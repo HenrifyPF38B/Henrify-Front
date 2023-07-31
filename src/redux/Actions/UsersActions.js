@@ -12,6 +12,7 @@ import {
   CART_USER,
   ADD_CART,
   REMOVE_CART,
+  CREATE_ORDER,
 } from "../Action-types";
 import { base_url } from "../baseURL";
 
@@ -95,7 +96,7 @@ export const favsUser = (userId, productId) =>{
   };
 };
 
-export const cartUser = (userId, productId) =>{
+export const cartUser = (userId, product) =>{
   return async function (dispatch) {
     const res = await fetch(
       `${base_url}/users/cart`,
@@ -104,7 +105,7 @@ export const cartUser = (userId, productId) =>{
           headers:{
               "Content-type":"application/json; charset=UTF-8"
           },
-          body: JSON.stringify({userId, productId})
+          body: JSON.stringify({userId, product})
       }
     );
     const data = await res.json();
@@ -132,6 +133,7 @@ export const removeFromFav = (id) =>{
 
 
 export const addToCart = (id) =>{
+  console.log(id);
   return async function (dispatch){
 
     dispatch({ type: ADD_CART, payload: id});
@@ -146,6 +148,26 @@ export const removeFromCart = (id) =>{
   }
 };
 
+
+
+export const createOrder = (order) =>{
+  return async function (dispatch){
+    const res = await fetch(
+      `${base_url}/orders/create`,
+      {
+          method: 'POST',
+          headers:{
+              "Content-type":"application/json; charset=UTF-8"
+          },
+          body: JSON.stringify({order})
+      }
+    );
+    const data = await res.json();
+    console.log(data);
+
+    dispatch({ type: CREATE_ORDER, payload: data })
+  }
+}
 
 
 export const putUsers = (user, id) => {

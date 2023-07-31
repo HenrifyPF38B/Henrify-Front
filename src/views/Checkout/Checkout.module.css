@@ -449,6 +449,7 @@
   max-height: 70vh;
   overflow-y: auto;
   background-color: #A3C503;
+  border-bottom: 3px solid #1f1f1f;
 }
 
 .products::-webkit-scrollbar {
@@ -488,7 +489,7 @@
 
 .productCardImg{
   position: relative;
-  width: 20%;
+  width: 25%;
   height: auto;
 }
 
@@ -504,8 +505,8 @@
   left: -5px;
   background-color: #99b80d;
   border-radius: 50px;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   font-size: 10px;
   color: whitesmoke;
   display: flex;

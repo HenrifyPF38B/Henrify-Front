@@ -409,25 +409,38 @@ width: 20%;
   font-size: 18px;
 }
 
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background:linear-gradient(to right, #1f1f1f, #eb0046);
+}
+
 .searchBar{
-  margin-top: 1rem;
-  width: 30%;
+  /* margin-top: 1rem; */
+  width: 40%;
  }
 
  .searchBar input{
   font-size: 14px;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 1rem !important;
  }
 
  .searchBar a{
   font-size: 14px;
   color: #828080;
   letter-spacing: 1.3px;
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1f1f1f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
  }
 
 
  .searchBar a:hover{
   color: whitesmoke;
+  background-color: #1f1f1f;
  }
 
  .searchBar input{
