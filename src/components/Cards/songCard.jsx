@@ -85,7 +85,7 @@ const SongCard = ({artist, song, id, img, audio, audioFull, songId, explicit}) =
                 <img 
                   src={img} 
                   alt="abc" 
-                  onClick={()=> navigate("/song")}
+                //  onClick={()=> navigate("/song")}
                 />
                 <div className={styles.listen} onClick={handlePlay}>
                     <i className="fa-solid fa-play fa-2xl"></i>
