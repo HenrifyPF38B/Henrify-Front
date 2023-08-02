@@ -110,7 +110,7 @@ const Store = () => {
                   songId={filteredSongs[0].songId}
                   id={filteredSongs[0].id}
                   img={filteredSongs[0].image && filteredSongs[0].image}
-                  audio={filteredSongs[0].audio}
+                  audio={filteredSongs[0].audioPreview}
                   audioFull={filteredSongs[0].audioFull}
                 />
               

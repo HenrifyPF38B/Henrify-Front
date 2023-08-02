@@ -40,12 +40,12 @@ const BuyModal = () => {
       let filter = userCart.filter(el => el.name === buyOpen.name);
 
       if(filter.length > 0){
-        refToast.current.show({sticky: true, severity: 'error', summary: `Hey ${usersId?.userName}!`, detail: `This ${buyOpen.type} is already in your cart!`});
+        refToast.current.show({life: 3000, severity: 'error', summary: `Hey ${usersId?.userName}!`, detail: `This ${buyOpen.type} is already in your cart!`});
       }else{
         
         dispatch(cartUser(usersId?.id, {...buyOpen, quantity}));
         dispatch(addToCart({...buyOpen, quantity}));
-        refToast.current.show({sticky: true, severity: 'success', summary: "Done!", detail: `This ${buyOpen.type} has been added to your cart`});
+        refToast.current.show({life: 3000, severity: 'success', summary: "Done!", detail: `This ${buyOpen.type} has been added to your cart`});
         
       }
     }else{

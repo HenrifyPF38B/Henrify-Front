@@ -1,14 +1,31 @@
+import React, { useEffect } from "react";
+
 import style from "./beMember.module.css";
 import test from "../../components/assets/signup8.svg";
 import test1 from "../../components/assets/signup4.svg";
 import test2 from "../../components/assets/signup7.svg";
 import test3 from "../../components/assets/signup12.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { getMemberships } from "../../redux/Actions/MembershipsActions";
+
 
 const BeMember = () => {
+  const dispatch = useDispatch();
+  const memberships = useSelector((state) => state.memberships.data);
+
+  const membershipList = memberships || [];
+
+  console.log(membershipList)
+  useEffect(() => {
+    dispatch(getMemberships());
+  }, [dispatch]);
+
   return (
     <div className={style.container}>
-      <div className="content">
-        <h1 className="tittle">Welcome! Be a member!</h1>
+      <div className="content">        
+        <div className="tittle">
+          <h1>Welcome! Be a member!</h1>
+        </div>       
         <div class="pyramid-loader">
           <div class="wrapper">
             <span class="side side1"></span>
@@ -28,7 +45,25 @@ const BeMember = () => {
       </p>
 
       <div className={style.boxMember}>
-        <div className="card">
+        {membershipList.map((membership) => (
+          <div className="card" key={membership.id}>
+            <div className="type">
+              <h2 className="typeh2">{membership.name}</h2>
+              </div>
+              <div className="databox">
+                <h4 className="description">{membership.description}</h4>
+                <p className="date">{membership.duration}</p>
+                <p className="price">$ {membership.price}</p>
+              </div>
+              <button className="buttonMember">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+              <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+            </svg>
+            Add membership
+          </button>
+          </div>
+        ))}
+        {/* <div className="card">
           <div className="type">
             <h2 className="typeh2">Soul Basic</h2>
           </div>
@@ -57,9 +92,9 @@ const BeMember = () => {
             </svg>
             Add membership
           </button>
-        </div>
+        </div> */}
 
-        <div className="card">
+        {/* <div className="card">
           <div className="type">
             <h2 className="typeh2">Soul Vip</h2>
           </div>
@@ -73,7 +108,7 @@ const BeMember = () => {
             </svg>
             Add membership
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="ourMember">
         <h3 className="aboutName">Why choose us?</h3>

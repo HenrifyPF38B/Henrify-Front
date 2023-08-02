@@ -85,6 +85,9 @@ body{
 
 .header {
   background-image: linear-gradient(#c04848, #480048);
+  /* background-image: url("../public/images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat; */
   padding: 1.5rem;
   padding: 2rem;
   width: 100%;
@@ -557,6 +560,11 @@ body{
   margin-bottom: 0.8rem;
 }
 
+.dropdown-item.disabled{
+  color: lightgray !important;
+  font-size: 13px;
+}
+
 
 .header .dropdown-item:last-child{
   color: rgb(192, 62, 62) !important;
@@ -760,14 +768,14 @@ body{
 
 /* MEMBERSHIP - BE MEMBER */
 .card {
-  width: 240px;
-  height: 300px;
-  background: linear-gradient(to right, #240b36, #c31432);
+  width: 260px;
+  height: 340px;
+  background: linear-gradient(to right, #7c108a8a, #c3143193);
   transform: rotate(20deg) skew(-10deg, -5deg);
   transition: .6s linear;
   display: flex;
   border-radius: 10px;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.479);
   justify-content: center;
   align-items: center;
   text-align: center; 
@@ -786,15 +794,15 @@ body{
   width: fit-content;
   display: flex;
   padding: 10px;
-  gap: 10px;
+  gap: 12px;
   font-weight: 600;
   letter-spacing: 1.5px;
-  width: 190px;
-  margin-bottom: 20px;
-  font-size: 13px;
+  width: 200px;
+  margin-bottom: 10px;
+  font-size: 15px;
   border-radius: 30px;
   border: none;
-  box-shadow: 3px 3px 3px black;
+  box-shadow: 5px 5px 6px black;
   text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
   background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
   background-size: 300%;
@@ -815,17 +823,21 @@ body{
   width: 25px;
   fill: #f09f33;
 }
+.description {
+  color: rgba(255, 255, 255, 0.493);
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+}
 .type {
   width: 100%;
-  background: rgba(0, 0, 0, 0.808);  
+  background: linear-gradient(to right, #4e0e7ca8, #fa163cbe);
   padding: 15px;
  }
 .typeh2{
-  background: -webkit-linear-gradient(#ff0582, #ff9f22);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 25px;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.726);
+  font-size: 30px;
+  font-weight: 500;
   letter-spacing: 2px;
 }
 .databox {
@@ -847,27 +859,61 @@ body{
  }
 /* ********************* */
 .tittle {
-  font-size: 50px;
-  background: -webkit-linear-gradient(#ff2252, #b6660b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700px;
-  letter-spacing: 1.5px;
-}
+    padding: 2rem 1.2rem;
+    border-radius: 10px;
+    margin-top: 25px;
+    background: linear-gradient(to right, #550291a8, #f7183db2);
+  }
+  .tittle h1 { 
+    position: relative;
+    font-size: 2.7em;
+    letter-spacing: 7px;
+    font-family: 'Raleway dots';
+    color: #ff8b07;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 100%;    
+    text-align: center;
+    -webkit-box-reflect: below 0.5px linear-gradient(transparent, rgba(0, 0, 0, 0.377));
+    /* El webkit reflect hace el efecto de reflejo de las letras */
+    /* Le podeemos poner un fondo naranja o violeta para que pegue con el fondo, tipo asi mira */
+    line-height: 0.84em;
+    outline: none;
+    animation: neonPink 5s linear infinite;
+  }
+  
+  @keyframes neonPink{
+    0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%  
+    {
+      color: #fcb4d2;
+      /* Esto es el color cuando las luces estan 'apagadas' */
+      text-shadow: none;
+    }
+    18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%{
+      color: #fff;
+      /* Esto es el color cuando brillan, si le pones color naranja, el brillo va a ser naranja digamos */
+      text-shadow: 0 0 10px rgb(255, 116, 24),
+                  0 0 20px rgb(255, 116, 24), 
+                  0 0 40px rgb(255, 116, 24), 
+                  0 0 80px rgb(255, 116, 24),
+                  0 0 160px rgb(255, 116, 24);
+    } 
+  }
+
 
 .info {
   font-size: 23px;
   letter-spacing: 1.3px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.363);
+  color: rgba(255, 255, 255, 0.473);
   margin-bottom: 50px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .dat {
   font-size: 20px;
   margin-top: -30px;
-  margin-bottom: 60px;
-  color: rgba(255, 255, 255, 0.322);
+  margin-bottom: 80px;
+  color: rgba(255, 255, 255, 0.692);
 }
 .content {
   margin-top: -70px;
@@ -901,8 +947,8 @@ body{
 }
 
 .pyramid-loader .wrapper .side {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   position: absolute;
   top: 0;
   left: 0;
@@ -936,7 +982,7 @@ body{
 .pyramid-loader .wrapper .shadow {
   width: 60px;
   height: 60px;
-  background: #f572ce;
+  background: #efff14;
   position: absolute;
   top: 0;
   left: 0;
@@ -946,16 +992,13 @@ body{
   transform: rotateX(90deg) translateZ(-40px);
   filter: blur(12px);
 }
-.ourMember { 
-  width: 100vh; 
-  margin-bottom: 80px;
-  background: rgba(0, 0, 0, 0.726);
-  padding: 40px;
-  border-radius: 10px;
-}
+
 .aboutUs { 
   color: wheat;
-  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
   font-family:monospace;
   letter-spacing: 1.3px;
 }
@@ -964,18 +1007,19 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 35px;
-  background: -webkit-linear-gradient(#ff2252, #ffc60c);
+  font-weight: 700;
+  background: -webkit-linear-gradient(#d8123d, #ff8b2c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 900px;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
 .testimonials {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .testimonial-card {
@@ -1021,10 +1065,11 @@ body{
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
-  margin-bottom: 80px;
-  background: rgba(0, 0, 0, 0.726);
-  padding: 40px;
+  margin-bottom: 60px;
+  background: rgba(199, 199, 199, 0.384);
+  padding: 20px;
   border-radius: 10px;
 }
+
 
 

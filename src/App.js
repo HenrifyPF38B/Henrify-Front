@@ -15,7 +15,7 @@ import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css"; 
-import { getUsersById } from './redux/Actions/UsersActions';
+import { getUserOrder, getUsersById } from './redux/Actions/UsersActions';
 import LoginModal from './modals/loginModal';
 
 
@@ -41,6 +41,7 @@ function App() {
       let parsedUser = JSON.parse(userExist);
       console.log(parsedUser.id);
       dispatch(getUsersById(parsedUser.id));
+      dispatch(getUserOrder(parsedUser.id));
     }
   }, []);
 

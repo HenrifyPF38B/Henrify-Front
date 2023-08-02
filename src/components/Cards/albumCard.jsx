@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFav, favsUser, removeFromFav } from '../../redux/Actions/UsersActions';
 
-const AlbumCard = ({price, artist, album, image, id, albumId, el}) => {
+const AlbumCard = ({price, artist, album, image, id, albumId, el, cartItem}) => {
     
     const dispatch = useDispatch();
     const state = useSelector(state => state);
@@ -32,14 +32,14 @@ const AlbumCard = ({price, artist, album, image, id, albumId, el}) => {
             <div className={styles.seePlaylist}>
                 <i className="fa-solid fa-eye fa-xs" onClick={()=> setModalOpen({id, type: "album"})}></i>
                 {
-                    usersId.id && (userFavs?.includes(albumId) ? (
+                    usersId.id && !cartItem && (userFavs?.includes(albumId) ? (
                         <i className="fa-solid fa-heart fa-sm" data-id="remove" style={{color: "#E1402E"}} onClick={handleAddFav}></i>
                     ):(
                         <i className="fa-regular fa-heart fa-sm" data-id="add" onClick={handleAddFav}></i>
                     ))
                 }
                 {
-                    !usersId.length && !usersId?.id && 
+                    !usersId.length && !cartItem && !usersId?.id && 
                         <i className="fa-regular fa-heart fa-sm"></i>
                 }
             </div>
@@ -54,11 +54,14 @@ const AlbumCard = ({price, artist, album, image, id, albumId, el}) => {
                 <div className={styles.listen} onClick={()=> navigate("/album/" + id)}>
                     <i class="fa-solid fa-play fa-2xl"></i>
                 </div>
-                <div className={styles.addContainer} onClick={()=> setBuyOpen(el)}>
-                    <div className={styles.addToCart}>
-                        <i className="fa-solid fa-cart-plus"></i>
-                    </div>
-                </div>
+                {
+                    !cartItem && 
+                        <div className={styles.addContainer} onClick={()=> setBuyOpen(el)}>
+                            <div className={styles.addToCart}>
+                                <i className="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                }
             </div>
             <span className={styles.topratedspan1}>{(artist && artist.length) && artist[0]?.name.length > 19 ? (artist && artist.length) && artist[0]?.name.slice(0, 19) + "…" : (artist && artist.length) && artist[0]?.name}</span>
             <span className={styles.topratedspan2}>{album && album.length > 19 ? album.slice(0, 19) + "…" : album}</span>

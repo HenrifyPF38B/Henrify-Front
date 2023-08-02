@@ -13,6 +13,8 @@ export const ADD_CART = "ADD_CART";
 export const FAVS_USER = "FAVS_USER";
 export const CART_USER = "CART_USER";
 export const CREATE_ORDER = "CREATE_ORDER";
+export const GET_ORDER = "GET_ORDER";
+export const GOOGLE_AUTH = "GOOGLE_AUTH";
 
 // CRUD SONGS
 export const GET_SONGS = "GET_SONGS";

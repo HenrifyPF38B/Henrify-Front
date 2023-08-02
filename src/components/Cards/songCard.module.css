@@ -101,7 +101,7 @@
 
 .explicit{
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     bottom: 10px;
     left: 10px;
 }

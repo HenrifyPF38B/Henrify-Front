@@ -10,6 +10,7 @@ import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css"; 
+import uniqid from 'uniqid';
 
 
 const usStates = [ "AK - Alaska", 
@@ -633,6 +634,8 @@ const Checkout = () => {
                             shippingMethod: shipSelected,
                             shippingAddress: `${infoForm.firstName} ${infoForm.lastName}. ${infoForm.address}, ${infoForm.city}. ${infoForm.state}, ${infoForm.zipCode}.`,
                             items: userCart,
+                            orderId: uniqid(),
+                            date: Date.now(),
                             totalPrice: totalPrice,
                             contactEmail: infoForm.email,
                             billingAddress: sameBillingAddress ? (
@@ -641,8 +644,17 @@ const Checkout = () => {
                               `${newBillAdd.firstName} ${newBillAdd.lastName}. ${newBillAdd.address}, ${newBillAdd.city}. ${newBillAdd.state}, ${newBillAdd.zipCode}.`
                             )
                           };
+                          // console.log(order);
                           dispatch(createOrder(order));
-                          // Falta redirigir en exito y redirigir en error
+                          navigate("/success");
+                          }}
+
+                          onError={(data, actions)=>{
+                            console.log(data);
+                          }}
+
+                          onCancel={(data, actions)=> {
+                            return;
                           }}
 
                           showSpinner={true}

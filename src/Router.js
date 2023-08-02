@@ -20,6 +20,7 @@ import Create from "./components/Cards/Create";
 import LandingPage from "./components/LandingPage";
 import Checkout from "./views/Checkout/Checkout";
 import BeMember from "./views/Membership/beMember";
+import SuccessPurchase from "./views/SuccessPurchase/SuccessPurchase";
 
 
 const Router = () => {
@@ -48,6 +49,7 @@ const Router = () => {
         <Route path="account" element={<Account/>}/>
         <Route path="forgot-password" element={<ForgotP />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="success" element={<SuccessPurchase />} />
       </Routes>
     </div>
   );
