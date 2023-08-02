@@ -43,7 +43,6 @@ const BeMember = () => {
         Play any song, download your favorites and listen offline. Listen to
         content on all your devices and enjoy high fidelity sound.
       </p>
-
       <div className={style.boxMember}>
         {membershipList.map((membership) => (
           <div className="card" key={membership.id}>

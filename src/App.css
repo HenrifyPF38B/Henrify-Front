@@ -771,11 +771,10 @@ body{
   width: 260px;
   height: 340px;
   background: linear-gradient(to right, #7c108a8a, #c3143193);
-  transform: rotate(20deg) skew(-10deg, -5deg);
   transition: .6s linear;
   display: flex;
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.479);
+  border: none;
   justify-content: center;
   align-items: center;
   text-align: center; 
@@ -783,9 +782,9 @@ body{
 }
 
 .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.5) 5px 3px,
-  rgba(0, 0, 0, 0.4) 10px 6px,
-  rgba(255, 253, 253, 0.3) 15px 9px;
+  box-shadow: rgba(0,0,0,0.5) 5px 3px,
+  rgba(0,0,0,0.4) 10px 6px,
+  rgba(0,0,0,0.3) 15px 9px;
   background: linear-gradient(to right, #7d20c0, #ff2f52);
   color: #ffddee;
   font-size: 1.1rem;
@@ -800,9 +799,9 @@ body{
   width: 200px;
   margin-bottom: 10px;
   font-size: 15px;
-  border-radius: 30px;
+  border-radius: 7px;
   border: none;
-  box-shadow: 5px 5px 6px black;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
   background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
   background-size: 300%;
@@ -861,25 +860,22 @@ body{
 .tittle {
     padding: 2rem 1.2rem;
     border-radius: 10px;
-    margin-top: 25px;
-    background: linear-gradient(to right, #550291a8, #f7183db2);
+    margin-top: 10px;
   }
   .tittle h1 { 
     position: relative;
     font-size: 2.7em;
     letter-spacing: 7px;
     font-family: 'Raleway dots';
-    color: #ff8b07;
-    font-weight: 600;
+    color: #ffebd5be;
+    font-weight: 300;
     text-transform: uppercase;
     width: 100%;    
     text-align: center;
     -webkit-box-reflect: below 0.5px linear-gradient(transparent, rgba(0, 0, 0, 0.377));
     /* El webkit reflect hace el efecto de reflejo de las letras */
     /* Le podeemos poner un fondo naranja o violeta para que pegue con el fondo, tipo asi mira */
-    line-height: 0.84em;
-    outline: none;
-    animation: neonPink 5s linear infinite;
+   
   }
   
   @keyframes neonPink{
@@ -947,8 +943,8 @@ body{
 }
 
 .pyramid-loader .wrapper .side {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   position: absolute;
   top: 0;
   left: 0;
@@ -982,7 +978,7 @@ body{
 .pyramid-loader .wrapper .shadow {
   width: 60px;
   height: 60px;
-  background: #efff14;
+  background: #f8fadc6e;
   position: absolute;
   top: 0;
   left: 0;
@@ -1060,16 +1056,15 @@ body{
 }
 
 .ourMember {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
   margin-bottom: 60px;
-  background: rgba(199, 199, 199, 0.384);
+  background: rgba(0, 0, 0, 0.452);
   padding: 20px;
   border-radius: 10px;
 }
-
 
 
