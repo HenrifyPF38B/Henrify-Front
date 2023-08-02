@@ -290,6 +290,7 @@ const Reducer = (state = initialState, { type, payload }) => {
 
     //MEMBERSHIPS -----------------------------------------------------------------------------
     case GET_MEMBERSHIPS:
+      console.log(payload)
       return {
         ...state,
         memberships: payload,

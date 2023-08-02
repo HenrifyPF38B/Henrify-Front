@@ -1,5 +1,6 @@
 .container {
-background: rgb(31, 31, 31);
+background: url('../../components/assets/background.png');
+background-size: cover;
 padding: 30px;
 position: relative;
 width: 100%;
