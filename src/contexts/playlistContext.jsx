@@ -16,6 +16,7 @@ export const PlaylistProvider = ({children}) =>{
     const [loginOpen, setLoginOpen] = useState(false);
     const [login, setLogin] = useState(null);
     const [totalGetter, setTotalGetter] = useState([]);
+    
 
     useEffect(() => {
         const getUserFromLocalStorage = JSON.parse(localStorage.getItem("userSoulLife"));

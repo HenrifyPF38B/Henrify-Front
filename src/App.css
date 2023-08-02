@@ -85,6 +85,9 @@ body{
 
 .header {
   background-image: linear-gradient(#c04848, #480048);
+  /* background-image: url("../public/images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat; */
   padding: 1.5rem;
   padding: 2rem;
   width: 100%;
@@ -555,6 +558,11 @@ body{
   font-size: 14px;
   letter-spacing: 1px;
   margin-bottom: 0.8rem;
+}
+
+.dropdown-item.disabled{
+  color: lightgray !important;
+  font-size: 13px;
 }
 
 
@@ -1062,4 +1070,6 @@ body{
   padding: 20px;
   border-radius: 10px;
 }
+
+
 

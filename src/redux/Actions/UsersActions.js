@@ -13,6 +13,8 @@ import {
   ADD_CART,
   REMOVE_CART,
   CREATE_ORDER,
+  GET_ORDER,
+  GOOGLE_AUTH,
 } from "../Action-types";
 import { base_url } from "../baseURL";
 
@@ -32,6 +34,27 @@ export const getUsersById = (id) => {
     const data = await res.json();
     console.log(data);
     dispatch({ type: GET_USERS_ID, payload: data });
+  };
+};
+
+export const googleAuthSoul = (newUser) => {
+  
+  return async function (dispatch) {
+    const res = await fetch(
+      `${base_url}/users/googleAuth`,
+      {
+          method: 'POST',
+          headers:{
+              "Content-type":"application/json; charset=UTF-8"
+          },
+          body: JSON.stringify(newUser)
+      }
+    );
+    const data = await res.json();
+    
+
+    dispatch({ type: GOOGLE_AUTH, payload: data });
+    
   };
 };
 
@@ -169,20 +192,34 @@ export const createOrder = (order) =>{
   }
 }
 
+export const getUserOrder = (userId) =>{
+  return async function (dispatch){
+    const res = await fetch(
+      `${base_url}/orders/${userId}`
+    );
 
-export const putUsers = (user, id) => {
+    const data = await res.json();
+   
+
+    dispatch({ type: GET_ORDER, payload: data })
+  }
+};
+
+
+export const putUsers = (userId, newData) => {
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/users/${id}`
-      // {
-      //     method: 'PUT',
-      //     headers: {
-      //         "Content-type":"application/json; charset=UTF-8"
-      //     },
-      //     body: JSON.stringify(user)
-      // }
+      `${base_url}/users`,
+      {
+          method: 'PUT',
+          headers: {
+              "Content-type":"application/json; charset=UTF-8"
+          },
+          body: JSON.stringify({userId, newData})
+      }
     );
     const data = await res.json();
+    
     dispatch({ type: PUT_USERS, payload: data });
   };
 };
@@ -190,10 +227,10 @@ export const putUsers = (user, id) => {
 export const deleteUsers = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/users/${id}`
-      // {
-      //     method: 'DELETE'
-      // }
+      `${base_url}/users/${id}`,
+      {
+          method: 'DELETE'
+      }
     );
     const data = await res.json();
     dispatch({ type: DELETE_USERS, payload: data });

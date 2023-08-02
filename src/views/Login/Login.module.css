@@ -23,13 +23,22 @@
   color: coral !important;
 }
 
+.Or{
+  margin-top: 1rem;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
 .formDiv{
   text-align: center;
 }
 
 .form{
+  margin-top: 0.6rem;
   width: 400px;
-  padding: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 
@@ -62,6 +71,30 @@
   align-items: center;
 }
 
+
+.signInWithGoogle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: white;
+  width: fit-content;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  gap: 7px;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.signInWithGoogle:hover{
+  transform: scale(1.05);
+}
+
+.signInWithGoogle span{
+  color: #1f1f1f9f;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 
 
 

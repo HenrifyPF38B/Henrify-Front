@@ -31,6 +31,8 @@ const SignUp = () => {
     email:"",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const [form2, setForm2] = useState({
     password1:"",
     password2:""
@@ -102,7 +104,7 @@ const SignUp = () => {
 
 
     let newUser = {
-      ...form1, password: form2.password1, avatar: imageSelected, userName: username
+      ...form1, password: form2.password1, avatar: imageSelected, userName: username, googleUser: false
     };
     console.log(newUser);
     
@@ -113,7 +115,7 @@ const SignUp = () => {
   // Controlamos message para emitir las alertas segun el caso
   useEffect(() => {
     if(message){
-      if(message.email){
+      if(message === "User created"){
         confetti();
         setTimeout(()=>{
           navigate("/login");
@@ -292,12 +294,30 @@ const SignUp = () => {
               <h2>Password</h2>
               <form action="">
                 <div class={styles.inputDiv}>
-                  <input type="text" placeholder="Password" name='password1' onChange={handleForm2} value={form2.password1}/>
+                  <input type={`${showPassword ? "text" : "password"}`} placeholder="Password" name='password1' onChange={handleForm2} value={form2.password1}/>
                   <span>Password:</span>
+                  <div className={styles.showPassword}>
+                    {
+                        showPassword ? (
+                          <i className="fa-solid fa-eye-slash" onClick={()=> setShowPassword(false)}></i>
+                        ):(
+                          <i className="fa-solid fa-eye" onClick={()=> setShowPassword(true)}></i>
+                        )
+                    }
+                  </div>
                 </div>
                 <div class={styles.inputDiv}>
-                  <input type="text" placeholder="Confirm Password" name='password2' onChange={handleForm2} value={form2.password2}/>
+                  <input type={`${showPassword2 ? "text" : "password"}`} placeholder="Confirm Password" name='password2' onChange={handleForm2} value={form2.password2}/>
                   <span>Confirm Password:</span>
+                  <div className={styles.showPassword}>
+                    {
+                        showPassword2 ? (
+                          <i className="fa-solid fa-eye-slash" onClick={()=> setShowPassword2(false)}></i>
+                        ):(
+                          <i className="fa-solid fa-eye" onClick={()=> setShowPassword2(true)}></i>
+                        )
+                    }
+                  </div>
                 </div>
                 <div className={styles.alert}>
                   <span><b>We strongly recommend your password to fill the following requirements:</b></span>

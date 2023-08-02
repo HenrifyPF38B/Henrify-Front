@@ -45,6 +45,8 @@ import {
   ADD_CART,
   CART_USER,
   CREATE_ORDER,
+  GET_ORDER,
+  GOOGLE_AUTH,
 } from "./Action-types";
 
 const initialState = {
@@ -133,7 +135,7 @@ const Reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         userCart: state.userCart.filter(el => el.name !== payload),
-        message: "Added to favs",
+        message: "Removing from cart",
       };
 
     case ADD_CART:
@@ -158,8 +160,22 @@ const Reducer = (state = initialState, { type, payload }) => {
     case CREATE_ORDER:
       return {
         ...state,
+        userCart: [],
         userOrders: [...state.userOrders, payload],
         message: "Order created",
+      };
+
+    case GET_ORDER:
+      return {
+        ...state,
+        userOrders: payload !== "Orders empty" ? payload : [],
+        message: "Order created",
+      };
+
+    case GOOGLE_AUTH:
+      return {
+        ...state,
+        message: payload,
       };
 
     // SONGS ----------------------------------------------------------------------------------

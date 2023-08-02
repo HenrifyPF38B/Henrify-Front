@@ -8,8 +8,12 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css"; 
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../redux/Actions/UsersActions';
+import { createUser, googleAuthSoul, loginUser } from '../../redux/Actions/UsersActions';
 import { resetMessageState } from '../../redux/Actions/StateActions';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import jwt_decode from "jwt-decode";
+import uniqid from 'uniqid';
+
 
 
 const Login = () => {
@@ -44,6 +48,23 @@ const Login = () => {
     dispatch(loginUser(logForm));
   };
 
+  const googleLogin = useGoogleLogin({
+    onSuccess: credentialResponse => {
+      let data = jwt_decode(credentialResponse.credential);
+      let newUser = {
+        firstName: data.given_name,
+        lastName: data.family_name,
+        email: data.email,
+        userName: data.name,
+        password: uniqid(),
+        avatar: "/images/google.svg",
+        googleUser: true
+      };
+      dispatch(googleAuthSoul(newUser));
+    },
+    onError: () => {
+      console.log('Login Failed');
+    }})
 
   useEffect(() => {
     if(message === "Email or Username incorrect"){
@@ -56,6 +77,13 @@ const Login = () => {
       setTimeout(()=>{
         dispatch(resetMessageState());
       },1000);
+    }else if(message.msg === "User created"){
+      refToast.current.show({life: 3000, severity: "success", summary: "Welcome", detail: "Congrats! You are now part of Soul Music!"});
+      setTimeout(()=>{
+        setLogin(message.user);
+        dispatch(resetMessageState());
+        navigate("/home");
+      },3100);
     }else if(message?.email){
       setLogin(message);
       dispatch(resetMessageState());
@@ -77,7 +105,7 @@ const Login = () => {
       <div className={`flip-card ${lockCard && "locked"}`}>
           <div className="flip-card-inner">
               <div className="flip-card-front">
-                  <p className="titleF">Hey you!</p>
+                  <p className="titleF">Welcome to Soul Life!</p>
                   <p className='titleB'>Do you like Soul Life? Don't forget to visit our socials!</p>
                   <p className='titleC'>You are currently in the Login page, in order to Login or Sign up, just hover the card, and it will flip!</p>
                   <div className='leftLog'>
@@ -96,6 +124,30 @@ const Login = () => {
                 </div>
                   <i className='bx bxs-user-circle bx-lg' style={{color:"whitesmoke"}}></i>
                   <p className="title">LOGIN</p>
+                  <div className='d-flex align-items-center justify-content-center mt-5'>
+                      <GoogleLogin
+                      
+                        onSuccess={credentialResponse => {
+                          let data = jwt_decode(credentialResponse.credential);
+                          let newUser = {
+                            firstName: data.given_name,
+                            lastName: data.family_name,
+                            email: data.email,
+                            userName: data.name,
+                            password: uniqid(),
+                            avatar: "/images/google.svg",
+                            googleUser: true
+                          };
+                          dispatch(googleAuthSoul(newUser));
+                        }}
+                        onError={() => {
+                          console.log('Login Failed');
+                        }}
+                        
+                        
+                      />
+                  </div>
+                  <p className={styles.Or}>Or</p>
                   <form className={styles.form} onSubmit={(e)=> e.preventDefault()}>
                     <div>
                       <input type="text" placeholder='Email' name='credential' onChange={handleLogForm} value={logForm.credential} />
@@ -104,12 +156,7 @@ const Login = () => {
                       <input type="password" placeholder='Password' name='password' onChange={handleLogForm} value={logForm.password} />
                     </div>
                     <span className={styles.forgotP} onClick={()=> navigate("/forgot-password")}>Forgot your password?</span>
-                    <div className='d-flex align-items-center justify-content-center mt-5'>
-                      <button className={styles.google}>
-                        <img src="/images/google.svg" alt="abc" width={20} height={20} className='me-3'/>
-                        Sign In with Google
-                      </button>
-                    </div>
+                    
 
                     {/* CORNER BUTTONS / P ABSOLUTE */}
                     <div className={styles.btn1} onClick={handleLogin}>
