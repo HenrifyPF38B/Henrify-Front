@@ -15,14 +15,15 @@ import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css"; 
-import { getUsersById } from './redux/Actions/UsersActions';
+import { getUserOrder, getUsersById } from './redux/Actions/UsersActions';
+import LoginModal from './modals/loginModal';
 
 
 
 function App() {
 
   const data = useContext(PlaylistContext);
-  const { playerOpen, buyOpen, setBuyOpen, modalOpen, setModalOpen, refPreviewNotAvailableAppJS } = data;
+  const { playerOpen, buyOpen, setBuyOpen, modalOpen, setModalOpen, refPreviewNotAvailableAppJS, loginOpen, setLoginOpen } = data;
   const dispatch = useDispatch();
   const [playerModalAaudio, setPlayerModalAaudio] = useState("");
 
@@ -39,7 +40,8 @@ function App() {
     if(userExist){
       let parsedUser = JSON.parse(userExist);
       console.log(parsedUser.id);
-      // dispatch(getUsersById(parsedUser.id));
+      dispatch(getUsersById(parsedUser.id));
+      dispatch(getUserOrder(parsedUser.id));
     }
   }, []);
 
@@ -47,7 +49,9 @@ function App() {
 
   return (
     <>
-    
+      {
+        loginOpen && <LoginModal setLoginOpen={setLoginOpen}/>
+      }
      {
         modalOpen && <PlaylistModal setModalOpen={setModalOpen}/>
       }

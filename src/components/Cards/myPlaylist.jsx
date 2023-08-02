@@ -4,6 +4,7 @@ import styles from "./myPlaylist.module.css";
 import img from "../assets/dddd.png";
 import arrow from "../assets/arrow.svg";
 import { useState } from "react";
+import back from "../assets/prev.svg"
 
 const MyPlaylist = () => {
   // const [menuAbierto, setMenuAbierto] = useState(false);
@@ -62,6 +63,9 @@ const MyPlaylist = () => {
 
   return (
     <div className={styles.wrapper} id="myplaylist">
+      <button className={styles.button} onClick={() => navigate('/home')}>
+        <img className={styles.backkk} src={back} alt="" />
+      </button>
       <div className={styles.titulo}>
         <h2 className={styles.title}>Your gallery, your music</h2>
         <div className={styles.createContainer}>

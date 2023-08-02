@@ -9,6 +9,7 @@ import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css"; 
+import { addToFav, favsUser, removeFromFav } from '../../redux/Actions/UsersActions';
 
 const Playlist = () => {
 
@@ -18,7 +19,7 @@ const Playlist = () => {
   const { setPlayerOpen } = data;
   const navigate = useNavigate();
   const state = useSelector(state => state);
-  const { playlists } = state;
+  const { playlists, usersId, userFavs} = state;
   const { id } = useParams();
 
   const [playlistData, setPlaylistData] = useState([]);
@@ -62,7 +63,8 @@ const Playlist = () => {
 
   const handleOpenPlayer = (el, index, findTrack) =>{
     if(el.trackPreview){
-      setPlayerOpen({originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: el.image.url, song: el.trackName, artist: el.artists.map((artist, index) => {
+      console.log(el);
+      setPlayerOpen({id: el.id, originalData: playlistData[0].tracks, data: dataWithPreview, originalIndex: index, index: findTrack[0].location, audio: el.trackPreview, img: el.image.url, song: el.trackName, artist: el.artists.map((artist, index) => {
         if(index === el.artists.length - 1){
           return artist.name
         }else{
@@ -75,6 +77,26 @@ const Playlist = () => {
 
     }
   }
+
+  const handleAddFav = (e) =>{
+    // setInFavs(!inFavs);
+    dispatch(favsUser(usersId?.id, playlistData[0]?.playlistId));
+    if(e.target.dataset.id === "add"){
+        dispatch(addToFav(playlistData[0]?.playlistId));
+    }else{
+        dispatch(removeFromFav(playlistData[0]?.playlistId))
+    }
+};
+
+  const handleAddFavRows = (e, id) =>{
+    // setInFavs(!inFavs);
+    dispatch(favsUser(usersId?.id, id));
+    if(e.target.dataset.id === "add"){
+        dispatch(addToFav(id));
+    }else{
+        dispatch(removeFromFav(id))
+    }
+};
 
   useEffect(() => {
     // dispatch(getPlaylists())
@@ -143,8 +165,13 @@ const Playlist = () => {
                       <i className="fa-solid fa-shuffle fa-2xl"></i>
                     </div>
                     <div className={styles.fav}>
-                      <i className="fa-solid fa-heart" style={{color:"whitesmoke"}}></i>
-                      {/* <i className="fa-regular fa-heart" style={{color:"whitesmoke"}}></i> */}
+                    {
+                        userFavs.includes(playlistData[0]?.playlistId) ? (
+                            <i className="fa-solid fa-heart" data-id="remove" style={{color: "#E1402E"}} onClick={handleAddFav}></i>
+                        ):(
+                            <i className="fa-solid fa-heart" data-id="add" style={{color: "whitesmoke"}} onClick={handleAddFav}></i>
+                        )
+                    }
                     </div>
                   </div>
                 </div>
@@ -189,7 +216,14 @@ const Playlist = () => {
                               </td>
                               <td style={{color:"#777777"}}>
                                 <div className='d-flex align-items-center justify-content-end gap-20'>
-                                  <i className="fa-solid fa-heart p-2" onClick={(e)=> e.stopPropagation()}></i>
+                                  {
+                                      userFavs.includes(el.id) ? (
+                                          <i className="fa-solid fa-heart p-2" data-id="remove" onClick={(e)=> handleAddFavRows(e, el.id)}></i>
+                                      ):(
+                                          <i className="fa-regular fa-heart p-2" data-id="add" onClick={(e)=> handleAddFavRows(e, el.id)}></i>
+                                      )
+                                  }
+                                
                                   <div className="dropdown playlist">
                                     <i className="fa-solid fa-list-ul p-2" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                     <div class="dropdown-menu mt-2 me-5" aria-labelledby="dropdownMenuButton">

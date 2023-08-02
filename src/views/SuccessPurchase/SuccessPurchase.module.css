@@ -1,0 +1,120 @@
+.wrapper{
+  height: 100vh;
+  background: url("../../../public/images/success1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container{
+  position: relative;
+  background-color: whitesmoke;
+  width: 500px;
+  height: 500px;
+  border-radius: 0.3rem;
+}
+
+
+.buttons{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  padding: 0.8rem;
+  background-color: #61ce4b;
+  width: 100%;
+  justify-content: center;
+  gap: 100px;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.buttons button{
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  background-color: #387d2a;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 2px;
+  transition: transform 0.4s ease;
+}
+
+.buttons button:hover{
+  transform: scale(1.08);
+}
+
+.icon{
+  position: absolute;
+  top: -45px;
+}
+
+.icon img{
+  width: 100px;
+  height: auto;
+}
+
+.details{
+  margin-top: 5rem;
+  padding: 0rem 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.details p{
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+
+.details span{
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+
+
+.support{
+  padding: 0rem 1rem;
+}
+
+.support a{
+  text-decoration: none;
+  color: #777777;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: transform 0.4s ease;
+}
+
+.support a:hover{
+  transform: scale(1.03);
+}
+
+.span1{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+
+.supportTitle{
+  display: flex;
+  align-items: center;
+  background-color: #387d2a;
+  color: whitesmoke;
+  padding: 0.7rem 0.7rem;
+  justify-content: center;
+}
+
+.supportTitle span{
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1.5px;
+}

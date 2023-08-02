@@ -336,3 +336,12 @@
   font-size: 13px;
   margin-right: 8px;
 }
+
+
+.showPassword{
+  position: absolute;
+  right: 10px;
+  top: 29%;
+  color: white;
+  font-size: 14px;
+}

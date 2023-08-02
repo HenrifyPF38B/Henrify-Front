@@ -62,6 +62,7 @@ background-image: linear-gradient(to right, #480048c7, #1f1f1f);
   align-items: center;
   gap: 30px;
   padding:3rem;
+  padding-bottom: 7rem;
   justify-content: center;
   /* margin: 40px 0 0 20px; */
  } 
@@ -88,6 +89,7 @@ background-image: linear-gradient(to right, #480048c7, #1f1f1f);
 
  .searchBar a:hover{
   color: whitesmoke;
+  background-color: #1f1f1f !important;
  }
 
  .searchBar input{
@@ -126,4 +128,13 @@ background-image: linear-gradient(to right, #480048c7, #1f1f1f);
                 0 0 80px rgb(223, 54, 24),
                 0 0 160px rgb(223, 54, 24);
   outline: none;
+}
+
+
+.pag {
+  margin-top: 2rem;
+  margin-right: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

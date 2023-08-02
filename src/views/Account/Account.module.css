@@ -1,7 +1,4 @@
 .wrapper{
-  background: #000000;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1f1f1f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100%;
   margin-bottom: -5px;
   width: 100%;
@@ -12,13 +9,21 @@
   overflow-x: auto;
 }
 
-
+.subContainer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../public/images/profileBackground.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
 
 .panel{
   padding: 5rem 1.5rem;
   width: 20vw;
-  background-color: rgb(26, 26, 26);
+  background-color: rgba(26, 26, 26, 0.24);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -40,9 +45,7 @@
 }
 
 .linkActive{
-  background: radial-gradient(#d18f99, #E3A6AF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #d73951;
 }
 
 .profile{
@@ -66,8 +69,8 @@
 
 .profileContainer{
   width: fit-content;
-  background: linear-gradient(#1f1f1f70, #1f1f1f70);
-  backdrop-filter: blur(10px);
+  background-color: rgba(26, 26, 26, 0.24);
+  backdrop-filter: blur(0.1px);
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -128,7 +131,7 @@
 .image img{
   width: 300px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 10%;
   box-shadow: 0 0 1rem black;
 }
 
@@ -190,7 +193,10 @@
 
 .delete span{
   font-size: 12px;
-  color: rgb(204, 53, 53);
+  color: whitesmoke;
+  background-color: rgb(204, 53, 53);
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.2rem
 }
 
 
@@ -227,14 +233,28 @@
 .password input{
   width: 100%;
   border: none;
-  background-color: #d4d3d3;
+  background-color: whitesmoke;
   padding: 0.5rem 1rem;
   border-radius: 0.2rem;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+.password input:focus{
+  outline: none;
+}
+
+.showPassword{
+  position: absolute;
+  right: 8px;
+  top: 24%;
+  font-size: 14px;
 }
 
 .form button{
-  background-color: #1f1f1f;
-  border: 1px dashed #7777778b;
+  background-color: #7777778b;
+  border: 1px solid #7777778b;
   border-radius: 50px;
   font-weight: 200;
   letter-spacing: 1px;
@@ -274,14 +294,15 @@
 }
 
 .popTop span:last-child{
-  color: #f5f5f7;
+  color: #616161;
 }
 
 .popBottom{
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: #1f1f1f;
+  background-color: rgba(26, 26, 26, 0.24);
+  backdrop-filter: blur(5px);
   color: whitesmoke;
   font-size: 14px;
   padding: 1.5rem;
@@ -364,7 +385,7 @@
 
 .detailsTitle{
   position: absolute;
-  color: whitesmoke;
+  color: white;
   top: 40px;
   letter-spacing: 2px;
   font-family: 'Pacifico';
@@ -373,7 +394,7 @@
 
 
 .formDiv {
-  width: 400px;
+  width: 500px;
   height: fit-content;
   transition: all 0.2s;
   position: relative;
@@ -388,18 +409,18 @@
 .details form{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   width: inherit;
   height: inherit;
   padding: 2rem;
-  background: rgba(255,255,255,.05);
+  background-color: rgba(26, 26, 26, 0.24);
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
   backdrop-filter: blur(10px);
   border-radius: 8px;
 }
 
 .details form input{
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   width: 100%;
   background: rgba(255,255,255,.05);
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
@@ -458,7 +479,7 @@
 
 
 .confirmEdit{
-  color: #E3A6AF;
+  color: rgb(40, 122, 40);
   transition: transform 0.3s ease;
 }
 
@@ -495,4 +516,367 @@
 .backEdit:hover{
   transform: scale(1.1);
   cursor: pointer;
+}
+
+
+
+/* INPUTS */
+
+.inputDiv {
+  position: relative;
+}
+
+.inputDiv span {
+  position: absolute;
+  left: 0;
+  font-size: 0.7em;
+  transform: translateX(14px) translateY(-7.5px);
+  padding: 0 6px 1px 5px;
+  border-radius: 2px;
+  background: palevioletred;
+  letter-spacing: 1px;
+  border: 1px solid palevioletred;
+  color: #e8e8e8;
+}
+
+
+.orders{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+}
+
+.container{
+  width: 70%;
+  height: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: rgba(26, 26, 26, 0.24);
+  backdrop-filter: blur(10px);
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+
+.container table{
+  width: 100%;
+  height: 100%;
+}
+
+
+.container table thead tr th{
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  background-color: #d18f99;
+  color: whitesmoke;
+  text-align: center;
+  padding: 0.5rem 0rem;
+  border-right: 2px solid #b3757e;
+}
+
+.container td{
+  text-align: center;
+  height: fit-content;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 1.5rem 0rem;
+  border-bottom: 1.5px solid rgba(26, 26, 26, 0.24);
+}
+
+.container tbody tr:hover{
+  background-color: transparent;
+}
+
+.orderStatus{
+  background-color: #6161613f;
+  padding: 0.5rem 0.5rem;
+  border-radius: 2rem;
+  color: #3b3b3b;
+  font-weight: 300;
+}
+
+
+
+/* VIEW ORDER */
+
+.viewOrder{
+  width: 80vw;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.viewOrderContainer{
+  width: 70%;
+  /* background-color: rgba(26, 26, 26, 0.24);
+  backdrop-filter: blur(10px); */
+  max-height: 95vh;
+  overflow-y: auto;
+}
+
+.viewOrderBack{
+  position: absolute;
+  bottom: 15px;
+  left: 59%;
+}
+
+.viewOrderFirst{
+  display: flex;
+  justify-content: space-between;
+  background-color: #e3a6afc7;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  padding: 1.8rem 1.8rem;
+  align-items: center;
+}
+
+.orderId{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.orderId span:first-child{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #d73951;
+  font-family: "Raleway";
+}
+
+.orderId span:last-child{
+  text-transform: uppercase;
+  color: whitesmoke;
+  letter-spacing: 2px;
+}
+
+
+
+
+.viewOrderDetails{
+  text-align: center;
+  padding: 1.5rem 0rem;
+  background-color: #d73951a9;
+  position: relative;
+}
+
+.viewOrderDetails span{
+  color: whitesmoke;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.viewOrderDetails2{
+  padding: 2rem 2rem;
+  background-color: rgba(26, 26, 26, 0.24);
+  backdrop-filter: blur(10px);
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.shippingAddress{
+  /* margin-top: 0.7rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 1.3rem;
+}
+
+.shippingAddress span:first-child{
+  font-weight: 400;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.shippingAddress span:last-child{
+  color: #464646;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+.billingAddress{
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 1.3rem;
+}
+
+.billingAddress span:first-child{
+  font-weight: 400;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.billingAddress span:last-child{
+  color: #464646;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.viewOrderThird{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 130px;
+}
+
+.viewOrderThird1{
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  margin-top: 2rem;
+}
+
+
+.viewOrderThird2{
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  margin-top: 2rem;
+}
+
+
+.shippingMethod{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shippingMethod span:first-child{
+  font-weight: 400;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.shippingMethod span:last-child{
+  color: #464646;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.viewOrderStatus{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.viewOrderStatus span:first-child{
+  font-weight: 400;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.viewOrderStatus span:last-child{
+  color: #464646;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+.date{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.date span:first-child{
+  font-weight: 400;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.date span:last-child{
+  color: #464646;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.totalPrice{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.totalPrice span:first-child{
+  font-weight: 400;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.totalPrice span:last-child{
+  color: #464646;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+.headset a{
+  cursor: default;
+}
+
+.headset{
+  transition: transform 0.3s ease;
+}
+
+.headset:hover{
+  transform: scale(1.07);
+}
+
+.viewOrder{
+  overflow-y: auto;
+}
+
+.viewOrderItemsTotal{
+  margin-top: 2.5rem;
+  font-size: 14px;
+  color: #d73951;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+
+.viewOrderItems{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 50px;
+}
+
+.viewOrderGoBack{
+  position: absolute;
+  top: 25px;
+  left: 10px;
 }

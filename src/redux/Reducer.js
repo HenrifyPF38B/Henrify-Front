@@ -37,12 +37,25 @@ import {
   RESET_MESSAGES,
   CREATE_USER,
   LOGIN_USER,
+  REMOVE_FAV,
+  ADD_FAV,
+  FAVS_USER,
+  RESET_USERSID_USERFAVS,
+  REMOVE_CART,
+  ADD_CART,
+  CART_USER,
+  CREATE_ORDER,
+  GET_ORDER,
+  GOOGLE_AUTH,
 } from "./Action-types";
 
 const initialState = {
   message: "",
   users: [],
-  usersId: {},
+  userOrders:[],
+  userCart: [],
+  userFavs:[],
+  usersId: [],
   songs: [],
   filteredSongs: [],
   songsId: {},
@@ -70,7 +83,9 @@ const Reducer = (state = initialState, { type, payload }) => {
     case GET_USERS_ID:
       return {
         ...state,
-        usersId: payload,
+        userCart: payload.data.cart ? payload.data.cart : [],
+        userFavs: payload.data.favorites ? payload.data.favorites : [],
+        usersId: payload.data,
       };
 
     case POST_USERS:
@@ -97,6 +112,67 @@ const Reducer = (state = initialState, { type, payload }) => {
         message: payload,
       };
     case DELETE_USERS:
+      return {
+        ...state,
+        message: payload,
+      };
+
+    case REMOVE_FAV:
+      return {
+        ...state,
+        userFavs: state.userFavs.filter(el => el !== payload),
+        message: "Added to favs",
+      };
+
+    case ADD_FAV:
+      return {
+        ...state,
+        userFavs: [...state.userFavs, payload],
+        message: "Removed from favs",
+      };
+
+    case REMOVE_CART:
+      return {
+        ...state,
+        userCart: state.userCart.filter(el => el.name !== payload),
+        message: "Removing from cart",
+      };
+
+    case ADD_CART:
+      return {
+        ...state,
+        userCart: [...state.userCart, payload],
+        message: payload,
+      };
+
+    case FAVS_USER:
+      return {
+        ...state,
+        message: payload,
+      };
+
+    case CART_USER:
+      return {
+        ...state,
+        message: payload,
+      };
+
+    case CREATE_ORDER:
+      return {
+        ...state,
+        userCart: [],
+        userOrders: [...state.userOrders, payload],
+        message: "Order created",
+      };
+
+    case GET_ORDER:
+      return {
+        ...state,
+        userOrders: payload !== "Orders empty" ? payload : [],
+        message: "Order created",
+      };
+
+    case GOOGLE_AUTH:
       return {
         ...state,
         message: payload,
@@ -202,7 +278,7 @@ const Reducer = (state = initialState, { type, payload }) => {
     case GET_ALBUMS:
       return {
         ...state,
-        albums: payload,
+        albums: payload.data,
       };
 
     case GET_ALBUMS_ID:
@@ -230,6 +306,7 @@ const Reducer = (state = initialState, { type, payload }) => {
 
     //MEMBERSHIPS -----------------------------------------------------------------------------
     case GET_MEMBERSHIPS:
+      console.log(payload)
       return {
         ...state,
         memberships: payload,
@@ -287,6 +364,15 @@ const Reducer = (state = initialState, { type, payload }) => {
     case RESET_MESSAGES:
     return {
       ...state,
+      message: "",
+    };
+
+    case RESET_USERSID_USERFAVS:
+    return {
+      ...state,
+      userCart: [],
+      usersId: [],
+      userFavs: [],
       message: "",
     };
 

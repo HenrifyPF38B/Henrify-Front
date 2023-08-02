@@ -63,17 +63,32 @@
   justify-content: center;
   gap: 40px;
   padding-bottom: 9rem;
-  background: black;
+  background: #1F1F1F;
   background-size: contain;
  }
+ .button {
+  background: none;
+  color: rgb(0, 0, 0);
+  border: none;
+  margin: 10px;
+  transition: all 0.6s ease;  
+  letter-spacing: 1.5px; 
+ }
+
+.backkk{
+  transition: all 0.6s ease;
+  width: 50px;
+}
+.backkk:hover{
+  scale: 1.2;
+}
 
 .cardsContainer {
   display: flex;
   flex-direction: column;
   cursor: pointer;
   height: fit-content;
-  background-image: url('../assets/caddds.png');
-  background-size:cover;
+  background: linear-gradient(to right, #240b36, #4e0432);
   border-radius: 15px;
   margin-top: 30px;
   padding: 10px 10px 25px 10px;
@@ -112,7 +127,7 @@
 }
 
 .create {
-  color: rgb(0, 0, 0);
+  color: rgba(204, 204, 204, 0.733);
   text-decoration: none;
   font-size: 15px;
   letter-spacing: 1.5px;
@@ -122,8 +137,8 @@
   align-items: center;
 }
 .createContainer {
-  background: linear-gradient(to right, #fffbfb8f, #fff3f38f);
-  width: 250px;
+  background: linear-gradient(to right, #2727278f, #2525258f);
+  width: 200px;
   border-radius: 10px;
   margin: 0 0 0 1000px;
   padding: 5px;

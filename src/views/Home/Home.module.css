@@ -408,3 +408,57 @@ width: 20%;
   letter-spacing: 3px;
   font-size: 18px;
 }
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background:linear-gradient(to right, #1f1f1f, #141414);
+}
+
+.searchBar{
+  /* margin-top: 1rem; */
+  width: 40%;
+ }
+
+ .searchBar input{
+  font-size: 14px;
+  padding: 0.7rem 1rem !important;
+ }
+
+ .searchBar a{
+  font-size: 14px;
+  color: #828080;
+  letter-spacing: 1.3px;
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1f1f1f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+ }
+
+
+ .searchBar a:hover{
+  color: whitesmoke;
+  background-color: #1f1f1f;
+ }
+
+ .searchBar input{
+  border: none !important;
+ }
+
+.searchBar input:focus{
+  box-shadow: none !important;
+}
+
+.searchBar input::placeholder{
+  color: #777777;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+
+.searchBar .dropdown-item.disabled,
+.searchBar .dropdown-item:disabled{
+  color: whitesmoke !important;
+}

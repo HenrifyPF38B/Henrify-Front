@@ -6,6 +6,15 @@ export const PUT_USERS = "PUT_USERS";
 export const DELETE_USERS = "DELETE_USERS";
 export const CREATE_USER = "CREATE_USER";
 export const LOGIN_USER = "LOGIN_USER";
+export const REMOVE_FAV = "REMOVE-FAV";
+export const ADD_FAV = "ADD_FAV";
+export const REMOVE_CART = "REMOVE-CART";
+export const ADD_CART = "ADD_CART";
+export const FAVS_USER = "FAVS_USER";
+export const CART_USER = "CART_USER";
+export const CREATE_ORDER = "CREATE_ORDER";
+export const GET_ORDER = "GET_ORDER";
+export const GOOGLE_AUTH = "GOOGLE_AUTH";
 
 // CRUD SONGS
 export const GET_SONGS = "GET_SONGS";
@@ -53,3 +62,4 @@ export const DELETE_GENRES = "DELETE_GENRES";
 // STATES REDUX
 
 export const RESET_MESSAGES = "RESET_MESSAGES";
+export const RESET_USERSID_USERFAVS = "RESET_USERSID_USERFAVS";

@@ -1,9 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import styles from "./Checkout.module.css";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { Wallet } from '@mercadopago/sdk-react';
 import { PlaylistContext } from '../../contexts/playlistContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { createOrder } from '../../redux/Actions/UsersActions';
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css"; 
+import uniqid from 'uniqid';
+
 
 const usStates = [ "AK - Alaska", 
 "AL - Alabama", 
@@ -61,15 +69,22 @@ const usStates = [ "AK - Alaska",
 "WV - West Virginia", 
 "WY - Wyoming"];
 
-const dummyProducts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2,  3, 4];
+// const dummyProducts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2,  3, 4];
 
 const Checkout = () => {
 
+  const refPayPalBtn = useRef();
+  const refToast = useRef();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const state = useSelector(state => state);
+  const { userCart, usersId } = state;
+  
 
   const [information, setInformation] = useState(true);
   const [shippment, setShippment] = useState(false);
   const [payment, setPayment] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(null);
 
   // Los steps (breadcrumb) los controlo con los states de arriba.
 
@@ -169,9 +184,14 @@ const Checkout = () => {
 
   const handleNextSection = () =>{
     if(information){
-      setInformation(false);
-      setShippment(true);
-      setPayment(false);
+      if(infoForm.firstName && infoForm.lastName && infoForm.state && infoForm.zipCode && infoForm.email && infoForm.city && infoForm.address){
+        setInformation(false);
+        setShippment(true);
+        setPayment(false);
+      }else{
+        // Alerta
+        refToast.current.show({sticky: true, severity: 'warn', summary: `Hey ${usersId?.userName}!`, detail: "Please complete all fields"});
+      }
     };
     if(shippment){
       setInformation(false);
@@ -211,16 +231,26 @@ const Checkout = () => {
   const [preferenceId, setPreferenceId] = useState(null);
   
   const getPreferenceId = () => {
+    let itemsMp = [];
+    userCart.map(el => {
+      itemsMp.push({
+        title: el.name,
+        unit_price: el.price,
+        quantity: el.quantity,
+        picture_url: el.image,
+        currency_id: "ARS"
+      });
+    });
+
     fetch("https://mp-get-preference-id.up.railway.app/create_preference", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({items: [{
-        title:"Justin Bieber",
-        unit_price: 55,
+      body: JSON.stringify({items: [...itemsMp, {
+        title: `Shipping Fee - ${shipSelected}`,
+        unit_price: Number(shippingFee),
         quantity: 1,
-        picture_url: "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
         currency_id: "ARS"
       }]}),
     })
@@ -238,16 +268,26 @@ const Checkout = () => {
 
   // en el body le pasamos los itemms
   const handleMp = () => {
+    let itemsMp = [];
+    userCart.map(el => {
+      itemsMp.push({
+        title: el.name,
+        unit_price: el.price,
+        quantity: el.quantity,
+        picture_url: el.image,
+        currency_id: "ARS"
+      })
+    });
+
     fetch("https://mp-get-preference-id.up.railway.app/create_preference", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({items: [{
-        title:"Justin Bieber",
-        unit_price: 55,
+      body: JSON.stringify({items: [...itemsMp, {
+        title: `Shipping Fee - ${shipSelected}`,
+        unit_price: Number(shippingFee),
         quantity: 1,
-        picture_url: "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
         currency_id: "ARS"
       }]}),
     })
@@ -264,10 +304,22 @@ const Checkout = () => {
       })
   };
 
+  useEffect(() => {
+    if(userCart.length){
+      let total = 0;
+        userCart.map(el => {
+          total += el.price;
+          return setTotalPrice(total);
+        })
+    }else{
+      
+    }
+  }, [userCart]);
 
 
   return ( 
     <div className={styles.wrapper}>
+      <Toast ref={refToast} position='top-left'></Toast>
       <div className={styles.left}>
         {/* GO BACK BUTTON */}
         <div className={styles.goBack} onClick={()=> navigate("/home")}>
@@ -558,27 +610,56 @@ const Checkout = () => {
                 </div>
                 {/* PAYPAL */}
                 <div className={styles.paypal}>
-                <PayPalButtons 
-                        style={{layout: "vertical", color:"silver", shape: "pill"}}
-                        createOrder={(data, actions) => {
-                          return actions.order.create({
-                              purchase_units: [
-                                  {
-                                      amount: {
-                                          value: "100"
-                                      },
-                                  },
-                              ],
-                          });
-                        }}
-                        onApprove={(data, actions) => {
-                          // Once the payment is approved
-                          // Redirect to Home for example
-                          
-                        }}
+                  {
+                    
+                    <PayPalButtons 
+                          disabled={(newBillAdd.firstName && newBillAdd.lastName && newBillAdd.state && newBillAdd.zipCode && newBillAdd.email && newBillAdd.city && newBillAdd.address) || sameBillingAddress ? false : true}
+                          style={{layout: "vertical", color:"silver", shape: "pill"}}
+                          createOrder={(data, actions) => {
+                            return actions.order.create({
+                                purchase_units: [
+                                    {
+                                        amount: {
+                                            value: totalPrice + Number(shippingFee)
+                                        },
+                                    },
+                                ],
+                            });
+                          }}
+                          onApprove={(data, actions) => {
+                            // Once the payment is approved
+                            // Redirect to Home for example
+                          const order = {
+                            userId: usersId.id,
+                            shippingMethod: shipSelected,
+                            shippingAddress: `${infoForm.firstName} ${infoForm.lastName}. ${infoForm.address}, ${infoForm.city}. ${infoForm.state}, ${infoForm.zipCode}.`,
+                            items: userCart,
+                            orderId: uniqid(),
+                            date: Date.now(),
+                            totalPrice: totalPrice,
+                            contactEmail: infoForm.email,
+                            billingAddress: sameBillingAddress ? (
+                              `${infoForm.firstName} ${infoForm.lastName}. ${infoForm.address}, ${infoForm.city}. ${infoForm.state}, ${infoForm.zipCode}.`
+                            ):(
+                              `${newBillAdd.firstName} ${newBillAdd.lastName}. ${newBillAdd.address}, ${newBillAdd.city}. ${newBillAdd.state}, ${newBillAdd.zipCode}.`
+                            )
+                          };
+                          // console.log(order);
+                          dispatch(createOrder(order));
+                          navigate("/success");
+                          }}
 
-                        showSpinner={true}
-                      />
+                          onError={(data, actions)=>{
+                            console.log(data);
+                          }}
+
+                          onCancel={(data, actions)=> {
+                            return;
+                          }}
+
+                          showSpinner={true}
+                    />
+                  }
                 </div>
                 {
                   !preferenceId &&
@@ -610,23 +691,23 @@ const Checkout = () => {
       </div>
       <div className={styles.right}>
         <div className={styles.products}>
-          {dummyProducts.map((el, index) => {
+          {userCart.map((el, index) => {
             return(
-              <div className={styles.productCard}>
+              <div key={index} className={styles.productCard} style={{borderBottom: index + 1 !== userCart.length ? "2px solid #99b80d" : "none"}}>
                 <div className={styles.productCardLeft}>
                   <div className={styles.productCardImg}>
-                    <img src="/images/ari.jpeg" alt="abc" />
+                    <img src={el.image} alt="abc" />
                     <div className={styles.quantityIcon}>
-                      <span>3</span>
+                      <span>{el.quantity}</span>
                     </div>
                   </div>
                   <div className={styles.productCardDetails}>
-                    <span>Sweetener</span>
-                    <span>Ariana Grande</span>
+                    <span>{el.name}</span>
+                    <span>{el.type === "album" ? (el.artists[0].name.length > 17 ? el.artists[0].name.slice(0, 16) + "…" : el.artists[0].name) : (el.owner.length > 17 ? el.owner.slice(0, 16) + "…" : el.owner)}</span>
                   </div>
                 </div>
                 <div className={styles.productCardRight}>
-                  <span>$55.76</span>
+                  <span>${el.price}</span>
                 </div>
               </div>
             )
@@ -636,7 +717,7 @@ const Checkout = () => {
           <div className={styles.sumContainer}>
             <div className={styles.sumDiv}>
               <span>Subtotal</span>
-              <span>$1300</span>
+              <span>${totalPrice && totalPrice}</span>
             </div>
             <div className={styles.sumDiv}>
               <span>Taxes</span>
@@ -649,7 +730,7 @@ const Checkout = () => {
           </div>
           <div className={styles.subTotal}>
             <span>Total</span>
-            <span>${1300 + Number(shippingFee)}</span>
+            <span>${totalPrice && totalPrice + Number(shippingFee)}</span>
           </div>
         </div>
       </div>
