@@ -9,7 +9,7 @@ import PlaylistCard from "../../components/Cards/playlistCard";
 import AlbumCard from "../../components/Cards/albumCard";
 import SongCard from "../../components/Cards/songCard";
 import anuncio from '../../components/assets/anuncio.png';
-import video from "../../components/assets/polina.mp4"
+import video from "../../components/assets/pinky.mp4"
 import { useDispatch, useSelector } from "react-redux";
 import { getSongs } from "../../redux/Actions/SongsActions";
 import { getAlbums } from "../../redux/Actions/AlbumsActions";
