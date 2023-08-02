@@ -19,6 +19,7 @@ import SignUp from "./views/SignUp/SignUp";
 import Create from "./components/Cards/Create";
 import LandingPage from "./components/LandingPage";
 import Checkout from "./views/Checkout/Checkout";
+import Content from "./components/Admin Dashboard/Content/Content";
 
 
 const Router = () => {
@@ -46,6 +47,7 @@ const Router = () => {
         <Route path="account" element={<Account/>}/>
         <Route path="forgot-password" element={<ForgotP />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="admin" element={<Content />} />
       </Routes>
     </div>
   );
