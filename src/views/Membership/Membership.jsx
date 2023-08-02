@@ -27,7 +27,7 @@ const MembershipOffer = () => {
           <li>Access to exclusive live concerts and events</li>
         </ul>
         <div>
-          <button onClick={()=> navigate("/beMember")}>Get Started</button>
+          <button onClick={()=> navigate("/memberships/beMember")}>Get Started</button>
         </div>
       </div>
     </div>

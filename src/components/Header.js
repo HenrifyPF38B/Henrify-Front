@@ -38,7 +38,7 @@ const Header = () => {
             <div className='header-links d-flex ms-5 align-items-center justify-content-center text-white'>
               <p className='me-5' onClick={()=> navigate("home")}>Home</p>
               <p className='me-5' onClick={()=> navigate("about")}>About</p>
-              <p className='me-5' onClick={()=> navigate("membership")}>Membership</p>
+              <p className='me-5' onClick={()=> navigate("memberships")}>Membership</p>
               <p onClick={()=> navigate("store")}>Songs</p>
             </div>
           </div>
