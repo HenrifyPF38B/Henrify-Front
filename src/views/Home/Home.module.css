@@ -462,3 +462,22 @@ background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, F
 .searchBar .dropdown-item:disabled{
   color: whitesmoke !important;
 }
+
+
+/* POP HOME STYLES BUTTON */
+.popp {
+  font-weight: 500;
+  color: #fce9f0;
+}
+
+.btnpop {
+  margin: auto;
+  border-radius: 10px;
+  background: linear-gradient(#ff2252, #ffc60ca9);
+  transition: all 0.6s ease; 
+}
+
+.btnpop:hover {
+  background: linear-gradient(#fd063c, #f36b10a9); 
+  scale: 1.1;
+}
