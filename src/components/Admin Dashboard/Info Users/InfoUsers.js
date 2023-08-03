@@ -5,11 +5,11 @@ import { FaUsers } from 'react-icons/fa';
 
 const InfoUsers = () => {
   const users = useSelector(state => state.users)
+  console.log(users)
   return (
     <div className={style.contain}>
       <div className={style.content}>
-          <h1>USERS</h1>
-          <Card icon={<FaUsers/>} title={'TOTAL USERS'} number={'30'}/>
+          <Card icon={<FaUsers/>} title={'TOTAL USERS'} number={'0'}/>
         </div>
     </div>
   )
