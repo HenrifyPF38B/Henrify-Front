@@ -278,7 +278,7 @@ const Reducer = (state = initialState, { type, payload }) => {
     case GET_ALBUMS:
       return {
         ...state,
-        albums: payload.data,
+        albums: payload,  
       };
 
     case GET_ALBUMS_ID:
