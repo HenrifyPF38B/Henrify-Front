@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./buyMembership.module.css";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,12 @@ import { useNavigate } from "react-router-dom";
 const MembershipModal = ({ membershipModal, setMembershipModal }) => {
   const navigate = useNavigate();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
   return (
     <article
       className={style.article}
@@ -29,8 +35,8 @@ const MembershipModal = ({ membershipModal, setMembershipModal }) => {
           <h4 className={style.memberDuration}>{membershipModal.duration}</h4>
           <h4 className={style.memberPrice}>$ {membershipModal.price}</h4>
         </div>
-
-        <PayPalButtons
+        <div className={`${style.paypalContainer} ${isMenuOpen ? style.open : ""}`}>
+        <PayPalButtons onClick={handleMenu}
           style={{ layout: "vertical", color: "silver", shape: "pill" }}
           createOrder={(data, actions) => {
             return actions.order.create({
@@ -56,6 +62,7 @@ const MembershipModal = ({ membershipModal, setMembershipModal }) => {
           }}
           showSpinner={true}
         />
+        </div>
       </div>
     </article>
   );
