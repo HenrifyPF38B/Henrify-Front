@@ -3,7 +3,6 @@ import Aside from '../Aside/Aside';
 import Nav from '../NavBar/Nav'
 import style from './Content.module.css'
 import Card from '../Card/Card';
-import { FaUsers } from 'react-icons/fa'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../../../redux/Actions/UsersActions';
@@ -23,7 +22,6 @@ const Content = () => {
       <Nav/>
       <Aside/>
       <Outlet/>
-      <Card icon={<FaUsers/>} title={'TOTAL USERS'} number={'30'}/>
     </div>
   )
 }

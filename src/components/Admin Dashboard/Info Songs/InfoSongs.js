@@ -4,7 +4,7 @@ const InfoSongs = () => {
   const songs = useSelector(state => state.songs)
   return (
     <div className={style.contain}>
-      <div className={style.content} id='songs'>
+      <div className={style.content}>
         <h1>SONGS</h1>
       </div>
     </div>

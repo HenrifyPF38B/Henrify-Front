@@ -1,16 +1,15 @@
 import { useSelector } from 'react-redux';
 import style from './InfoUsers.module.css'
+import Card from '../Card/Card';
+import { FaUsers } from 'react-icons/fa';
 
 const InfoUsers = () => {
   const users = useSelector(state => state.users)
   return (
     <div className={style.contain}>
-      <div className={style.content} id='users'>
+      <div className={style.content}>
           <h1>USERS</h1>
-          <div className={style.cartita}>
-            <div className={style.icon}><i class='fa-solid fa-user'></i> 20</div>
-            <h3 className={style.title}>Total Users</h3>
-          </div>
+          <Card icon={<FaUsers/>} title={'TOTAL USERS'} number={'30'}/>
         </div>
     </div>
   )
