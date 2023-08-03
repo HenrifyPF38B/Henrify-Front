@@ -1,7 +1,8 @@
+import { useSelector } from 'react-redux';
 import style from './InfoUsers.module.css'
 
 const InfoUsers = () => {
-
+  const users = useSelector(state => state.users)
   return (
     <div className={style.contain}>
       <div className={style.content} id='users'>
