@@ -14,7 +14,7 @@
   color: #012544;
   border-radius: 2rem;
   outline: 3px solid #012544;
-  margin: 2rem 1rem 3rem 1rem;
+  margin: .8rem 1rem 3rem 1rem;
   padding: .5rem 1rem;
   text-align: center;
   cursor: pointer;
@@ -28,6 +28,12 @@
   letter-spacing: 3px;
 }
 
+.containEdits{
+  display: flex;
+  flex-direction: column;
+  margin: 7rem 0;
+}
+
 .edits{
   font-size: 1rem;
   font-weight: 500;
@@ -38,11 +44,11 @@
   padding: .5rem 1rem;
   text-decoration: none;
   cursor: pointer;
-  transition: .9s
+  transition: .4s;
 }
 
 .edits:hover{
-  text-align: center;
   background-color: #0000005e;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
+  scale: 1.05;
 }
