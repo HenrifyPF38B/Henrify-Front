@@ -1,0 +1,115 @@
+.article {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.87);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 100%;
+}
+.div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, #6f13b1, #db2846);
+  border-radius: 10px;
+  height: 530px;
+  width: 700px;
+  box-shadow: 0px 5px 7px 2px rgba(44, 43, 43, 0.4),
+    0px 3px 13px -1px rgba(29, 29, 29, 0.29),
+    0px -4px 1px 0px rgba(0, 0, 0, 0.548) inset,
+    0px 2px 10px 2px rgba(32, 32, 32, 0.28);
+  overflow-y: hidden;
+}
+.paypalContainer {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  width: 300px;
+  overflow-y: hidden;
+}
+.paypalContainer.open{
+    overflow-y: auto;
+}
+.boxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.memberName {
+  color: wheat;
+  font-weight: 200;
+  font-size: 50px;
+
+  letter-spacing: 2px;
+}
+.memberDesc {
+  color: rgba(245, 222, 179, 0.829);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+.memberDuration {
+  color: rgba(245, 222, 179, 0.829);
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+.memberPrice {
+  margin-top: 20px;
+  background: rgba(245, 222, 179, 0.774);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 45px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin-bottom: 35px;
+}
+
+.div2 {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background: linear-gradient(to right, #41066baf, #77091ba4);
+  padding: 13px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.imgen {
+  position: absolute;
+}
+.avatar {
+  width: 18%;
+}
+
+
+.paypalContainer::-webkit-scrollbar {
+  width: 12px; 
+  background: rgba(255, 228, 228, 0.425);
+  border-radius: 4px;
+}
+
+.paypalContainer::-webkit-scrollbar-thumb {   
+ background: linear-gradient(324deg, rgba(88, 6, 109, 0.959) 19%, rgba(141, 14, 124, 0.897) 46%, rgb(212, 35, 109) 85%);
+  border-radius: 4px; 
+  height: 35px;
+}
+.paypalContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #f6d8ff; 
+ }
+

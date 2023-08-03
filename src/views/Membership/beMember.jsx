@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import style from "./beMember.module.css";
 import test from "../../components/assets/signup8.svg";
@@ -7,6 +7,7 @@ import test2 from "../../components/assets/signup7.svg";
 import test3 from "../../components/assets/signup12.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getMemberships } from "../../redux/Actions/MembershipsActions";
+import MembershipModal from "./buyMembership";
 
 
 const BeMember = () => {
@@ -15,6 +16,8 @@ const BeMember = () => {
 
   const membershipList = memberships || [];
 
+  const [membershipModal, setMembershipModal] = useState(false);
+
   console.log(membershipList)
   useEffect(() => {
     dispatch(getMemberships());
@@ -22,6 +25,10 @@ const BeMember = () => {
 
   return (
     <div className={style.container}>
+      {
+        membershipModal && 
+        <MembershipModal membershipModal={membershipModal} setMembershipModal={setMembershipModal} />
+      }
       <div className="content">        
         <div className="tittle">
           <h1>Welcome! Be a member!</h1>
@@ -54,7 +61,7 @@ const BeMember = () => {
                 <p className="date">{membership.duration}</p>
                 <p className="price">$ {membership.price}</p>
               </div>
-              <button className="buttonMember">
+              <button className="buttonMember" onClick={() => setMembershipModal(membership)}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
               <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
             </svg>
