@@ -9,9 +9,9 @@ const Aside = () => {
     <div className={style.content}>
       <div className={style.home} onClick={() => {navigate('/home')}}><i class='fa-solid fa-home'/> GO HOME</div>
       <div className={style.containEdits}>
-        <a href='#users' className={style.edits}><i class='fa-solid fa-edit'/> USERS</a>
-        <a href='#albums' className={style.edits}><i class='fa-solid fa-edit'/> ALBUMS</a>
-        <a href='#songs' className={style.edits}><i class='fa-solid fa-edit'/> SONGS</a>
+        <div onClick={() => navigate('users')} className={style.edits}><i class='fa-solid fa-edit'/> USERS</div>
+        <div onClick={() => navigate('albums')} className={style.edits}><i class='fa-solid fa-edit'/> ALBUMS</div>
+        <div onClick={() => navigate('songs')} className={style.edits}><i class='fa-solid fa-edit'/> SONGS</div>
       </div>
     </div>
   )
