@@ -1,0 +1,64 @@
+.userDetailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vh;
+  height: 70vh;
+  width: 90vh;
+  margin-left: 30vh;
+  margin-right: 30vh;
+  border-bottom: 3px solid #014884;
+  font-family: 'Poppins';
+}
+
+.imageAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #014884;
+}
+.btnPassword {
+  background-color: transparent;
+  border: transparent;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.password {
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.nameUser {
+  margin-right: 40px;
+  color: rgb(7, 7, 175);
+}
+.userInformation {
+  margin-bottom: 5vh;
+  color: rgba(70, 70, 70, 0.599);
+  font-weight: 600;
+}
+.inputData {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #eee;
+  padding: 20px;
+  border-bottom: 3px solid #014884;
+  border-radius: 10px;
+}
+.passwordContainer {
+  display: flex;
+}
+.icon {
+  margin-left: 5px;
+}

@@ -1,29 +1,29 @@
-.container{
+.container {
   border-top: 3px solid #000;
   border-bottom: 3px solid #000;
   border-left: 2px solid #000;
   border-right: 2px solid #000;
 }
 
-.container:first-child{
+.container:first-child {
   border-left: 4px solid #000;
   border-top-left-radius: 2rem;
 }
 
-.container:last-child{
+.container:last-child {
   border-right: 4px solid #000;
   border-top-right-radius: 2rem;
 }
 
-.title{
+.title {
   font-size: 2rem;
   text-align: center;
   text-transform: uppercase;
   height: 2rem;
 }
 
-.value{
-  padding: .5rem;
+.value {
+  padding: 0.5rem;
   text-align: center;
   font-weight: 650;
   height: 4rem;
@@ -35,36 +35,40 @@
   gap: 1rem;
 }
 
-.value:nth-child(1){
+.value:nth-child(1) {
   border-top: 4px solid #000;
 }
 
-.active{
+.active {
   color: #037703;
   text-transform: uppercase;
 }
 
-.disabled{
+.disabled {
   color: #3a3a3a;
   text-transform: uppercase;
 }
 
-.icon{
+.icon {
   font-size: 2rem;
   color: #00f;
   cursor: pointer;
 }
 
-.iconTrash{
+.iconTrash {
   font-size: 1.5rem;
   color: #db1d1d;
   cursor: pointer;
 }
 
-.icon:hover{
+.icon:hover {
   scale: 1.1;
 }
 
-.iconTrash:hover{
+.iconTrash:hover {
   scale: 1.1;
+}
+.btnIcon {
+  background-color: transparent;
+  border: transparent;
 }

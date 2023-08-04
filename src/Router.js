@@ -25,6 +25,7 @@ import SuccessPurchase from "./views/SuccessPurchase/SuccessPurchase";
 import InfoUsers from "./components/Admin Dashboard/Info Users/InfoUsers";
 import InfoAlbums from "./components/Admin Dashboard/Info Albums/InfoAlbums";
 import InfoSongs from "./components/Admin Dashboard/Info Songs/InfoSongs";
+import UserDetail from "./components/Admin Dashboard/UserDetail/UserDetail";
 
 
 const Router = () => {
@@ -57,6 +58,7 @@ const Router = () => {
           <Route path="users" element={<InfoUsers />} />
           <Route path="albums" element={<InfoAlbums />} />
           <Route path="songs" element={<InfoSongs />} />
+          <Route path="users/:id" element={<UserDetail />} />
         </Route>
         <Route path="success" element={<SuccessPurchase />} />
       </Routes>
