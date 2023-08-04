@@ -84,7 +84,7 @@ const Home = () => {
   useEffect(() => {
 
     let options = [];
-    songs.map((el, index) => {
+    songs.data?.map((el, index) => {
       options.push({
         id: el.id,
         songId: el.songId,

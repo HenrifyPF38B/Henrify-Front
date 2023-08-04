@@ -25,6 +25,7 @@ import SuccessPurchase from "./views/SuccessPurchase/SuccessPurchase";
 import InfoUsers from "./components/Admin Dashboard/Info Users/InfoUsers";
 import InfoAlbums from "./components/Admin Dashboard/Info Albums/InfoAlbums";
 import InfoSongs from "./components/Admin Dashboard/Info Songs/InfoSongs";
+import ProtectedRoute from "./components/Admin Dashboard/Utils/ProtectedRoute";
 
 
 const Router = () => {
@@ -53,10 +54,13 @@ const Router = () => {
         <Route path="account" element={<Account/>}/>
         <Route path="forgot-password" element={<ForgotP />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route path="admin" element={<Content />}>
-          <Route path="users" element={<InfoUsers />} />
-          <Route path="albums" element={<InfoAlbums />} />
-          <Route path="songs" element={<InfoSongs />} />
+        <Route element={ <ProtectedRoute active={true}/> }>
+          <Route path="admin" element={<Content />}>
+            <Route path="users" element={<InfoUsers />} />
+            <Route path="*" element={<InfoUsers />} />
+            <Route path="albums" element={<InfoAlbums />} />
+            <Route path="songs" element={<InfoSongs />} />
+          </Route>
         </Route>
         <Route path="success" element={<SuccessPurchase />} />
       </Routes>
