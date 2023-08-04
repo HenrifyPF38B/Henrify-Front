@@ -8,7 +8,7 @@
   box-shadow: -8px 8px 0 #c8c8c8;
   border-radius: 1.5rem;
   padding: 1rem;
-  margin: 3rem;
+  margin: 2.5rem 2rem .5rem;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -43,6 +43,6 @@
 }
 
 .title{
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-shadow: -3px 3px 0 #a3a3a3;
 }

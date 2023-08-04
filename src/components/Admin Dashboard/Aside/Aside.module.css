@@ -4,8 +4,10 @@
   grid-row: 1/3;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  outline: 5px solid #012544;
+  height: 100vh;
+  border-right: 5px solid #012544;
+  position: sticky;
+  top: .01px;
 }
 
 .home{

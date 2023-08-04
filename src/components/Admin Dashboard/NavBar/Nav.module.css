@@ -8,6 +8,8 @@
   padding: 0 2rem;
   box-shadow: -3px 9px 10px #004581;
   outline: 5px solid #004581;
+  position: sticky;
+  top: .01px;
 }
 
 .title{

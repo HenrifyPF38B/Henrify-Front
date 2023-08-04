@@ -2,3 +2,14 @@
   grid-column: 2/3;
   grid-row: 2/3;
 }
+
+.content{
+  display: flex;
+}
+
+.table{
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 25% 20% 25% 15% 15%;
+}
+
