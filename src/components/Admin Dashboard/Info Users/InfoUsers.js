@@ -20,7 +20,7 @@ const InfoUsers = () => {
         <Column title={'user name'} prop={'userName'} content={users.data}/>
         <Column title={'email'} prop={'email'} content={users.data}/>
         <Column title={'status'} prop={'deleted'} content={users.data}/>
-        <Column title={ <LuSettings2/> } prop={'edit'} content={users.data}/>
+        <Column title={ <LuSettings2/> } prop={'edit'} content={users.data}  model={"users"}/>
       </div>
     </div>
   )

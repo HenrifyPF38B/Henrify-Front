@@ -61,10 +61,10 @@ export const putAlbums = (album, id) => {
 export const deleteAlbums = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/albums/${id}`
-      // {
-      //     method: 'DELETE'
-      // }
+      `${base_url}/albums/${id}`,
+      {
+          method: 'DELETE'
+      }
     );
     const data = await res.json();
     dispatch({ type: DELETE_ALBUMS, payload: data });
