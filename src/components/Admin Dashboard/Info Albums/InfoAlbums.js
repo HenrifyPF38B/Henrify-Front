@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import style from './InfoAlbums.module.css'
 import Card from '../Card/Card';
 import Column from '../Column/Column';
-import { LuSettings2 } from 'react-icons/lu'
-import { MdLibraryMusic } from 'react-icons/md'
+import { LuSettings2 } from 'react-icons/lu';
+import { MdLibraryMusic } from 'react-icons/md';
 
 const InfoAlbums = () => {
   const albums = useSelector(state => state.albums)
