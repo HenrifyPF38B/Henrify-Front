@@ -1,5 +1,9 @@
 .contain{
   grid-column: 2/3;
   grid-row: 2/3;
-  padding: 1rem;
+}
+
+.cardContainer:last-child{
+  display: flex;
+  justify-content: center;
 }
