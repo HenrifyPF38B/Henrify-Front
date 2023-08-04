@@ -21,7 +21,7 @@ const InfoAlbums = () => {
         <Column title={'price'} prop={'price'} content={albums.data}/>
         <Column title={'stock'} prop={'stock'} content={albums.data}/>
         <Column title={'status'} prop={'deleted'} content={albums.data}/>
-        <Column title={ <LuSettings2/> } prop={'edit'} content={albums.data}/>
+        <Column title={ <LuSettings2/> } prop={'edit'} content={albums.data}  model={"albums"}/>
       </div>
     </div>
   )

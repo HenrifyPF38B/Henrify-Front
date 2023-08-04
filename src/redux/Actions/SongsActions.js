@@ -83,10 +83,10 @@ export const putSongs = (song, id) => {
 export const deleteSongs = (id) => {
   return async function (dispatch) {
     const res = await fetch(
-      `${base_url}/songs/${id}`
-      // {
-      //     method: 'DELETE'
-      // }
+      `${base_url}/songs/${id}`,
+      {
+          method: 'DELETE'
+      }
     );
     const data = await res.json();
     dispatch({ type: DELETE_SONGS, payload: data });
