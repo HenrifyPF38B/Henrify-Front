@@ -22,7 +22,6 @@ const Column = ({ title, content, prop, model }) => {
     } else if (model === "users") {
       dispatch(deleteUsers(id));
     }
-
   };
   return (
     <div className={style.container}>
