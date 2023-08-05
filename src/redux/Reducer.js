@@ -5,6 +5,7 @@ import {
   PUT_USERS,
   DELETE_USERS,
   GET_SONGS,
+  GET_ALL_SONGS,
   GET_SONGS_ID,
   POST_SONGS,
   PUT_SONGS,
@@ -56,6 +57,7 @@ const initialState = {
   userCart: [],
   userFavs:[],
   usersId: [],
+  allSongs: {},
   songs: [],
   filteredSongs: [],
   songsId: {},
@@ -64,6 +66,7 @@ const initialState = {
   playlists: [],
   playlistsId: {},
   albums: [],
+  allAlbums: {},
   albumsId: {},
   memberships: [],
   membershipsId: {},
@@ -184,6 +187,12 @@ const Reducer = (state = initialState, { type, payload }) => {
         ...state,
         songs: payload,
       }
+
+    case GET_ALL_SONGS:
+      return {
+        ...state,
+        Allsongs: payload,
+    }
 
     case FILTER_SONGS:
       return {

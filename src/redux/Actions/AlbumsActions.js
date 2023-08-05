@@ -16,6 +16,14 @@ export const getAlbums = () => {
   };
 };
 
+export const getAllAlbums = () => {
+  return async function (dispatch) {
+    const res = await fetch(`http://localhost:3001/api/albums/all`);
+    const data = await res.json();
+    return dispatch({ type: GET_ALBUMS, payload: data });
+  };
+};
+
 export const getAlbumsById = (id) => {
   return async function (dispatch) {
     const res = await fetch(`${base_url}/albums/${id}`);

@@ -18,6 +18,7 @@ export const GOOGLE_AUTH = "GOOGLE_AUTH";
 
 // CRUD SONGS
 export const GET_SONGS = "GET_SONGS";
+export const GET_ALL_SONGS = "GET_ALL_SONGS";
 export const GET_SONGS_ID = "GET_SONGS_ID";
 export const POST_SONGS = "POST_SONGS";
 export const PUT_SONGS = "PUT_SONGS";
