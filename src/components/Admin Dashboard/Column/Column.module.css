@@ -49,7 +49,12 @@
   text-transform: uppercase;
 }
 
-.icon {
+.deleted{
+  color: #db1d1d;
+  text-transform: uppercase;
+}
+
+.icon{
   font-size: 2rem;
   color: #00f;
   cursor: pointer;

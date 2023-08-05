@@ -1,6 +1,6 @@
-import style from './Card.module.css'
+import style from "./Card.module.css";
 
-const Card = ({icon, title, number}) => {
+const Card = ({ icon, title, number }) => {
   return (
     <div className={style.container}>
       <div className={style.info}>
@@ -11,7 +11,7 @@ const Card = ({icon, title, number}) => {
       </div>
       <h3 className={style.title}>{title}</h3>
     </div>
-  )
-}
+  );
+};
 
 export default Card;
