@@ -1,14 +1,14 @@
-.contain{
+.contain {
   grid-column: 2/3;
   grid-row: 2/3;
 }
 
-.content{
+.content {
   display: flex;
   justify-content: center;
 }
 
-.table{
+.table {
   padding: 2rem;
   display: grid;
   grid-template-columns: 10% 30% 15% 20% 15% 10%;
