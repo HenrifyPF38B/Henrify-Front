@@ -8,7 +8,7 @@ import { AiOutlineStock } from 'react-icons/ai'
 import { TbWashTumbleOff } from 'react-icons/tb'
 
 const InfoAlbums = () => {
-  const albums = useSelector((state) => state.albums);
+  const albums = useSelector((state) => state.allAlbums);
   console.log(albums);
 
   return (
@@ -22,12 +22,12 @@ const InfoAlbums = () => {
         <Card
           icon={<AiOutlineStock />}
           title={"TOTAL STOCK"}
-          number={albums.total}
+          number={albums.totalStock}
         />
         <Card
         icon={<TbWashTumbleOff />}
         title={"DISABLED ALBUMS"}
-        number={albums.total}
+        number={albums.desactivados}
         />
       </div>
 

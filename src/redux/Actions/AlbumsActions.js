@@ -1,6 +1,7 @@
 import {
   DELETE_ALBUMS,
   GET_ALBUMS,
+  GET_ALL_ALBUMS,
   GET_ALBUMS_ID,
   POST_ALBUMS,
   PUT_ALBUMS,
@@ -20,7 +21,7 @@ export const getAllAlbums = () => {
   return async function (dispatch) {
     const res = await fetch(`http://localhost:3001/api/albums/all`);
     const data = await res.json();
-    return dispatch({ type: GET_ALBUMS, payload: data });
+    return dispatch({ type: GET_ALL_ALBUMS, payload: data });
   };
 };
 

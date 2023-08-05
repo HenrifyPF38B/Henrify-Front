@@ -8,7 +8,7 @@ import { TbMusicOff } from 'react-icons/tb'
 import Column from "../Column/Column";
 
 const InfoSongs = () => {
-  const songs = useSelector((state) => state.songs);
+  const songs = useSelector((state) => state.allSongs);
 
   return (
     <div className={style.contain}>
@@ -26,7 +26,7 @@ const InfoSongs = () => {
         <Card
           icon={<TbMusicOff />}
           title={"DISABLED SONGS"}
-          number={songs.totalExplicit}
+          number={songs.desactivados}
         />
       </div>
       <div className={style.table}>

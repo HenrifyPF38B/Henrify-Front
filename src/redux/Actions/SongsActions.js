@@ -1,6 +1,7 @@
 import { getSpotifyToken } from "../../spotifyHandler/spotify";
 import {
   GET_SONGS,
+  GET_ALL_SONGS,
   GET_SONGS_ID,
   POST_SONGS,
   PUT_SONGS,
@@ -20,6 +21,17 @@ export const getSongs = () => {
     const data = await res.json();
     
     dispatch({type: GET_SONGS, payload: data})
+        
+  };
+};
+
+export const getAllSongs = () => {
+  return async function (dispatch) {
+    
+    const res = await fetch(`${base_url}/songs/all`);
+    const data = await res.json();
+    
+    dispatch({type: GET_ALL_SONGS, payload: data})
         
   };
 };

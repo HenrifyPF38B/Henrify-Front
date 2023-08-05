@@ -41,6 +41,7 @@ export const DELETE_PLAYLISTS = "DELETE_PLAYLISTS";
 
 // CRUD ALBUMS
 export const GET_ALBUMS = "GET_ALBUMS";
+export const GET_ALL_ALBUMS = "GET_ALL_ALBUMS";
 export const GET_ALBUMS_ID = "GET_ALBUMS_ID";
 export const POST_ALBUMS = "POST_ALBUMS";
 export const PUT_ALBUMS = "PUT_ALBUMS";

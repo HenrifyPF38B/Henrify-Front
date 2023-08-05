@@ -21,6 +21,7 @@ import {
   PUT_PLAYLISTS,
   DELETE_PLAYLISTS,
   GET_ALBUMS,
+  GET_ALL_ALBUMS,
   GET_ALBUMS_ID,
   POST_ALBUMS,
   PUT_ALBUMS,
@@ -191,7 +192,7 @@ const Reducer = (state = initialState, { type, payload }) => {
     case GET_ALL_SONGS:
       return {
         ...state,
-        Allsongs: payload,
+        allSongs: payload,
     }
 
     case FILTER_SONGS:
@@ -289,6 +290,11 @@ const Reducer = (state = initialState, { type, payload }) => {
         ...state,
         albums: payload,  
       };
+    case GET_ALL_ALBUMS:
+      return {
+      ...state,
+      allAlbums: payload,  
+    };
 
     case GET_ALBUMS_ID:
       return {
