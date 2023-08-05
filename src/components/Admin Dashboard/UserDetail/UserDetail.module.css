@@ -1,14 +1,13 @@
 .userDetailContainer {
+  grid-column: 2/3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10vh;
+  margin-top: 12vh;
   height: 70vh;
-  width: 90vh;
-  margin-left: 30vh;
-  margin-right: 30vh;
-  border-bottom: 3px solid #014884;
+  width: 100%;
+  padding: 10rem;
   font-family: 'Poppins';
 }
 
@@ -39,11 +38,11 @@
 }
 .nameUser {
   margin-right: 40px;
-  color: rgb(7, 7, 175);
+  color: #015993;
 }
 .userInformation {
-  margin-bottom: 5vh;
-  color: rgba(70, 70, 70, 0.599);
+  color: #242424;
+  text-shadow: -3px 3px 0 #46464699;
   font-weight: 600;
 }
 .inputData {
@@ -53,8 +52,10 @@
   width: 100%;
   background-color: #eee;
   padding: 20px;
-  border-bottom: 3px solid #014884;
+  border-bottom: 3px solid #015993;
+  outline: 2px solid #015993;
   border-radius: 10px;
+  margin-bottom: 1rem;
 }
 .passwordContainer {
   display: flex;

@@ -57,8 +57,8 @@ const Router = () => {
         <Route path="checkout" element={<Checkout />} />
         <Route element={ <ProtectedRoute active={true}/> }>
           <Route path="admin" element={<Content />}>
-            <Route path="users" element={<InfoUsers />} />
             <Route path="*" element={<InfoUsers />} />
+            <Route path="users" element={<InfoUsers />} />
             <Route path="users/:id" element={<UserDetail />} />
             <Route path="albums" element={<InfoAlbums />} />
             <Route path="songs" element={<InfoSongs />} />
