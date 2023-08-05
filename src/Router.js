@@ -27,6 +27,7 @@ import InfoAlbums from "./components/Admin Dashboard/Info Albums/InfoAlbums";
 import InfoSongs from "./components/Admin Dashboard/Info Songs/InfoSongs";
 import UserDetail from "./components/Admin Dashboard/UserDetail/UserDetail";
 import ProtectedRoute from "./components/Admin Dashboard/Utils/ProtectedRoute";
+import Formsongs from "./components/Admin Dashboard/FormSongs/FormSongs";
 
 
 const Router = () => {
@@ -62,6 +63,7 @@ const Router = () => {
             <Route path="users/:id" element={<UserDetail />} />
             <Route path="albums" element={<InfoAlbums />} />
             <Route path="songs" element={<InfoSongs />} />
+            <Route path="songs/create" element={<Formsongs />} />
           </Route>
         </Route>
         <Route path="success" element={<SuccessPurchase />} />

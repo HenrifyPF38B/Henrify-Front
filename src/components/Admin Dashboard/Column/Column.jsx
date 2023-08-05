@@ -10,6 +10,7 @@ import { deleteUsers } from "../../../redux/Actions/UsersActions";
 const Column = ({ title, content, prop, model }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  
   const handleIconClick = (id) => {
     navigate(`/admin/users/${id}`)
   }

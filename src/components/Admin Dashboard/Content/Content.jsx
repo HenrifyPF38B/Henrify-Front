@@ -11,7 +11,6 @@ import InfoUsers from "../Info Users/InfoUsers";
 
 const Content = () => {
   const location = useLocation().pathname;
-  console.log(location);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers());
