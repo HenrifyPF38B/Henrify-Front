@@ -13,9 +13,9 @@
   flex-direction: column;
   justify-content: space-around;
   height: 90%;
-  width: 75%;
+  width: 85%;
   margin: auto;
-  border-radius: 1rem;
+  border-radius: .5rem;
   box-shadow: 0 0 10px #012544;
   outline: 2px solid #000;
 }
@@ -67,13 +67,32 @@
 }
 
 .select {
-  width: 8rem;
+  width: 90%;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 .input {
   width: 90%;
   font-size: 1.5rem;
+  border-radius: .2rem;
+  border: 2px solid #666;
+}
+
+.input:hover{
+  border: 2px solid #012544;
+}
+
+.input:focus{
+  border: 2px solid #ff0000;
+}
+
+.input::placeholder{
+  text-align: center;
+}
+
+.file{
+  font-size: 1.2rem;
 }
 
 .btn{
@@ -84,9 +103,14 @@
   margin: 0 auto 1rem;
   width: 6rem;
   height: 3rem;
-  border-radius: 1rem;
+  border-radius: .2rem;
   border: none;
   outline: 2px solid #000;
+  transition: .5s;
+}
+
+.btn:enabled:hover{
+  scale: 1.1;
 }
 
 .btn:disabled{
