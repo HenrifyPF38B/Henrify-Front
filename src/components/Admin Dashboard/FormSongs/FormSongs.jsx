@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import style from "./Formsongs.module.css";
+import { postSongs } from "../../../redux/Actions/SongsActions";
+import { useDispatch } from "react-redux";
 
 const Formsongs = () => {
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
@@ -12,7 +15,7 @@ const Formsongs = () => {
   const state = watch()
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    // dispatch(postSongs(data))
     reset();
   });
 
@@ -29,6 +32,7 @@ const Formsongs = () => {
             <input
               className={style.input}
               type="text"
+              placeholder="Enter the name of the song"
               {...register("name", {
                 required: {
                   value: true,
@@ -54,7 +58,7 @@ const Formsongs = () => {
               Audio Preview
             </label>
             <input
-              className={style.input}
+              className={style.file}
               type="file"
               {...register("audioPreview", {
                 required: {
@@ -76,6 +80,7 @@ const Formsongs = () => {
             </label>
             <input
               className={style.input}
+              placeholder="Enter the artist's name"
               type="text"
               {...register("artists", {
                 required: {
@@ -102,7 +107,7 @@ const Formsongs = () => {
               Image
             </label>
             <input
-              className={style.input}
+              className={style.file}
               type="file"
               {...register("image", {
                 required: {
@@ -135,7 +140,7 @@ const Formsongs = () => {
               Full Track
             </label>
             <input
-              className={style.input}
+              className={style.file}
               type="file"
               {...register("audioFull", {
                 required: {

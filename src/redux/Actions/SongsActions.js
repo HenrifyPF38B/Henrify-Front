@@ -61,14 +61,14 @@ export const getSongsById = (id) => {
 export const postSongs = (song) => {
   return async function (dispatch) {
     const res = await fetch(
-    `${base_url}/songs`
-      // {
-      //     method: 'POST',
-      //     headers:{
-      //         "Content-type":"application/json; charset=UTF-8"
-      //     },
-      //     body: JSON.stringify(song)
-      // }
+    `${base_url}/songs`,
+      {
+          method: 'POST',
+          headers:{
+              "Content-type":"application/json; charset=UTF-8"
+          },
+          body: JSON.stringify(song)
+      }
     );
     const data = await res.json();
     dispatch({ type: POST_SONGS, payload: data });
