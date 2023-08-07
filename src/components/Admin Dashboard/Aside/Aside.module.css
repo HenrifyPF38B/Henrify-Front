@@ -41,7 +41,7 @@
 }
 
 .edits {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #033564;
   background-color: #08080827;
@@ -58,7 +58,7 @@
 
 .edits:hover {
   background-color: #0000003a;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   scale: 1.05;
 }
 

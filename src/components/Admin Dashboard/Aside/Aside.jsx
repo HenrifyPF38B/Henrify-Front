@@ -27,6 +27,9 @@ const Aside = () => {
         <div onClick={() => navigate("songs")} className={style.edits}>
           <MdSettingsSuggest className={style.icon}/> SONGS
         </div>
+        <div onClick={() => navigate("songs/create")} className={style.edits}>
+          <MdSettingsSuggest className={style.icon}/> CREATE SONG
+        </div>
       </div>
     </div>
   );
