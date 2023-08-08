@@ -1,0 +1,14 @@
+.songContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  flex-direction: column;
+}
+.imgSong {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}

@@ -27,9 +27,6 @@ const AlbumDetail = () => {
         setIsLoading(false)
       })
   }, [dispatch, id])
-
-  console.log(albumsId)
-
   if (isLoading) {
     return <div className={style.loading}>Loading...</div>
   }
