@@ -1,37 +1,37 @@
-import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import Layout from "./components/Layout";
-import { Home, About, Album } from "./views";
-import NavBar from "./components/NavBar/NavBar";
-import Login from "./views/Login/Login";
-import ResetP from "./views/ResetP/ResetP";
-import ForgotP from "./views/ForgotP/ForgotP";
-import SeeAll from "./components/Cards/seeAll";
-import Favorites from "./views/Favorites/Favorites";
-import Store from "./views/Store/Store";
-import Playlist from "./views/Playlist/Playlist";
-import SingleAlbum from "./views/SingleAlbum/Album";
-import MembershipOffer from "./views/Membership/Membership";
-import Buy from "./views/Buy/Buy";
-import Account from "./views/Account/Account";
-import MyPlaylist from "./components/Cards/myPlaylist";
-import SignUp from "./views/SignUp/SignUp";
-import Create from "./components/Cards/Create";
-import LandingPage from "./components/LandingPage";
-import Checkout from "./views/Checkout/Checkout";
-import Content from "./components/Admin Dashboard/Content/Content";
-import BeMember from "./views/Membership/beMember";
-import SuccessPurchase from "./views/SuccessPurchase/SuccessPurchase";
-import InfoUsers from "./components/Admin Dashboard/Info Users/InfoUsers";
-import InfoAlbums from "./components/Admin Dashboard/Info Albums/InfoAlbums";
-import InfoSongs from "./components/Admin Dashboard/Info Songs/InfoSongs";
-import UserDetail from "./components/Admin Dashboard/UserDetail/UserDetail";
-import ProtectedRoute from "./components/Admin Dashboard/Utils/ProtectedRoute";
-import Formsongs from "./components/Admin Dashboard/FormSongs/FormSongs";
-
+import React from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import Layout from './components/Layout'
+import { Home, About, Album } from './views'
+import NavBar from './components/NavBar/NavBar'
+import Login from './views/Login/Login'
+import ResetP from './views/ResetP/ResetP'
+import ForgotP from './views/ForgotP/ForgotP'
+import SeeAll from './components/Cards/seeAll'
+import Favorites from './views/Favorites/Favorites'
+import Store from './views/Store/Store'
+import Playlist from './views/Playlist/Playlist'
+import SingleAlbum from './views/SingleAlbum/Album'
+import MembershipOffer from './views/Membership/Membership'
+import Buy from './views/Buy/Buy'
+import Account from './views/Account/Account'
+import MyPlaylist from './components/Cards/myPlaylist'
+import SignUp from './views/SignUp/SignUp'
+import Create from './components/Cards/Create'
+import LandingPage from './components/LandingPage'
+import Checkout from './views/Checkout/Checkout'
+import Content from './components/Admin Dashboard/Content/Content'
+import BeMember from './views/Membership/beMember'
+import SuccessPurchase from './views/SuccessPurchase/SuccessPurchase'
+import InfoUsers from './components/Admin Dashboard/Info Users/InfoUsers'
+import InfoAlbums from './components/Admin Dashboard/Info Albums/InfoAlbums'
+import InfoSongs from './components/Admin Dashboard/Info Songs/InfoSongs'
+import UserDetail from './components/Admin Dashboard/UserDetail/UserDetail'
+import ProtectedRoute from './components/Admin Dashboard/Utils/ProtectedRoute'
+import Formsongs from './components/Admin Dashboard/FormSongs/FormSongs'
+import SongDetail from './components/Admin Dashboard/SongDetail/SongDetail'
+import AlbumDetail from './components/Admin Dashboard/AlbumsDetail/AlbumDetail'
 
 const Router = () => {
-
   return (
     <div>
       <Routes>
@@ -53,23 +53,25 @@ const Router = () => {
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
         <Route path="reset-password" element={<ResetP />} />
-        <Route path="account" element={<Account/>}/>
+        <Route path="account" element={<Account />} />
         <Route path="forgot-password" element={<ForgotP />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route element={ <ProtectedRoute active={true}/> }>
+        <Route element={<ProtectedRoute active={true} />}>
           <Route path="admin" element={<Content />}>
             <Route path="*" element={<InfoUsers />} />
             <Route path="users" element={<InfoUsers />} />
             <Route path="users/:id" element={<UserDetail />} />
             <Route path="albums" element={<InfoAlbums />} />
+            <Route path="albums/:id" element={<AlbumDetail />} />
             <Route path="songs" element={<InfoSongs />} />
+            <Route path="songs/:id" element={<SongDetail />} />
             <Route path="songs/create" element={<Formsongs />} />
           </Route>
         </Route>
         <Route path="success" element={<SuccessPurchase />} />
       </Routes>
     </div>
-  );
-};
+  )
+}
 
-export default Router;
+export default Router

@@ -5,33 +5,33 @@ import {
   GET_ALBUMS_ID,
   POST_ALBUMS,
   PUT_ALBUMS,
-} from "../Action-types";
-import { base_url } from "../baseURL";
+} from '../Action-types'
+import { base_url } from '../baseURL'
 
 // CRUD ALBUMS
 export const getAlbums = () => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/albums`);
-    const data = await res.json();
-    return dispatch({ type: GET_ALBUMS, payload: data });
-  };
-};
+    const res = await fetch(`http://localhost:3001/api/albums`)
+    const data = await res.json()
+    return dispatch({ type: GET_ALBUMS, payload: data })
+  }
+}
 
 export const getAllAlbums = () => {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3001/api/albums/all`);
-    const data = await res.json();
-    return dispatch({ type: GET_ALL_ALBUMS, payload: data });
-  };
-};
+    const res = await fetch(`http://localhost:3001/api/albums/all`)
+    const data = await res.json()
+    return dispatch({ type: GET_ALL_ALBUMS, payload: data })
+  }
+}
 
 export const getAlbumsById = (id) => {
   return async function (dispatch) {
-    const res = await fetch(`${base_url}/albums/${id}`);
-    const data = await res.json();
-    dispatch({ type: GET_ALBUMS_ID, payload: data });
-  };
-};
+    const res = await fetch(`${base_url}/albums/${id}`)
+    const data = await res.json()
+    dispatch({ type: GET_ALBUMS_ID, payload: data })
+  }
+}
 
 export const postAlbums = (album) => {
   return async function (dispatch) {
@@ -44,11 +44,11 @@ export const postAlbums = (album) => {
       //     },
       //     body: JSON.stringify(album)
       // }
-    );
-    const data = await res.json();
-    dispatch({ type: POST_ALBUMS, payload: data });
-  };
-};
+    )
+    const data = await res.json()
+    dispatch({ type: POST_ALBUMS, payload: data })
+  }
+}
 
 export const putAlbums = (album, id) => {
   return async function (dispatch) {
@@ -61,21 +61,18 @@ export const putAlbums = (album, id) => {
       //     },
       //     body: JSON.stringify(album)
       // }
-    );
-    const data = await res.json();
-    dispatch({ type: PUT_ALBUMS, payload: data });
-  };
-};
+    )
+    const data = await res.json()
+    dispatch({ type: PUT_ALBUMS, payload: data })
+  }
+}
 
 export const deleteAlbums = (id) => {
   return async function (dispatch) {
-    const res = await fetch(
-      `${base_url}/albums/${id}`,
-      {
-          method: 'DELETE'
-      }
-    );
-    const data = await res.json();
-    dispatch({ type: DELETE_ALBUMS, payload: data });
-  };
-};
+    const res = await fetch(`${base_url}/albums/${id}`, {
+      method: 'DELETE',
+    })
+    const data = await res.json()
+    dispatch({ type: DELETE_ALBUMS, payload: data })
+  }
+}
