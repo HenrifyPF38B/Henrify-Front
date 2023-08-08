@@ -3,12 +3,52 @@
   justify-content: center;
   align-items: center;
   margin-top: 10vh;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
   flex-direction: column;
+  font-family: 'Poppins';
 }
 .imgSong {
-  width: 50%;
-  height: 50%;
+  width: 30vh;
+  height: 30vh;
   margin: auto;
+  border-radius: 50%;
+  border: 3px solid #014884;
+}
+.nameSong {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: #015993;
+}
+
+.song {
+  width: 100%;
+}
+.details {
+  background-color: #eee;
+  padding: 20px;
+  border-bottom: 3px solid #015993;
+  outline: 2px solid #015993;
+  border-radius: 12px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.containerBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 5vh;
+}
+.artistDetail {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1vh;
 }
