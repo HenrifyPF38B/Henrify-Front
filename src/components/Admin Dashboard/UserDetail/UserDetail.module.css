@@ -4,11 +4,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 12vh;
-  height: 70vh;
   width: 100%;
-  padding: 10rem;
+  padding: 0 10rem 10rem 10rem;
   font-family: 'Poppins';
+  margin-top: 10vh;
 }
 
 .imageAvatar {
@@ -56,10 +55,47 @@
   outline: 2px solid #015993;
   border-radius: 10px;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 .passwordContainer {
   display: flex;
 }
 .icon {
   margin-left: 5px;
+}
+.iconCart,
+.iconArrow {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #014884;
+}
+.userCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.cartContainer {
+  margin-bottom: 20vh;
+  width: 100%;
+}
+.cartList {
+  padding-left: 0px;
+}
+.albumPhoto {
+  width: 30vh;
+  height: 30vh;
+}
+
+.cartButton {
+  border: transparent;
+  background-color: transparent;
 }

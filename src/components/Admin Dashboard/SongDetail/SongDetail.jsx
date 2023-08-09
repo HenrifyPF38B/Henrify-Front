@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getSongsById } from '../../../redux/Actions/SongsActions'
 import { GiLoveSong } from 'react-icons/gi'
 import style from './SongDetail.module.css'
+import { BsArrowLeftCircle } from 'react-icons/bs'
 
 const SongDetail = () => {
   const { id } = useParams()
@@ -24,7 +25,7 @@ const SongDetail = () => {
   }, [dispatch, id])
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div className={style.loading}>Loading...</div>
   }
 
   if (!songsId) {
@@ -33,6 +34,11 @@ const SongDetail = () => {
   console.log(songsId)
   return (
     <div className={style.songContainer}>
+      <div className={style.containerIcon}>
+        <Link to="/admin/songs" className={style.iconArrow}>
+          <BsArrowLeftCircle />
+        </Link>
+      </div>
       <div className={style.containerBtn}>
         <h1 className={style.songDetail}>
           <GiLoveSong /> Song Detail
@@ -64,9 +70,15 @@ const SongDetail = () => {
                 <b>Artists: </b>
                 {songsId.artists.map((artist) => artist.name).join(', ')}
               </h6>
-              <h6><b>Explicit: </b>{songsId.explicit ? 'Yes' : 'No'}</h6>
+              <h6>
+                <b>Explicit: </b>
+                {songsId.explicit ? 'Yes' : 'No'}
+              </h6>
             </div>
-            <h6><b>Popularity: </b>{songsId.popularity}</h6>
+            <h6>
+              <b>Popularity: </b>
+              {songsId.popularity}
+            </h6>
             <audio controls>
               <source src={songsId.audioFull} type="audio/mpeg" />
               Your browser does not support the audio element.

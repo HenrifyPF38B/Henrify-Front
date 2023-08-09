@@ -2,23 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin: 10vh 20vh 10vh;
   flex-direction: column;
   font-family: 'Poppins';
 }
 .imgSong {
   width: 30vh;
   height: 30vh;
-  margin: auto;
   border-radius: 50%;
   border: 3px solid #014884;
 }
 .nameSong {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   color: #015993;
 }
@@ -51,4 +48,18 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 1vh;
+}
+.loading {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerIcon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 2rem;
+  color: #033564;
+  margin-bottom: 5vh;
 }

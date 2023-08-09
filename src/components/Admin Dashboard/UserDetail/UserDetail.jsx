@@ -1,33 +1,60 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import style from './UserDetail.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { getUsersById } from '../../../redux/Actions/UsersActions'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   AiFillCheckCircle,
   AiFillEye,
   AiFillEyeInvisible,
 } from 'react-icons/ai'
 import { CiUser } from 'react-icons/ci'
+import { FaShoppingCart } from 'react-icons/fa'
+import {
+  BsArrowLeftCircle,
+  BsFillCaretDownFill,
+  BsFillCaretUpFill,
+} from 'react-icons/bs'
+import { getUsersById } from '../../../redux/Actions/UsersActions'
 
 const UserDetail = () => {
   const { id } = useParams()
+  const [isLoading, setIsLoading] = useState(true)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showCart, setShowCart] = useState(false)
+  const [openCartItemIndex, setOpenCartItemIndex] = useState(null)
+
   const dispatch = useDispatch()
   const usersId = useSelector((state) => state.usersId)
-  const [showPassword, setShowPassword] = useState(false)
 
-  useEffect(() => {
-    dispatch(getUsersById(id))
-  }, [dispatch, id])
-
-  // Manejo de datos no disponibles
-  if (!usersId) {
-    return <div>Loading...</div>
-  }
   const toggleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword)
   }
+  const toggleShowCart = () => {
+    setShowCart((prevShowCart) => !prevShowCart)
+    setOpenCartItemIndex(null)
+  }
+
+  useEffect(() => {
+    setIsLoading(true)
+
+    dispatch(getUsersById(id))
+      .then(() => {
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error)
+        setIsLoading(false)
+      })
+  }, [dispatch, id])
+
+  if (isLoading) {
+    return <div className={style.loading}>Loading...</div>
+  }
+
+  if (!usersId) {
+    return <div>Data not available.</div>
+  }
+
   const fechaISO = usersId.memberExpire
   const fecha = new Date(fechaISO)
 
@@ -43,6 +70,16 @@ const UserDetail = () => {
 
   return (
     <div className={style.userDetailContainer}>
+      <div className={style.userCart}>
+        <Link to="/admin/users" className={style.iconArrow}>
+          <BsArrowLeftCircle />
+        </Link>
+        {usersId.cart && usersId.cart.length > 0 && (
+          <button className={style.cartButton} onClick={toggleShowCart}>
+            <FaShoppingCart className={style.iconCart} />
+          </button>
+        )}
+      </div>
       <h1 className={style.userInformation}>
         <CiUser /> User information
       </h1>
@@ -93,6 +130,47 @@ const UserDetail = () => {
               Member Expire: {fechaFormateada} - {horaFormateada}
             </h6>
           )}
+        </div>
+      )}
+      {showCart && usersId.cart && usersId.cart.length > 0 && (
+        <div className={style.cartContainer}>
+          <h2>Cart Information</h2>
+          {usersId.cart.map((item, index) => (
+            <div key={index} className={style.cartItem}>
+              <div
+                className={`${style.inputData} ${style.cartItemHeader}`}
+                style={{ cursor: 'pointer' }}
+                onClick={() =>
+                  setOpenCartItemIndex(
+                    openCartItemIndex === index ? null : index
+                  )
+                }
+              >
+                <div className={style.collapseHeader}>
+                  {openCartItemIndex === index ? (
+                    <BsFillCaretUpFill />
+                  ) : (
+                    <BsFillCaretDownFill />
+                  )}
+                  <h6>Name: {item.name}</h6>
+                  <h6>Owner: {item.owner}</h6>
+                </div>
+                {openCartItemIndex === index && (
+                  <div className={style.collapseDetails}>
+                    <div>
+                      <h6>Price: {item.price}</h6>
+                      <h6>Quantity: {item.quantity}</h6>
+                    </div>
+                    <img
+                      src={item.image}
+                      alt="Album"
+                      className={style.albumPhoto}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

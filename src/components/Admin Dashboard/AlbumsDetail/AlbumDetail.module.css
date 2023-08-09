@@ -3,10 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 10vh;
-  margin-left: 20vh;
-  margin-right: 20vh;
-  margin-bottom: 10vh;
+  margin: 10vh 20vh 10vh;
   font-family: 'Poppins';
   padding: 20px;
   border-radius: 12px;
@@ -83,4 +80,11 @@
   width: 100%;
   align-items: center;
   margin-bottom: 2vh;
+}
+.containerIcon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 2rem;
+  color: #033564;
 }
