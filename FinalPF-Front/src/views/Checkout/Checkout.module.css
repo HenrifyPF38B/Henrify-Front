@@ -1,0 +1,600 @@
+.wrapper{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 7rem;
+  background-color: #1f1f1f;
+}
+
+
+.left{
+  width: 70%;
+  background-color: #1f1f1f;
+  height: 100%;
+  overflow: auto;
+}
+
+
+.goBack{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.goBack i:hover{
+  opacity: 0.9;
+}
+
+.goBack i{
+  color: #A3C503;
+}
+
+
+
+.title{
+  margin-top: 1rem;
+  font-size: 55px;
+  text-align: center;
+  font-weight: 300;
+  color: whitesmoke;
+  letter-spacing: 4px;
+  font-family: "Raleway";
+}
+
+.subtitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.subtitle span{
+  font-size: 14px;
+  color: whitesmoke;
+  letter-spacing: 1.5px;
+}
+
+
+.steps{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  gap: 20px;
+}
+
+.steps span{
+  font-size: 13px;
+}
+
+.formContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.formContainer form{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.infoTitle{
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoTitle p{
+  width: 50%;
+  letter-spacing: 2.5px;
+}
+
+.label{
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.label label{
+  color: whitesmoke;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.label span{
+  font-size: 11px;
+  color: lightgray;
+  font-weight: 200;
+}
+
+.formContainer form input[type="text"]{
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.3rem;
+  background-color: #f5f5f7;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.formContainer form input[type="text"]:focus{
+  outline: none;  
+}
+
+
+.infoNextButton{
+  margin-top: 2rem;
+  width: 60%;
+  display: flex;
+  justify-content: end;
+}
+
+.infoNextButton button{
+  border: none;
+  background-color: #A3C503;
+  color: whitesmoke;
+  letter-spacing: 2px;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+}
+
+
+/* SHIPPMENT */
+
+.shipping{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.shipping h2{
+  margin-top: 4rem;
+  color: whitesmoke;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  margin-bottom: 3.5rem;
+}
+
+.shipMethodContainer{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shipMethod{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.ups{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.ups img{
+  width: 200px;
+  height: auto;
+}
+
+.shipOptions{
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+
+.shipOptions span{
+  color: #f5f5f7;
+  letter-spacing: 1px;
+}
+
+.shipOp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.shipOp span{
+  letter-spacing: 2px;
+}
+
+.shipOpSmallSpan{
+  font-size: 12px;
+}
+
+.shipOp i{
+  font-size: 60px;
+}
+/* 
+.shippingNextButton{
+  margin-top: 2rem;
+  width: 60%;
+  display: flex;
+  justify-content: end;
+} */
+
+.shippingNextButton button{
+  border: none;
+  background-color: #A3C503;
+  color: whitesmoke;
+  letter-spacing: 2px;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+}
+
+
+/* PAYMENT */
+
+.paymentContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.payment{
+  margin-top: 3rem;
+  width: 60%;
+}
+
+.payment h2{
+  color: whitesmoke;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+  
+}
+
+
+.billing{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #f5f5f71f;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  width: fit-content;
+}
+
+.billing label{
+  color: whitesmoke;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+
+.paymentSub{
+  color: lightgrey;
+  font-size: 14px;
+}
+
+
+.notice{
+  margin-top: 6rem;
+  background-color: #f5f5f71f;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  color: #A3C503;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.notice:hover{
+  transform: translateY(-8px);
+}
+
+.icon{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.paypal{
+  margin-top: 3rem;
+}
+
+.newBillingForm{
+  margin-top: 2rem;
+}
+
+.newBillingForm form{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.newBillingForm input{
+  padding: 0.5rem 0.5rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.newBillingForm input:focus{
+  outline: none;
+}
+
+.newBillingFormLabel{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 0.3rem;
+}
+
+.newBillingFormLabel label{
+  color: lightgray;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.newBillingForm span{
+  color: lightgray;
+  font-weight: 200;
+  font-size: 11.5px;
+}
+
+
+/* PREV BUTTON */
+.prevButton button{
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  background-color: #f5f5f74a;
+  color: #A3C503;
+  letter-spacing: 1.5px;
+}
+
+
+
+/* RIGHT */
+
+
+.right{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: #A3C503;
+}
+
+.details{
+  height: 30vh;
+  padding: 1rem;
+}
+
+.sumContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;  
+  gap: 10px
+}
+
+.sumDiv{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sumDiv span:first-child{
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.sumDiv span:last-child{
+  font-size: 13.5px;
+  color: #1f1f1fbd;
+  font-weight: 600;
+}
+
+.subTotal{
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #99b80d;
+}
+
+.subTotal span:first-child{
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.subTotal span:last-child{
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #1f1f1fbd;
+  font-weight: 500;
+}
+
+
+
+
+.products{
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: #A3C503;
+  border-bottom: 3px solid #1f1f1f;
+}
+
+.products::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.products::-webkit-scrollbar-track {
+  background: #A3C503;
+}
+
+/* Handle */
+.products::-webkit-scrollbar-thumb {
+  background: #99b80d;
+}
+
+/* Handle on hover */
+.products::-webkit-scrollbar-thumb:hover {
+  background: #99b80d;
+}
+
+.productCard{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  width: 100%;
+  border-bottom: 2px solid #99b80d;
+}
+
+.productCardLeft{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.productCardImg{
+  position: relative;
+  width: 25%;
+  height: auto;
+}
+
+.productCardImg img{
+  width: 100%;
+  height: auto;
+  border-radius: 0.2rem;
+}
+
+.productCardImg .quantityIcon{
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  background-color: #99b80d;
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  border:3px solid #A3C503;
+}
+
+
+
+.productCardRight{
+  width: 30%;
+}
+
+.productCardDetails{
+  display: flex;
+  flex-direction: column;
+}
+
+.productCardDetails span:first-child{
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+
+.productCardDetails span:last-child{
+  font-size: 12px;
+  color: #1f1f1fbd;
+}
+
+
+.productCardRight span{
+  color: #1f1f1fbd;
+  font-size: 12px;
+}
+
+
+/* DUMMY ACCOUNTS */
+
+.dummyAccounts{
+  
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: #f5f5f71f;
+  color: lightgray;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  border-radius: 0.3rem;
+  transition: scale 0.3s ease;
+}
+
+.dummyAccounts:hover{
+  scale: 1.02;
+}
+
+.mpDummyA{
+  font-size: 11px;
+  font-weight: 600;
+  color: #A3C503;
+}
+
+.accountCont{
+  margin-top: 1rem;
+}
+
+/* MP GET PREFERENCE ID BUTTON */
+
+.mp{
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  background-color: #007EB5;
+  padding: 0rem 2rem;
+  border-radius: 50px;
+  transition: filter 0.3s ease;
+}
+
+.mp button{
+  background-color: #007EB5;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.mp:hover{
+  filter: brightness(120%);
+}

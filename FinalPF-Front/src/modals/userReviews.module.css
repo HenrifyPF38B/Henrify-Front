@@ -1,0 +1,66 @@
+.review {
+  background: linear-gradient(to bottom right, #333, #222);
+   color: white;
+   padding: 16px;
+   border-radius: 10px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+   width: 35%; 
+   height: 40%; 
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ .review h2 {
+   font-size: 24px;
+   margin-bottom: 10px;
+ }
+ .rating {
+   font-size: 18px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 10px;
+ }
+.rating p {
+   margin-bottom: 5px;
+   font-size: 18px;
+ } 
+ 
+ .starContainer {
+    font-size:30px;
+     color: white;
+     cursor: pointer;
+   display: flex;
+   align-items: center;
+    margin-right: 5px;
+ } 
+ 
+ .starfilled {
+   color: #ffdd00;
+ }
+ 
+ .comment {
+  width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border: none;
+   border-radius: 5px;
+   background-color: rgba(255, 255, 255, 1); 
+   color: black; 
+   font-size:16px;
+   resize:none;
+ 
+ }
+ 
+ 
+ .submit_btn:disabled {
+   background-color: #424242;
+   cursor: not-allowed;
+ }
+ .submit_btn:hover {
+   background-color: #4ad34a; 
+ }

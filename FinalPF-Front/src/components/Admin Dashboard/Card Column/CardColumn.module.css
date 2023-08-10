@@ -1,0 +1,51 @@
+.value {
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 650;
+  height: 4rem;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+/* 
+.value:first-child{
+  border-top: 4px solid #000;
+} */
+
+.false {
+  color: #037703;
+  text-transform: uppercase;
+}
+
+.true {
+  color: #3a3a3a;
+  text-transform: uppercase;
+}
+
+.deleted{
+  color: #db1d1d;
+  text-transform: uppercase;
+}
+
+.icon{
+  font-size: 2rem;
+  color: #00f;
+  cursor: pointer;
+}
+
+.iconTrash {
+  font-size: 1.5rem;
+  color: #db1d1d;
+  cursor: pointer;
+}
+
+.icon:hover {
+  scale: 1.1;
+}
+
+.iconTrash:hover {
+  scale: 1.1;
+}

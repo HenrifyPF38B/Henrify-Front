@@ -1,0 +1,90 @@
+.containerAlbum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10vh 20vh 10vh;
+  font-family: 'Poppins';
+  padding: 20px;
+  border-radius: 12px;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #015993;
+  font-size: 2rem;
+}
+.imgAlbum {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  border: 3px solid #014884;
+}
+.albumName {
+  display: flex;
+  color: #015993;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: 800;
+  align-items: center;
+}
+.divArtist {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  margin-top: 5vh;
+}
+.tracks {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  width: 100%;
+  margin-top: 5vh;
+  padding: 20px;
+}
+.list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.albumList {
+  width: 100%;
+}
+.nameTracks {
+  margin-bottom: 3vh;
+  color: #015993;
+}
+.albumDetail {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #eee;
+  padding: 20px;
+  border-bottom: 3px solid #015993;
+  outline: 2px solid #015993;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.deletedName {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+.containerIcon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 2rem;
+  color: #033564;
+}

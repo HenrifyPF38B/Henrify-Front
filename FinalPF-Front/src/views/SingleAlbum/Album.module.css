@@ -1,0 +1,244 @@
+.wrapper{
+height: 100%;
+}
+
+
+.img{
+  width: fit-content;
+}
+
+.img img{
+  width: 400px;
+  height: auto;
+}
+
+.loading{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+  background-image:
+    linear-gradient(
+      rgba(255, 218, 185, 0.269), #1f1f1f, rgba(255, 218, 185, 0.269)
+    );
+}
+
+.top{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  position:relative;
+}
+
+.goBack{
+  position: absolute;
+  z-index: 101;
+  top: 15px;
+  left: 15px;
+  color: rgba(245, 245, 245, 0.783);
+  background-color: #4f141d69;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.goBack:hover{
+  transform: scale(1.07);
+}
+
+
+.top:after {
+  content:'';
+  position:absolute;
+  left:0; top:0;
+  z-index: 100;
+  width:100%; height:100%;
+  display:inline-block;
+  background: -moz-linear-gradient(top, #0e0e0e 0%,  #ad283e7f 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ad283e7f), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #0e0e0e 0%, #ad283e7f 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #0e0e0e 0%, #ad283e7f 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #0e0e0e 0%, #ad283e7f 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #0e0e0e 0%, #ad283e7f 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+
+.details{
+  padding-top: 4rem;
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.details span{
+  color: white;
+  font-size: 16px;
+}
+
+.details h1{
+  color: white;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 1rem;
+}
+
+
+.play{
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(rgba(255, 218, 185, 0.592), #777777);
+  border-radius: 50%;
+  color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: scale 0.5s ease;
+  z-index: 101;
+}
+
+.play i{
+  transition: all 0.6s ease;
+}
+
+.play:hover i{
+  transform: rotateX(180deg);
+}
+
+
+.play:hover{
+  scale: 1.1;
+}
+
+.fav{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: scale 0.5s ease;
+  z-index: 101;
+}
+
+.fav:hover{
+  scale: 1.1;
+}
+
+.fav i{
+  font-size: 40px;
+}
+
+
+.down{
+  padding: 2rem 3rem;
+  width: 100%;
+  /* display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; */
+  background-color: #1f1f1f;
+  background-image:
+    linear-gradient(
+      #ad283e7f, #1f1f1f, #ad283e7f
+    );
+}
+
+.table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+.table thead{
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: 200 !important;
+}
+.table thead tr th{
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 218, 185, 0.085);
+}
+
+.table thead tr th:last-child{
+  text-align: right;
+}
+
+.table tbody td{
+  padding: 1rem;
+}
+
+
+
+
+.tableTitle{
+  display: flex;
+  align-items: center;
+}
+
+.tableTitle div:last-child{
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+.tableTitle div:last-child span:first-child{
+  color: whitesmoke;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+.tableTitle div:last-child span:last-child{
+  color: #777777;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+.tableTitle img{
+  width: 40px;
+  height: auto;
+}
+
+.bottom{
+  z-index: 101;
+  display: flex;
+  align-items: center;
+
+}
+
+.bottom img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.bottom span{
+  font-size: 14px;
+}
+
+.bottom span:last-child{
+  color: #a3a2a2;
+}
+
+tbody tr{
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover,
+tbody tr.active{
+  background-color: rgba(255, 218, 185, 0.079);
+}

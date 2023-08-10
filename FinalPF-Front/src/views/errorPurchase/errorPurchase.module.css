@@ -1,0 +1,76 @@
+.wrapper{
+  height: 100vh;
+  background-image: url("../../../public/images/toy.jpg");
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+.container{
+  background-color: rgb(189, 63, 63);
+  width: 400px;
+  height: 500px;
+  box-shadow: 0 0 1.5rem lightgrey;
+  position: relative;
+  border-radius: 0.5rem;
+  transition: transform 0.6s ease;
+}
+
+.container:hover{
+  transform: scale(1.04);
+}
+
+
+.icon{
+  position: absolute;
+  top: -40px;
+  left: 35%;
+}
+
+
+.div{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 5rem;
+}
+
+.div1{
+  color: whitesmoke;
+  font-size: 35px;
+  letter-spacing: 6px;
+  margin-bottom: 1rem;
+}
+
+.div2{
+  color: whitesmoke;
+  letter-spacing: 3px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+
+.div3{
+  color: whitesmoke;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+.div4{
+  margin-top: 6rem;
+  width: 100%;
+}
+
+.div4 button{
+  border: none;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 0.2rem;
+  font-size: 14px;
+  letter-spacing: 3px;
+}

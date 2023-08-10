@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+
+.sideBar {
+padding: 10px;
+width: 320px;
+background-image: linear-gradient(to right, #480048c7, #1f1f1f);
+
+}
+.banner {
+  color: #fc1f99;
+  display: flex;
+  justify-content: center;
+  font-weight: 200;
+  margin: 20px 0 0 0;
+  font-size: 40px;
+  letter-spacing: 2px;
+  animation: touch 3s steps(16), neon 1.5s ease-in-out infinite alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes touch {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  } 
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 5px rgb(223, 54, 24),
+      0 0 25px rgb(223, 54, 24),
+      0 0 50px rgb(223, 54, 24),
+      0 0 80px rgb(223, 54, 24);
+  }
+  50% {
+    text-shadow: 0 0 10px rgb(223, 54, 24),
+      0 0 40px rgb(223, 54, 24),
+      0 0 80px rgb(223, 54, 24),
+      0 0 120px rgb(223, 54, 24);
+  }
+  100% {
+    text-shadow: 0 0 5px rgb(223, 54, 24),
+      0 0 25px rgb(223, 54, 24),
+      0 0 50px rgb(223, 54, 24),
+      0 0 80px rgb(223, 54, 24);
+  }
+}
+
+.wrapper{
+  background-color: #1F1F1F;
+  display: flex;  
+  height: 100%;
+}
+.panel {
+  flex: 1; 
+}
+ .cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  padding:3rem;
+  padding-bottom: 7rem;
+  justify-content: center;
+  /* margin: 40px 0 0 20px; */
+ } 
+
+
+ /* SEARCH BAR */
+
+ .searchBar{
+  margin-top: 1rem;
+  width: 50%;
+ }
+
+ .searchBar input{
+  font-size: 14px;
+  padding: 0.7rem 1rem;
+ }
+
+ .searchBar a{
+  font-size: 14px;
+  color: #828080;
+  letter-spacing: 1.3px;
+ }
+
+
+ .searchBar a:hover{
+  color: whitesmoke;
+  background-color: #1f1f1f !important;
+ }
+
+ .searchBar input{
+  border: none !important;
+ }
+
+.searchBar input:focus{
+  box-shadow: none !important;
+}
+
+.searchBar input::placeholder{
+  color: #777777;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+/* TITLE */
+
+.title{ 
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+  font-size: 3em;
+  letter-spacing: 10px;
+  color: whitesmoke;
+  font-weight: 300;
+  text-transform: uppercase;
+  width: 100%;    
+  text-align: center;
+  -webkit-box-reflect: below 0.5px linear-gradient(transparent, #0004);
+  /* El webkit reflect hace el efecto de reflejo de las letras */
+  /* Le podeemos poner un fondo naranja o violeta para que pegue con el fondo, tipo asi mira */
+  line-height: 0.84em;
+  text-shadow: 0 0 10px rgb(252, 8, 130),
+                0 0 20px rgb(252, 8, 130), 
+                0 0 40px rgb(252, 8, 130), 
+                0 0 80px rgb(252, 8, 130),
+                0 0 160px rgb(252, 8, 130);
+  outline: none;
+}
+
+
+.pag {
+  margin-top: 2rem;
+  margin-right: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

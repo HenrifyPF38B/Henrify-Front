@@ -1,0 +1,129 @@
+.topratedcardwrapper{
+  height: 100%;
+  width: 290px;
+  background-color: #242323;
+  /* box-shadow: 0 0 0.5rem lightgray; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 1rem;
+  overflow-x: hidden;
+  padding: 1rem;
+  transition: all 0.4s ease;
+}
+
+.topratedcardwrapper:hover{
+  background-color: #2e2d2d ;
+
+  transform: scale(1.05);
+}
+
+.topratedcardwrapper:hover .seePlaylist{
+  right: 20px;
+}
+
+.topratedspan1{
+  font-weight: bold;
+  font-size: 14px;
+  color: whitesmoke;
+  letter-spacing: 2px;
+  margin: 0 0 0 20px;
+}
+
+
+.topratedspan2{
+  margin-top: 4px;
+  color: #777777;
+  font-size: 16px;
+  margin: 0 0 0 20px;
+}
+
+.topratedimgdiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-shadow: 0 0 1rem black;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.topratedimgdiv img{
+  width: 100%;
+  max-height: 258px;
+  border-radius: 5px;
+}
+
+.seePlaylist{
+  position: absolute;
+  bottom: 15px;
+  right: -50px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+
+.listen{
+  position: absolute;
+  background-color: peachpuff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  bottom: -10px;
+  right: 10px;
+  opacity: 0;
+  transition: all 0.6s ease;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+
+
+
+.topratedimgdiv:hover .listen{
+  opacity: 1;
+  visibility: visible;
+  bottom: 10px;
+}
+
+
+
+.listen:hover{
+  scale: 1.1;
+}
+
+.explicit{
+  position: absolute;
+  z-index: 998;
+  bottom: 10px;
+  left: 10px;
+}
+
+.explicit img{
+  width: 30px;
+  height: 30px;
+}
+
+
+.remove button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.remove {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: -12px;
+}

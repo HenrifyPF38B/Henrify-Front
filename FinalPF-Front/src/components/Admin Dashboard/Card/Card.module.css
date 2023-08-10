@@ -1,0 +1,48 @@
+.container {
+  background-color: #eee;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 11rem;
+  width: 22rem;
+  outline: 3px solid #bbb;
+  box-shadow: -8px 8px 0 #c8c8c8;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  margin: 2.5rem 1.3rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.info {
+  background-color: #fff;
+  display: flex;
+  width: 10rem;
+  margin: auto;
+  border-radius: 1rem;
+  outline: 3px solid #9b9a9a;
+  box-shadow: inset 5px -5px 0 #d6d5d5;
+}
+
+.content {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 1rem;
+}
+
+.icon {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.number {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  text-shadow: -3px 3px 0 #a3a3a3;
+}

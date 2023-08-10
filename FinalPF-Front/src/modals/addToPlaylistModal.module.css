@@ -1,0 +1,146 @@
+.article{
+  height: 100vh;
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div{
+  background-color: #181818;
+  height: 600px;
+  overflow: auto;
+  min-width: 400px;
+  border-radius: 0.4rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.container{
+  height: 100%;
+}
+
+
+.title p{
+  text-align: center;
+  color: whitesmoke;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  margin-top: 1.5rem;
+}
+
+.avatar{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avatar span{
+  color: whitesmoke;
+  font-family: "Raleway";
+  letter-spacing: 1.5px;
+  font-size: 14px;
+}
+
+.avatar img{
+  width: 50px;
+  border-radius: 50%;
+}
+
+.empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.emptyIcon{
+  margin-top: 3rem;
+}
+
+.emptyIcon i{
+  color: lightgray;
+}
+
+.empty span{
+  color: lightgray;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.createPlaylist{
+  margin-top: 3rem;
+}
+
+.createPlaylist button{
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background-color: #262626;
+  color: whitesmoke;
+  font-size: 13px;
+  letter-spacing: 1px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  transition: all 0.3s ease;
+}
+
+.createPlaylist button:active{
+  box-shadow: none;
+  transform: translateY(3px);
+}
+
+
+.myPlaylists{
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.eachPlaylist{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  /* background-color: whitesmoke; */
+  padding: 1rem;
+  border-bottom: 1px solid rgba(66, 65, 65, 0.2);
+  position: relative;
+}
+
+.playlistImg img{
+  width: 50px;
+  border-radius: 0.2rem;
+}
+
+.playlistD{
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+.playlistD span:first-child{
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.playlistD span:last-child{
+  color: #777777;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.addIcon{
+  position: absolute;
+  top: 38%;
+  right: 10px;
+}

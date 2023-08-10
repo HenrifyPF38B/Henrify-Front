@@ -1,0 +1,101 @@
+.userDetailContainer {
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 10rem 10rem 10rem;
+  font-family: 'Poppins';
+  margin-top: 10vh;
+}
+
+.imageAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #014884;
+}
+.btnPassword {
+  background-color: transparent;
+  border: transparent;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.password {
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.nameUser {
+  margin-right: 40px;
+  color: #015993;
+}
+.userInformation {
+  color: #242424;
+  text-shadow: -3px 3px 0 #46464699;
+  font-weight: 600;
+}
+.inputData {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #eee;
+  padding: 20px;
+  border-bottom: 3px solid #015993;
+  outline: 2px solid #015993;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.passwordContainer {
+  display: flex;
+}
+.icon {
+  margin-left: 5px;
+}
+.iconCart,
+.iconArrow {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #014884;
+}
+.userCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.cartContainer {
+  margin-bottom: 20vh;
+  width: 100%;
+}
+.cartList {
+  padding-left: 0px;
+}
+.albumPhoto {
+  width: 30vh;
+  height: 30vh;
+}
+
+.cartButton {
+  border: transparent;
+  background-color: transparent;
+}

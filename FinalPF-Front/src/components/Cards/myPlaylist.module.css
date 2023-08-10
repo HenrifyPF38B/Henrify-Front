@@ -1,0 +1,286 @@
+.wrapper {
+  background-color: #1f1f1f;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 1; */
+  position: relative;
+  width: 100vw;
+  height: 100%;
+}
+
+.playForListen {
+  position: absolute;
+  background-color: rgba(19, 19, 19, 0.541);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 270px;
+  right: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+}
+.cardsContainer:hover .playForListen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.playForListen:hover {
+  box-shadow: 3px 3px 15px black;
+  scale: 1.1;
+  z-index: 100;
+}
+/* .title {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  color: rgba(0, 0, 0, 0.74);
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 30px;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 0 0 10px rgb(255, 254, 254) , 0 0 50px rgb(255, 254, 254) , 0 0 80px rgb(255, 254, 254) , 0 0 40px #ffbe0d , 0 0 70px #ffbe0d  , 0 0 80px #ffbe0d  , 0 0 100px #ffbe0d ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+} */
+.titulo {
+  background-image: url("../assets/soundddddd.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 240px;
+  width: 100%;
+}
+
+.container1 {
+  padding: 30px;
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 9rem;
+  background: #1F1F1F;
+  background-size: contain;
+ }
+ 
+
+.backkk{
+  transition: all 0.6s ease;
+  width: 50px;
+}
+.backkk:hover{
+  scale: 1.2;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: fit-content;
+  background: linear-gradient(to right, #240b36, #4e0432);
+  border-radius: 15px;
+  margin-top: 30px;
+  padding: 10px 10px 25px 10px;
+  transition: all 0.6s ease;
+}
+
+.cardsContainer:hover {
+  transform: translateY(-15px);
+  box-shadow: 3px 3px 15px black;
+}
+.boxData {
+  margin-top: 15px;
+}
+.span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(238, 184, 184);
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.image {
+  transition: all 0.6s ease;
+  border-radius: 15px;
+  z-index: 40;
+}
+
+.image img{
+  z-index: 40;
+}
+
+.image:hover {
+  box-shadow: 3px 3px 15px black;
+  border-radius: 15px;
+}
+
+.create {
+  color: rgba(204, 204, 204, 0.733);
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createContainer {
+  background: linear-gradient(to right, #2727278f, #2525258f);
+  width: 200px;
+  border-radius: 10px;
+  margin: 0 0 0 1000px;
+  padding: 5px;
+  border: none;
+  margin-bottom: 100px;
+  transition: all 0.6s ease;  
+}
+.createContainer:hover {
+  transform: scale(1.1);
+
+}
+
+.image img {
+  border-radius: 15px;
+  width: 260px;
+  border: none;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  width: 30px;
+}
+
+.btn:hover {
+  transform: rotate(90deg);
+  transition: transform 0.3s;
+}
+.setName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputName {
+  margin-top: 5px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.842);
+  color: rgba(255, 255, 255, 0.747);
+  border: none;
+  letter-spacing: 2px;
+  padding: 2px 0 2px 10px;
+}
+.inputName:hover {
+  background: rgba(97, 1, 89, 0.473);
+  scale: 1.1;
+  box-shadow: 2px 2px 2px black;
+}
+.btnName {
+  background: rgba(0, 0, 0, 0.842);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.747);
+  border: none;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+  align-items: center;
+  width: 60px;
+  height: 25px;
+  margin: 0 5px 0 5px;
+}
+.btnName:hover {
+  scale: 1.1;
+  background: rgba(97, 1, 89, 0.473);
+  box-shadow: 2px 2px 2px black;
+}
+.btnCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0 0 0;
+}
+
+
+.noPlaylists{
+  height: 600px;
+  color: whitesmoke;
+}
+
+
+.title{ 
+  position: relative;
+  padding-top: 2rem;
+  font-size: 2em;
+  letter-spacing: 10px;
+  color: whitesmoke;
+  text-transform: uppercase;
+  width: 100%;    
+  text-align: center;
+  -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(0, 0, 0, 0.046));
+  /* El webkit reflect hace el efecto de reflejo de las letras */
+  /* Le podeemos poner un fondo naranja o violeta para que pegue con el fondo, tipo asi mira */
+  line-height: 0.84em;
+  text-shadow: 0 0 10px rgb(223, 54, 24),
+                0 0 20px rgb(223, 54, 24), 
+                0 0 40px rgb(223, 54, 24), 
+                0 0 80px rgb(223, 54, 24),
+                0 0 160px rgb(223, 54, 24);
+  outline: none;
+  /* animation: playlist 5s linear infinite; */
+}
+
+@keyframes playlist{
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%
+  {
+    color: #2f2e2e;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%{
+    color: #fff;
+    text-shadow: 0 0 10px #e87098,
+                0 0 20px #e87098,
+                0 0 40px #e87098,
+                0 0 80px #e87098,
+                0 0 160px #e87098;
+  }
+}
+
+.noPlaylists{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 30px;
+}
+
+.noPlaylists span{
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  font-family:"Raleway";
+}
+
+.noData img{
+  width: 200px;
+}

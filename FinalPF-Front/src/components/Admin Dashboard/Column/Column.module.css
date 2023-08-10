@@ -1,0 +1,23 @@
+.container {
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+.container:first-child {
+  border-left: 4px solid #000;
+  border-top-left-radius: 2rem;
+}
+
+.container:last-child {
+  border-right: 4px solid #000;
+  border-top-right-radius: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  height: 2rem;
+}

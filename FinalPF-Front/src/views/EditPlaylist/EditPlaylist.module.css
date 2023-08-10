@@ -1,0 +1,366 @@
+.wrapper{
+  background-color: #1f1f1f;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+
+.left{
+  padding: 3rem;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.leftContainer{
+  display: flex;
+  align-items: center;
+}
+
+.pImg{
+  width: 40%;
+  height: 100%;
+}
+
+.pImg img{
+  width: 100%;
+  height: auto;
+}
+
+.pUser{
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 60%;
+  margin-left: 3rem;
+  position: relative;
+  justify-content: space-between;
+}
+
+.userD{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+
+.avatar img{
+  width: 30px;
+  height: auto;
+  border-radius: 50%;
+}
+
+
+.span1{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.span1 span:first-child{
+  color: lightgray;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+
+.span1 span:last-child{
+  color: lightgray;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+
+.span2{
+  font-size: 35px;
+  font-family: "Raleway";
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.span3{
+  color: whitesmoke;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+
+/* LEFT BOTTOM */
+
+.leftBottom{
+  margin-top: 3rem;
+  width: 100%;
+  overflow-y: auto;
+}
+
+
+.playlistModalCard{
+  position: relative;
+  width: 100%;
+}
+
+.favorites{
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  color: whitesmoke;
+}
+
+
+.playlistModalDetails{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.playlistModalDetails:hover{
+  background-color: rgba(211, 211, 211, 0.046);
+}
+
+.playlistModalCard:hover{
+  background-color: rgba(211, 211, 211, 0.046);
+}
+
+
+.playlistModalDetails img{
+  width: 60px;
+  height: auto;
+  /* border-radius: 50%; */
+}
+
+.playlistModalDetails span:first-child{
+  font-size: 13px;
+  color: whitesmoke;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.playlistModalDetails span:last-child{
+  font-size: 14px;
+  color: #777777;
+  letter-spacing: 0.5px;
+}
+
+.playDiv{
+  position: relative;
+}
+
+.playDiv:hover .play{
+  opacity: 1;
+  visibility: visible;
+}
+
+.play{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 35px;
+  height: 35px;
+  background-color: #1f1f1f94;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+
+.deleteTrack{
+ position: absolute;
+ top: 5px;
+ right: 5px; 
+ opacity: 1;
+ transition: all 0.3s ease;
+}
+
+.deleteTrack i{
+  color: #777777;
+  transition: color 0.3s ease;
+}
+
+.deleteTrack i:hover{
+  color: rgb(200, 60, 107);
+}
+
+
+/* RIGHT */
+
+.right{
+  padding: 3rem;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #242424ed;
+  height: 100vh;
+}
+
+.rightTitle{
+  color: whitesmoke;
+  font-family: "Raleway";
+  font-size: 17px;
+  letter-spacing: 1.5px;
+}
+
+
+/* SEARCH BAR */
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 75%;
+}
+
+.searchBar{
+  /* margin-top: 1rem; */
+  width: 100%;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.3rem rgb(24, 24, 24);
+ }
+
+ .searchBar input:first-child{
+  font-size: 14px;
+  padding: 0.7rem 1rem !important;
+  background-color: #1f1f1f !important;
+  border-radius: 0.3rem;
+  color: lightgray !important;
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+}
+
+.searchBar input::placeholder{
+  color: lightgray !important;
+  font-size: 12px !important;
+  letter-spacing: 1px !important;
+}
+
+ .searchBar a{
+  font-size: 14px;
+  color: #828080;
+  letter-spacing: 1.3px;
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1f1f1f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1f1f1f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+ }
+
+
+ .searchBar a:hover{
+  color: whitesmoke;
+  background-color: #1f1f1f;
+ }
+
+ .searchBar input{
+  border: none !important;
+ }
+
+.searchBar input:focus{
+  box-shadow: none !important;
+}
+
+.searchBar input::placeholder{
+  color: #777777;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+
+.searchBar .dropdown-item.disabled,
+.searchBar .dropdown-item:disabled{
+  color: whitesmoke !important;
+}
+
+
+/* SONGS CONTAINER */
+
+.songsContainer{
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+
+.addTrack{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.addTrack i{
+  color: rgba(211, 211, 211, 0.553);
+  transition: color 0.3s ease;
+}
+
+.addTrack i:hover{
+  color: rgb(200, 60, 107);
+}
+
+.trackAdded{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.trackAdded i{
+  color: green;
+}
+
+.goBack{
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.goBack i{
+  color: whitesmoke;
+}
+
+.goBack i:hover{
+  color: rgb(200, 60, 107);
+}
+
+
+.updateBtn{
+  margin-bottom: 0px;
+  margin-top: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  width: 100%;
+  background-color: #242424ed;
+}
+
+.updateBtn button{
+  border: none;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.7rem;
+  background-color: #1f1f1f;
+  color: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  transition: all 0.3s ease;
+}
+
+.updateBtn button:active{
+  transform: translateY(3px);
+  box-shadow: none;
+}

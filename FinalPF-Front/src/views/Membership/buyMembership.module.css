@@ -1,0 +1,109 @@
+.article {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.87);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 100%;
+}
+.div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #141414;
+  border-radius: 10px;
+  height: 530px;
+  width: 700px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4);
+  overflow-y: hidden;
+}
+.paypalContainer {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  width: 300px;
+  overflow-y: hidden;
+}
+.paypalContainer.open{
+    overflow-y: auto;
+}
+.boxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.memberName {
+  color: rgb(184, 183, 183);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+.memberDesc {
+  color: rgba(206, 206, 206, 0.829);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+.memberDuration {
+  color: rgba(206, 206, 206, 0.829);
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+.memberPrice {
+  margin-top: 20px;
+  background: rgba(206, 206, 206, 0.829);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 45px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin-bottom: 35px;
+}
+
+.div2 {
+  box-shadow: 3px 3px 10px rgb(0, 0, 0),
+  -1px -1px 6px rgba(161, 161, 161, 0.4);
+    background: #0e0e0e;
+  padding: 30px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.imgen {
+  position: absolute;
+}
+.avatar {
+  width: 18%;
+}
+
+
+.paypalContainer::-webkit-scrollbar {
+  width: 12px; 
+  background: rgba(255, 228, 228, 0.425);
+  border-radius: 4px;
+}
+
+.paypalContainer::-webkit-scrollbar-thumb {   
+ background: linear-gradient(324deg, rgba(88, 6, 109, 0.959) 19%, rgba(141, 14, 124, 0.897) 46%, rgb(212, 35, 109) 85%);
+  border-radius: 4px; 
+  height: 35px;
+}
+.paypalContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #f6d8ff; 
+ }

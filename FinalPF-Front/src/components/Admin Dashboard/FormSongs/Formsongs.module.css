@@ -1,0 +1,108 @@
+.container {
+  grid-column: 2/3;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.form {
+  background: linear-gradient(#eeeeee, #999999);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90%;
+  width: 85%;
+  margin: auto;
+  border-radius: .5rem;
+  box-shadow: 0 0 10px #012544;
+  outline: 2px solid #000;
+}
+
+.content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  justify-items: end;
+  padding-left: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  color: #012544;
+  font-weight: bold;
+  text-shadow: -3px 3px 0 #7a82f7;
+}
+
+.div{
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #012544;
+}
+
+.errors {
+  font-size: .8rem;
+  font-weight: bold;
+  color: #db1313;
+}
+
+.select {
+  width: 90%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.input {
+  width: 90%;
+  font-size: 1.5rem;
+  border-radius: .2rem;
+  border: 2px solid #666;
+}
+
+.input:hover{
+  border: 2px solid #012544;
+}
+
+.input:focus{
+  border: 2px solid #ff0000;
+}
+
+.input::placeholder{
+  text-align: center;
+}
+
+.file{
+  font-size: 1.2rem;
+}
+
+.btn{
+  background: #012544;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 auto 1rem;
+  width: 6rem;
+  height: 3rem;
+  border-radius: .2rem;
+  border: none;
+  outline: 2px solid #000;
+  transition: .5s;
+}
+
+.btn:enabled:hover{
+  scale: 1.1;
+}
+
+.btn:disabled{
+  background-color: #999;
+  outline: 2px solid #777;
+}
